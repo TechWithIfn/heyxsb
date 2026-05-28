@@ -1,0 +1,45 @@
+[
+  {
+    "version": "1.2.0",
+    "date": "2025-05-15",
+    "type": "minor",
+    "changes": [
+      "Keyboard shortcuts and accessibility improvements",
+      "Share lesson links on social platforms",
+      "Changelog and toast notifications",
+      "Redesigned 404 and error handling"
+    ]
+  },
+  {
+    "version": "1.1.0",
+    "date": "2025-03-10",
+    "type": "minor",
+    "changes": [
+      "Python, SQL, Java, DSA, and React topic tracks",
+      "AI quiz generator and Ask AI on lessons",
+      "Progress tracking and learning roadmap",
+      "Full-text lesson search"
+    ]
+  },
+  {
+    "version": "1.0.1",
+    "date": "2024-06-01",
+    "type": "patch",
+    "changes": [
+      "Dark mode persistence fix",
+      "Mobile sidebar and lesson navigation",
+      "Performance improvements with code splitting"
+    ]
+  },
+  {
+    "version": "1.0.0",
+    "date": "2024-01-01",
+    "type": "major",
+    "changes": [
+      "Initial release of LearnTheory",
+      "HTML, CSS, and JavaScript lessons added",
+      "Bookmark lessons without an account",
+      "Open-source MIT license"
+    ]
+  }
+]

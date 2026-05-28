@@ -1,0 +1,454 @@
+{
+  "slug": "css",
+  "title": "CSS",
+  "description": "Master styling and layout — from selectors and the box model to flexbox, grid, animations, and responsive design.",
+  "sidebarSections": [
+    {
+      "heading": "CSS Tutorial",
+      "lessonIds": [
+        "css-intro",
+        "css-selectors",
+        "css-box-model",
+        "css-colors",
+        "css-flexbox",
+        "css-grid",
+        "css-animations",
+        "css-responsive"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "css-intro",
+      "title": "CSS Introduction",
+      "subtitle": "What CSS is, how it links to HTML, and the cascade",
+      "group": "CSS Fundamentals",
+      "tags": ["Beginner", "Fundamentals"],
+      "theory": "CSS (Cascading Style Sheets) is the language that describes how HTML elements should look on screen, in print, or in other media. While HTML defines structure and meaning, CSS controls colors, fonts, spacing, layout, and visual effects.\n\nYou apply CSS by linking an external stylesheet, embedding styles in a <style> block, or using the style attribute (sparingly). External stylesheets are preferred: one file can style many pages, and browsers cache it for faster loads.\n\nA CSS rule has a selector (which elements to target) and a declaration block with property–value pairs, such as color: navy or margin: 1rem. The browser matches selectors against the DOM and applies matching rules.\n\nThe cascade resolves conflicts when multiple rules target the same element. Specificity, source order, and importance (!important) determine which declaration wins. Understanding the cascade helps you predict why a style did or did not apply.",
+      "definition": {
+        "label": "Definition",
+        "text": "CSS is a stylesheet language that selects HTML elements and assigns presentation properties such as color, size, and layout."
+      },
+      "keyPoints": [
+        "CSS styles HTML; it does not replace HTML structure",
+        "Rules use selectors plus property: value declarations",
+        "External .css files are the most maintainable approach",
+        "The cascade picks the winning rule when styles conflict",
+        "Rem and em scale better than fixed pixels for typography"
+      ],
+      "codeExample": {
+        "label": "First stylesheet",
+        "language": "css",
+        "code": "/* styles.css */\nbody {\n  font-family: system-ui, sans-serif;\n  line-height: 1.6;\n  margin: 0;\n  color: #1e293b;\n}\n\nh1 {\n  color: #04aa6d;\n}"
+      },
+      "quiz": [
+        {
+          "question": "What is the primary role of CSS on a web page?",
+          "options": [
+            "To store user data in a database",
+            "To define structure and headings",
+            "To control presentation and layout",
+            "To execute logic in the browser"
+          ],
+          "answer": 2,
+          "explanation": "CSS handles presentation. HTML provides structure; JavaScript adds behavior."
+        },
+        {
+          "question": "Which part of a CSS rule chooses which elements are styled?",
+          "options": ["Declaration block", "Selector", "Property", "At-rule"],
+          "answer": 1,
+          "explanation": "The selector (e.g. h1 or .card) determines which elements receive the declarations."
+        },
+        {
+          "question": "Why are external stylesheets often preferred over inline styles?",
+          "options": [
+            "They cannot be cached",
+            "They only work in dark mode",
+            "They separate concerns and reuse across pages",
+            "They replace HTML entirely"
+          ],
+          "answer": 2,
+          "explanation": "External CSS keeps markup clean and lets one file style many pages."
+        }
+      ]
+    },
+    {
+      "id": "css-selectors",
+      "title": "Selectors",
+      "subtitle": "Type, class, ID, attribute, and combinator selectors",
+      "group": "CSS Fundamentals",
+      "tags": ["Beginner", "Selectors"],
+      "theory": "Selectors tell the browser which elements receive a rule. The universal selector (*) matches everything but is rarely needed for whole-page resets. Type selectors (p, h1) match elements by tag name.\n\nClass selectors (.btn) match elements with that class attribute. Classes are reusable—use them for design patterns you apply many times. ID selectors (#header) match a single id; specificity is high, so avoid styling with IDs when a class works.\n\nAttribute selectors target elements by attributes: input[type=\"email\"] or a[href^=\"https\"]. Combinators express relationships: descendant (space), child (>), adjacent sibling (+), and general sibling (~).\n\nPseudo-classes (:hover, :focus, :nth-child()) style elements in a particular state. Pseudo-elements (::before, ::after) let you insert decorative content. Group selectors (h1, h2, h3) share the same declarations efficiently.",
+      "definition": {
+        "label": "Definition",
+        "text": "A CSS selector is a pattern that matches elements in the document so declarations can be applied to them."
+      },
+      "keyPoints": [
+        "Classes (.name) are reusable; IDs (#name) should be unique per page",
+        "Descendant selectors match nested elements at any depth",
+        "Child selectors (>) only match direct children",
+        ":hover and :focus style interactive states",
+        "Specificity increases with IDs, classes, and inline styles"
+      ],
+      "codeExample": {
+        "label": "Common selectors",
+        "language": "css",
+        "code": "nav a {\n  text-decoration: none;\n  color: #04aa6d;\n}\n\n.card {\n  padding: 1rem;\n  border-radius: 8px;\n}\n\n.btn:hover {\n  background: #059862;\n}\n\nli:nth-child(odd) {\n  background: #f8fafc;\n}"
+      },
+      "quiz": [
+        {
+          "question": "Which selector targets elements with class=\"card\"?",
+          "options": ["#card", "card", ".card", "card()"],
+          "answer": 2,
+          "explanation": "A leading dot denotes a class selector: .card"
+        },
+        {
+          "question": "What does ul > li select?",
+          "options": [
+            "All li elements on the page",
+            "Only li elements that are direct children of ul",
+            "li inside any ancestor of ul",
+            "The first li only"
+          ],
+          "answer": 1,
+          "explanation": "The child combinator (>) matches direct children only."
+        },
+        {
+          "question": "When should you prefer a class over an ID for styling?",
+          "options": [
+            "When you need the highest specificity always",
+            "When the style should apply to many elements",
+            "When the element must appear once in HTML only",
+            "Never—IDs are always better"
+          ],
+          "answer": 1,
+          "explanation": "Classes are reusable and keep specificity lower, making CSS easier to maintain."
+        }
+      ]
+    },
+    {
+      "id": "css-box-model",
+      "title": "Box Model",
+      "subtitle": "Content, padding, border, margin, and box-sizing",
+      "group": "CSS Fundamentals",
+      "tags": ["Beginner", "Layout"],
+      "theory": "Every element in CSS is represented as a rectangular box. The box model has four layers from inside out: content, padding, border, and margin. Width and height properties usually refer to the content area unless box-sizing says otherwise.\n\nPadding adds space inside the border, between content and the edge. Margin adds space outside the border, separating boxes from neighbors. Borders sit between padding and margin and can have width, style, and color.\n\nBy default, width: 300px sets only the content width; padding and border add to the total footprint. That makes layout math painful. Setting box-sizing: border-box includes padding and border in the declared width and height.\n\nVertical margins between block elements sometimes collapse: the larger margin wins instead of both adding. Horizontal margins do not collapse. Understanding the box model is essential before flexbox and grid.",
+      "definition": {
+        "label": "Definition",
+        "text": "The CSS box model describes how an element's content area, padding, border, and margin combine to occupy space on the page."
+      },
+      "keyPoints": [
+        "Content → padding → border → margin, inside to outside",
+        "border-box makes width include padding and border",
+        "margin separates elements; padding separates content from border",
+        "Block elements stack vertically by default",
+        "Margin collapse affects adjacent vertical margins"
+      ],
+      "codeExample": {
+        "label": "Box model sizing",
+        "language": "css",
+        "code": "*,\n*::before,\n*::after {\n  box-sizing: border-box;\n}\n\n.card {\n  width: 280px;\n  padding: 1.25rem;\n  border: 2px solid #e2e8f0;\n  margin: 1rem auto;\n  background: #fff;\n}"
+      },
+      "quiz": [
+        {
+          "question": "What does box-sizing: border-box change?",
+          "options": [
+            "It removes margins entirely",
+            "Width and height include padding and border",
+            "It converts block elements to inline",
+            "It hides overflow content"
+          ],
+          "answer": 1,
+          "explanation": "border-box makes the declared width count padding and border inside that size."
+        },
+        {
+          "question": "Where does padding appear relative to the border?",
+          "options": [
+            "Outside the border",
+            "Inside the border, around the content",
+            "Only on inline elements",
+            "Between margin and border"
+          ],
+          "answer": 1,
+          "explanation": "Padding is inside the border, pushing content away from the border edge."
+        },
+        {
+          "question": "Which property adds space outside the element's border?",
+          "options": ["padding", "gap", "margin", "outline-offset only"],
+          "answer": 2,
+          "explanation": "Margin creates space outside the border between this box and others."
+        }
+      ]
+    },
+    {
+      "id": "css-colors",
+      "title": "Colors",
+      "subtitle": "Color formats, opacity, gradients, and contrast",
+      "group": "CSS Fundamentals",
+      "tags": ["Beginner", "Design"],
+      "theory": "CSS offers many ways to specify color. Named colors (navy, tomato) are easy to read but limited. Hex (#04AA6D) is compact and common in design systems. Functional notations rgb(), hsl(), and modern rgb() with slash syntax for alpha give precise control.\n\nThe alpha channel controls transparency. rgba(0, 0, 0, 0.5) or hsl(160 84% 39% / 0.5) lets backgrounds show through. opacity on an element affects the entire element and its children, not just one property.\n\nLinear and radial gradients are built from color stops: linear-gradient(135deg, #04AA6D, #059862). They are images under the hood, so they work with background-image.\n\nAccessible UI needs sufficient contrast between text and background. WCAG guidelines recommend at least 4.5:1 for normal text. Tools and DevTools help you check contrast when picking colors.",
+      "definition": {
+        "label": "Definition",
+        "text": "CSS color values assign foreground and background hues using names, hex, rgb, hsl, or gradients, optionally with transparency."
+      },
+      "keyPoints": [
+        "Hex, rgb(), and hsl() are the most common formats",
+        "Alpha transparency can apply to a color or whole element",
+        "Gradients use background-image, not color alone",
+        "currentColor inherits the computed text color",
+        "Contrast ratios matter for readable, accessible text"
+      ],
+      "codeExample": {
+        "label": "Colors and gradients",
+        "language": "css",
+        "code": ":root {\n  --brand: #04aa6d;\n  --text: #1e293b;\n}\n\n.hero {\n  color: #fff;\n  background: linear-gradient(135deg, var(--brand), #059862);\n}\n\n.badge {\n  background: hsl(160 84% 39% / 0.15);\n  color: var(--brand);\n}"
+      },
+      "quiz": [
+        {
+          "question": "Which notation includes hue, saturation, and lightness?",
+          "options": ["#RRGGBB", "hsl()", "margin()", "url()"],
+          "answer": 1,
+          "explanation": "hsl() separates hue, saturation, and lightness, which is intuitive for design tweaks."
+        },
+        {
+          "question": "How do you apply a left-to-right green gradient as a background?",
+          "options": [
+            "color: linear-gradient(green, white)",
+            "background-image: linear-gradient(to right, green, white)",
+            "border-gradient: green",
+            "fill: gradient(green)"
+          ],
+          "answer": 1,
+          "explanation": "Gradients are background images: background-image: linear-gradient(...)."
+        },
+        {
+          "question": "What is the difference between opacity and alpha in a color?",
+          "options": [
+            "They are identical in every case",
+            "opacity affects the whole element; alpha can target one color value",
+            "Alpha only works in HTML",
+            "opacity only affects borders"
+          ],
+          "answer": 1,
+          "explanation": "Element opacity fades everything inside; alpha in rgba/hsl fades that specific color use."
+        }
+      ]
+    },
+    {
+      "id": "css-flexbox",
+      "title": "Flexbox",
+      "subtitle": "One-dimensional flexible layouts with flex containers",
+      "group": "CSS Layout",
+      "tags": ["Intermediate", "Layout"],
+      "theory": "Flexbox lays out items in one dimension—either a row or a column. Apply display: flex on the parent (flex container). Direct children become flex items. The main axis follows flex-direction: row (horizontal by default) or column (vertical).\n\njustify-content aligns items along the main axis: flex-start, center, space-between, and so on. align-items aligns on the cross axis. gap adds space between items without margin hacks.\n\nflex-grow lets items expand to fill free space; flex-shrink lets them shrink. flex-basis sets the initial size before growing or shrinking. The shorthand flex: 1 often means flex: 1 1 0%.\n\nflex-wrap: wrap moves items to the next line when they overflow. Use flexbox for nav bars, card rows, centering content, and distributing space in a single row or column.",
+      "definition": {
+        "label": "Definition",
+        "text": "Flexbox is a CSS layout module for arranging items along a main axis with flexible sizing and alignment inside a container."
+      },
+      "keyPoints": [
+        "display: flex turns an element into a flex container",
+        "justify-content aligns on the main axis",
+        "align-items aligns on the cross axis",
+        "gap replaces many margin-between-item patterns",
+        "flex: 1 is a common shorthand for flexible growth"
+      ],
+      "codeExample": {
+        "label": "Centered navbar",
+        "language": "css",
+        "code": ".nav {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 1rem;\n  padding: 0.75rem 1.5rem;\n}\n\n.nav-links {\n  display: flex;\n  gap: 1.25rem;\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}"
+      },
+      "quiz": [
+        {
+          "question": "Which property creates a flex container?",
+          "options": ["display: grid", "display: flex", "position: flex", "float: flex"],
+          "answer": 1,
+          "explanation": "display: flex on the parent enables flexbox for its direct children."
+        },
+        {
+          "question": "justify-content: center aligns items along which axis?",
+          "options": ["Cross axis only", "Main axis", "Z axis", "Neither axis"],
+          "answer": 1,
+          "explanation": "justify-content controls alignment along the main axis (row or column direction)."
+        },
+        {
+          "question": "What does gap do in a flex container?",
+          "options": [
+            "Changes font size between items",
+            "Adds space between flex items",
+            "Reverses item order",
+            "Hides overflow items"
+          ],
+          "answer": 1,
+          "explanation": "gap sets consistent spacing between rows and columns of flex items."
+        }
+      ]
+    },
+    {
+      "id": "css-grid",
+      "title": "Grid",
+      "subtitle": "Two-dimensional layouts with rows, columns, and areas",
+      "group": "CSS Layout",
+      "tags": ["Intermediate", "Layout"],
+      "theory": "CSS Grid layouts in two dimensions at once: rows and columns. Set display: grid on the container, then define tracks with grid-template-columns and grid-template-rows. Units like fr (fraction) distribute leftover space flexibly: 1fr 1fr makes two equal columns.\n\ngrid-template-areas names regions with ASCII art strings, which is readable for page shells (header, sidebar, main, footer). Items are placed with grid-area or by spanning lines using grid-column and grid-row.\n\ngap (or row-gap and column-gap) spaces tracks consistently. minmax(200px, 1fr) creates responsive columns that never shrink below 200px but grow to share space.\n\nGrid excels at full-page layouts, dashboards, and photo galleries. Combine grid for the page skeleton with flexbox inside components for one-dimensional toolbars or card footers.",
+      "definition": {
+        "label": "Definition",
+        "text": "CSS Grid is a two-dimensional layout system that places items into explicit rows and columns on a track-based grid."
+      },
+      "keyPoints": [
+        "display: grid enables row and column tracks",
+        "fr units divide free space proportionally",
+        "grid-template-areas maps named layout regions",
+        "minmax() builds responsive track sizes",
+        "Grid pairs well with flexbox inside cells"
+      ],
+      "codeExample": {
+        "label": "Page layout grid",
+        "language": "css",
+        "code": ".layout {\n  display: grid;\n  grid-template-columns: 240px 1fr;\n  grid-template-rows: auto 1fr auto;\n  grid-template-areas:\n    \"header header\"\n    \"sidebar main\"\n    \"footer footer\";\n  min-height: 100vh;\n  gap: 1rem;\n}\n\n.main { grid-area: main; }"
+      },
+      "quiz": [
+        {
+          "question": "What does the fr unit represent in grid-template-columns?",
+          "options": [
+            "Fixed pixels only",
+            "A fraction of available space",
+            "Font-relative em units",
+            "Frame rate for animations"
+          ],
+          "answer": 1,
+          "explanation": "fr allocates a share of leftover space in the grid container."
+        },
+        {
+          "question": "Which property defines named layout regions like \"header\" and \"main\"?",
+          "options": [
+            "flex-direction",
+            "grid-template-areas",
+            "float-area",
+            "z-index"
+          ],
+          "answer": 1,
+          "explanation": "grid-template-areas assigns names to cells; items use grid-area to sit in them."
+        },
+        {
+          "question": "When is Grid usually a better choice than Flexbox alone?",
+          "options": [
+            "For a single row of buttons only",
+            "For full-page two-dimensional layouts",
+            "To change text color",
+            "To import fonts"
+          ],
+          "answer": 1,
+          "explanation": "Grid shines when you need both rows and columns aligned at once."
+        }
+      ]
+    },
+    {
+      "id": "css-animations",
+      "title": "Animations",
+      "subtitle": "Transitions, @keyframes, transforms, and motion preferences",
+      "group": "CSS Advanced",
+      "tags": ["Intermediate", "Effects"],
+      "theory": "CSS can animate property changes smoothly with transition. Specify transition-property, transition-duration, transition-timing-function, or the shorthand transition: transform 0.3s ease. Transitions run when a property changes—often on :hover or a class toggle.\n\n@keyframes defines multi-step animations. An animation rule references a name, duration, and iteration count: animation: fade-in 0.6s ease forwards. Use percentages or from/to to set styles along the timeline.\n\ntransform moves, scales, and rotates elements without triggering layout-heavy changes: translateX(10px), scale(1.05), rotate(5deg). Prefer transform and opacity for performant motion.\n\nRespect users who prefer reduced motion: @media (prefers-reduced-motion: reduce) can disable or shorten animations. Meaningful motion should enhance feedback, not distract from content.",
+      "definition": {
+        "label": "Definition",
+        "text": "CSS animations and transitions change property values over time, often using @keyframes and transform for visual effects."
+      },
+      "keyPoints": [
+        "transition animates between two states on property change",
+        "@keyframes defines named multi-step animations",
+        "transform and opacity are GPU-friendly for motion",
+        "animation shorthand sets name, duration, and timing",
+        "prefers-reduced-motion improves accessibility"
+      ],
+      "codeExample": {
+        "label": "Hover transition and keyframes",
+        "language": "css",
+        "code": ".btn {\n  transition: transform 0.2s ease, background 0.2s ease;\n}\n\n.btn:hover {\n  transform: translateY(-2px);\n}\n\n@keyframes fade-in {\n  from { opacity: 0; transform: translateY(8px); }\n  to { opacity: 1; transform: translateY(0); }\n}\n\n.card {\n  animation: fade-in 0.5s ease forwards;\n}"
+      },
+      "quiz": [
+        {
+          "question": "What triggers a CSS transition?",
+          "options": [
+            "A change in a property value from one state to another",
+            "Only page load",
+            "Adding HTML attributes only",
+            "Printing the page"
+          ],
+          "answer": 0,
+          "explanation": "Transitions interpolate when a property changes, such as on hover or class toggle."
+        },
+        {
+          "question": "Where are animation steps defined?",
+          "options": ["@keyframes rule", "@import rule", "@font-face only", "@media print"],
+          "answer": 0,
+          "explanation": "@keyframes holds the percentage or from/to keyframes for a named animation."
+        },
+        {
+          "question": "Which properties are generally best for smooth performance?",
+          "options": ["width and height only", "transform and opacity", "every property equally", "z-index only"],
+          "answer": 1,
+          "explanation": "transform and opacity often composite on the GPU without expensive layout recalculations."
+        }
+      ]
+    },
+    {
+      "id": "css-responsive",
+      "title": "Responsive Design",
+      "subtitle": "Media queries, fluid units, and mobile-first layouts",
+      "group": "CSS Advanced",
+      "tags": ["Intermediate", "Responsive"],
+      "theory": "Responsive design adapts layouts to different screen sizes and contexts. The viewport meta tag in HTML lets mobile browsers scale the layout width correctly. Without it, many phones render pages as if they were desktop width.\n\nMedia queries apply CSS when conditions match: @media (min-width: 768px) { ... }. Mobile-first means you write base styles for small screens, then add min-width queries for larger breakpoints.\n\nFluid units help: % widths relative to parents, vw/vh relative to viewport, rem relative to root font size. max-width on images (max-width: 100%; height: auto) prevents overflow in narrow columns.\n\nFlexible grids use repeat(auto-fit, minmax(250px, 1fr)) or flex-wrap so cards reflow without dozens of breakpoints. Test on real devices and narrow DevTools viewports, not only desktop widths.",
+      "definition": {
+        "label": "Definition",
+        "text": "Responsive design uses flexible layouts, relative units, and media queries so interfaces work well across screen sizes."
+      },
+      "keyPoints": [
+        "Mobile-first uses min-width media queries",
+        "viewport meta enables correct scaling on phones",
+        "rem and % scale better than fixed px alone",
+        "max-width: 100% keeps images inside containers",
+        "auto-fit grids reflow cards without manual breakpoints"
+      ],
+      "codeExample": {
+        "label": "Responsive card grid",
+        "language": "css",
+        "code": ".cards {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));\n  gap: 1.5rem;\n  padding: 1rem;\n}\n\n@media (min-width: 768px) {\n  .cards { padding: 2rem; }\n}\n\nimg {\n  max-width: 100%;\n  height: auto;\n}"
+      },
+      "quiz": [
+        {
+          "question": "What does a mobile-first min-width query do?",
+          "options": [
+            "Applies styles only below the breakpoint",
+            "Applies styles when the viewport is at least that wide",
+            "Disables CSS on mobile",
+            "Forces landscape orientation"
+          ],
+          "answer": 1,
+          "explanation": "min-width: 768px means the rules apply at 768px and wider."
+        },
+        {
+          "question": "Why use max-width: 100% on images in responsive layouts?",
+          "options": [
+            "To blur images",
+            "To prevent images from overflowing narrow containers",
+            "To remove alt text",
+            "To animate images"
+          ],
+          "answer": 1,
+          "explanation": "Images shrink with their container instead of forcing horizontal scroll."
+        },
+        {
+          "question": "Which HTML meta tag helps mobile browsers use the device width?",
+          "options": [
+            "meta charset",
+            "meta viewport with width=device-width",
+            "meta author",
+            "meta refresh only"
+          ],
+          "answer": 1,
+          "explanation": "viewport width=device-width maps the layout width to the device screen."
+        }
+      ]
+    }
+  ]
+}

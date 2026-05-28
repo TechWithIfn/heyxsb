@@ -1,0 +1,134 @@
+[
+  {
+    "id": "cse",
+    "name": "Computer Science & Engineering",
+    "shortName": "CSE",
+    "icon": "Cpu",
+    "color": "from-blue-500 to-indigo-600",
+    "textColor": "text-blue-600 dark:text-blue-400",
+    "description": "Comprehensive study of computer systems, software development, data science, algorithms, and smart systems design.",
+    "totalSemesters": 8,
+    "type": "btech"
+  },
+  {
+    "id": "it",
+    "name": "Information Technology",
+    "shortName": "IT",
+    "icon": "Laptop",
+    "color": "from-cyan-500 to-blue-600",
+    "textColor": "text-cyan-600 dark:text-cyan-400",
+    "description": "Focuses on software solutions, database systems, networking, cloud computing, and web engineering principles.",
+    "totalSemesters": 8,
+    "type": "btech"
+  },
+  {
+    "id": "aids",
+    "name": "Artificial Intelligence & Data Science",
+    "shortName": "AI&DS",
+    "icon": "Brain",
+    "color": "from-purple-500 to-indigo-600",
+    "textColor": "text-purple-600 dark:text-purple-400",
+    "description": "Advanced training in machine learning models, data analytics, predictive systems, computer vision, and neural networks.",
+    "totalSemesters": 8,
+    "type": "btech"
+  },
+  {
+    "id": "ece",
+    "name": "Electronics & Communication Engineering",
+    "shortName": "ECE",
+    "icon": "Radio",
+    "color": "from-red-500 to-orange-600",
+    "textColor": "text-red-600 dark:text-red-400",
+    "description": "Syllabus covers semiconductor devices, digital systems, signal processing, VLSI design, and telecommunications.",
+    "totalSemesters": 8,
+    "type": "btech"
+  },
+  {
+    "id": "eee",
+    "name": "Electrical & Electronics Engineering",
+    "shortName": "EEE",
+    "icon": "Zap",
+    "color": "from-amber-500 to-yellow-600",
+    "textColor": "text-amber-600 dark:text-amber-400",
+    "description": "Covers high-voltage power networks, electrical machinery, control systems, and power electronics design.",
+    "totalSemesters": 8,
+    "type": "btech"
+  },
+  {
+    "id": "mechanical",
+    "name": "Mechanical Engineering",
+    "shortName": "Mechanical",
+    "icon": "Cog",
+    "color": "from-slate-500 to-zinc-600",
+    "textColor": "text-slate-600 dark:text-slate-400",
+    "description": "Foundations of thermodynamics, structural mechanics, fluid dynamics, manufacturing systems, and machine design.",
+    "totalSemesters": 8,
+    "type": "btech"
+  },
+  {
+    "id": "civil",
+    "name": "Civil Engineering",
+    "shortName": "Civil",
+    "icon": "Building2",
+    "color": "from-emerald-500 to-teal-600",
+    "textColor": "text-emerald-600 dark:text-emerald-400",
+    "description": "Studies structural engineering, geotechnical analysis, fluid mechanics, surveying, and sustainable architecture.",
+    "totalSemesters": 8,
+    "type": "btech"
+  },
+  {
+    "id": "mca",
+    "name": "Master of Computer Applications",
+    "shortName": "MCA",
+    "icon": "Monitor",
+    "color": "from-indigo-500 to-purple-600",
+    "textColor": "text-indigo-600 dark:text-indigo-400",
+    "description": "Advanced postgraduate course covering software architectures, design patterns, database management, and enterprise app building.",
+    "totalSemesters": 6,
+    "type": "mca"
+  },
+  {
+    "id": "bca",
+    "name": "Bachelor of Computer Applications",
+    "shortName": "BCA",
+    "icon": "Monitor",
+    "color": "from-sky-500 to-blue-600",
+    "textColor": "text-sky-600 dark:text-sky-400",
+    "description": "Undergraduate curriculum featuring programming fundamentals, operating systems, databases, and network administration.",
+    "totalSemesters": 6,
+    "type": "btech"
+  },
+  {
+    "id": "btech",
+    "name": "B.Tech General (Common Semesters)",
+    "shortName": "B.Tech Common",
+    "icon": "GraduationCap",
+    "color": "from-teal-500 to-emerald-600",
+    "textColor": "text-teal-600 dark:text-teal-400",
+    "description": "Syllabus for B.Tech First Year (Semester 1 and 2) common to all engineering branches under IPU regulations.",
+    "totalSemesters": 2,
+    "type": "btech"
+  },
+  {
+    "id": "mba",
+    "name": "Master of Business Administration",
+    "shortName": "MBA",
+    "icon": "Briefcase",
+    "color": "from-rose-500 to-pink-600",
+    "textColor": "text-rose-600 dark:text-rose-400",
+    "description": "Covers marketing management, corporate finance, strategic management, organizational behavior, and international business.",
+    "totalSemesters": 4,
+    "type": "mba"
+  },
+  {
+    "id": "biotech",
+    "name": "Biotechnology",
+    "shortName": "Biotech",
+    "icon": "Brain",
+    "color": "from-green-500 to-emerald-600",
+    "textColor": "text-green-600 dark:text-green-400",
+    "description": "Study of cellular biology, bioinformatics, genetic engineering, micro-biology, and process control systems.",
+    "totalSemesters": 8,
+    "type": "btech"
+  }
+]

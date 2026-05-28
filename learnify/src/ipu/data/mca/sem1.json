@@ -1,0 +1,278 @@
+[
+  {
+    "id": "mca-core-1",
+    "code": "MCA-101",
+    "name": "Core Foundations — MCA Semester 1",
+    "shortName": "MCA I",
+    "credits": 24,
+    "type": "theory",
+    "icon": "🎓",
+    "description": "Advanced foundations for MCA: discrete structures, algorithmic thinking, databases and software design.",
+    "units": [
+      {
+        "unitNumber": 1,
+        "title": "Advanced Discrete Structures",
+        "topics": [
+          {
+            "id": "mca-s1-u1-t1",
+            "title": "Mathematical Proof Techniques",
+            "subtopics": ["Direct proof","Induction","Contradiction"],
+            "content": {
+              "theory": [
+                "Rigorous proofs are the backbone of theoretical computer science. Direct proofs, mathematical induction, and contradiction are standard techniques used to establish properties about algorithms and structures.",
+                "Induction proves statements over integers and is essential when reasoning about recursive algorithms and correctness of iterative constructs in CS at an advanced level.",
+                "Understanding when to apply each proof style and how to structure formal arguments is critical for advanced analysis and research tasks in MCA studies." 
+              ],
+              "definition": { "label": "Definition", "text": "A mathematical proof is a sequence of logical deductions establishing the truth of a statement under given axioms and definitions." },
+              "keyPoints": ["Choose proof technique by problem structure","Induction needs a clear base and inductive step","Contradiction assumes negation to show inconsistency","Write clear, minimal steps","Use counterexamples to disprove claims"],
+              "formulas": [],
+              "examples": [ { "problem": "Prove sum of first n integers", "solution": "Use induction to show 1+2+...+n = n(n+1)/2." }, { "problem": "Disprove universal claim", "solution": "Provide counterexample demonstrating falsehood." } ],
+              "notes": ["State assumptions explicitly","Keep notation consistent"],
+              "examQuestions": [ { "marks": 5, "question": "Prove formula for arithmetic sum by induction." }, { "marks": 5, "question": "Give counterexample to a false statement." }, { "marks": 10, "question": "Use contradiction to prove irrationality of √2." } ],
+              "pyqs": [ { "year": 2023, "question": "Induction proof sample." }, { "year": 2022, "question": "Provide counterexample." } ],
+              "references": ["Concrete Mathematics","Discrete Mathematics texts"]
+            }
+          },
+          {
+            "id": "mca-s1-u1-t2",
+            "title": "Advanced Graph Theory",
+            "subtopics": ["Connectivity","Flows","Matching"],
+            "content": {
+              "theory": [
+                "Graphs model complex relationships; advanced topics include network flows, matchings, and connectivity analysis often used in optimization and algorithm design.",
+                "Max-flow/min-cut duality connects flow capacity with network partitions, with algorithms like Ford-Fulkerson and Edmonds-Karp providing constructive solutions.",
+                "Matching theory underpins resource allocation and scheduling problems where combinatorial optimization yields provably optimal or approximate solutions." 
+              ],
+              "definition": { "label": "Definition", "text": "A graph is a pair (V,E) where V is a set of vertices and E a set of edges; advanced properties consider capacities, directions and weights." },
+              "keyPoints": ["Flow conservation and capacities","Max-flow/min-cut theorem","Matching and augmenting paths","Use BFS/DFS within algorithms","Complexity depends on graph representation"],
+              "formulas": ["Max-flow objective: maximize Σ flow out of source subject to capacity constraints"],
+              "examples": [ { "problem": "Compute max-flow on small network", "solution": "Apply Ford-Fulkerson and find augmenting paths." }, { "problem": "Find maximum matching", "solution": "Use augmenting path algorithm for bipartite graphs." } ],
+              "notes": ["Model real problems carefully as graphs","Choose adjacency list vs matrix based on density"],
+              "examQuestions": [ { "marks": 5, "question": "State max-flow/min-cut theorem." }, { "marks": 5, "question": "Describe augmenting path method." }, { "marks": 10, "question": "Solve a small flow instance." } ],
+              "pyqs": [ { "year": 2023, "question": "Max-flow example." }, { "year": 2022, "question": "Matching problem." } ],
+              "references": ["Algorithm texts — CLRS","Network Flows — Ahuja et al."]
+            }
+          },
+          {
+            "id": "mca-s1-u1-t3",
+            "title": "Combinatorics and Enumerative Techniques",
+            "subtopics": ["Generating functions","Recurrence relations","Advanced counting"],
+            "content": {
+              "theory": [
+                "Enumerative combinatorics provides powerful tools to count complex structures using recurrences, inclusion–exclusion, and generating functions.",
+                "Generating functions transform counting sequences into analytic objects where algebraic manipulation yields closed forms or asymptotic behaviour relevant for algorithm analysis.",
+                "These techniques frequently arise in analysis of algorithms, probabilistic method proofs, and exact counting in research problems at MCA level." 
+              ],
+              "definition": { "label": "Definition", "text": "Combinatorics studies counting, arrangement, and structure of finite sets using constructive and analytic techniques." },
+              "keyPoints": ["Use recurrence to model counts","Inclusion–exclusion for overlapping constraints","Generating functions map sequences to series","Asymptotics via analytic methods","Apply to algorithm analysis"],
+              "formulas": [],
+              "examples": [ { "problem": "Count binary strings without consecutive ones", "solution": "Derive Fibonacci recurrence and solve." }, { "problem": "Use generating function for partitions", "solution": "Construct product series and extract coefficients." } ],
+              "notes": ["Verify base cases when solving recurrences"],
+              "examQuestions": [ { "marks": 5, "question": "Set up recurrence for tile covering problem." }, { "marks": 5, "question": "Apply inclusion–exclusion simple case." }, { "marks": 10, "question": "Use generating function to count compositions." } ],
+              "pyqs": [ { "year": 2023, "question": "Recurrence example." }, { "year": 2022, "question": "Counting via inclusion–exclusion." } ],
+              "references": ["Concrete Mathematics","Analytic Combinatorics — Flajolet & Sedgewick"]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 2,
+        "title": "Algorithms and Complexity",
+        "topics": [
+          {
+            "id": "mca-s1-u2-t1",
+            "title": "Algorithmic Complexity and Analysis",
+            "subtopics": ["Asymptotics","Amortized analysis","Lower bounds"],
+            "content": {
+              "theory": [
+                "Precise runtime analysis uses asymptotic notation, tight bounds and average-case vs worst-case distinctions when analyzing advanced algorithms.",
+                "Amortized analysis evaluates average cost per operation over sequences, useful for dynamic arrays and splay trees encountered in advanced data structures.",
+                "Lower bounds and reductions demonstrate hardness and guide algorithm designers toward efficient or approximate solutions." 
+              ],
+              "definition": { "label": "Definition", "text": "Complexity analysis classifies algorithmic resource usage as functions of input size, aiming for tight asymptotic bounds." },
+              "keyPoints": ["Big-O / Θ / Ω distinctions","Amortized cost via aggregate or potential methods","Average-case analysis depends on input distribution","Lower bounds via reductions","Relate complexity to data structure choice"],
+              "formulas": [],
+              "examples": [ { "problem": "Amortized cost of dynamic array push", "solution": "Show O(1) amortized using aggregate/potential method." }, { "problem": "Prove lower bound for comparison sorting", "solution": "Use decision tree argument to show Ω(n log n)." } ],
+              "notes": ["State probabilistic assumptions for average-case analyses"],
+              "examQuestions": [ { "marks": 5, "question": "Derive amortized cost for append." }, { "marks": 5, "question": "Explain decision tree lower bound." }, { "marks": 10, "question": "Analyze average-case for quicksort." } ],
+              "pyqs": [ { "year": 2023, "question": "Amortized push analysis." }, { "year": 2022, "question": "Sort lower bound." } ],
+              "references": ["CLRS","Algorithm Design"]
+            }
+          },
+          {
+            "id": "mca-s1-u2-t2",
+            "title": "Divide-and-Conquer & Recurrences",
+            "subtopics": ["Master theorem","Recurrence solving","Applications"],
+            "content": {
+              "theory": [
+                "Divide-and-conquer decomposes problems into smaller subproblems, solves them recursively, and combines solutions; recurrence relations model the runtime of such algorithms.",
+                "Master theorem gives quick asymptotic solutions for many divide-and-conquer recurrences encountered in advanced algorithm design.",
+                "Classic examples include mergesort, Karatsuba multiplication, and Strassen's matrix multiply which reduce asymptotic costs via recursion and clever combination steps." 
+              ],
+              "definition": { "label": "Definition", "text": "Divide-and-conquer splits inputs, solves recursively, and merges results; recurrences express cost relations across sizes." },
+              "keyPoints": ["Set up recurrence correctly","Use Master theorem where applicable","Consider base cases and combination cost","Apply to matrix and sorting algorithms","Understand trade-offs in subproblem size"],
+              "formulas": ["T(n)=a T(n/b) + f(n) (Master theorem form)"],
+              "examples": [ { "problem": "Solve T(n)=2T(n/2)+n", "solution": "T(n)=Θ(n log n)." }, { "problem": "Karatsuba multiply complexity", "solution": "Θ(n^{log_2 3}) ≈ Θ(n^{1.585})." } ],
+              "notes": ["Check regularity conditions for Master theorem"],
+              "examQuestions": [ { "marks": 5, "question": "Apply Master theorem to merge sort." }, { "marks": 5, "question": "Explain recurrence setup for Karatsuba." }, { "marks": 10, "question": "Solve a custom recurrence." } ],
+              "pyqs": [ { "year": 2023, "question": "Master theorem application." }, { "year": 2022, "question": "Karatsuba idea." } ],
+              "references": ["CLRS"]
+            }
+          },
+          {
+            "id": "mca-s1-u2-t3",
+            "title": "Greedy, Dynamic Programming & Approximation",
+            "subtopics": ["Optimal substructure","DP techniques","Approx algorithms"],
+            "content": {
+              "theory": [
+                "Greedy algorithms make locally optimal choices aiming for global optimum when matroid or optimal-substructure conditions hold; dynamic programming solves overlapping subproblems by memoization or tabulation.",
+                "Approximation algorithms provide provable bounds when exact solutions are intractable, crucial for NP-hard optimization problems encountered in advanced MCA coursework.",
+                "Understanding when each paradigm applies and crafting proofs of correctness and bounds is part of higher-level algorithm design." 
+              ],
+              "definition": { "label": "Definition", "text": "Greedy picks local best steps; DP leverages overlapping subproblems and optimal substructure; approximation yields near-optimal solutions with guarantees." },
+              "keyPoints": ["Identify optimal substructure","Memoize to avoid repeated work","Greedy correctness proof required","Approximation ratio concept","DP state and transition design"],
+              "formulas": [],
+              "examples": [ { "problem": "Knapsack variants", "solution": "0/1 knapsack via DP, fractional by greedy." }, { "problem": "Set-cover approx", "solution": "Greedy yields O(log n) approximation." } ],
+              "notes": ["Carefully justify greedy choices or provide counterexamples."],
+              "examQuestions": [ { "marks": 5, "question": "Formulate DP for subset sum." }, { "marks": 5, "question": "Prove greedy correctness for interval scheduling." }, { "marks": 10, "question": "Describe approximation for set cover." } ],
+              "pyqs": [ { "year": 2023, "question": "DP formulation." }, { "year": 2022, "question": "Greedy example." } ],
+              "references": ["Algorithm Design — Kleinberg & Tardos","CLRS"]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 3,
+        "title": "Databases and Data Management",
+        "topics": [
+          {
+            "id": "mca-s1-u3-t1",
+            "title": "ER Modeling and Relational Design",
+            "subtopics": ["ER diagrams","Normalization","Schema design"],
+            "content": {
+              "theory": [
+                "Entity–Relationship modeling captures domain entities and relations to structure database schemas at design time; normalization reduces redundancy and update anomalies.",
+                "Normalization forms (1NF,2NF,3NF,BCNF) trade off redundancy, performance and complexity and are essential to sound relational design in enterprise systems.",
+                "Advanced design considers indexing, denormalization for read-heavy workloads, and mapping to physical storage for performance in large-scale MCA projects." 
+              ],
+              "definition": { "label": "Definition", "text": "ER modeling expresses data entities, attributes and relationships; normalization applies rules to reduce redundancy and ensure integrity." },
+              "keyPoints": ["Draw accurate ER diagrams","Apply appropriate normal forms","Consider denormalization for performance","Design keys and constraints","Plan indexing strategy"],
+              "formulas": [],
+              "examples": [ { "problem": "Design student-course ER model", "solution": "Entities: Student, Course, Enrollment relation with attributes and keys." }, { "problem": "Normalize sample table", "solution": "Decompose to satisfy 3NF." } ],
+              "notes": ["Balance normalization with query patterns"],
+              "examQuestions": [ { "marks": 5, "question": "Sketch ER for library system." }, { "marks": 5, "question": "Explain BCNF briefly." }, { "marks": 10, "question": "Normalize a table to 3NF." } ],
+              "pyqs": [ { "year": 2023, "question": "ER example." }, { "year": 2022, "question": "Normalization task." } ],
+              "references": ["Database System Concepts — Silberschatz et al."]
+            }
+          },
+          {
+            "id": "mca-s1-u3-t2",
+            "title": "Relational Algebra and SQL Optimization",
+            "subtopics": ["Algebra ops","Query trees","Optimization"],
+            "content": {
+              "theory": [
+                "Relational algebra formalizes queries as algebraic expressions; query optimizers transform logical plans into efficient physical plans using equivalence rules and cost estimates.",
+                "Understanding join algorithms, indexing effects, and cost modeling is critical for designing scalable data systems at MCA level.",
+                "Practical SQL tuning relies on explain plans, appropriate indexes, and query rewrite strategies to meet performance SLAs in production systems." 
+              ],
+              "definition": { "label": "Definition", "text": "Relational algebra provides a set of operators (σ, π, ⋈, ∪, −) to express queries formally; optimizers rewrite expressions for efficiency." },
+              "keyPoints": ["Transform queries via algebraic equivalences","Cost-based optimization selects join orders","Index selection impacts query speed","Use EXPLAIN to inspect plans","Materialize intermediate results when beneficial"],
+              "formulas": [],
+              "examples": [ { "problem": "Rewrite join order for efficiency", "solution": "Place selective filters early and choose smaller intermediate results." }, { "problem": "Create index to speed lookup", "solution": "Add B-tree index on frequently queried column." } ],
+              "notes": ["Test changes on representative data sizes"],
+              "examQuestions": [ { "marks": 5, "question": "List relational algebra operators." }, { "marks": 5, "question": "Explain role of optimizer." }, { "marks": 10, "question": "Optimize given SQL query." } ],
+              "pyqs": [ { "year": 2023, "question": "Query rewrite." }, { "year": 2022, "question": "Index selection." } ],
+              "references": ["Database System Concepts"]
+            }
+          },
+          {
+            "id": "mca-s1-u3-t3",
+            "title": "Transaction Management and Concurrency",
+            "subtopics": ["ACID","Serializability","Locking"],
+            "content": {
+              "theory": [
+                "Transactions provide atomicity, consistency, isolation and durability (ACID) to ensure correctness in concurrent database access.",
+                "Serializability ensures that concurrent schedules yield results equivalent to some serial execution; locking protocols, timestamps and optimistic concurrency control realize isolation in practice.",
+                "Advanced considerations include isolation level trade-offs, deadlock detection and recovery strategies relevant to enterprise systems in MCA projects." 
+              ],
+              "definition": { "label": "Definition", "text": "A transaction is a unit of work executed atomically with ACID properties to preserve data integrity in concurrent environments." },
+              "keyPoints": ["ACID acronym and meaning","Serializable schedules vs weaker isolation","Locking and deadlock handling","Optimistic vs pessimistic concurrency","Recovery via logging and checkpoints"],
+              "formulas": [],
+              "examples": [ { "problem": "Show conflict serializability example", "solution": "Construct precedence graph and check cycles." }, { "problem": "Deadlock detection sketch", "solution": "Use wait-for graph to detect cycles." } ],
+              "notes": ["Choose isolation level based on consistency vs throughput trade-offs"],
+              "examQuestions": [ { "marks": 5, "question": "State ACID properties." }, { "marks": 5, "question": "Describe serializability check." }, { "marks": 10, "question": "Explain deadlock recovery." } ],
+              "pyqs": [ { "year": 2023, "question": "ACID example." }, { "year": 2022, "question": "Locking illustrate." } ],
+              "references": ["Database System Concepts"]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 4,
+        "title": "Software Design and Engineering",
+        "topics": [
+          {
+            "id": "mca-s1-u4-t1",
+            "title": "Object-Oriented Design Principles",
+            "subtopics": ["SOLID","UML","Design patterns"],
+            "content": {
+              "theory": [
+                "Object-oriented design organizes software as interacting objects encapsulating state and behavior, enabling modularity and reuse.",
+                "SOLID principles guide maintainable APIs: single responsibility, open/closed, Liskov substitution, interface segregation and dependency inversion.",
+                "Design patterns provide proven templates for common problems; understanding intent and trade-offs is crucial for robust system architecture." 
+              ],
+              "definition": { "label": "Definition", "text": "Object-oriented design models software using classes/objects, encapsulation, inheritance and polymorphism to manage complexity." },
+              "keyPoints": ["Apply SOLID for maintainability","Use UML for design communication","Choose appropriate patterns","Favor composition over inheritance","Write unit-testable code"],
+              "formulas": [],
+              "examples": [ { "problem": "Design Logger interface", "solution": "Define interface and multiple implementations with dependency injection." }, { "problem": "Apply Strategy pattern", "solution": "Encapsulate algorithms behind common interface." } ],
+              "notes": ["Document design decisions and trade-offs"],
+              "examQuestions": [ { "marks": 5, "question": "List SOLID principles." }, { "marks": 5, "question": "When to use Strategy pattern?" }, { "marks": 10, "question": "Design a simple class diagram for a bookstore." } ],
+              "pyqs": [ { "year": 2023, "question": "SOLID application." }, { "year": 2022, "question": "Pattern example." } ],
+              "references": ["Design Patterns — Gamma et al."]
+            }
+          },
+          {
+            "id": "mca-s1-u4-t2",
+            "title": "Concurrency and Parallelism",
+            "subtopics": ["Threads","Synchronization","Parallel algorithms"],
+            "content": {
+              "theory": [
+                "Concurrent programming enables multiple activities to proceed logically in overlapping time; synchronization primitives prevent race conditions and ensure consistency.",
+                "Parallel algorithms exploit hardware concurrency for speed-up; understanding locks, atomicity, barriers and memory models is essential when scaling computations in MCA projects.",
+                "Debugging concurrent programs requires deterministic testing harnesses and tools to detect data races and deadlocks." 
+              ],
+              "definition": { "label": "Definition", "text": "Concurrency manages multiple interacting tasks; parallelism executes tasks simultaneously for performance gains." },
+              "keyPoints": ["Use locks or lock-free structures","Understand memory visibility","Design for determinism when possible","Parallelize compute-bound loops","Measure speedup and scalability"],
+              "formulas": ["Amdahl's law: speedup ≤ 1/( (1−p)+p/s )"],
+              "examples": [ { "problem": "Implement producer-consumer", "solution": "Use bounded buffer with mutex and condition variables." }, { "problem": "Parallel sum", "solution": "Divide array and reduce partial sums." } ],
+              "notes": ["Prefer immutable data where concurrency is hard"],
+              "examQuestions": [ { "marks": 5, "question": "State Amdahl's law." }, { "marks": 5, "question": "Describe mutex vs semaphore." }, { "marks": 10, "question": "Design parallel reduction algorithm." } ],
+              "pyqs": [ { "year": 2023, "question": "Producer-consumer outline." }, { "year": 2022, "question": "Amdahl calculation." } ],
+              "references": ["Operating Systems and concurrency texts"]
+            }
+          },
+          {
+            "id": "mca-s1-u4-t3",
+            "title": "Software Project and Architecture",
+            "subtopics": ["Architecture styles","CI/CD","Quality metrics"],
+            "content": {
+              "theory": [
+                "Software architecture organizes components and connectors to meet quality attributes like scalability, reliability and maintainability.",
+                "Continuous integration and delivery automate testing and deployment; modular architectures facilitate independent evolution and testing of components.",
+                "Quality metrics and observability (logs, traces, metrics) enable operational excellence and iterative improvement in large MCA-scale systems." 
+              ],
+              "definition": { "label": "Definition", "text": "Architecture is the high-level structure of a software system that determines interactions, responsibilities and non-functional properties." },
+              "keyPoints": ["Document architecture decisions","Automate builds and tests","Design for observability","Define SLAs and SLOs","Iterate architecture based on metrics"],
+              "formulas": [],
+              "examples": [ { "problem": "Sketch microservices vs monolith trade-offs", "solution": "List benefits and costs for deployment and scaling." }, { "problem": "Design CI pipeline", "solution": "Include linters, unit and integration tests, and deployment steps." } ],
+              "notes": ["Keep architecture diagrams and rationale in repository"],
+              "examQuestions": [ { "marks": 5, "question": "List key CI stages." }, { "marks": 5, "question": "Define observability." }, { "marks": 10, "question": "Compare microservices and monolith." } ],
+              "pyqs": [ { "year": 2023, "question": "CI pipeline elements." }, { "year": 2022, "question": "Architecture selection." } ],
+              "references": ["Software Architecture texts"]
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

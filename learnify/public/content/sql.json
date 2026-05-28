@@ -1,0 +1,225 @@
+{
+  "slug": "sql",
+  "title": "SQL",
+  "description": "Query relational databases with SELECT, filtering, joins, and aggregates.",
+  "lessons": [
+    {
+      "id": "sql-intro",
+      "title": "SQL Introduction",
+      "subtitle": "What SQL is and how relational databases organize data",
+      "tags": ["Beginner"],
+      "theory": "SQL (Structured Query Language) is the standard language for reading and writing data in relational databases such as PostgreSQL, MySQL, and SQLite.\n\nData lives in tables with rows and columns. Each row is a record; each column is a field with a type (INTEGER, TEXT, DATE, etc.).\n\nYou send SQL statements to the database engine, which parses, optimizes, and executes them. Results often come back as tables.\n\nSQL is declarative: you describe what data you want, not how to scan files step by step.",
+      "definition": {
+        "label": "Definition",
+        "text": "SQL is a declarative language for defining, querying, and manipulating structured data in relational tables."
+      },
+      "keyPoints": [
+        "Tables have rows and columns",
+        "Many database products share core SQL syntax",
+        "Statements end with semicolons in many clients",
+        "Schemas define table names and column types"
+      ],
+      "codeExample": {
+        "label": "Comment",
+        "language": "sql",
+        "code": "-- Learnify SQL tutorial\nSELECT 'Hello, SQL!' AS greeting;"
+      },
+      "quiz": [
+        {
+          "question": "What does a relational database store data in?",
+          "options": ["JSON files only", "Tables", "Images", "Stacks"],
+          "answer": 1,
+          "explanation": "Relational databases organize data into tables of rows and columns."
+        },
+        {
+          "question": "What is a row in a SQL table also called?",
+          "options": ["A record", "A join", "A schema", "An index"],
+          "answer": 0,
+          "explanation": "A row represents one record or tuple in the table."
+        },
+        {
+          "question": "Which SQL product feature lets you define tables with columns and types?",
+          "options": ["DML", "DDL", "HTML", "CRUD"],
+          "answer": 1,
+          "explanation": "DDL, or Data Definition Language, is used to define database structures."
+        }
+      ],
+      "next": "sql-select"
+    },
+    {
+      "id": "sql-select",
+      "title": "SELECT Basics",
+      "subtitle": "Reading columns and rows from a table",
+      "tags": ["Beginner"],
+      "theory": "SELECT lists columns to return. SELECT * returns every column from the table named in FROM.\n\nFROM specifies the source table. Without FROM, some engines allow constant expressions only.\n\nAliases rename columns in the result: SELECT price * qty AS total.\n\nLimit row count with LIMIT n (syntax varies slightly by database).",
+      "definition": {
+        "label": "Definition",
+        "text": "SELECT retrieves specified columns from one or more tables according to optional filters and ordering."
+      },
+      "keyPoints": [
+        "SELECT col1, col2 FROM table",
+        "* means all columns",
+        "AS gives a column alias",
+        "FROM names the table"
+      ],
+      "codeExample": {
+        "label": "SELECT",
+        "language": "sql",
+        "code": "SELECT id, title, published\nFROM lessons\nLIMIT 10;"
+      },
+      "quiz": [
+        {
+          "question": "Which clause names the table to read from?",
+          "options": ["WHERE", "FROM", "GROUP BY", "HAVING"],
+          "answer": 1,
+          "explanation": "FROM identifies the table (or tables) that supply rows for the query."
+        },
+        {
+          "question": "What does SELECT * usually mean?",
+          "options": ["Select all columns", "Select only the first row", "Delete everything", "Group by all fields"],
+          "answer": 0,
+          "explanation": "The asterisk means return every column from the source table."
+        },
+        {
+          "question": "Which clause is commonly used to limit the number of rows returned?",
+          "options": ["LIMIT", "ORDER BY", "DISTINCT", "AS"],
+          "answer": 0,
+          "explanation": "LIMIT caps the number of rows in the result set."
+        }
+      ],
+      "prev": "sql-intro",
+      "next": "sql-where"
+    },
+    {
+      "id": "sql-where",
+      "title": "Filtering with WHERE",
+      "subtitle": "Conditions, comparisons, and logical operators",
+      "tags": ["Beginner"],
+      "theory": "WHERE filters rows before they appear in the result. Only rows matching the condition are kept.\n\nCombine conditions with AND, OR, and NOT. Use parentheses to control precedence.\n\nIN checks membership in a list: WHERE status IN ('draft', 'live'). BETWEEN tests ranges.\n\nNULL requires IS NULL or IS NOT NULL; comparing to NULL with = does not work as expected.",
+      "definition": {
+        "label": "Definition",
+        "text": "The WHERE clause restricts which rows are included based on a boolean condition evaluated per row."
+      },
+      "keyPoints": [
+        "WHERE comes after FROM",
+        "Use AND / OR for compound tests",
+        "IS NULL tests missing values",
+        "Strings use single quotes in standard SQL"
+      ],
+      "codeExample": {
+        "label": "WHERE",
+        "language": "sql",
+        "code": "SELECT *\nFROM users\nWHERE active = TRUE\n  AND created_at >= '2024-01-01';"
+      },
+      "quiz": [
+        {
+          "question": "How do you test for a NULL value?",
+          "options": ["= NULL", "== NULL", "IS NULL", "EQUALS NULL"],
+          "answer": 2,
+          "explanation": "SQL uses IS NULL because NULL is not equal to anything including itself."
+        },
+        {
+          "question": "Which logical operator requires both conditions to be true?",
+          "options": ["OR", "AND", "NOT", "BETWEEN"],
+          "answer": 1,
+          "explanation": "AND returns true only when both conditions are true."
+        },
+        {
+          "question": "What does BETWEEN typically check?",
+          "options": ["A list of named columns", "A value inside a range", "Duplicate rows", "A missing primary key"],
+          "answer": 1,
+          "explanation": "BETWEEN is used to test whether a value lies within a range."
+        }
+      ],
+      "prev": "sql-select",
+      "next": "sql-joins"
+    },
+    {
+      "id": "sql-joins",
+      "title": "JOINs",
+      "subtitle": "Combining related tables",
+      "tags": ["Beginner"],
+      "theory": "Relational design splits data across tables linked by keys. JOIN connects rows from two tables when keys match.\n\nINNER JOIN returns only rows with matches on both sides. LEFT JOIN keeps all rows from the left table and NULLs where the right has no match.\n\nAlways qualify columns when names collide: users.name, orders.total.\n\nForeign keys document relationships: orders.user_id references users.id.",
+      "definition": {
+        "label": "Definition",
+        "text": "A JOIN merges rows from two or more tables based on a related column, usually a primary key and foreign key pair."
+      },
+      "keyPoints": [
+        "INNER JOIN requires matches on both sides",
+        "LEFT JOIN preserves all left-table rows",
+        "ON specifies the join condition",
+        "Qualify column names with table aliases"
+      ],
+      "codeExample": {
+        "label": "INNER JOIN",
+        "language": "sql",
+        "code": "SELECT u.name, o.total\nFROM users u\nINNER JOIN orders o ON o.user_id = u.id;"
+      },
+      "quiz": [
+        {
+          "question": "Which JOIN keeps unmatched rows from the left table?",
+          "options": ["INNER JOIN", "CROSS JOIN", "LEFT JOIN", "RIGHT JOIN only on all DBs"],
+          "answer": 2,
+          "explanation": "LEFT JOIN returns every row from the left table, with NULLs for non-matching right rows."
+        },
+        {
+          "question": "What keyword defines the match condition in a JOIN?",
+          "options": ["ON", "USING ONLY", "WHERE ONLY", "MATCH"],
+          "answer": 0,
+          "explanation": "ON specifies which columns are used to join the tables."
+        },
+        {
+          "question": "What should you do when two joined tables share column names?",
+          "options": ["Ignore the names", "Qualify them with table aliases", "Use LIMIT", "Use DISTINCT"],
+          "answer": 1,
+          "explanation": "Table aliases avoid ambiguity when column names overlap."
+        }
+      ],
+      "prev": "sql-where",
+      "next": "sql-aggregates"
+    },
+    {
+      "id": "sql-aggregates",
+      "title": "Aggregates and GROUP BY",
+      "subtitle": "COUNT, SUM, AVG, and grouped summaries",
+      "tags": ["Beginner"],
+      "theory": "Aggregate functions summarize many rows: COUNT(*), SUM(amount), AVG(score), MAX(created_at).\n\nGROUP BY splits rows into groups; aggregates run per group. Every non-aggregated SELECT column must appear in GROUP BY.\n\nHAVING filters groups after aggregation, similar to WHERE for individual rows.\n\nORDER BY sorts the final result; it often follows GROUP BY.",
+      "definition": {
+        "label": "Definition",
+        "text": "Aggregation computes a single value from a set of rows; GROUP BY applies aggregates separately for each distinct group key."
+      },
+      "keyPoints": [
+        "COUNT counts rows; SUM adds numeric columns",
+        "GROUP BY defines buckets for aggregates",
+        "HAVING filters grouped results",
+        "Non-aggregated columns must be in GROUP BY"
+      ],
+      "codeExample": {
+        "label": "GROUP BY",
+        "language": "sql",
+        "code": "SELECT topic, COUNT(*) AS lesson_count\nFROM lessons\nGROUP BY topic\nHAVING COUNT(*) >= 5\nORDER BY lesson_count DESC;"
+      },
+      "quiz": [
+        {
+          "question": "Which clause filters groups after aggregation?",
+          "options": ["WHERE", "HAVING", "ORDER BY", "LIMIT"],
+          "answer": 1,
+          "explanation": "HAVING applies conditions to grouped results; WHERE filters rows before grouping."
+        },
+        {
+          "question": "What does COUNT(*) return?",
+          "options": ["The number of columns", "The number of rows", "The average value", "Only non-null text cells"],
+          "answer": 1,
+          "explanation": "COUNT(*) counts the rows in the result set."
+        },
+        {
+          "question": "When should a column appear in GROUP BY?",
+          "options": ["Only if it is not aggregated", "Only if it is numeric", "Only in WHERE", "Never"],
+          "answer": 0,
+          "explanation": "Non-aggregated columns in the SELECT list must be part of GROUP BY."
+        }
+      ],
+      "prev": "sql-joins"
+    }
+  ]
+}

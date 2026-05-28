@@ -1,0 +1,278 @@
+[
+  {
+    "id": "ai-ds-foundations",
+    "code": "AIDS-101",
+    "name": "AI & Data Science Foundations - Sem 1",
+    "shortName": "AI&DS I",
+    "credits": 20,
+    "type": "theory",
+    "icon": "🤖",
+    "description": "Foundations of AI and Data Science: probability, linear algebra, calculus, data handling, EDA and introductory ML.",
+    "units": [
+      {
+        "unitNumber": 1,
+        "title": "Mathematical Foundations",
+        "topics": [
+          {
+            "id": "aids-s1-u1-t1",
+            "title": "Probability & Statistics",
+            "subtopics": ["Distributions","Bayes' theorem","Sampling"],
+            "content": {
+              "theory": [
+                "Probability quantifies uncertainty. Events, outcomes, and probability measures give a formal way to reason about likelihoods. You'll use discrete and continuous distributions to model real-world phenomena.",
+                "Statistics summarizes data using measures like mean, median, variance and uses sampling principles to estimate population parameters from samples. Descriptive statistics provide quick insight while inferential statistics help test hypotheses.",
+                "Conditional probability and independence underpin many machine learning models. Bayes' theorem connects prior beliefs with observed evidence and is central to probabilistic modeling and decision-making."
+              ],
+              "definition": { "label": "Definition", "text": "Probability and statistics study uncertainty and data: probability models random phenomena; statistics describes, estimates, and infers from data." },
+              "keyPoints": ["Probability models uncertainty","Descriptive stats: mean/median/variance","Bayes' theorem for updating beliefs","Sampling enables inference","Common distributions model data"],
+              "formulas": ["P(A|B)=P(B|A)P(A)/P(B)", "μ=1/n Σ x_i, σ^2=1/n Σ (x_i−μ)^2"],
+              "examples": [ { "label": "Coin toss", "content": "A fair coin has P(heads)=0.5. For two tosses, compute distribution of number of heads using binomial probabilities." }, { "label": "Sample mean", "content": "Given sample [2,4,6,8], the mean is 5 and variance is 5." } ],
+              "notes": "Practice Bayes and sample calculations; distinguish population vs sample statistics.",
+              "examQuestions": [ { "marks": 5, "question": "Compute mean and variance for a small sample." }, { "marks": 5, "question": "State and apply Bayes' theorem." }, { "marks": 10, "question": "Explain difference between sample and population variance." } ],
+              "pyqs": [ { "year": 2023, "question": "Compute mean and variance of [1,2,3,4,5]." }, { "year": 2022, "question": "Find P(A|B) given P(A), P(B|A), P(B)." } ],
+              "references": ["Statistics: Robert S. Witte & John S. Witte","An Introduction to Probability Theory and Its Applications — William Feller"]
+            }
+          },
+          {
+            "id": "aids-s1-u1-t2",
+            "title": "Linear Algebra Essentials",
+            "subtopics": ["Vectors","Matrices","SVD/PCA"],
+            "content": {
+              "theory": [
+                "Linear algebra describes linear spaces with vectors and matrices; it provides compact notation for datasets and model parameters. Operations like matrix multiplication express combinations of features and weights.",
+                "Eigenvalues and eigenvectors reveal directions of variance and are central to dimensionality reduction methods like PCA. Matrix factorizations (SVD) decompose data into interpretable components.",
+                "Understanding vector norms, dot products, orthogonality, and projection helps interpret distances and similarity measures used across algorithms and optimization procedures."
+              ],
+              "definition": { "label": "Definition", "text": "Linear algebra studies vectors, matrices, linear transformations, and operations that combine them to represent and manipulate high-dimensional data." },
+              "keyPoints": ["Datasets as matrices","Matrix multiplication composes transforms","Eigenvectors capture variance","Vector norms measure distances","SVD for decomposition"],
+              "formulas": ["A x = b", "x·y = Σ x_i y_i", "A = U Σ V^T"],
+              "examples": [ { "label": "Linear system", "content": "Solve Ax=b for parameters using inversion or least squares when A is not square." }, { "label": "PCA use", "content": "Compute covariance matrix and eigenvectors to reduce dimensionality." } ],
+              "notes": "Practice small matrix computations and implement PCA on toy data.",
+              "examQuestions": [ { "marks": 5, "question": "Compute dot product of small vectors." }, { "marks": 5, "question": "Explain SVD conceptually." }, { "marks": 10, "question": "Apply PCA to reduce a 3D dataset to 2D." } ],
+              "pyqs": [ { "year": 2023, "question": "Compute L2 norm." }, { "year": 2022, "question": "Explain eigen-decomposition." } ],
+              "references": ["Linear Algebra and Its Applications — Gilbert Strang"]
+            }
+          },
+          {
+            "id": "aids-s1-u1-t3",
+            "title": "Calculus for Machine Learning",
+            "subtopics": ["Derivatives","Gradients","Optimization basics"],
+            "content": {
+              "theory": [
+                "Calculus gives tools to quantify change. Derivatives measure instantaneous rates of change; partial derivatives extend the idea to multivariate functions used in loss landscapes.",
+                "Gradients are vectors of partial derivatives and indicate the direction of steepest ascent; gradient-based optimization steps follow the negative gradient to minimize loss functions.",
+                "Understanding Hessians (second derivatives) and convexity provides insight into convergence behaviour; convex problems have single global minima while nonconvex surfaces may contain many local minima."
+              ],
+              "definition": { "label": "Definition", "text": "Calculus studies rates of change (derivatives) and accumulated quantities (integrals); in ML it informs gradient-based learning and optimization." },
+              "keyPoints": ["Derivatives and gradients","Gradient descent for optimization","Learning rate tuning","Convexity simplifies guarantees","Hessian describes curvature"],
+              "formulas": ["∇_w L(w) = [∂L/∂w_i]", "w ← w − η ∇_w L(w)"],
+              "examples": [ { "label": "Single-variable derivative", "content": "If L(w)=w^2, derivative dL/dw=2w; gradient descent with η=0.1 updates w←w−0.2w." }, { "label": "Multivariate gradient", "content": "For MSE L(w)=1/n Σ (y−Xw)^2, gradient is −2/n X^T(y−Xw)." } ],
+              "notes": "Compute gradients symbolically and numerically to validate implementations.",
+              "examQuestions": [ { "marks": 5, "question": "Perform one gradient descent update for a simple quadratic." }, { "marks": 5, "question": "Explain role of Hessian." }, { "marks": 10, "question": "Discuss convex vs nonconvex optimization." } ],
+              "pyqs": [ { "year": 2023, "question": "Gradient update example." }, { "year": 2022, "question": "Compute derivative of polynomial." } ],
+              "references": ["Calculus resources and ML lectures"]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 2,
+        "title": "Data Handling & Feature Work",
+        "topics": [
+          {
+            "id": "aids-s1-u2-t1",
+            "title": "Data Cleaning & Preprocessing",
+            "subtopics": ["Imputation","Outliers","Scaling"],
+            "content": {
+              "theory": [
+                "Raw data is messy: missing values, inconsistent types, and incorrect entries are common. Cleaning transforms raw inputs into analyzable forms and is essential before modeling.",
+                "Imputation strategies include mean/mode substitution, model-based imputation, or flagging missingness. Outliers may be errors or valid rare events; decide based on domain context.",
+                "Feature scaling (normalization, standardization) and encoding categorical variables (one-hot, ordinal) ensure models behave as expected; many algorithms assume inputs on similar scales."
+              ],
+              "definition": { "label": "Definition", "text": "Data cleaning and preprocessing prepare raw datasets by fixing errors, imputing or removing missing values, encoding features, and scaling." },
+              "keyPoints": ["Inspect distributions","Impute or remove missing values","Scale features appropriately","Encode categorical variables","Document transforms for reproducibility"],
+              "formulas": ["z = (x−μ)/σ", "min–max: (x−xmin)/(xmax−xmin)"],
+              "examples": [ { "label": "Imputation", "content": "Replace missing ages with median or use regression imputation." }, { "label": "Encoding", "content": "One-hot encode colors {red,green,blue} into binary vectors." } ],
+              "notes": "Automate preprocessing pipelines and test on holdout data to avoid leakage.",
+              "examQuestions": [ { "marks": 5, "question": "Compute z-score for a value." }, { "marks": 5, "question": "Describe one imputation method." }, { "marks": 10, "question": "Design a preprocessing pipeline for a tabular dataset." } ],
+              "pyqs": [ { "year": 2023, "question": "z-score computation." }, { "year": 2022, "question": "One-hot encoding example." } ],
+              "references": ["Feature Engineering for Machine Learning — Alice Zheng & Amanda Casari"]
+            }
+          },
+          {
+            "id": "aids-s1-u2-t2",
+            "title": "Exploratory Data Analysis (EDA)",
+            "subtopics": ["Visualization","Correlation","Outliers"],
+            "content": {
+              "theory": [
+                "EDA uses visual and numerical summaries to understand distributions, relationships, and anomalies. Histograms, boxplots, scatterplots and correlation matrices are fundamental tools.",
+                "Exploration helps generate hypotheses, select features, and decide transformations. Pairwise plots and grouping by categories reveal interactions that simple aggregates might miss.",
+                "Effective EDA is iterative: inspect, transform, re-inspect. Visualizations should be clear and reproducible; use notebooks to combine plots with code and narrative."
+              ],
+              "definition": { "label": "Definition", "text": "EDA is the process of summarizing and visualizing data to discover structure, spot anomalies, and inform modeling decisions." },
+              "keyPoints": ["Histograms and boxplots for distribution","Scatterplots for relationships","Correlation matrices for linear association","Group-by summaries for categories","Iterative exploration with reproducible code"],
+              "formulas": ["Pearson r formula"],
+              "examples": [ { "label": "Histogram", "content": "Plot student scores to check for skewness and choose transforms." }, { "label": "Scatter+color", "content": "Scatter height vs weight colored by group to reveal patterns." } ],
+              "notes": "Start simple and avoid overfitting to patterns found during EDA.",
+              "examQuestions": [ { "marks": 5, "question": "Which plot highlights outliers?" }, { "marks": 5, "question": "Explain correlation vs causation." }, { "marks": 10, "question": "Design an EDA plan for a dataset." } ],
+              "pyqs": [ { "year": 2023, "question": "Interpret correlation coefficient." }, { "year": 2022, "question": "Name a plot for distribution." } ],
+              "references": ["Practical Statistics for Data Scientists — Peter Bruce & Andrew Bruce"]
+            }
+          },
+          {
+            "id": "aids-s1-u2-t3",
+            "title": "Feature Engineering",
+            "subtopics": ["Transformations","Interaction features","Aggregation"],
+            "content": {
+              "theory": [
+                "Feature engineering creates or transforms raw variables into informative inputs for models. Good features often yield larger performance gains than model tuning.",
+                "Common techniques include polynomial features, interaction terms, binning, and aggregation over groups or time windows. Domain knowledge guides meaningful constructions.",
+                "Automated feature tools exist, but manual, interpretable features are valuable for debugging and deployment. Always validate engineered features with cross-validation to avoid leakage."
+              ],
+              "definition": { "label": "Definition", "text": "Feature engineering is designing and transforming input variables to improve model performance and interpretability." },
+              "keyPoints": ["Domain knowledge is central","Use transforms like log or binning","Create interaction features","Avoid leakage","Validate via CV"],
+              "formulas": ["Interaction: x_int = x1 * x2"],
+              "examples": [ { "label": "Datetime features", "content": "Extract hour, day-of-week, and holiday flags from timestamps." }, { "label": "Aggregation", "content": "Compute mean past actions per user as a feature." } ],
+              "notes": "Track feature provenance and ensure reproducibility.",
+              "examQuestions": [ { "marks": 5, "question": "Define data leakage." }, { "marks": 5, "question": "Give one feature transform to reduce skew." }, { "marks": 10, "question": "Design features for a churn model." } ],
+              "pyqs": [ { "year": 2023, "question": "Example of interaction feature." }, { "year": 2022, "question": "Datetime extraction tasks." } ],
+              "references": ["Feature Engineering for Machine Learning"]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 3,
+        "title": "Introductory Machine Learning",
+        "topics": [
+          {
+            "id": "aids-s1-u3-t1",
+            "title": "Supervised Learning Introduction",
+            "subtopics": ["Training vs testing","Loss","Generalization"],
+            "content": {
+              "theory": [
+                "Supervised learning maps inputs to labels using labeled examples. The model learns patterns from data (training) and is judged by its performance on unseen data (generalization).",
+                "Loss functions measure disagreement between predictions and labels; training minimizes loss on the training set, while validation tests generalization. Overfitting occurs when the model memorizes training noise.",
+                "Bias–variance tradeoff balances model simplicity (bias) and data-fitting flexibility (variance). Cross-validation and regularization are practical tools to control overfitting."
+              ],
+              "definition": { "label": "Definition", "text": "Supervised learning trains models using labeled examples to predict outputs for new inputs." },
+              "keyPoints": ["Use labeled data for training","Validation assesses generalization","Loss functions guide optimization","Overfitting vs underfitting","Regularization to control complexity"],
+              "formulas": ["MSE = 1/n Σ (y_i − ŷ_i)^2", "Binary cross-entropy formula"],
+              "examples": [ { "label": "Regression vs classification", "content": "Predict house prices vs spam detection." }, { "label": "Train/val/test split", "content": "Split 70/15/15 to evaluate generalization." } ],
+              "notes": "Avoid leakage and shuffle/time-split appropriately for temporal data.",
+              "examQuestions": [ { "marks": 5, "question": "Which loss suits regression?" }, { "marks": 5, "question": "Explain cross-validation." }, { "marks": 10, "question": "Describe bias–variance tradeoff." } ],
+              "pyqs": [ { "year": 2023, "question": "Name one regularization technique." }, { "year": 2022, "question": "What is a validation set?" } ],
+              "references": ["Pattern Recognition and Machine Learning — Christopher Bishop"]
+            }
+          },
+          {
+            "id": "aids-s1-u3-t2",
+            "title": "Regression Techniques",
+            "subtopics": ["OLS","Ridge","Lasso"],
+            "content": {
+              "theory": [
+                "Linear regression models a linear relationship between features and a continuous target and is simple, interpretable, and often surprisingly effective.",
+                "Regularization (Ridge, Lasso) penalizes large weights to prevent overfitting and can improve generalization, with Lasso also performing feature selection.",
+                "Diagnostics like residual plots, R^2, and heteroscedasticity checks help assess fit and guide improvements like transformations or robust regression."
+              ],
+              "definition": { "label": "Definition", "text": "Regression predicts a continuous target using input features by fitting parameters that minimize a loss such as MSE." },
+              "keyPoints": ["OLS solution for linear models","Ridge adds L2 penalty","Lasso adds L1 and induces sparsity","Use CV to tune λ","Check residuals for assumptions"],
+              "formulas": ["ŵ=(X^T X)^{-1} X^T y", "Ridge objective: ||y−Xw||^2 + λ||w||^2"],
+              "examples": [ { "label": "OLS example", "content": "Fit a line to points using least squares." }, { "label": "Ridge tuning", "content": "Pick λ via CV to balance bias and variance." } ],
+              "notes": "Standardize features before regularized regression.",
+              "examQuestions": [ { "marks": 5, "question": "Which regularizer yields sparse solutions?" }, { "marks": 5, "question": "State OLS closed-form when invertible." }, { "marks": 10, "question": "Discuss multicollinearity and remedies." } ],
+              "pyqs": [ { "year": 2023, "question": "Compute slope for two points." }, { "year": 2022, "question": "Explain VIF." } ],
+              "references": ["Elements of Statistical Learning — Hastie et al."]
+            }
+          },
+          {
+            "id": "aids-s1-u3-t3",
+            "title": "Classification Techniques",
+            "subtopics": ["Logistic regression","Decision trees","Evaluation metrics"],
+            "content": {
+              "theory": [
+                "Classification assigns discrete labels to inputs. Logistic regression models the probability of class membership using a sigmoid on a linear score.",
+                "Decision trees partition feature space using threshold rules and are interpretable; ensemble methods combine trees for improved performance.",
+                "Evaluate classifiers with metrics beyond accuracy: precision, recall, F1, and ROC-AUC better capture performance in imbalanced settings." 
+              ],
+              "definition": { "label": "Definition", "text": "Classification predicts discrete categories for inputs; models estimate class probabilities or direct label assignments." },
+              "keyPoints": ["Logistic outputs probabilities via sigmoid","Trees split by thresholds","Use precision/recall for imbalance","Ensembles boost performance","Calibrate probabilities when required"],
+              "formulas": ["σ(z)=1/(1+e^{-z})", "Binary CE loss formula"],
+              "examples": [ { "label": "Logistic example", "content": "Predict churn probability from usage features; threshold at 0.5." }, { "label": "Tree example", "content": "Visualize a small decision tree splitting on age and income." } ],
+              "notes": "Try simple models first and evaluate with appropriate metrics.",
+              "examQuestions": [ { "marks": 5, "question": "Compute sigmoid(0)." }, { "marks": 5, "question": "Name a metric for imbalanced data." }, { "marks": 10, "question": "Compare logistic regression and decision trees." } ],
+              "pyqs": [ { "year": 2023, "question": "Sigmoid value." }, { "year": 2022, "question": "Advantage of trees." } ],
+              "references": ["Hands-On Machine Learning — Aurélien Géron"]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 4,
+        "title": "Practical ML & Intro Neural Nets",
+        "topics": [
+          {
+            "id": "aids-s1-u4-t1",
+            "title": "Model Evaluation & Validation",
+            "subtopics": ["Cross-validation","Metrics","Pipelines"],
+            "content": {
+              "theory": [
+                "Model evaluation quantifies how well a model generalizes to unseen data. Use holdout sets, cross-validation, and nested CV for reliable estimates.",
+                "Metrics depend on tasks: regression (RMSE, MAE), classification (precision, recall, ROC-AUC). Choose metrics aligned with business objectives.",
+                "Hyperparameter tuning must be performed on validation splits to avoid optimistic bias. Use pipelines to ensure preprocessing is applied consistently across folds." 
+              ],
+              "definition": { "label": "Definition", "text": "Model evaluation uses held-out data and metrics to estimate a model's performance on new examples." },
+              "keyPoints": ["Train/validation/test separation","Cross-validation reduces variance","Choose task-appropriate metrics","Use pipelines to prevent leakage","Monitor over time in production"],
+              "formulas": ["RMSE = sqrt(1/n Σ (y−ŷ)^2)", "Precision = TP/(TP+FP)"] ,
+              "examples": [ { "label": "K-fold CV", "content": "5-fold CV trains on 4 folds and validates on 1, repeating and averaging results." }, { "label": "Confusion matrix", "content": "Compute TP/FP/TN/FN to derive precision and recall." } ],
+              "notes": "Use time-series CV for temporal data and include preprocessing inside CV pipelines.",
+              "examQuestions": [ { "marks": 5, "question": "What is 5-fold CV?" }, { "marks": 5, "question": "Name two confusion matrix entries." }, { "marks": 10, "question": "Design an evaluation plan for a classification task." } ],
+              "pyqs": [ { "year": 2023, "question": "Define ROC-AUC." }, { "year": 2022, "question": "Precision vs recall." } ],
+              "references": ["Practical Machine Learning and scikit-learn docs"]
+            }
+          },
+          {
+            "id": "aids-s1-u4-t2",
+            "title": "Optimization & Gradient Descent",
+            "subtopics": ["SGD","Adam","Learning rates"],
+            "content": {
+              "theory": [
+                "Optimization finds model parameters that minimize a loss function. Gradient descent and its variants (SGD, momentum, Adam) are the backbone of modern learning algorithms.",
+                "Stochastic methods use minibatches to scale to large datasets and introduce noise that can help escape shallow local minima. Learning rate schedules and adaptive optimizers affect convergence speed and stability.",
+                "Practical concerns include initialization, conditioner methods (Adam, RMSProp), and gradient clipping for stability when dealing with exploding gradients in deep networks." 
+              ],
+              "definition": { "label": "Definition", "text": "Optimization in ML adjusts parameters to minimize loss, commonly via gradient-based methods." },
+              "keyPoints": ["Gradient descent update rules","SGD scales to large data","Momentum smooths updates","Adaptive optimizers adjust rates","Learning rate tuning is critical"],
+              "formulas": ["w ← w − η ∇_w ℓ(w)"],
+              "examples": [ { "label": "Mini-batch SGD", "content": "Use batch size 32 to compute gradients and update weights iteratively." }, { "label": "Learning rate schedule", "content": "Reduce learning rate on plateau to fine-tune convergence." } ],
+              "notes": "Monitor training and validation losses to detect divergence or overfitting.",
+              "examQuestions": [ { "marks": 5, "question": "What does Adam do?" }, { "marks": 5, "question": "When to clip gradients?" }, { "marks": 10, "question": "Compare SGD and full-batch GD." } ],
+              "pyqs": [ { "year": 2023, "question": "SGD update numeric example." }, { "year": 2022, "question": "Explain momentum." } ],
+              "references": ["Optimization for Machine Learning"]
+            }
+          },
+          {
+            "id": "aids-s1-u4-t3",
+            "title": "Introduction to Neural Networks",
+            "subtopics": ["Perceptron","Activation","Backpropagation"],
+            "content": {
+              "theory": [
+                "Neural networks stack layers of linear transformations and nonlinear activations to model complex functions. The perceptron is the simplest unit combining inputs linearly and applying a step or smooth activation.",
+                "Activation functions (sigmoid, ReLU, tanh) introduce nonlinearity, enabling networks to approximate arbitrary functions with enough capacity. Depth and width trade off representation power and training difficulty.",
+                "Training uses backpropagation to compute gradients layer-by-layer and update weights via gradient descent. Proper initialization and activation choice affect gradient flow during training." 
+              ],
+              "definition": { "label": "Definition", "text": "A neural network is a parameterized function composed of layers of linear operations and nonlinear activations trained to minimize a loss on data." },
+              "keyPoints": ["Neuron computes w^T x + b then activation","Backprop uses chain rule","ReLU mitigates vanishing gradients","Depth builds hierarchical features","Start small to debug training"],
+              "formulas": ["y = φ(w^T x + b)", "σ(z)=1/(1+e^{-z})"],
+              "examples": [ { "label": "Perceptron", "content": "Single-layer perceptron learns linearly separable functions." }, { "label": "Small MLP", "content": "2-layer MLP with ReLU can model simple nonlinear regression." } ],
+              "notes": "Visualize losses and activations; check for exploding/vanishing gradients.",
+              "examQuestions": [ { "marks": 5, "question": "Write neuron output formula." }, { "marks": 5, "question": "Why use ReLU?" }, { "marks": 10, "question": "Explain backpropagation conceptually." } ],
+              "pyqs": [ { "year": 2023, "question": "Neuron formula." }, { "year": 2022, "question": "Activation examples." } ],
+              "references": ["Deep Learning — Goodfellow et al."]
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

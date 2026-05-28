@@ -1,0 +1,429 @@
+{
+  "slug": "python",
+  "title": "Python",
+  "description": "Learn Python from your first print statement through variables, collections, functions, loops, and file handling.",
+  "sidebarSections": [
+    {
+      "heading": "Python Tutorial",
+      "lessonIds": [
+        "python-intro",
+        "python-variables",
+        "python-data-types",
+        "python-lists",
+        "python-dictionaries",
+        "python-functions",
+        "python-loops",
+        "python-file-handling"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "python-intro",
+      "title": "Python Introduction",
+      "subtitle": "What Python is, how to run code, and your first program",
+      "group": "Python Fundamentals",
+      "tags": ["Beginner", "Fundamentals"],
+      "theory": "Python is a high-level, interpreted programming language created to be readable and productive. Its clear syntax makes it popular for beginners, data science, web backends, automation, and scripting.\n\nYou run scripts with python filename.py or python3 on some systems. The interactive REPL (read–eval–print loop) lets you type expressions and see results immediately—great for experiments.\n\nIndentation defines blocks instead of braces. Use four spaces per level consistently. A colon starts blocks after if, for, while, def, and class headers.\n\nPython 3 is the current standard. The community shares packages on PyPI and installs them with pip. The built-in help() and official docs support self-directed learning.",
+      "definition": {
+        "label": "Definition",
+        "text": "Python is an interpreted, dynamically typed language that emphasizes readable code and rapid development across many domains."
+      },
+      "keyPoints": [
+        "Readable syntax with significant indentation",
+        "Run scripts with python file.py or use the REPL",
+        "Python 3 is the modern standard",
+        "pip installs third-party packages from PyPI",
+        "The colon plus indent starts code blocks"
+      ],
+      "codeExample": {
+        "label": "Hello, Python",
+        "language": "python",
+        "code": "# hello.py\nprint('Hello, LearnTheory!')\nprint(2 + 3)\n\n# In the REPL: help(print)"
+      },
+      "quiz": [
+        {
+          "question": "How are code blocks defined in Python?",
+          "options": ["Curly braces {}", "Semicolons only", "Indentation", "Parentheses"],
+          "answer": 2,
+          "explanation": "Python uses consistent indentation (usually four spaces) after a colon."
+        },
+        {
+          "question": "Which command typically runs a Python script file?",
+          "options": ["java hello.py", "python hello.py", "compile hello.py", "run-html hello.py"],
+          "answer": 1,
+          "explanation": "The interpreter is invoked as python (or python3) followed by the filename."
+        },
+        {
+          "question": "What does the REPL allow you to do?",
+          "options": [
+            "Edit CSS only",
+            "Type code interactively and see immediate results",
+            "Compile to machine code first",
+            "Browse the web"
+          ],
+          "answer": 1,
+          "explanation": "The REPL evaluates each expression as you enter it—ideal for quick tests."
+        }
+      ]
+    },
+    {
+      "id": "python-variables",
+      "title": "Variables",
+      "subtitle": "Assignment, naming rules, and updating values",
+      "group": "Python Fundamentals",
+      "tags": ["Beginner", "Syntax"],
+      "theory": "Variables are names that refer to values. You create them with assignment: count = 0, message = 'LearnTheory'. No separate declaration keyword is required.\n\nNames use snake_case by convention: user_name, total_score. They must start with a letter or underscore, followed by letters, digits, or underscores. Avoid reserved keywords like if, for, and class.\n\nAssignment updates the name to point at a new value. With immutable types like int and str, rebinding is the norm. Mutable objects can change in place while the name stays the same.\n\nMultiple assignment works: x, y = 1, 2. Swapping is elegant: a, b = b, a. Choose descriptive names so readers understand intent without comments.",
+      "definition": {
+        "label": "Definition",
+        "text": "A variable is an identifier bound to an object in memory; assignment creates or rebinding that name."
+      },
+      "keyPoints": [
+        "Assignment with = creates or updates a binding",
+        "snake_case is the standard naming style",
+        "Names are case-sensitive: Count and count differ",
+        "Avoid shadowing built-ins like list and str",
+        "Tuple unpacking assigns multiple names at once"
+      ],
+      "codeExample": {
+        "label": "Variables and swapping",
+        "language": "python",
+        "code": "course = 'Python'\nlessons_completed = 3\nlessons_completed += 1\n\nfirst, second = 'HTML', 'CSS'\nfirst, second = second, first\n\nprint(course, lessons_completed, first)"
+      },
+      "quiz": [
+        {
+          "question": "Which variable name follows Python style guidelines?",
+          "options": ["LessonCount", "lesson-count", "lesson_count", "2lessons"],
+          "answer": 2,
+          "explanation": "PEP 8 recommends snake_case: lesson_count."
+        },
+        {
+          "question": "What does lessons_completed += 1 do?",
+          "options": [
+            "Deletes the variable",
+            "Adds 1 and rebinds the name to the new value",
+            "Creates a new file",
+            "Imports the math module"
+          ],
+          "answer": 1,
+          "explanation": "+= is augmented assignment: read value, add 1, assign back."
+        },
+        {
+          "question": "How do you swap two variables in one line?",
+          "options": ["swap(a, b)", "a, b = b, a", "a -> b", "exchange a b"],
+          "answer": 1,
+          "explanation": "Tuple unpacking swaps efficiently: a, b = b, a."
+        }
+      ]
+    },
+    {
+      "id": "python-data-types",
+      "title": "Data Types",
+      "subtitle": "int, float, str, bool, and type checking",
+      "group": "Python Fundamentals",
+      "tags": ["Beginner", "Types"],
+      "theory": "Python is dynamically typed: a name can refer to different types over time, and types are associated with objects, not variable declarations. Common built-ins include int, float, str, and bool.\n\nint holds integers of arbitrary precision. float holds decimal numbers; beware rounding in financial math (use decimal module when precision matters). str is text; triple quotes span multiple lines.\n\nbool values are True and False (capitalized). Comparisons and logic return booleans. None represents absence of a value, similar to null in other languages.\n\ntype(x) and isinstance(x, str) inspect types. Prefer isinstance for checks because it respects inheritance. Convert between types with int(), float(), str(), and bool().",
+      "definition": {
+        "label": "Definition",
+        "text": "Data types classify values (objects) in Python, determining which operations are valid on them."
+      },
+      "keyPoints": [
+        "int, float, str, bool are core built-in types",
+        "True and False are capitalized boolean literals",
+        "None means no value or missing result",
+        "isinstance is preferred over type() for checks",
+        "f-strings format text: f'Score: {score}'"
+      ],
+      "codeExample": {
+        "label": "Types and conversion",
+        "language": "python",
+        "code": "age = 21\nprice = 19.99\nname = 'Ada'\nactive = True\n\nprint(type(age), isinstance(name, str))\nscore_text = str(95)\nprint(f'{name} is {age}, score {score_text}')"
+      },
+      "quiz": [
+        {
+          "question": "Which function checks if x is a string, including subclasses?",
+          "options": ["type(x) == str only always", "isinstance(x, str)", "strlen(x)", "string(x)"],
+          "answer": 1,
+          "explanation": "isinstance handles inheritance correctly; type() is stricter equality."
+        },
+        {
+          "question": "What is the boolean result of 5 > 3?",
+          "options": ["5", "3", "True", "'yes'"],
+          "answer": 2,
+          "explanation": "Comparison operators return True or False."
+        },
+        {
+          "question": "Which creates a formatted string with variables embedded?",
+          "options": ["'Hi ' + name only always", "f'Hi {name}'", "printf(name)", "name.format only"],
+          "answer": 1,
+          "explanation": "f-strings evaluate expressions inside braces at runtime."
+        }
+      ]
+    },
+    {
+      "id": "python-lists",
+      "title": "Lists",
+      "subtitle": "Ordered mutable sequences, slicing, and comprehensions",
+      "group": "Python Collections",
+      "tags": ["Beginner", "Collections"],
+      "theory": "Lists store ordered, mutable sequences: primes = [2, 3, 5, 7]. Index from 0; negative indices count from the end: items[-1] is the last element. Slicing [start:stop:step] copies subsequences.\n\nappend adds one item; extend adds many. insert places at an index; pop removes and returns. sort and reverse change order in place; sorted() returns a new sorted list.\n\nList comprehensions build lists concisely: squares = [n * n for n in range(5)]. Add an if clause to filter: [n for n in range(10) if n % 2 == 0].\n\nLists can nest and mix types, but homogeneous lists are clearer. Copy with list(old) or old[:]—assignment alone shares the same list object.",
+      "definition": {
+        "label": "Definition",
+        "text": "A list is a mutable, ordered collection of items enclosed in square brackets, allowing duplicates and mixed types."
+      },
+      "keyPoints": [
+        "Indexes start at 0; -1 is the last item",
+        "append, extend, pop are common mutating methods",
+        "Slicing [1:4] returns a new sublist",
+        "Comprehensions combine loops and optional filters",
+        "Use copy techniques to avoid accidental aliasing"
+      ],
+      "codeExample": {
+        "label": "Lists and comprehensions",
+        "language": "python",
+        "code": "topics = ['html', 'css', 'python']\ntopics.append('javascript')\n\nfirst_two = topics[:2]\nevens = [n for n in range(10) if n % 2 == 0]\n\nprint(topics, first_two, evens)"
+      },
+      "quiz": [
+        {
+          "question": "How do you add one item to the end of a list?",
+          "options": ["list.add()", "list.append(item)", "list.push(item)", "list.insert(end)"],
+          "answer": 1,
+          "explanation": "append adds a single element to the end of the list."
+        },
+        {
+          "question": "What does items[-1] return?",
+          "options": ["The first item", "The last item", "An empty list", "An error always"],
+          "answer": 1,
+          "explanation": "Negative indexing -1 refers to the last element."
+        },
+        {
+          "question": "What does [n * 2 for n in range(3)] produce?",
+          "options": ["[0, 2, 4]", "[1, 2, 3]", "[2, 4, 6]", "A dictionary"],
+          "answer": 0,
+          "explanation": "range(3) is 0,1,2; doubled values are 0, 2, 4."
+        }
+      ]
+    },
+    {
+      "id": "python-dictionaries",
+      "title": "Dictionaries",
+      "subtitle": "Key–value maps, access patterns, and iteration",
+      "group": "Python Collections",
+      "tags": ["Beginner", "Collections"],
+      "theory": "Dictionaries map unique keys to values: user = {'name': 'Ada', 'score': 98}. Keys must be hashable—strings, numbers, tuples of immutables. Values can be any type.\n\nAccess with brackets user['name'] raises KeyError if missing. get('name', default) returns a default safely. Assign user['role'] = 'admin' to add or update.\n\nkeys(), values(), and items() views support iteration. for key, value in user.items() is idiomatic. dict comprehensions build maps: {n: n * n for n in range(3)}.\n\nJSON objects deserialize to dicts in Python. Nested dicts model structured records. Since Python 3.7+, dicts preserve insertion order as an implementation standard.",
+      "definition": {
+        "label": "Definition",
+        "text": "A dictionary is a mutable mapping from hashable keys to arbitrary values, written with curly braces and key: value pairs."
+      },
+      "keyPoints": [
+        "Keys must be unique and hashable",
+        "get avoids KeyError with a default",
+        "items() loops key and value pairs together",
+        "Dict comprehensions create mappings concisely",
+        "JSON loads into Python dict structures"
+      ],
+      "codeExample": {
+        "label": "Dictionary usage",
+        "language": "python",
+        "code": "lesson = {\n    'id': 'python-dictionaries',\n    'title': 'Dictionaries',\n    'done': False,\n}\n\nlesson['done'] = True\nprint(lesson.get('tags', []))\n\nfor key, value in lesson.items():\n    print(key, '->', value)"
+      },
+      "quiz": [
+        {
+          "question": "How do you safely read a key that might be missing?",
+          "options": [
+            "Always use d[key] only",
+            "d.get(key, default)",
+            "d.pull(key)",
+            "key(d)"
+          ],
+          "answer": 1,
+          "explanation": "get returns the default instead of raising KeyError."
+        },
+        {
+          "question": "What does for k, v in d.items() iterate over?",
+          "options": [
+            "Only keys",
+            "Key–value pairs",
+            "Only values",
+            "Indexes only"
+          ],
+          "answer": 1,
+          "explanation": "items() yields tuples of (key, value) for each entry."
+        },
+        {
+          "question": "Which keys are valid in a dictionary?",
+          "options": [
+            "Only strings",
+            "Hashable immutables like strings and numbers",
+            "Lists as keys always",
+            "Any mutable object"
+          ],
+          "answer": 1,
+          "explanation": "Keys must be hashable; lists cannot be keys, strings can."
+        }
+      ]
+    },
+    {
+      "id": "python-functions",
+      "title": "Functions",
+      "subtitle": "def, return, parameters, defaults, and docstrings",
+      "group": "Python Fundamentals",
+      "tags": ["Beginner", "Functions"],
+      "theory": "Functions group reusable logic. Define with def name(parameters): followed by an indented body. return sends a value back; omitting return gives None.\n\nParameters can have defaults: def greet(name='guest'). Keyword arguments at call time improve clarity: greet(name='Ada'). *args collects extra positional values; **kwargs collects extra keyword arguments.\n\nScope: variables assigned inside a function are local unless declared global (rare). Reading outer variables works in nested functions; assigning requires nonlocal in closures.\n\nDocstrings are triple-quoted strings right after def. They document behavior and appear in help(). Type hints (name: str) -> int are optional documentation and tooling aids, not enforced at runtime by default.",
+      "definition": {
+        "label": "Definition",
+        "text": "A function is a named block of code defined with def that accepts parameters and optionally returns a value."
+      },
+      "keyPoints": [
+        "def introduces a function; colon and indent follow",
+        "return exits with a value; None is implicit otherwise",
+        "Default parameters apply when arguments are omitted",
+        "Docstrings document purpose and usage",
+        "Keyword arguments clarify calls with many parameters"
+      ],
+      "codeExample": {
+        "label": "Function with defaults",
+        "language": "python",
+        "code": "def progress_label(completed, total=10):\n    \"\"\"Return a simple progress string.\"\"\"\n    pct = round(100 * completed / total)\n    return f'{completed}/{total} ({pct}%)'\n\nprint(progress_label(3))\nprint(progress_label(7, total=8))"
+      },
+      "quiz": [
+        {
+          "question": "What does a function return if there is no return statement?",
+          "options": ["0", "False", "None", "undefined"],
+          "answer": 2,
+          "explanation": "Python functions return None when they finish without return."
+        },
+        {
+          "question": "Where should a docstring be placed?",
+          "options": [
+            "Before import statements in the file",
+            "Immediately after the def line as the first statement",
+            "After all global variables only",
+            "In a separate .txt file"
+          ],
+          "answer": 1,
+          "explanation": "The first statement in the function body should be the docstring."
+        },
+        {
+          "question": "What do default parameter values enable?",
+          "options": [
+            "Faster CPU clocks",
+            "Calling the function without passing every argument",
+            "Immutable globals",
+            "Automatic imports"
+          ],
+          "answer": 1,
+          "explanation": "Defaults apply when the caller omits that parameter."
+        }
+      ]
+    },
+    {
+      "id": "python-loops",
+      "title": "Loops",
+      "subtitle": "for, while, range, break, continue, and iteration",
+      "group": "Python Control Flow",
+      "tags": ["Beginner", "Control Flow"],
+      "theory": "for loops iterate over sequences and other iterables: for lesson in lessons: print(lesson). They work with lists, strings, dict keys, files, and generators.\n\nrange(n) produces 0 through n-1; range(start, stop, step) controls bounds and stride. while repeats while a condition is true—ensure the condition eventually becomes false.\n\nbreak exits the loop immediately; continue skips to the next iteration. else on a loop runs if the loop completes without break—uncommon but useful in search patterns.\n\nenumerate pairs indexes with items: for i, topic in enumerate(topics). zip combines parallel sequences. Avoid infinite while True without a clear exit path.",
+      "definition": {
+        "label": "Definition",
+        "text": "Loops repeat a block of code either for each item in an iterable (for) or while a condition holds (while)."
+      },
+      "keyPoints": [
+        "for iterates any iterable, not only lists",
+        "range generates numeric sequences lazily",
+        "while needs a condition that eventually changes",
+        "break and continue alter loop flow",
+        "enumerate adds an index while looping"
+      ],
+      "codeExample": {
+        "label": "for and while",
+        "language": "python",
+        "code": "for i in range(3):\n    print('Week', i + 1)\n\nn = 3\nwhile n > 0:\n    print(n)\n    n -= 1\n\nfor idx, name in enumerate(['html', 'css', 'js']):\n    print(idx, name)"
+      },
+      "quiz": [
+        {
+          "question": "What values does list(range(3)) produce?",
+          "options": ["[1, 2, 3]", "[0, 1, 2]", "[0, 1, 2, 3]", "[3, 2, 1]"],
+          "answer": 1,
+          "explanation": "range(3) yields 0, 1, 2 — up to but not including 3."
+        },
+        {
+          "question": "What does continue do inside a loop?",
+          "options": [
+            "Exits the program",
+            "Skips to the next iteration",
+            "Restarts Python",
+            "Deletes the loop variable"
+          ],
+          "answer": 1,
+          "explanation": "continue jumps to the next cycle without finishing the current body."
+        },
+        {
+          "question": "When is a while loop appropriate?",
+          "options": [
+            "When you know the exact count always",
+            "When repetition depends on a condition that changes",
+            "Only for strings",
+            "Never in Python 3"
+          ],
+          "answer": 1,
+          "explanation": "while fits when you repeat until a condition becomes false."
+        }
+      ]
+    },
+    {
+      "id": "python-file-handling",
+      "title": "File Handling",
+      "subtitle": "Opening files, reading, writing, and context managers",
+      "group": "Python I/O",
+      "tags": ["Beginner", "Files"],
+      "theory": "Programs persist data by reading and writing files. open(path, mode) returns a file object. Common modes: 'r' read text, 'w' write (truncates), 'a' append, and 'rb'/'wb' for binary.\n\nAlways close files to flush buffers—better, use with open(...) as f: so Python closes automatically even if an error occurs. This is the context manager pattern.\n\nread() loads the whole file; readlines() returns a list of lines. For large files, iterate line by line: for line in f. write() and writelines() output text.\n\nPaths can be relative or absolute. pathlib.Path offers a modern API: Path('data.txt').read_text(encoding='utf-8'). Specify encoding='utf-8' for text files to handle international characters correctly on all platforms.",
+      "definition": {
+        "label": "Definition",
+        "text": "File handling is reading from and writing to the filesystem using open or pathlib, usually with context managers for safe cleanup."
+      },
+      "keyPoints": [
+        "Use with open(...) as f for automatic closing",
+        "Specify encoding=utf-8 for text files",
+        "Modes control read, write, and append behavior",
+        "Iterate lines for memory-efficient reading",
+        "pathlib.Path simplifies paths and common operations"
+      ],
+      "codeExample": {
+        "label": "Read and write a file",
+        "language": "python",
+        "code": "from pathlib import Path\n\nlog = Path('progress.txt')\nlog.write_text('Lesson 1 complete\\n', encoding='utf-8')\n\nwith open('progress.txt', 'a', encoding='utf-8') as f:\n    f.write('Lesson 2 complete\\n')\n\nprint(log.read_text(encoding='utf-8'))"
+      },
+      "quiz": [
+        {
+          "question": "Why use with open('file.txt') as f?",
+          "options": [
+            "It runs code faster than any other approach",
+            "It ensures the file is closed when the block exits",
+            "It converts files to JSON automatically",
+            "It prevents all errors"
+          ],
+          "answer": 1,
+          "explanation": "Context managers call close reliably, even after exceptions."
+        },
+        {
+          "question": "Which mode opens a file for writing and clears existing content?",
+          "options": ["'r'", "'w'", "'a' only appends never", "'x' only read"],
+          "answer": 1,
+          "explanation": "'w' truncates the file to zero length or creates it if missing."
+        },
+        {
+          "question": "What does encoding='utf-8' help with?",
+          "options": [
+            "Compressing images",
+            "Correctly reading and writing Unicode text",
+            "Compiling Python to C",
+            "Creating virtual environments"
+          ],
+          "answer": 1,
+          "explanation": "UTF-8 encodes international characters in text files consistently."
+        }
+      ]
+    }
+  ]
+}

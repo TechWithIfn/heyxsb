@@ -1,0 +1,278 @@
+[
+  {
+    "id": "mca-core-2",
+    "code": "MCA-102",
+    "name": "Advanced Systems & Theory — MCA Semester 2",
+    "shortName": "MCA II",
+    "credits": 24,
+    "type": "theory",
+    "icon": "📚",
+    "description": "Automata, advanced data structures, operating systems and networks with practical and theoretical depth for MCA students.",
+    "units": [
+      {
+        "unitNumber": 1,
+        "title": "Theory of Computation",
+        "topics": [
+          {
+            "id": "mca-s2-u1-t1",
+            "title": "Finite Automata & Regular Languages",
+            "subtopics": ["DFA/NFA","Regex equivalence","Closure properties"],
+            "content": {
+              "theory": [
+                "Finite automata form the simplest class of recognizers for regular languages; both deterministic and nondeterministic variants are equivalent in expressive power.",
+                "Regular expressions provide a declarative notation for regular languages and can be compiled into NFAs and DFAs for pattern matching and lexical analysis in compilers.",
+                "Closure properties and pumping lemma are key analytical tools to prove language membership and non-regularity at advanced levels required for MCA coursework." 
+              ],
+              "definition": { "label": "Definition", "text": "A finite automaton is a 5-tuple that processes strings and accepts or rejects based on state transitions driven by input symbols." },
+              "keyPoints": ["DFA vs NFA equivalence","Regex to NFA conversion","Pumping lemma for non-regularity","Use in lexical analysis","Closure under union/concat/star"],
+              "formulas": [],
+              "examples": [ { "problem": "Construct DFA for binary strings divisible by 3", "solution": "Use remainder states modulo 3." }, { "problem": "Convert regex to NFA", "solution": "Thompson's construction." } ],
+              "notes": ["Careful with ε-transitions when converting"],
+              "examQuestions": [ { "marks": 5, "question": "Show regex to NFA conversion idea." }, { "marks": 5, "question": "State pumping lemma." }, { "marks": 10, "question": "Prove a language non-regular using pumping lemma." } ],
+              "pyqs": [ { "year": 2023, "question": "Regex to automaton." }, { "year": 2022, "question": "Pumping lemma example." } ],
+              "references": ["Introduction to Automata Theory — Hopcroft & Ullman"]
+            }
+          },
+          {
+            "id": "mca-s2-u1-t2",
+            "title": "Context-Free Languages & Parsers",
+            "subtopics": ["CFG","Pushdown automata","Parsing algorithms"],
+            "content": {
+              "theory": [
+                "Context-free grammars generate languages recognized by pushdown automata and are central to programming language syntax and compiler frontends.",
+                "Parsing algorithms such as LL and LR families provide deterministic parsing strategies; understanding conflicts, grammar transformations, and table construction is critical for real-world parser implementation.",
+                "Grammar normalization (eliminating left recursion, factoring) is often required to fit grammars into chosen parser classes for compiler construction projects." 
+              ],
+              "definition": { "label": "Definition", "text": "A context-free grammar consists of production rules that replace nonterminals with terminals and nonterminals to generate strings in the language." },
+              "keyPoints": ["CFGs model programming language syntax","Pushdown automata recognize CFLs","LL vs LR parsing trade-offs","Grammar transformations to resolve conflicts","Use parse trees for semantic analysis"],
+              "formulas": [],
+              "examples": [ { "problem": "Construct parse tree for arithmetic expr", "solution": "Apply grammar productions to derive expression." }, { "problem": "Transform left-recursive grammar", "solution": "Refactor to right-recursive or apply left-factoring." } ],
+              "notes": ["Testing grammars with representative inputs is essential"],
+              "examQuestions": [ { "marks": 5, "question": "Define pushdown automaton." }, { "marks": 5, "question": "Explain left recursion issue." }, { "marks": 10, "question": "Design an LL(1) grammar for simple language." } ],
+              "pyqs": [ { "year": 2023, "question": "Parsing conflict example." }, { "year": 2022, "question": "CFG to PDA idea." } ],
+              "references": ["Compilers: Principles, Techniques and Tools — Aho et al."]
+            }
+          },
+          {
+            "id": "mca-s2-u1-t3",
+            "title": "Computability & Complexity Foundations",
+            "subtopics": ["Decidability","P vs NP","Reductions"],
+            "content": {
+              "theory": [
+                "Computability explores what problems can be solved by algorithms; decidability separates problems solvable by Turing machines from those that are not.",
+                "Complexity theory classifies problems by resource usage; the P vs NP question and NP-completeness via polynomial-time reductions form a cornerstone of theoretical computer science.",
+                "Problem reductions demonstrate hardness and guide algorithmic and approximation strategies in advanced MCA research and system design." 
+              ],
+              "definition": { "label": "Definition", "text": "A problem is decidable if there exists a Turing machine that halts and accepts exactly the instances in the language; otherwise it may be undecidable or semi-decidable." },
+              "keyPoints": ["Turing machines formalize computation","Undecidable problems exist (Halting)","P vs NP and NP-complete definitions","Polynomial reductions show hardness","Complexity classes hierarchy"],
+              "formulas": [],
+              "examples": [ { "problem": "Show SAT is NP-complete", "solution": "Outline Cook-Levin construction." }, { "problem": "State halting undecidability", "solution": "Sketch diagonalization proof." } ],
+              "notes": ["Distinguish decision problems from optimization versions"],
+              "examQuestions": [ { "marks": 5, "question": "Define NP-complete." }, { "marks": 5, "question": "Give undecidable problem example." }, { "marks": 10, "question": "Outline reduction from 3-SAT to another NP problem." } ],
+              "pyqs": [ { "year": 2023, "question": "Complexity class definitions." }, { "year": 2022, "question": "Reduction example." } ],
+              "references": ["Computational Complexity texts"]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 2,
+        "title": "Advanced Data Structures",
+        "topics": [
+          {
+            "id": "mca-s2-u2-t1",
+            "title": "Balanced Trees and Hashing",
+            "subtopics": ["AVL/Red-Black","Hash functions","Dynamic hashing"],
+            "content": {
+              "theory": [
+                "Balanced search trees maintain logarithmic height to guarantee efficient search, insertion and deletion; rotations and rebalancing are core operations.",
+                "Hashing provides average constant-time access; advanced hashing addresses collisions, load factors and resizing strategies to preserve performance at scale.",
+                "Choice of structure depends on workload; ordered sets need trees while hash tables excel at fast key lookup; analysis includes expected and worst-case bounds." 
+              ],
+              "definition": { "label": "Definition", "text": "Balanced trees enforce invariants on heights or colors to maintain O(log n) operations; hashing maps keys to buckets via deterministic functions." },
+              "keyPoints": ["Understand rotations in AVL/Red-Black","Hash collisions require chaining or open addressing","Resizing strategy impacts amortized cost","Use trees for range queries","Analyze worst-case scenarios"],
+              "formulas": [],
+              "examples": [ { "problem": "Insert sequence into AVL", "solution": "Show rotations to rebalance." }, { "problem": "Design hash resizing policy", "solution": "Double size when load>threshold." } ],
+              "notes": ["Consider memory usage vs lookup speed"],
+              "examQuestions": [ { "marks": 5, "question": "Describe rotation in AVL tree." }, { "marks": 5, "question": "Explain chaining vs open addressing." }, { "marks": 10, "question": "Analyze hash table amortized cost." } ],
+              "pyqs": [ { "year": 2023, "question": "AVL rotation example." }, { "year": 2022, "question": "Hash load factor effects." } ],
+              "references": ["Algorithm textbooks and papers"]
+            }
+          },
+          {
+            "id": "mca-s2-u2-t2",
+            "title": "Heaps, Fibonacci Heaps & Priority Queues",
+            "subtopics": ["Binary heap","Decrease-key","Applications"],
+            "content": {
+              "theory": [
+                "Heaps implement priority queues with logarithmic operations; Fibonacci heaps offer improved amortized bounds for decrease-key useful in advanced shortest-path algorithms.",
+                "Understanding heap operations and amortized analysis enables choosing the right heap variant for graph algorithms and scheduling systems in MCA-level projects.",
+                "Implementations trade off simplicity for theoretical bounds; practical choices may favor binary or pairing heaps depending on constant factors." 
+              ],
+              "definition": { "label": "Definition", "text": "A priority queue supports insert, extract-min and decrease-key; heap data structures provide concrete implementations with varying complexity guarantees." },
+              "keyPoints": ["Binary heap is simple and practical","Fibonacci heap improves decrease-key amortized cost","Use priority queues in Dijkstra's algorithm","Amortized analysis essential","Consider memory and constants"],
+              "formulas": [],
+              "examples": [ { "problem": "Use heap in Dijkstra", "solution": "Implement extract-min and decrease-key for distances." }, { "problem": "Compare heap types", "solution": "Discuss trade-offs for dense vs sparse graphs." } ],
+              "notes": ["Test with realistic graph sizes to choose heap type"],
+              "examQuestions": [ { "marks": 5, "question": "Give binary heap operations costs." }, { "marks": 5, "question": "Why Fibonacci heap used in theoretical algorithms?" }, { "marks": 10, "question": "Apply priority queue to shortest-path." } ],
+              "pyqs": [ { "year": 2023, "question": "Heap application." }, { "year": 2022, "question": "Decrease-key importance." } ],
+              "references": ["CLRS"]
+            }
+          },
+          {
+            "id": "mca-s2-u2-t3",
+            "title": "Persistent and External Data Structures",
+            "subtopics": ["B-trees","External hashing","Persistence"],
+            "content": {
+              "theory": [
+                "External memory algorithms and data structures like B-trees manage disk I/O to handle datasets larger than RAM, optimizing block transfers and fan-out.",
+                "Persistent data structures preserve previous versions enabling time-travel queries and safe concurrency without copying entire datasets—important in functional and database systems.",
+                "Designing for I/O efficiency and versioned data is essential for large-scale data systems and research projects at the MCA level." 
+              ],
+              "definition": { "label": "Definition", "text": "External data structures are optimized for disk/block I/O; persistent structures preserve historical versions without destructive updates." },
+              "keyPoints": ["B-tree node fan-out reduces disk reads","Persistence via path-copying or fat nodes","External hashing handles large tables","Design for block-aligned operations","Versioning aids reproducibility"],
+              "formulas": [],
+              "examples": [ { "problem": "Explain B-tree insertion", "solution": "Show split and promotion steps for overflow." }, { "problem": "Implement simple persistent list", "solution": "Use node-copying on updates." } ],
+              "notes": ["Consider block size and key sizes for B-tree tuning"],
+              "examQuestions": [ { "marks": 5, "question": "Why use B-trees for databases?" }, { "marks": 5, "question": "Define persistent data structure." }, { "marks": 10, "question": "Describe external hashing strategy." } ],
+              "pyqs": [ { "year": 2023, "question": "B-tree example." }, { "year": 2022, "question": "Persistence idea." } ],
+              "references": ["Database and external memory literature"]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 3,
+        "title": "Operating Systems & Virtualization",
+        "topics": [
+          {
+            "id": "mca-s2-u3-t1",
+            "title": "Process Management and Scheduling",
+            "subtopics": ["Process model","Schedulers","Context switch"],
+            "content": {
+              "theory": [
+                "Processes and threads are fundamental execution units; modern OSes provide multitasking through scheduling policies balancing throughput and responsiveness.",
+                "Schedulers implement policies (FCFS, SJF, Round-Robin, priority) with trade-offs in fairness, starvation, and average waiting time; multiprocessor scheduling adds complexity.",
+                "Context switching, preemption and kernel vs user-mode design influence performance and security design choices in advanced OS projects at MCA level." 
+              ],
+              "definition": { "label": "Definition", "text": "Process management handles creation, scheduling, synchronization and termination of execution contexts in the operating system." },
+              "keyPoints": ["Choose scheduler by workload","Understand kernel preemption","Minimize context-switch overhead","Use locks and condition vars for sync","Measure scheduler metrics"],
+              "formulas": [],
+              "examples": [ { "problem": "Compute average waiting time", "solution": "Apply scheduling order and calculate per-job waiting." }, { "problem": "Design simple RR scheduler", "solution": "Use time quantum and ready queue." } ],
+              "notes": ["Empirically measure scheduling on target hardware"],
+              "examQuestions": [ { "marks": 5, "question": "List common scheduling algorithms." }, { "marks": 5, "question": "Define context switch." }, { "marks": 10, "question": "Compare SJF and Round-Robin." } ],
+              "pyqs": [ { "year": 2023, "question": "Scheduler example." }, { "year": 2022, "question": "Context switch impact." } ],
+              "references": ["Operating Systems — Tanenbaum"]
+            }
+          },
+          {
+            "id": "mca-s2-u3-t2",
+            "title": "Memory Management and Virtualization",
+            "subtopics": ["Paging","Segmentation","Hypervisors"],
+            "content": {
+              "theory": [
+                "Memory management protects and isolates process address spaces via paging and segmentation; virtual memory enables processes to use more memory than physically available via swapping.",
+                "Page replacement policies (LRU, FIFO, CLOCK) trade off implementation complexity and hit rates; TLBs and multi-level page tables affect performance significantly.",
+                "Virtualization layers (Type 1/2 hypervisors, containers) provide isolation and multiplexing of hardware resources and are central to cloud and distributed infrastructure studied in MCA programs." 
+              ],
+              "definition": { "label": "Definition", "text": "Virtual memory abstracts physical memory allowing processes contiguous logical addresses mapped to physical frames via page tables." },
+              "keyPoints": ["Use appropriate page replacement","Optimize TLB locality","Understand fragmentation vs paging","Hypervisor types and uses","Containers vs VMs trade-offs"],
+              "formulas": [],
+              "examples": [ { "problem": "Explain page fault handling", "solution": "OS loads page from disk and updates page tables." }, { "problem": "Compare containers and VMs", "solution": "List isolation and overhead differences." } ],
+              "notes": ["Tune swap and page sizes for workload"],
+              "examQuestions": [ { "marks": 5, "question": "What is TLB?" }, { "marks": 5, "question": "Describe LRU page replacement." }, { "marks": 10, "question": "Discuss virtualization types." } ],
+              "pyqs": [ { "year": 2023, "question": "Page replacement example." }, { "year": 2022, "question": "Virtualization benefits." } ],
+              "references": ["Operating Systems literature"]
+            }
+          },
+          {
+            "id": "mca-s2-u3-t3",
+            "title": "File Systems and Storage",
+            "subtopics": ["FS design","Journaling","Distributed storage"],
+            "content": {
+              "theory": [
+                "File systems map logical file abstractions to physical storage; design choices affect metadata management, allocation strategies, and recovery mechanisms.",
+                "Journaling, copy-on-write and checksumming are techniques to maintain consistency and durability under crashes; distributed file systems add replication and consensus elements.",
+                "Performance engineering for storage includes caching, prefetching and understanding underlying block device characteristics relevant to MCA-scale systems." 
+              ],
+              "definition": { "label": "Definition", "text": "A file system organizes and stores files on storage devices, providing APIs for creation, read/write, and metadata management." },
+              "keyPoints": ["Metadata vs data paths","Journaling for crash recovery","Design for scalability","Use replication for durability","Performance via caching"],
+              "formulas": [],
+              "examples": [ { "problem": "Describe journaling benefits", "solution": "Explain faster recovery via write-ahead logs." }, { "problem": "Design simple distributed FS", "solution": "Outline replication and partitioning scheme." } ],
+              "notes": ["Select FS features based on application requirements"],
+              "examQuestions": [ { "marks": 5, "question": "What is journaling?" }, { "marks": 5, "question": "Name FS allocation strategies." }, { "marks": 10, "question": "Sketch distributed FS design." } ],
+              "pyqs": [ { "year": 2023, "question": "Journaling example." }, { "year": 2022, "question": "FS metadata." } ],
+              "references": ["File system and storage systems texts"]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 4,
+        "title": "Computer Networks & Security",
+        "topics": [
+          {
+            "id": "mca-s2-u4-t1",
+            "title": "Network Models and Transport",
+            "subtopics": ["OSI/TCP-IP","Routing","TCP/UDP"],
+            "content": {
+              "theory": [
+                "Layered network models provide abstraction; transport-layer protocols like TCP and UDP serve different needs: reliability vs low-latency datagrams.",
+                "Routing algorithms (distance-vector/link-state) compute paths and cope with failures; understanding routing convergence and scaling is key in networked systems design.",
+                "Performance tuning of transport stacks (window sizes, congestion control) affects throughput and latency in distributed applications studied by MCA students." 
+              ],
+              "definition": { "label": "Definition", "text": "The network stack organizes communication responsibilities into layers, each providing services to the layer above." },
+              "keyPoints": ["TCP offers reliability and congestion control","UDP is lightweight datagram service","Routing algorithm trade-offs","Understand congestion collapse and control","Measure latency and throughput"],
+              "formulas": [],
+              "examples": [ { "problem": "Explain TCP three-way handshake", "solution": "SYN, SYN-ACK, ACK sequence establishes connection." }, { "problem": "Compute path via Dijkstra", "solution": "Run Dijkstra's algorithm on topology." } ],
+              "notes": ["Simulate networks for measurement before deployment"],
+              "examQuestions": [ { "marks": 5, "question": "List TCP features." }, { "marks": 5, "question": "Difference between TCP and UDP." }, { "marks": 10, "question": "Explain link-state routing." } ],
+              "pyqs": [ { "year": 2023, "question": "TCP handshake." }, { "year": 2022, "question": "Routing example." } ],
+              "references": ["Computer Networks — Tanenbaum/Packet-level references"]
+            }
+          },
+          {
+            "id": "mca-s2-u4-t2",
+            "title": "Network Security Fundamentals",
+            "subtopics": ["Cryptography basics","TLS","Auth"],
+            "content": {
+              "theory": [
+                "Network security applies cryptographic primitives and protocols to protect confidentiality, integrity and authenticity of communications.",
+                "Practical protocols like TLS and SSH build on symmetric and asymmetric cryptography, certificates and trust chains to secure channels over untrusted networks.",
+                "Security engineering includes threat modeling, secure-by-design principles and operational monitoring to detect and respond to incidents in production systems." 
+              ],
+              "definition": { "label": "Definition", "text": "Cryptography uses mathematical transforms to secure data via encryption, hashing and signing; protocols orchestrate primitives for secure communications." },
+              "keyPoints": ["Use established primitives, not homegrown crypto","TLS secures channel layer","Certificates and PKI manage identity","Threat modeling guides defenses","Logging aids incident response"],
+              "formulas": [],
+              "examples": [ { "problem": "Explain TLS handshake basics", "solution": "Client/server exchange keys and verify certificates to derive session keys." }, { "problem": "Define threat model", "solution": "List assets, adversaries and attack surfaces." } ],
+              "notes": ["Keep libraries up to date and monitor CVEs"],
+              "examQuestions": [ { "marks": 5, "question": "What is symmetric vs asymmetric crypto?" }, { "marks": 5, "question": "Purpose of certificates?" }, { "marks": 10, "question": "Outline TLS handshake phases." } ],
+              "pyqs": [ { "year": 2023, "question": "TLS basics." }, { "year": 2022, "question": "Threat model sample." } ],
+              "references": ["Security engineering and cryptography texts"]
+            }
+          },
+          {
+            "id": "mca-s2-u4-t3",
+            "title": "Distributed Systems Basics",
+            "subtopics": ["Consensus","Replication","CAP"],
+            "content": {
+              "theory": [
+                "Distributed systems coordinate multiple machines to provide fault tolerance, scalability and locality; replication and consensus protocols are core primitives.",
+                "CAP theorem highlights trade-offs between consistency, availability and partition tolerance; practical systems choose appropriate relaxations like eventual consistency when needed.",
+                "Protocols like Paxos and Raft implement consensus for leader election and replicated state machines; understanding these is crucial for building reliable distributed platforms in MCA projects." 
+              ],
+              "definition": { "label": "Definition", "text": "A distributed system is a collection of independent computers that appears as a single coherent system to users and provides coordinated services." },
+              "keyPoints": ["Understand failure modes","Consensus ensures agreement","Replication for durability and read-scaling","Design for network partitions","Use proven libraries and patterns"],
+              "formulas": [],
+              "examples": [ { "problem": "Explain Raft leader election", "solution": "Follower times out and requests votes; majority elects leader." }, { "problem": "Discuss eventual consistency", "solution": "Replicas converge over time with conflict resolution." } ],
+              "notes": ["Test distributed protocols under failure scenarios"],
+              "examQuestions": [ { "marks": 5, "question": "State CAP theorem." }, { "marks": 5, "question": "Why consensus?" }, { "marks": 10, "question": "Outline Raft roles and terms." } ],
+              "pyqs": [ { "year": 2023, "question": "Consensus idea." }, { "year": 2022, "question": "CAP trade-offs." } ],
+              "references": ["Distributed Systems literature"]
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

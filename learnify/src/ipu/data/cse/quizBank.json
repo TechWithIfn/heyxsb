@@ -1,0 +1,110 @@
+[
+  {
+    "subjectId": "mathematics-1",
+    "topicId": "limits-continuity",
+    "quiz": [
+      {
+        "question": "What must be checked first when testing continuity at a point?",
+        "options": ["Only the function value", "Left limit, right limit, and the function value", "The derivative only", "The graph color"],
+        "answer": 1,
+        "explanation": "Continuity requires the left-hand limit, right-hand limit, and function value to agree."
+      },
+      {
+        "question": "Which standard limit is frequently used in calculus and engineering approximations?",
+        "options": ["lim(x->0) x/2 = 1", "lim(x->0) sin x / x = 1", "lim(x->1) 1/x = 0", "lim(x->∞) sin x = 1"],
+        "answer": 1,
+        "explanation": "The sine-over-x limit is one of the most important standard limits."
+      }
+    ]
+  },
+  {
+    "subjectId": "mathematics-1",
+    "topicId": "differentiation",
+    "quiz": [
+      {
+        "question": "What does a derivative represent geometrically?",
+        "options": ["Area under a curve", "Slope of the tangent line", "Volume of a solid", "The x-intercept"],
+        "answer": 1,
+        "explanation": "A derivative gives the tangent slope at a point."
+      },
+      {
+        "question": "Which rule is used for a composition of functions?",
+        "options": ["Product rule", "Chain rule", "Quotient rule", "Mean rule"],
+        "answer": 1,
+        "explanation": "The chain rule differentiates composite functions like f(g(x))."
+      }
+    ]
+  },
+  {
+    "subjectId": "mathematics-1",
+    "topicId": "taylor-series",
+    "quiz": [
+      {
+        "question": "What does a Taylor polynomial do?",
+        "options": ["Stores data in a table", "Approximates a function near a point", "Sorts a list of numbers", "Measures matrix rank"],
+        "answer": 1,
+        "explanation": "Taylor polynomials approximate functions using derivatives at a chosen point."
+      },
+      {
+        "question": "Maclaurin series are Taylor series expanded about which point?",
+        "options": ["x = 1", "x = -1", "x = 0", "x = infinity"],
+        "answer": 2,
+        "explanation": "Maclaurin series are Taylor series centered at zero."
+      }
+    ]
+  },
+  {
+    "subjectId": "mathematics-1",
+    "topicId": "indefinite-integrals",
+    "quiz": [
+      {
+        "question": "What does an indefinite integral represent?",
+        "options": ["A family of antiderivatives", "A fixed area only", "A matrix inverse", "A derivative of order two"],
+        "answer": 0,
+        "explanation": "An indefinite integral gives all antiderivatives plus a constant."
+      },
+      {
+        "question": "What is the constant added to an indefinite integral?",
+        "options": ["C", "R", "k", "n"],
+        "answer": 0,
+        "explanation": "The constant of integration C accounts for all antiderivatives."
+      }
+    ]
+  },
+  {
+    "subjectId": "mathematics-2",
+    "topicId": "ode-basics",
+    "quiz": [
+      {
+        "question": "What does the order of an ODE refer to?",
+        "options": ["The coefficient size", "The highest derivative present", "The number of variables", "The graph scale"],
+        "answer": 1,
+        "explanation": "The order is determined by the highest derivative in the equation."
+      },
+      {
+        "question": "What is a separable differential equation?",
+        "options": ["One with no variables", "One that can be rearranged into x-part and y-part", "One with only constants", "One solved by sorting"],
+        "answer": 1,
+        "explanation": "Separable equations can be split so each variable appears on its own side."
+      }
+    ]
+  },
+  {
+    "subjectId": "mathematics-2",
+    "topicId": "second-order-ode",
+    "quiz": [
+      {
+        "question": "What is the complementary function in a second-order linear ODE?",
+        "options": ["The homogeneous solution", "The table of values", "The final graph", "The coefficient of x"],
+        "answer": 0,
+        "explanation": "The complementary function comes from the homogeneous equation."
+      },
+      {
+        "question": "If the auxiliary equation has complex roots, the solution usually contains what?",
+        "options": ["Only constants", "Sine and cosine terms", "Only logarithms", "Only matrices"],
+        "answer": 1,
+        "explanation": "Complex roots lead to sinusoidal terms in the complementary function."
+      }
+    ]
+  }
+]

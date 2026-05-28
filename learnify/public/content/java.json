@@ -1,0 +1,225 @@
+{
+  "slug": "java",
+  "title": "Java",
+  "description": "Learn Java basics — classes, types, control flow, methods, and collections on the JVM.",
+  "lessons": [
+    {
+      "id": "java-intro",
+      "title": "Java Introduction",
+      "subtitle": "The JVM, bytecode, and your first class",
+      "tags": ["Beginner"],
+      "theory": "Java is a statically typed, object-oriented language that runs on the Java Virtual Machine (JVM). Source code compiles to bytecode in .class files, which the JVM executes on many platforms.\n\nEvery program starts in a class with a main method: public static void main(String[] args).\n\nThe ecosystem includes JDK (development tools), JRE (runtime), and rich libraries for enterprise, Android, and backend services.\n\nStrong typing catches many errors at compile time. Naming conventions use PascalCase for classes and camelCase for methods and variables.",
+      "definition": {
+        "label": "Definition",
+        "text": "Java is a compiled, object-oriented language whose bytecode runs on the JVM for portability and managed memory."
+      },
+      "keyPoints": [
+        "Write once, run anywhere via the JVM",
+        "Classes contain fields and methods",
+        "main is the application entry point",
+        "Static typing requires declared types"
+      ],
+      "codeExample": {
+        "label": "Hello Java",
+        "language": "java",
+        "code": "public class Main {\n  public static void main(String[] args) {\n    System.out.println(\"Hello, Learnify!\");\n  }\n}"
+      },
+      "quiz": [
+        {
+          "question": "Where does a Java application start execution?",
+          "options": ["start()", "main method", "constructor only", "run() always"],
+          "answer": 1,
+          "explanation": "The JVM calls public static void main(String[] args) as the entry point."
+        },
+        {
+          "question": "Which file extension is produced after compiling Java source code?",
+          "options": [".java", ".class", ".js", ".jar only"],
+          "answer": 1,
+          "explanation": "The Java compiler produces bytecode in .class files."
+        },
+        {
+          "question": "Which component actually runs Java bytecode?",
+          "options": ["JDK only", "JVM", "IDE", "Text editor"],
+          "answer": 1,
+          "explanation": "The JVM executes compiled Java bytecode."
+        }
+      ],
+      "next": "java-variables"
+    },
+    {
+      "id": "java-variables",
+      "title": "Variables and Types",
+      "subtitle": "Primitives, references, and declarations",
+      "tags": ["Beginner"],
+      "theory": "Local variables need a type and name: int count = 0;. Primitive types include int, double, boolean, and char.\n\nReference types point to objects on the heap: String name = \"Learnify\";. Strings are immutable in Java.\n\nfinal prevents reassignment of a variable (similar to const in other languages).\n\nUse meaningful types instead of raw Object when possible for clarity and safety.",
+      "definition": {
+        "label": "Definition",
+        "text": "A variable is a named storage location with a fixed type that holds either a primitive value or a reference to an object."
+      },
+      "keyPoints": [
+        "Declare type before name: String s",
+        "Primitives hold values; objects use references",
+        "String is a reference type, not a primitive",
+        "final blocks reassignment"
+      ],
+      "codeExample": {
+        "label": "Variables",
+        "language": "java",
+        "code": "int lessons = 5;\nboolean active = true;\nString topic = \"Java\";\nSystem.out.println(topic + \": \" + lessons);"
+      },
+      "quiz": [
+        {
+          "question": "Which type is a primitive in Java?",
+          "options": ["String", "Integer", "int", "ArrayList"],
+          "answer": 2,
+          "explanation": "int is a primitive; String and wrapper classes are reference types."
+        },
+        {
+          "question": "What does final do to a local variable?",
+          "options": ["Makes it static", "Prevents reassignment", "Turns it into a class", "Deletes it after use"],
+          "answer": 1,
+          "explanation": "final means the variable cannot be reassigned after initialization."
+        },
+        {
+          "question": "Which statement best describes a reference type?",
+          "options": ["It stores the object itself directly in the variable", "It points to an object on the heap", "It can never be null", "It must always be String"],
+          "answer": 1,
+          "explanation": "Reference variables hold a reference to an object rather than the object data itself."
+        }
+      ],
+      "prev": "java-intro",
+      "next": "java-control-flow"
+    },
+    {
+      "id": "java-control-flow",
+      "title": "Control Flow",
+      "subtitle": "if, switch, for, and while",
+      "tags": ["Beginner"],
+      "theory": "Branch with if, else if, and else. switch works on primitives, enums, and strings (modern Java).\n\nfor loops include classic for (int i = 0; i < n; i++) and enhanced for (String s : list).\n\nwhile and do-while repeat while a condition holds. do-while runs the body at least once.\n\nUse break to exit loops and continue to skip to the next iteration.",
+      "definition": {
+        "label": "Definition",
+        "text": "Control flow statements choose which code runs and how often, using conditionals and loops with explicit braces."
+      },
+      "keyPoints": [
+        "Braces {} define blocks",
+        "Enhanced for iterates collections",
+        "switch handles multiple discrete cases",
+        "break and continue control loops"
+      ],
+      "codeExample": {
+        "label": "for loop",
+        "language": "java",
+        "code": "for (int i = 0; i < 3; i++) {\n  if (i % 2 == 0) {\n    System.out.println(i + \" is even\");\n  }\n}"
+      },
+      "quiz": [
+        {
+          "question": "Which loop always executes its body at least once?",
+          "options": ["for", "while", "do-while", "enhanced for"],
+          "answer": 2,
+          "explanation": "do-while checks the condition after running the body once."
+        },
+        {
+          "question": "Which keyword exits only the current loop?",
+          "options": ["return", "break", "continue", "switch"],
+          "answer": 1,
+          "explanation": "break terminates the nearest loop or switch statement."
+        },
+        {
+          "question": "What does continue do inside a loop?",
+          "options": ["Stops the whole program", "Skips to the next iteration", "Adds a new case", "Compiles the code"],
+          "answer": 1,
+          "explanation": "continue skips the remaining statements in the current iteration."
+        }
+      ],
+      "prev": "java-variables",
+      "next": "java-methods"
+    },
+    {
+      "id": "java-methods",
+      "title": "Methods",
+      "subtitle": "Parameters, return types, and static methods",
+      "tags": ["Beginner"],
+      "theory": "Methods belong to classes. They declare a return type, name, parameters, and body inside braces.\n\nvoid means no return value. return exits with a value matching the declared type.\n\nstatic methods belong to the class, not an instance — main is static.\n\nOverload methods by varying parameter lists; the compiler picks the best match.",
+      "definition": {
+        "label": "Definition",
+        "text": "A method is a named block of statements on a class that can accept arguments and return a value to callers."
+      },
+      "keyPoints": [
+        "Signature includes name and parameter types",
+        "static methods call without new instances",
+        "Overloading shares one method name",
+        "Return type must match return statements"
+      ],
+      "codeExample": {
+        "label": "Method",
+        "language": "java",
+        "code": "static int add(int a, int b) {\n  return a + b;\n}\n\n// usage: add(2, 3)"
+      },
+      "quiz": [
+        {
+          "question": "What keyword calls a method on the class itself without an object?",
+          "options": ["this", "static", "final", "public"],
+          "answer": 1,
+          "explanation": "static associates a method with the class rather than instances."
+        },
+        {
+          "question": "What is method overloading?",
+          "options": ["Changing the class name", "Using the same method name with different parameter lists", "Running methods in parallel", "Calling a method twice"],
+          "answer": 1,
+          "explanation": "Overloading reuses a method name with different parameters."
+        },
+        {
+          "question": "What does void mean in a method signature?",
+          "options": ["The method returns nothing", "The method is private", "The method is static", "The method cannot accept parameters"],
+          "answer": 0,
+          "explanation": "void indicates that no value is returned."
+        }
+      ],
+      "prev": "java-control-flow",
+      "next": "java-collections"
+    },
+    {
+      "id": "java-collections",
+      "title": "Collections",
+      "subtitle": "ArrayList, HashMap, and generics",
+      "tags": ["Beginner"],
+      "theory": "The java.util package provides List, Set, and Map interfaces. ArrayList is a resizable array-backed list.\n\nGenerics add type parameters: ArrayList<String> titles = new ArrayList<>();. This avoids casting and unsafe storage.\n\nHashMap stores key-value pairs with fast lookup. Keys should implement hashCode and equals correctly.\n\nPrefer interfaces in variable types: List<String> items = new ArrayList<>(); for flexibility.",
+      "definition": {
+        "label": "Definition",
+        "text": "Collections are framework classes that store groups of objects with well-defined operations like add, get, and remove."
+      },
+      "keyPoints": [
+        "ArrayList grows dynamically",
+        "HashMap maps keys to values",
+        "Generics enforce element types at compile time",
+        "Program to interfaces (List, Map)"
+      ],
+      "codeExample": {
+        "label": "ArrayList",
+        "language": "java",
+        "code": "import java.util.ArrayList;\n\nArrayList<String> topics = new ArrayList<>();\ntopics.add(\"Java\");\ntopics.add(\"SQL\");\nSystem.out.println(topics.size());"
+      },
+      "quiz": [
+        {
+          "question": "Which collection preserves insertion order and allows duplicates?",
+          "options": ["HashSet", "ArrayList", "HashMap keys", "TreeMap only"],
+          "answer": 1,
+          "explanation": "ArrayList is an ordered List that allows duplicate elements."
+        },
+        {
+          "question": "Which interface is often preferred in variable declarations for flexibility?",
+          "options": ["ArrayList", "List", "Vector only", "CollectionIterator"],
+          "answer": 1,
+          "explanation": "Programming to the List interface makes code easier to adapt."
+        },
+        {
+          "question": "What does a HashMap store?",
+          "options": ["A sorted list of integers", "Key-value pairs", "Only unique values with no keys", "Only arrays"],
+          "answer": 1,
+          "explanation": "HashMap is used for key-value mapping with fast lookup."
+        }
+      ],
+      "prev": "java-methods"
+    }
+  ]
+}

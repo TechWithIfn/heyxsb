@@ -1,0 +1,278 @@
+[
+  {
+    "id": "ai-ds-advanced",
+    "code": "AIDS-201",
+    "name": "AI & Data Science — Sem 2",
+    "shortName": "AI&DS II",
+    "credits": 22,
+    "type": "theory",
+    "icon": "🤖",
+    "description": "Unsupervised learning, deep learning architectures, time series, recommenders, deployment, ethics and advanced topics.",
+    "units": [
+      {
+        "unitNumber": 1,
+        "title": "Unsupervised & Representation Learning",
+        "topics": [
+          {
+            "id": "aids-s2-u1-t1",
+            "title": "Unsupervised Learning Overview",
+            "subtopics": ["Clustering","Density estimation","Embeddings"],
+            "content": {
+              "theory": [
+                "Unsupervised learning extracts patterns from data without explicit labels, revealing clusters, structure, or latent representations.",
+                "Common tasks include clustering, density estimation, and dimensionality reduction. These techniques help with data exploration, anomaly detection, and pretraining.",
+                "Evaluation is often harder than supervised learning and may rely on domain metrics, silhouette scores, or downstream task performance when labels are unavailable." 
+              ],
+              "definition": { "label": "Definition", "text": "Unsupervised learning finds structure in unlabeled data, such as clusters or low-dimensional embeddings, without direct supervision." },
+              "keyPoints": ["No labels required","Dimensionality reduction reveals latent factors","Clustering groups similar examples","Evaluation can be intrinsic or downstream","Useful for anomaly detection and preprocessing"],
+              "formulas": ["Silhouette: s=(b−a)/max(a,b)"],
+              "examples": [ { "label": "Clustering use", "content": "Segment customers using k-means for targeted marketing." }, { "label": "Embedding", "content": "Use PCA or autoencoders to reduce dimensionality before visualization." } ],
+              "notes": "Choose evaluation metrics and preprocessing carefully for unsupervised tasks.",
+              "examQuestions": [ { "marks": 5, "question": "Define unsupervised learning and give one example." }, { "marks": 5, "question": "State silhouette score interpretation." }, { "marks": 10, "question": "Compare PCA and t-SNE use-cases." } ],
+              "pyqs": [ { "year": 2023, "question": "Name an intrinsic clustering metric." }, { "year": 2022, "question": "Explain PCA outputs." } ],
+              "references": ["Elements of Statistical Learning","scikit-learn clustering docs"]
+            }
+          },
+          {
+            "id": "aids-s2-u1-t2",
+            "title": "Clustering Algorithms",
+            "subtopics": ["K-means","DBSCAN","Hierarchical"],
+            "content": {
+              "theory": [
+                "K-means partitions data into clusters by minimizing within-cluster variance but requires k and assumes spherical clusters.",
+                "DBSCAN finds clusters of arbitrary shape by density and marks noise points; parameters eps and minPts control sensitivity.",
+                "Hierarchical clustering builds dendrograms to inspect nested cluster structure and is useful when the number of clusters is unknown." 
+              ],
+              "definition": { "label": "Definition", "text": "Clustering groups similar data points without labels; algorithms differ by objective and assumptions." },
+              "keyPoints": ["K-means assumes spherical clusters","DBSCAN identifies noise","Hierarchical reveals nesting","Scaling impacts distance-based methods","Initialization affects outcomes"],
+              "formulas": ["K-means objective: Σ_i Σ_{x∈C_i} ||x−μ_i||^2"],
+              "examples": [ { "label": "K-means example", "content": "Run k-means with k=3 and inspect centroids." }, { "label": "DBSCAN example", "content": "Detect outliers as points not in dense regions." } ],
+              "notes": "Use elbow or silhouette to pick k; visualize clusters after dimensionality reduction.",
+              "examQuestions": [ { "marks": 5, "question": "When is DBSCAN preferred?" }, { "marks": 5, "question": "Explain elbow method." }, { "marks": 10, "question": "Discuss limitations of k-means." } ],
+              "pyqs": [ { "year": 2023, "question": "K-means outputs." }, { "year": 2022, "question": "DBSCAN params." } ],
+              "references": ["scikit-learn clustering docs"]
+            }
+          },
+          {
+            "id": "aids-s2-u1-t3",
+            "title": "Dimensionality Reduction",
+            "subtopics": ["PCA","t-SNE","UMAP"],
+            "content": {
+              "theory": [
+                "Dimensionality reduction compresses high-dimensional data into fewer dimensions while preserving structure. PCA preserves variance; t-SNE and UMAP focus on neighborhood structure.",
+                "t-SNE excels at visualizing local clusters but can distort global relationships; UMAP often preserves more global structure and is faster on large datasets.",
+                "Use reduction for visualization, denoising, or as preprocessing for models; always standardize before PCA and interpret nonlinear embeddings cautiously." 
+              ],
+              "definition": { "label": "Definition", "text": "Dimensionality reduction maps high-dimensional data to a lower-dimensional space for visualization or preprocessing." },
+              "keyPoints": ["PCA preserves variance","t-SNE for local structure","UMAP balances local/global","Standardize before PCA","Validate reduced features for tasks"],
+              "formulas": ["Covariance eigen-decomposition: C = V Λ V^T"],
+              "examples": [ { "label": "PCA example", "content": "Project MNIST to 2D with PCA to inspect class overlap." }, { "label": "t-SNE example", "content": "Visualize embeddings with tuned perplexity." } ],
+              "notes": "Nonlinear embeddings are for visualization; avoid overinterpreting distances." ,
+              "examQuestions": [ { "marks": 5, "question": "Why standardize before PCA?" }, { "marks": 5, "question": "Name a nonlinear embedding." }, { "marks": 10, "question": "Compare PCA and t-SNE." } ],
+              "pyqs": [ { "year": 2023, "question": "PCA preprocessing." }, { "year": 2022, "question": "t-SNE hyperparameter effects." } ],
+              "references": ["scikit-learn decomposition docs","UMAP docs"]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 2,
+        "title": "Deep Learning Architectures",
+        "topics": [
+          {
+            "id": "aids-s2-u2-t1",
+            "title": "Neural Network Architectures Overview",
+            "subtopics": ["MLP","CNN","RNN","Transformer"],
+            "content": {
+              "theory": [
+                "Architectural choices match data modalities: MLPs for tabular, CNNs for images, RNNs for sequences, and Transformers for attention-based modeling.",
+                "Residual connections and normalization improve training for deep nets; pretraining and transfer learning can reduce labeled-data requirements.",
+                "Self-attention enables global interaction modeling and scales well with compute when trained on large corpora, enabling state-of-the-art results across modalities." 
+              ],
+              "definition": { "label": "Definition", "text": "Neural architectures specify layer types and connections (convolution, recurrence, attention) chosen to match data and tasks." },
+              "keyPoints": ["CNNs for spatial locality","RNNs for sequential data","Transformers use self-attention","Residuals ease gradient flow","Pretraining transfers knowledge"],
+              "formulas": ["Attention(Q,K,V)=softmax(QK^T/√d_k)V"],
+              "examples": [ { "label": "CNN use", "content": "Apply conv + pooling for image classification." }, { "label": "Transformer use", "content": "Use self-attention for long-range text dependencies." } ],
+              "notes": "Consider compute and data trade-offs when choosing architectures.",
+              "examQuestions": [ { "marks": 5, "question": "Write scaled dot-product attention." }, { "marks": 5, "question": "Why use residual connections?" }, { "marks": 10, "question": "Compare RNNs and Transformers." } ],
+              "pyqs": [ { "year": 2023, "question": "Attention formula." }, { "year": 2022, "question": "Architecture match to data." } ],
+              "references": ["Vaswani et al., Attention Is All You Need","CS231n/CS224n notes"]
+            }
+          },
+          {
+            "id": "aids-s2-u2-t2",
+            "title": "Convolutional Neural Networks",
+            "subtopics": ["Convolution","Pooling","Transfer learning"],
+            "content": {
+              "theory": [
+                "CNNs use shared spatial filters to detect local patterns that compose into higher-level features through depth.",
+                "Pooling reduces dimensionality and adds translation invariance; modern designs often use strided convolutions and normalization instead of heavy pooling.",
+                "Pretrained CNNs can be fine-tuned for specific vision tasks, saving compute and labeled data." 
+              ],
+              "definition": { "label": "Definition", "text": "CNNs apply learned filters across spatial dimensions to build hierarchical image representations." },
+              "keyPoints": ["Shared filters reduce params","Pooling for invariance","BatchNorm stabilizes training","Residuals enable deep nets","Augmentation improves generalization"],
+              "formulas": ["(f * g)[i] = Σ_j f[j] g[i−j]"],
+              "examples": [ { "label": "Edge filters", "content": "First conv layers often learn edge detectors." }, { "label": "Transfer learning", "content": "Fine-tune pretrained ResNet on small dataset." } ],
+              "notes": "Visualize activations and filters to interpret learned features.",
+              "examQuestions": [ { "marks": 5, "question": "What is weight sharing?" }, { "marks": 5, "question": "Role of BatchNorm?" }, { "marks": 10, "question": "Plan transfer learning for small dataset." } ],
+              "pyqs": [ { "year": 2023, "question": "Kernel size meaning." }, { "year": 2022, "question": "Benefits of pretraining." } ],
+              "references": ["CS231n","PyTorch transfer learning tutorial"]
+            }
+          },
+          {
+            "id": "aids-s2-u2-t3",
+            "title": "RNNs and Transformers",
+            "subtopics": ["RNN/LSTM","Self-attention","Positional encodings"],
+            "content": {
+              "theory": [
+                "RNNs maintain hidden states to process sequences; LSTM/GRU add gating to manage long-range dependencies.",
+                "Transformers replace recurrence with self-attention to model global interactions in parallel and rely on positional encodings to capture order.",
+                "Transformers scale well with large data and have become dominant in many sequence modeling tasks." 
+              ],
+              "definition": { "label": "Definition", "text": "RNNs use recurrence for sequences; Transformers use attention to capture pairwise interactions across positions." },
+              "keyPoints": ["LSTM gates manage memory","Attention models global context","Positional encodings add order info","Transformers parallelize sequence processing","Pretraining benefits scale"],
+              "formulas": ["h_t = tanh(W_h h_{t−1} + W_x x_t + b)", "Attention formula as above"],
+              "examples": [ { "label": "Language modeling", "content": "Train RNN/Transformer to predict next token probabilities." }, { "label": "Time-series", "content": "Use LSTM for short-term forecasting." } ],
+              "notes": "Use pretrained checkpoints for practical tasks to reduce compute." ,
+              "examQuestions": [ { "marks": 5, "question": "Write an RNN update eqn." }, { "marks": 5, "question": "Why positional encoding?" }, { "marks": 10, "question": "Compare seq modeling approaches." } ],
+              "pyqs": [ { "year": 2023, "question": "RNN eqn." }, { "year": 2022, "question": "Transformer advantage." } ],
+              "references": ["Vaswani et al.", "PyTorch transformer tutorial"]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 3,
+        "title": "Applied Topics",
+        "topics": [
+          {
+            "id": "aids-s2-u3-t1",
+            "title": "Time Series Analysis",
+            "subtopics": ["ARIMA","ACF/PACF","Forecasting"],
+            "content": {
+              "theory": [
+                "Time series data has temporal dependencies with trend and seasonality components. Stationarity simplifies modeling and forecasting.",
+                "ACF and PACF help identify lag structures for AR/MA components; ARIMA models combine autoregressive and moving average terms with differencing.",
+                "Modern ML approaches such as sequence models and hybrid decomposition+ML pipelines can capture complex dynamics." 
+              ],
+              "definition": { "label": "Definition", "text": "Time series analysis models data indexed by time for forecasting and pattern identification." },
+              "keyPoints": ["Stationarity matters","Use ACF/PACF for order selection","ARIMA combines AR/I/MA","Decompose trend/seasonality","ML models for complex patterns"],
+              "formulas": ["AR(p): x_t = Σ φ_i x_{t−i} + ε_t"],
+              "examples": [ { "label": "Sales forecasting", "content": "Decompose sales and fit ARIMA or ML model for next month." }, { "label": "ACF check", "content": "Use ACF plots to detect significant lags." } ],
+              "notes": "Beware temporal leakage when building features; use time-aware splits.",
+              "examQuestions": [ { "marks": 5, "question": "State ARIMA full form." }, { "marks": 5, "question": "What does stationarity mean?" }, { "marks": 10, "question": "Design a short forecasting approach for monthly data." } ],
+              "pyqs": [ { "year": 2023, "question": "Name stationary transform." }, { "year": 2022, "question": "Interpret ACF." } ],
+              "references": ["Time Series Analysis — Hamilton"]
+            }
+          },
+          {
+            "id": "aids-s2-u3-t2",
+            "title": "Recommender Systems",
+            "subtopics": ["Collaborative filtering","Matrix factorization","Evaluation"],
+            "content": {
+              "theory": [
+                "Recommender systems predict user preferences using interaction data and item attributes. Collaborative filtering leverages patterns in user–item matrices; content-based methods use item features.",
+                "Matrix factorization uncovers latent factors for users and items; hybrid systems combine signals for robustness and cold-start mitigation.",
+                "Evaluation focuses on ranking metrics and online experimentation (A/B testing) for user-facing impact." 
+              ],
+              "definition": { "label": "Definition", "text": "Recommendation systems predict and rank items for users based on interactions and features." },
+              "keyPoints": ["Collaborative filtering uses interactions","Matrix factorization predicts via latent vectors","Cold-start needs side info","Evaluate with precision@k/recall@k","Consider diversity and business goals"],
+              "formulas": ["R ≈ U V^T, ŷ_ui = u_u^T v_i"],
+              "examples": [ { "label": "Collaborative filtering", "content": "Use SVD on ratings matrix to predict missing entries." }, { "label": "Content-based", "content": "Recommend articles with similar TF-IDF vectors." } ],
+              "notes": "Address sparsity with regularization and implicit feedback techniques.",
+              "examQuestions": [ { "marks": 5, "question": "Define cold-start." }, { "marks": 5, "question": "What does precision@k measure?" }, { "marks": 10, "question": "Design a recommender for a small catalog." } ],
+              "pyqs": [ { "year": 2023, "question": "Define implicit feedback." }, { "year": 2022, "question": "Name one sparsity mitigation." } ],
+              "references": ["Recommender Systems Handbook"]
+            }
+          },
+          {
+            "id": "aids-s2-u3-t3",
+            "title": "Model Deployment & MLOps",
+            "subtopics": ["Serving","Monitoring","CI/CD"],
+            "content": {
+              "theory": [
+                "Deploying models requires attention to latency, scalability, and reliability. Packaging models, versioning, and testing are key for production readiness.",
+                "MLOps extends DevOps with pipelines for reproducible training, model registries, and monitoring for drift and performance degradation.",
+                "Monitoring inputs and model outputs, automating retraining triggers, and governance processes reduce risk in production ML systems." 
+              ],
+              "definition": { "label": "Definition", "text": "MLOps combines ML and DevOps practices to deploy and maintain models reliably at scale." },
+              "keyPoints": ["Containerize models (Docker)", "Automate pipelines (CI/CD)", "Monitor for data drift and performance", "Use model registry for versions", "Plan rollback and retraining"],
+              "formulas": [],
+              "examples": [ { "label": "Serving example", "content": "Wrap model as REST API with FastAPI and containerize." }, { "label": "Monitoring", "content": "Track distribution shifts and alert on drift." } ],
+              "notes": "Store metadata, seeds, and environments for reproducibility.",
+              "examQuestions": [ { "marks": 5, "question": "What is data drift?" }, { "marks": 5, "question": "Name a serving framework." }, { "marks": 10, "question": "Outline an MLOps CI/CD pipeline." } ],
+              "pyqs": [ { "year": 2023, "question": "Define model registry." }, { "year": 2022, "question": "Example monitoring metric." } ],
+              "references": ["MLOps guides and best practices"]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 4,
+        "title": "Responsible AI and Advanced Methods",
+        "topics": [
+          {
+            "id": "aids-s2-u4-t1",
+            "title": "Ethics, Bias & Privacy",
+            "subtopics": ["Fairness metrics","Differential privacy","Governance"],
+            "content": {
+              "theory": [
+                "AI systems can reproduce or amplify societal biases in training data leading to unfair outcomes; detecting and mitigating bias is essential.",
+                "Privacy-preserving techniques such as differential privacy and secure computation limit leakage of individual data points from models and outputs.",
+                "Governance, documentation, and stakeholder engagement are necessary complements to technical mitigations to deploy responsible AI." 
+              ],
+              "definition": { "label": "Definition", "text": "Ethics in AI covers fairness, privacy, accountability and societal impacts of models and data-driven systems." },
+              "keyPoints": ["Bias can arise from data and modeling choices","Differential privacy limits individual leakage","Fairness metrics measure group impacts","Transparency aids accountability","Regulatory context matters"],
+              "formulas": ["DP bound: P[M(D)∈S] ≤ e^ε P[M(D')∈S]"],
+              "examples": [ { "label": "Bias example", "content": "A hiring model trained on biased past hires may unfairly penalize certain groups." }, { "label": "Privacy example", "content": "Add DP noise when releasing statistics to avoid re-identification." } ],
+              "notes": "Pair technical and policy approaches for real-world mitigation.",
+              "examQuestions": [ { "marks": 5, "question": "State purpose of differential privacy." }, { "marks": 5, "question": "Name one fairness metric." }, { "marks": 10, "question": "Propose steps for a bias audit." } ],
+              "pyqs": [ { "year": 2023, "question": "What does small ε imply in DP?" }, { "year": 2022, "question": "List fairness metrics." } ],
+              "references": ["Fairness and Machine Learning — Barocas et al."]
+            }
+          },
+          {
+            "id": "aids-s2-u4-t2",
+            "title": "Explainability & Interpretability",
+            "subtopics": ["SHAP","LIME","PDPs"],
+            "content": {
+              "theory": [
+                "Explainability methods provide local and global views of model behavior; local methods like LIME and SHAP attribute contributions to individual predictions.",
+                "Global analyses summarize feature importance and partial dependence to understand model tendencies across datasets.",
+                "Interpretability supports debugging, trust, and regulatory compliance but must be validated with domain expertise." 
+              ],
+              "definition": { "label": "Definition", "text": "Explainability comprises methods that make model decisions understandable to humans at local or global scales." },
+              "keyPoints": ["Local vs global explanations","SHAP additive attributions","Validate explanations with experts","Use explanations to debug models","Explainability complements but does not replace governance"],
+              "formulas": ["f(x) ≈ φ_0 + Σ φ_i (SHAP)"],
+              "examples": [ { "label": "SHAP example", "content": "Use SHAP to show which features increased predicted risk for a patient." }, { "label": "PDP", "content": "Plot model response as one feature varies." } ],
+              "notes": "Check stability of explanations across similar inputs.",
+              "examQuestions": [ { "marks": 5, "question": "What does SHAP decompose?" }, { "marks": 5, "question": "Give one local explanation method." }, { "marks": 10, "question": "Discuss limits of post-hoc explanations." } ],
+              "pyqs": [ { "year": 2023, "question": "Name SHAP or LIME." }, { "year": 2022, "question": "Use of PDPs." } ],
+              "references": ["Interpretable Machine Learning — Christoph Molnar"]
+            }
+          },
+          {
+            "id": "aids-s2-u4-t3",
+            "title": "Advanced Topics: RL & Generative Models",
+            "subtopics": ["Reinforcement Learning","GANs","VAEs"],
+            "content": {
+              "theory": [
+                "Reinforcement learning trains agents to maximize cumulative reward via policies and value functions, balancing exploration and exploitation.",
+                "Generative models such as GANs, VAEs, and diffusion models learn to synthesize realistic data; training stability and evaluation are active research areas.",
+                "Both topics require careful problem formulation, reward shaping (RL), and evaluation metrics; start with simple environments and models." 
+              ],
+              "definition": { "label": "Definition", "text": "RL optimizes policies from reward; generative models learn to produce synthetic data resembling real distributions." },
+              "keyPoints": ["Bellman equations in RL","GAN adversarial training","VAE ELBO objective","Stability and sample efficiency challenges","Start small for experiments"],
+              "formulas": ["Bellman: V(s)=E[r + γ V(s') | s]", "VAE ELBO formula"],
+              "examples": [ { "label": "RL gridworld", "content": "Train agent to reach goal while maximizing reward." }, { "label": "GAN example", "content": "Train generator and discriminator adversarially to produce images." } ],
+              "notes": "Advanced topics may need significant compute; focus on core principles first.",
+              "examQuestions": [ { "marks": 5, "question": "State the Bellman equation." }, { "marks": 5, "question": "Describe GAN training dynamics." }, { "marks": 10, "question": "Compare VAE and GAN approaches." } ],
+              "pyqs": [ { "year": 2023, "question": "Write Bellman optimality concept." }, { "year": 2022, "question": "Name a generative model type." } ],
+              "references": ["Sutton & Barto; GAN/VAE literature"]
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

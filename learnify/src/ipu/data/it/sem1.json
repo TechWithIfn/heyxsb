@@ -1,0 +1,291 @@
+[
+  {
+    "id": "mathematics-1",
+    "code": "BS-101",
+    "name": "Mathematics-I",
+    "shortName": "Maths I",
+    "credits": 4,
+    "type": "theory",
+    "icon": "📐",
+    "description": "Calculus, linear algebra, and basic discrete tools for IT applications.",
+    "units": [
+      {
+        "id": "unit-1",
+        "unitNumber": 1,
+        "title": "Differential Calculus",
+        "topics": [
+          {
+            "id": "mat-u1-t1",
+            "title": "Limits and Continuity",
+            "subtopics": ["Definition of limit","Continuity at a point","Standard limits"],
+            "content": {
+              "theory": [
+                "Limits describe how a function behaves as its input approaches a point. For IT students, limits underpin numerical stability and algorithmic approximations.",
+                "Continuity ensures small changes in input yield small changes in output. Many data-processing functions assume continuity when approximating values or smoothing data.",
+                "Standard trigonometric and exponential limits are building blocks used across calculus-based proofs and derivations in computing contexts."
+              ],
+              "definition": { "label": "Definition", "text": "A function f(x) has limit L as x→a if values of f(x) can be made arbitrarily close to L for x sufficiently near a." },
+              "keyPoints": [
+                "Limit formalizes approaching behavior",
+                "Continuity requires left and right limits equal function value",
+                "Use algebraic simplification to resolve indeterminate forms",
+                "Common small-angle approximations simplify analysis",
+                "Limits support analysis of asymptotic processes"
+              ],
+              "formulas": [ { "name": "Standard limit", "formula": "lim(x->0) sin x / x = 1" } ],
+              "examples": [
+                { "problem": "Compute lim(x->0) (1 - cos x)/x^2", "solution": "Use series expansion or L'Hôpital's rule to obtain 1/2." },
+                { "problem": "Check continuity of f(x)=|x| at 0", "solution": "Both side limits equal 0, function value 0; continuous." }
+              ],
+              "notes": ["Always state method used","Watch domain restrictions before substitution"],
+              "examQuestions": [ { "marks": 2, "question": "Define limit." }, { "marks": 5, "question": "Evaluate lim(x->0) (sin 2x)/x." }, { "marks": 10, "question": "Prove continuity of a polynomial." } ],
+              "pyqs": [ { "year": 2023, "question": "Evaluate a standard trigonometric limit", "marks": 5 }, { "year": 2022, "question": "Check continuity of piecewise function", "marks": 10 } ],
+              "references": ["Calculus - James Stewart","Higher Engineering Mathematics - Grewal"]
+            }
+          },
+          {
+            "id": "mat-u1-t2",
+            "title": "Derivatives and Applications",
+            "subtopics": ["Rules of differentiation","Higher order derivatives","Applications"],
+            "content": {
+              "theory": [
+                "Derivative measures instantaneous rate of change and is central to modelling trends and optimization in IT tasks such as performance tuning.",
+                "Product, quotient and chain rules enable differentiation of composed expressions that occur frequently in algorithmic cost models.",
+                "Applications include maxima/minima problems used in resource allocation and initial sensitivity estimates for numerical methods."
+              ],
+              "definition": { "label": "Definition", "text": "Derivative f'(a) = lim(h->0) [f(a+h)-f(a)]/h when the limit exists." },
+              "keyPoints": ["Interpret derivative as slope","Use chain rule for composites","Second derivative for concavity","Stationary points require checking","Apply derivatives to optimization"],
+              "formulas": [ { "name": "Chain rule", "formula": "(f∘g)' = f'(g)·g'" } ],
+              "examples": [ { "problem": "Differentiate x^2 e^x", "solution": "Use product rule to obtain e^x(x^2+2x)" }, { "problem": "Related rates example", "solution": "Differentiate both sides wrt time and substitute data." } ],
+              "notes": ["Write steps clearly","Label units when solving applied problems"],
+              "examQuestions": [ { "marks": 2, "question": "State chain rule." }, { "marks": 5, "question": "Differentiate sin x / x." }, { "marks": 10, "question": "Solve a constrained optimization using derivatives." } ],
+              "pyqs": [ { "year": 2023, "question": "Differentiate ln(1+x^2)", "marks": 5 }, { "year": 2021, "question": "Find maxima/minima of a cubic", "marks": 10 } ],
+              "references": ["Thomas' Calculus","Kreyszig"]
+            }
+          },
+          {
+            "id": "mat-u1-t3",
+            "title": "Taylor Series and Approximations",
+            "subtopics": ["Taylor polynomial","Error bounds","Series expansions"],
+            "content": {
+              "theory": [
+                "Taylor series express functions as infinite polynomials centered around a point; truncations provide practical approximations.",
+                "Remainder terms guide error estimation, which is vital when approximating functions in numerical algorithms.",
+                "Common expansions like e^x, sin x and cos x are used to linearize models in engineering and compute small argument values efficiently."
+              ],
+              "definition": { "label": "Definition", "text": "Taylor series of f about a is sum_{n=0}^∞ f^{(n)}(a)/n! (x−a)^n when convergent." },
+              "keyPoints": ["Series approximates near expansion point","Truncation error depends on next derivative","Maclaurin is a = 0 case","Use approximation for small values","Check convergence radius"],
+              "formulas": [ { "name": "Taylor (2nd order)", "formula": "f(x)≈f(a)+f'(a)(x−a)+½f''(a)(x−a)^2" } ],
+              "examples": [ { "problem": "Approximate e^{0.1}", "solution": "Use 1+0.1+0.005=1.105 approx" }, { "problem": "Linearize sqrt(1+x)", "solution": "≈1 + x/2 for small x" } ],
+              "notes": ["Show truncation order","Use remainder estimate for error"],
+              "examQuestions": [ { "marks": 2, "question": "Define Taylor series." }, { "marks": 5, "question": "Maclaurin series for sin x up to x^3." }, { "marks": 10, "question": "Estimate error for a 2nd order approximation." } ],
+              "pyqs": [ { "year": 2023, "question": "Maclaurin of e^x to x^2", "marks": 5 }, { "year": 2022, "question": "Use Taylor to approximate value", "marks": 10 } ],
+              "references": ["Stewart Calculus","Grewal"]
+            }
+          }
+        ]
+      },
+      {
+        "id": "unit-2",
+        "unitNumber": 2,
+        "title": "Linear Algebra",
+        "topics": [
+          {
+            "id": "mat-u2-t1",
+            "title": "Matrices and Determinants",
+            "subtopics": ["Matrix operations","Inverse and rank","Determinant properties"],
+            "content": {
+              "theory": [
+                "Matrices represent linear maps between vector spaces and are essential in graphics, machine learning, and systems of equations.",
+                "Determinants indicate volume scaling, invertibility, and appear in solution formulas for linear systems.",
+                "Rank and null space classification determine solvability and degrees of freedom for linear models used in data fitting."
+              ],
+              "definition": { "label": "Definition", "text": "Determinant is a scalar value that can be computed from a square matrix and encodes invertibility and volume scaling." },
+              "keyPoints": ["Matrix as linear operator","Determinant indicates invertibility","Rank measures independent rows/columns","Inverse exists when determinant ≠ 0","Use matrices for transformation composition"],
+              "formulas": [ { "name": "Inverse (2x2)", "formula": "A^{-1} = 1/(ad−bc) [d −b; −c a]" } ],
+              "examples": [ { "problem": "Solve 2x+3y=5, x−y=1", "solution": "Use matrix inversion or Cramer's rule to obtain x,y." }, { "problem": "Find determinant of 3x3", "solution": "Use expansion or Sarrus' rule." } ],
+              "notes": ["Row operations preserve solution sets","Check determinant before inverting"],
+              "examQuestions": [ { "marks": 2, "question": "Define rank of a matrix." }, { "marks": 5, "question": "Inverse of a 2x2 matrix." }, { "marks": 10, "question": "Solve a 3x3 system using matrices." } ],
+              "pyqs": [ { "year": 2023, "question": "Compute determinant of a simple matrix", "marks": 5 }, { "year": 2022, "question": "Find rank and nullspace", "marks": 10 } ],
+              "references": ["Linear Algebra and Its Applications - Gilbert Strang","Matrix Computations - Golub & Van Loan"]
+            }
+          },
+          {
+            "id": "mat-u2-t2",
+            "title": "Systems of Linear Equations",
+            "subtopics": ["Gaussian elimination","LU decomposition","Consistency criteria"],
+            "content": {
+              "theory": [
+                "Solving linear systems is essential in modelling and simulation; Gaussian elimination transforms a system into triangular form for back-substitution.",
+                "LU decomposition factors a matrix into lower and upper triangular forms, enabling efficient repeated solves as in iterative algorithms and parameter sweeps.",
+                "Consistency depends on rank relations between coefficient and augmented matrices; singular systems require special handling." 
+              ],
+              "definition": { "label": "Definition", "text": "A system Ax=b is consistent if b lies in the column space of A; otherwise no solution exists." },
+              "keyPoints": ["Use pivoting for numerical stability","LU helps repeated solves","Check consistency via rank","Unique solutions when full rank","Singular systems have infinite or no solutions"],
+              "formulas": [ { "name": "LU factorization", "formula": "A = LU", "description": "Lower and upper triangular decomposition" } ],
+              "examples": [ { "problem": "Solve small linear system", "solution": "Apply Gaussian elimination and back-substitution." }, { "problem": "When to use LU?", "solution": "For multiple RHS solves where factorization cost amortizes." } ],
+              "notes": ["Implement partial pivoting in code","Be aware of floating point rounding"],
+              "examQuestions": [ { "marks": 2, "question": "What is Gaussian elimination?" }, { "marks": 5, "question": "Perform LU on a 3x3 matrix." }, { "marks": 10, "question": "Discuss numerical stability issues." } ],
+              "pyqs": [ { "year": 2023, "question": "Solve system using elimination", "marks": 5 }, { "year": 2021, "question": "Describe LU factorization", "marks": 10 } ],
+              "references": ["Numerical Linear Algebra - Trefethen & Bau","Strang"]
+            }
+          },
+          {
+            "id": "mat-u2-t3",
+            "title": "Eigenvalues and Eigenvectors",
+            "subtopics": ["Characteristic equation","Diagonalization","Applications"],
+            "content": {
+              "theory": [
+                "Eigenvalues and eigenvectors characterize linear transformations by invariant directions and scaling factors, used in PCA and system dynamics.",
+                "Diagonalization simplifies powers and exponentials of matrices, which is useful in solving linear recurrences and stability analysis.",
+                "Computational methods like QR algorithm approximate eigenpairs for large matrices common in data analysis tasks." 
+              ],
+              "definition": { "label": "Definition", "text": "An eigenvector v of A satisfies Av = λv where λ is the associated eigenvalue." },
+              "keyPoints": ["Solve det(A−λI)=0 for eigenvalues","Eigenvectors span invariant subspaces","Diagonalization requires independent eigenvectors","PCA uses eigen-decomposition","Numerical methods approximate large cases"],
+              "formulas": [ { "name": "Characteristic polynomial", "formula": "det(A−λI)=0" } ],
+              "examples": [ { "problem": "Find eigenvalues of 2x2 matrix", "solution": "Compute characteristic polynomial and roots." }, { "problem": "PCA intuition", "solution": "Eigenvectors of covariance indicate principal directions." } ],
+              "notes": ["Normalize eigenvectors when used for projection","Check multiplicity and geometric multiplicity"],
+              "examQuestions": [ { "marks": 2, "question": "Define eigenvalue." }, { "marks": 5, "question": "Find eigenpairs for a 2x2 matrix." }, { "marks": 10, "question": "Explain diagonalization and applications." } ],
+              "pyqs": [ { "year": 2023, "question": "Characteristic polynomial example", "marks": 5 }, { "year": 2022, "question": "Apply eigen-decomposition in PCA", "marks": 10 } ],
+              "references": ["Strang","Matrix Computations"]
+            }
+          }
+        ]
+      },
+      {
+        "id": "unit-3",
+        "unitNumber": 3,
+        "title": "Probability Fundamentals",
+        "topics": [
+          {
+            "id": "mat-u3-t1",
+            "title": "Basic Probability Concepts",
+            "subtopics": ["Sample space","Events","Axioms"],
+            "content": {
+              "theory": [
+                "Probability assigns measures to events and underlies statistical inference and randomized algorithms used in IT.",
+                "Conditional probability and Bayes' theorem enable updating beliefs based on observed evidence, crucial in troubleshooting and classification tasks.",
+                "Discrete distributions like binomial and Poisson model counting processes common in systems and queuing analyses." 
+              ],
+              "definition": { "label": "Definition", "text": "Probability P(E) quantifies the likelihood of event E occurring and satisfies 0 ≤ P(E) ≤ 1 and P(S)=1 for sample space S." },
+              "keyPoints": ["Axioms of probability","Conditional and joint probability","Independence concept","Common discrete distributions","Use Bayes for inverse probability"],
+              "formulas": [ { "name": "Bayes' theorem", "formula": "P(A|B)=P(B|A)P(A)/P(B)" } ],
+              "examples": [ { "problem": "Compute P(heads in 2 coin tosses)", "solution": "Use binomial model." }, { "problem": "Apply Bayes in diagnostics", "solution": "Combine prior and evidence for posterior probability." } ],
+              "notes": ["Distinguish independent vs mutually exclusive","Keep events clearly defined"],
+              "examQuestions": [ { "marks": 2, "question": "Define sample space." }, { "marks": 5, "question": "Compute conditional probability." }, { "marks": 10, "question": "Apply Bayes to a medical diagnostic example." } ],
+              "pyqs": [ { "year": 2023, "question": "Binomial probability example", "marks": 5 }, { "year": 2022, "question": "Bayes theorem application", "marks": 10 } ],
+              "references": ["A First Course in Probability - Ross","Probability and Statistics - Devore"]
+            }
+          },
+          {
+            "id": "mat-u3-t2",
+            "title": "Random Variables and Distributions",
+            "subtopics": ["PMF/CDF","Expectation","Common distributions"],
+            "content": {
+              "theory": [
+                "Random variables map outcomes to numeric values used in modelling and algorithms, with PMF/PDF and CDF describing their distribution.",
+                "Expectation and variance summarize central tendency and spread—used when designing algorithms that rely on average-case performance.",
+                "Discrete and continuous distributions provide templates; sampling from these distributions supports simulation tasks." 
+              ],
+              "definition": { "label": "Definition", "text": "A random variable is a function from the sample space to the real numbers; its distribution captures probabilities of outcomes." },
+              "keyPoints": ["PMF/PDF and CDF definitions","Compute expectation and variance","Common distributions: binomial, Poisson, normal","Use CLT for large-sample approximations","Sampling methods for simulation"],
+              "formulas": [ { "name": "Expectation", "formula": "E[X]=Σ x P(X=x) or ∫ x f(x) dx" } ],
+              "examples": [ { "problem": "Compute E[X] for fair die", "solution": "(1+2+...+6)/6 = 3.5" }, { "problem": "Poisson rare event model", "solution": "Use λ to model average rate." } ],
+              "notes": ["List assumptions for distribution models","Use CLT when sample size large"],
+              "examQuestions": [ { "marks": 2, "question": "Define random variable." }, { "marks": 5, "question": "Compute mean of binomial distribution." }, { "marks": 10, "question": "Explain CLT with example." } ],
+              "pyqs": [ { "year": 2023, "question": "Expectation computation", "marks": 5 }, { "year": 2022, "question": "Distribution identification", "marks": 10 } ],
+              "references": ["Ross - Probability Models","Devore - Probability & Statistics"]
+            }
+          },
+          {
+            "id": "mat-u3-t3",
+            "title": "Sampling and Estimation",
+            "subtopics": ["Point estimation","Confidence intervals","Sampling techniques"],
+            "content": {
+              "theory": [
+                "Estimation methods produce point and interval estimates for population parameters from sample data—key in analytics and A/B testing.",
+                "Confidence intervals quantify uncertainty around estimates and guide decision thresholds for systems and experiments.",
+                "Sampling techniques like stratified and random sampling affect estimator bias and variance and are important in data collection design." 
+              ],
+              "definition": { "label": "Definition", "text": "A point estimator maps sample data to an estimate of a population parameter; interval estimators provide a range with an associated confidence level." },
+              "keyPoints": ["Bias vs variance trade-off","Confidence level interpretation","Sampling methods impact estimator quality","Use large-sample approximations when appropriate","Report assumptions and limitations"],
+              "formulas": [ { "name": "Confidence interval (mean)", "formula": "x̄ ± z_{α/2} σ/√n" } ],
+              "examples": [ { "problem": "Compute 95% CI for mean given s and n", "solution": "Use x̄ ± 1.96 s/√n." }, { "problem": "Sampling plan design", "solution": "Choose stratified sampling to reduce variance." } ],
+              "notes": ["State sampling assumptions","Include sample size effect in conclusions"],
+              "examQuestions": [ { "marks": 2, "question": "Define estimator bias." }, { "marks": 5, "question": "Construct a confidence interval." }, { "marks": 10, "question": "Design a sampling scheme for survey." } ],
+              "pyqs": [ { "year": 2023, "question": "CI computation", "marks": 5 }, { "year": 2022, "question": "Sampling technique justification", "marks": 10 } ],
+              "references": ["Devore","Walpole - Probability & Statistics"]
+            }
+          }
+        ]
+      },
+      {
+        "id": "unit-4",
+        "unitNumber": 4,
+        "title": "Numerical Methods",
+        "topics": [
+          {
+            "id": "mat-u4-t1",
+            "title": "Root Finding and Interpolation",
+            "subtopics": ["Bisection","Newton-Raphson","Lagrange interpolation"],
+            "content": {
+              "theory": [
+                "Numerical root-finding methods locate zeros of functions when analytic solutions are impractical. Newton-Raphson offers fast local convergence but needs derivative and good initial guess.",
+                "Interpolation constructs approximate functions that pass through sample points; Lagrange form is explicit but can be unstable for many nodes.",
+                "These methods support computational tasks in engineering, simulation, and algorithm prototyping within IT projects." 
+              ],
+              "definition": { "label": "Definition", "text": "Numerical methods approximate solutions to continuous problems using discrete computations designed for accuracy and stability." },
+              "keyPoints": ["Convergence and starting guess matter","Trade-off between stability and speed","Round-off error accumulates","Use interpolation for function approximation","Prefer stable forms for many nodes"],
+              "formulas": [ { "name": "Newton step", "formula": "x_{n+1}=x_n - f(x_n)/f'(x_n)" } ],
+              "examples": [ { "problem": "Find root using bisection", "solution": "Halve interval until tolerance met." }, { "problem": "Interpolate small dataset", "solution": "Construct Lagrange polynomial." } ],
+              "notes": ["Check derivative non-zero for Newton","Set clear stopping criteria"],
+              "examQuestions": [ { "marks": 2, "question": "State Newton-Raphson formula." }, { "marks": 5, "question": "Run 2 iterations of bisection." }, { "marks": 10, "question": "Compare root-finding methods." } ],
+              "pyqs": [ { "year": 2023, "question": "Newton iteration step", "marks": 5 }, { "year": 2022, "question": "Interpolation task", "marks": 10 } ],
+              "references": ["Numerical Methods - Atkinson","Burden & Faires"]
+            }
+          },
+          {
+            "id": "mat-u4-t2",
+            "title": "Numerical Integration and Differentiation",
+            "subtopics": ["Trapezoidal rule","Simpson's rule","Finite difference"],
+            "content": {
+              "theory": [
+                "When analytic integration is difficult, numerical quadrature uses weighted sums to approximate definite integrals with known error bounds.",
+                "Finite difference approximations estimate derivatives from discrete data and are common in signal processing and numerical optimization.",
+                "Understanding error terms and step size selection is key to reliable computational results in IT applications." 
+              ],
+              "definition": { "label": "Definition", "text": "Numerical integration approximates ∫ f(x) dx via weighted sums computed on discrete nodes." },
+              "keyPoints": ["Step size influences error","Simpson more accurate than trapezoid for smooth functions","Error term depends on derivative order","Use adaptive quadrature for irregular integrands","Balance cost vs accuracy"],
+              "formulas": [ { "name": "Trapezoid", "formula": "∫_a^b f ≈ (h/2)(f(a)+f(b))" } ],
+              "examples": [ { "problem": "Approximate ∫_0^1 e^{x} dx", "solution": "Use Simpson with n=2 for a reasonable estimate." }, { "problem": "Estimate derivative from data", "solution": "Apply central difference formula." } ],
+              "notes": ["Check smoothness before applying Simpson","Refine step size for better accuracy"],
+              "examQuestions": [ { "marks": 2, "question": "Write trapezoidal rule." }, { "marks": 5, "question": "Apply Simpson to small interval." }, { "marks": 10, "question": "Discuss error in numerical quadrature." } ],
+              "pyqs": [ { "year": 2023, "question": "Trapezoid application", "marks": 5 }, { "year": 2022, "question": "Finite difference use", "marks": 10 } ],
+              "references": ["Burden & Faires","Atkinson"]
+            }
+          },
+          {
+            "id": "mat-u4-t3",
+            "title": "Computational Complexity Basics",
+            "subtopics": ["Big-O notation","Time vs space","Basic recurrence"],
+            "content": {
+              "theory": [
+                "Complexity analysis categorizes algorithms by resource growth; Big-O abstracts away constant factors and lower order terms to compare algorithms at scale.",
+                "Space complexity tracks extra memory used and is crucial when designing systems with tight memory budgets like embedded IoT devices.",
+                "Simple recurrence relations model divide-and-conquer runtime and are solved using methods such as Master theorem." 
+              ],
+              "definition": { "label": "Definition", "text": "Big-O notation f(n)=O(g(n)) means there exists c,N such that f(n)≤c g(n) for all n≥N." },
+              "keyPoints": ["Compare algorithms asymptotically","Consider best/avg/worst cases","Space-time trade-offs","Recurrence solving methods","Apply complexity to choose data structures"],
+              "formulas": [ { "name": "Master theorem (case)", "formula": "T(n)=aT(n/b)+f(n)" } ],
+              "examples": [ { "problem": "Analyze binary search", "solution": "O(log n) time" }, { "problem": "Merge sort recurrence", "solution": "T(n)=2T(n/2)+O(n) ⇒ O(n log n)" } ],
+              "notes": ["Express cost in simplest asymptotic form","State assumptions about input"],
+              "examQuestions": [ { "marks": 2, "question": "Define Big-O." }, { "marks": 5, "question": "Analyze simple recurrence." }, { "marks": 10, "question": "Compare two sorting algorithms." } ],
+              "pyqs": [ { "year": 2023, "question": "Binary search complexity", "marks": 5 }, { "year": 2022, "question": "Master theorem example", "marks": 10 } ],
+              "references": ["CLRS - Introduction to Algorithms","Algorithm Design - Kleinberg & Tardos"]
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

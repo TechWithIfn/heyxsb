@@ -1,0 +1,352 @@
+{
+  "slug": "html",
+  "title": "HTML",
+  "description": "Learn to structure accessible web pages with HTML — from your first tag to semantic layouts.",
+  "sidebarSections": [
+    {
+      "heading": "HTML Tutorial",
+      "lessonIds": [
+        "html-intro",
+        "html-document-structure",
+        "html-headings-text",
+        "html-links",
+        "html-images",
+        "html-lists",
+        "html-tables",
+        "html-forms"
+      ]
+    },
+    {
+      "heading": "HTML Advanced",
+      "lessonIds": ["html-semantic", "html-accessibility"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "html-intro",
+      "title": "HTML Introduction",
+      "subtitle": "What HTML is, how browsers use it, and the anatomy of a simple page",
+      "tags": ["Beginner", "Fundamentals"],
+      "theory": "HTML (HyperText Markup Language) is the standard language for describing the structure of web pages. It is not a programming language in the traditional sense: you declare elements such as headings, paragraphs, links, and images, and the browser decides how to display them according to built-in rules and your CSS.\n\nEvery public website you visit is built on HTML at its core. CSS adds presentation; JavaScript adds behavior. Without HTML there is nothing for those technologies to attach to. Learning HTML first gives you a stable foundation before you move on to styling and scripting.\n\nHTML documents are plain text files, usually saved with the .html extension. They are made of elements written with tags. Most tags come in pairs: an opening tag, content, and a closing tag. A few tags, like <img> and <br>, are void elements and do not wrap content.\n\nBrowsers read HTML from top to bottom, build an internal representation called the DOM (Document Object Model), and render the page. Valid, meaningful markup helps browsers, search engines, and assistive technologies understand your content.",
+      "definition": {
+        "label": "Definition",
+        "text": "HTML is a markup language used to structure content on the web by nesting elements inside one another."
+      },
+      "keyPoints": [
+        "HTML describes structure, not appearance",
+        "Elements are defined with tags like <p> and <h1>",
+        "Browsers turn HTML into a visual page via the DOM",
+        "HTML works together with CSS and JavaScript"
+      ],
+      "codeExample": {
+        "label": "Minimal HTML page",
+        "code": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <title>My First Page</title>\n  </head>\n  <body>\n    <h1>Hello, Learnify!</h1>\n    <p>This is my first HTML page.</p>\n  </body>\n</html>"
+      },
+      "quiz": [
+        {
+          "question": "What is the primary purpose of HTML?",
+          "options": [
+            "To style pages with colors and fonts",
+            "To structure content on a web page",
+            "To store data in a database",
+            "To compile code into machine language"
+          ],
+          "answer": 1,
+          "explanation": "HTML defines the structure and meaning of content. Styling belongs to CSS; behavior belongs to JavaScript."
+        }
+      ]
+    },
+    {
+      "id": "html-document-structure",
+      "title": "Document Structure",
+      "subtitle": "DOCTYPE, html, head, body, and essential metadata",
+      "tags": ["Beginner", "Structure"],
+      "theory": "A well-formed HTML document follows a predictable skeleton. The <!DOCTYPE html> declaration on the first line tells the browser to use modern standards mode. Without it, older quirks mode can cause inconsistent layout.\n\nThe <html> element wraps the entire document. The lang attribute (for example lang=\"en\") helps screen readers choose the correct pronunciation and assists search engines.\n\nThe <head> section holds metadata: character encoding, page title, links to CSS, and other information that is not shown as main page content. The <body> contains everything visible to users.\n\nInside <head>, <meta charset=\"UTF-8\"> ensures characters from many languages display correctly. The <title> appears in the browser tab and in search results, so it should describe the page clearly.",
+      "definition": {
+        "label": "Definition",
+        "text": "The document structure is the required hierarchy of elements—DOCTYPE, html, head, and body—that every HTML page should include."
+      },
+      "keyPoints": [
+        "<!DOCTYPE html> enables standards mode",
+        "<head> holds metadata; <body> holds visible content",
+        "Always set lang on <html> and charset in <head>",
+        "<title> is required for accessibility and SEO"
+      ],
+      "codeExample": {
+        "label": "Document skeleton",
+        "code": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>Document Structure — Learnify</title>\n  </head>\n  <body>\n    <main>\n      <h1>Page heading</h1>\n    </main>\n  </body>\n</html>"
+      },
+      "quiz": [
+        {
+          "question": "Where should the page <title> element be placed?",
+          "options": [
+            "Inside <body> at the top",
+            "Inside <head>",
+            "After </html>",
+            "Inside <footer> only"
+          ],
+          "answer": 1,
+          "explanation": "The <title> element belongs in <head>. It is not rendered as body content but is used by the browser and search engines."
+        }
+      ]
+    },
+    {
+      "id": "html-headings-text",
+      "title": "Headings & Text",
+      "subtitle": "Headings, paragraphs, emphasis, and line breaks",
+      "tags": ["Beginner", "Typography"],
+      "theory": "Headings organize content into a logical outline. HTML provides six levels: <h1> through <h6>. Use one <h1> per page for the main topic, then <h2> for major sections, <h3> for subsections, and so on. Skipping levels (jumping from h1 to h4) confuses outline algorithms used by assistive tech.\n\nThe <p> element wraps paragraphs. Browsers add vertical spacing between paragraphs automatically. Do not use multiple <br> tags to create paragraph-like gaps; use real <p> elements instead.\n\nFor emphasis, <strong> indicates strong importance (often bold), and <em> indicates stress emphasis (often italic). They carry meaning, not just style. Use <mark> to highlight text referenced from elsewhere.\n\nThe <br> element forces a line break within the same paragraph—for example in an address or poem. Use it sparingly; prefer block elements when you need new sections.",
+      "definition": {
+        "label": "Definition",
+        "text": "Heading elements (h1–h6) define hierarchical section titles; text elements like p, strong, and em describe blocks and inline meaning."
+      },
+      "keyPoints": [
+        "One logical h1 per page; nest h2, h3 without skipping",
+        "Use <p> for paragraphs, not chains of <br>",
+        "<strong> and <em> convey meaning, not only appearance",
+        "<br> is for line breaks inside one block of text"
+      ],
+      "codeExample": {
+        "label": "Headings and text",
+        "code": "<h1>HTML Headings & Text</h1>\n<h2>Why hierarchy matters</h2>\n<p>Good headings help readers <strong>scan</strong> and help screen readers <em>navigate</em>.</p>\n<p>123 Learnify Lane<br />Web City</p>"
+      },
+      "quiz": [
+        {
+          "question": "Which element should represent the main title of a page?",
+          "options": ["<h6>", "<title>", "<h1>", "<header>"],
+          "answer": 2,
+          "explanation": "<h1> is the top-level heading for page content. <title> is metadata in <head>, not the visible main heading."
+        }
+      ]
+    },
+    {
+      "id": "html-links",
+      "title": "Links & Anchors",
+      "subtitle": "Hyperlinks, targets, and same-page navigation",
+      "tags": ["Beginner", "Navigation"],
+      "theory": "The anchor element <a> creates hyperlinks. The href attribute holds the destination URL or fragment. Link text should describe the destination—avoid vague labels like \"click here\" because screen reader users often hear a list of links out of context.\n\nAbsolute links point to other sites (https://example.com). Relative links point to files on your site (about.html or /docs/guide.html). Root-relative paths start with / from the site root.\n\nThe target=\"_blank\" attribute opens a link in a new tab. When you use it, also add rel=\"noopener noreferrer\" for security and privacy. Same-page links use a fragment: href=\"#section-id\" must match an element id on the page.\n\nThe download attribute hints that the browser should download a resource instead of navigating to it. Always test that link URLs are correct and that external links indicate when they leave your site if that matters to users.",
+      "definition": {
+        "label": "Definition",
+        "text": "An anchor (<a>) connects the current document to another resource via the href attribute."
+      },
+      "keyPoints": [
+        "href is required for meaningful links",
+        "Use descriptive link text for accessibility",
+        "Fragment links use #id matching an element id",
+        "With target=\"_blank\", include rel=\"noopener noreferrer\""
+      ],
+      "codeExample": {
+        "label": "Links and anchors",
+        "code": "<p>Read the <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML\">MDN HTML docs</a>.</p>\n<p><a href=\"about.html\">About us</a></p>\n<h2 id=\"tips\">Tips</h2>\n<p><a href=\"#tips\">Jump to Tips</a></p>"
+      },
+      "quiz": [
+        {
+          "question": "Which attribute specifies where a link goes?",
+          "options": ["src", "href", "link", "for"],
+          "answer": 1,
+          "explanation": "The href attribute on <a> defines the hyperlink target. src is used on elements like <img> and <script>."
+        }
+      ]
+    },
+    {
+      "id": "html-images",
+      "title": "Images",
+      "subtitle": "img, alt text, sizing, and figures",
+      "tags": ["Beginner", "Media"],
+      "theory": "Images are embedded with the <img> element. It is a void element: no closing tag. The src attribute points to the image file; width and height can reserve space to reduce layout shift while the file loads.\n\nThe alt attribute is required for accessibility. It should describe the image content or function. Decorative images that add no information should use alt=\"\" so screen readers skip them. Never omit alt on meaningful images.\n\nUse modern formats when possible (WebP, AVIF) with fallbacks if needed. Compress images for the web to keep pages fast. The title attribute is not a substitute for alt and is rarely needed.\n\nThe <figure> and <figcaption> elements group an image with an optional caption. This pattern is ideal for diagrams, screenshots, and photos that need explanation below the image.",
+      "definition": {
+        "label": "Definition",
+        "text": "The <img> element embeds an image into the document; alt provides a text alternative when the image cannot be seen."
+      },
+      "keyPoints": [
+        "<img> uses src and should always include alt",
+        "Decorative images use empty alt: alt=\"\"",
+        "width and height help prevent layout shift",
+        "<figure> + <figcaption> for images with captions"
+      ],
+      "codeExample": {
+        "label": "Image with alt and figure",
+        "code": "<img src=\"logo.png\" alt=\"Learnify logo\" width=\"120\" height=\"40\" />\n\n<figure>\n  <img src=\"diagram.png\" alt=\"HTML element tree diagram\" />\n  <figcaption>Figure 1: How elements nest inside one another.</figcaption>\n</figure>"
+      },
+      "quiz": [
+        {
+          "question": "What is the correct purpose of the alt attribute?",
+          "options": [
+            "To set the image width",
+            "To provide a text alternative for the image",
+            "To link the image to another page",
+            "To add a tooltip only for mouse users"
+          ],
+          "answer": 1,
+          "explanation": "alt describes the image for assistive technology and when the image fails to load. It is essential for accessibility."
+        }
+      ]
+    },
+    {
+      "id": "html-lists",
+      "title": "Lists",
+      "subtitle": "Unordered, ordered, and description lists",
+      "tags": ["Beginner", "Structure"],
+      "theory": "HTML supports three list types. Unordered lists (<ul>) use bullets for items where order does not matter—features, ingredients, or navigation groups. Ordered lists (<ol>) use numbers or letters when sequence matters—steps in a recipe or ranked items.\n\nEach list item lives in <li>. You can nest lists by placing a new <ul> or <ol> inside an <li>. Nesting expresses hierarchy, such as outline sections or multi-level menus.\n\nDescription lists (<dl>) pair terms with definitions using <dt> (term) and <dd> (description). They suit glossaries, metadata rows, and FAQ-style content better than forcing everything into a generic bullet list.\n\nBrowsers style lists by default, but CSS can change markers or remove them for custom designs. Keep list markup semantic even when you style it to look like plain text.",
+      "definition": {
+        "label": "Definition",
+        "text": "A list groups related items using ul/ol with li, or terms and definitions using dl with dt and dd."
+      },
+      "keyPoints": [
+        "<ul> for unordered items; <ol> when order matters",
+        "Only <li> should be direct children of ul/ol",
+        "Lists can be nested inside <li> elements",
+        "<dl>, <dt>, <dd> for term–definition pairs"
+      ],
+      "codeExample": {
+        "label": "Three list types",
+        "code": "<ul>\n  <li>HTML</li>\n  <li>CSS</li>\n  <li>JavaScript</li>\n</ul>\n\n<ol>\n  <li>Open the editor</li>\n  <li>Write markup</li>\n  <li>Save as index.html</li>\n</ol>\n\n<dl>\n  <dt>HTML</dt>\n  <dd>HyperText Markup Language</dd>\n</dl>"
+      },
+      "quiz": [
+        {
+          "question": "Which list type should you use for step-by-step instructions?",
+          "options": ["<ul>", "<ol>", "<dl>", "<table>"],
+          "answer": 1,
+          "explanation": "Ordered lists (<ol>) communicate sequence. Unordered lists do not imply order."
+        }
+      ]
+    },
+    {
+      "id": "html-tables",
+      "title": "Tables",
+      "subtitle": "Rows, columns, headers, and accessible tabular data",
+      "tags": ["Beginner", "Data"],
+      "theory": "Tables display tabular data—not page layout. Modern sites use CSS Grid and Flexbox for layout; reserve <table> for data like schedules, pricing, and comparison charts.\n\nA table starts with <table>, contains <tr> rows, and each row holds <td> data cells or <th> header cells. The <thead>, <tbody>, and <tfoot> elements group header, body, and footer rows for clarity and styling.\n\nUse <th scope=\"col\"> or scope=\"row\"> so assistive technologies associate headers with cells. For complex tables, headers and ids can be linked with headers attributes, but simple scope covers many cases.\n\nThe <caption> element provides a title for the table and should appear before other table content in markup. Keep tables as simple as possible; split very large datasets into multiple tables or consider other UI patterns.",
+      "definition": {
+        "label": "Definition",
+        "text": "An HTML table arranges data into rows and columns using table, tr, th, and td elements."
+      },
+      "keyPoints": [
+        "Use tables for data, not for page layout",
+        "<th> marks header cells; use scope for association",
+        "<thead>, <tbody>, <tfoot> organize row groups",
+        "<caption> names the table for all users"
+      ],
+      "codeExample": {
+        "label": "Accessible data table",
+        "code": "<table>\n  <caption>Weekly study plan</caption>\n  <thead>\n    <tr>\n      <th scope=\"col\">Day</th>\n      <th scope=\"col\">Topic</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Monday</td>\n      <td>HTML intro</td>\n    </tr>\n    <tr>\n      <td>Tuesday</td>\n      <td>Links & images</td>\n    </tr>\n  </tbody>\n</table>"
+      },
+      "quiz": [
+        {
+          "question": "Which element identifies a header cell in a table?",
+          "options": ["<td>", "<th>", "<tr>", "<caption>"],
+          "answer": 1,
+          "explanation": "<th> defines a header cell. <td> is for ordinary data cells."
+        }
+      ]
+    },
+    {
+      "id": "html-forms",
+      "title": "Forms",
+      "subtitle": "Inputs, labels, buttons, and submitting data",
+      "tags": ["Beginner", "Interactive"],
+      "theory": "Forms collect user input. The <form> element wraps controls and defines where data is sent with action and how with method (get or post). In static tutorial sites you may not submit anywhere yet, but correct attributes prepare you for backends later.\n\nEvery input needs a label. Associate labels with fields using <label for=\"id\"> matching the input id, or wrap the input inside the label. Placeholder text is not a label replacement—it disappears when users type.\n\nCommon input types include text, email, password, number, checkbox, and radio. The name attribute names the field in submitted data. Buttons use <button type=\"submit\"> or type=\"button\" for actions that do not submit.\n\nUse the required attribute for mandatory fields and appropriate types so mobile keyboards adapt. Group related options with <fieldset> and <legend>, especially for radio button groups.",
+      "definition": {
+        "label": "Definition",
+        "text": "A form is a section containing interactive controls that send named values to a server or script via the action URL."
+      },
+      "keyPoints": [
+        "Always pair <label> with inputs using for/id",
+        "Choose the correct input type for better UX",
+        "name identifies each field in submitted data",
+        "Use fieldset/legend for grouped controls"
+      ],
+      "codeExample": {
+        "label": "Simple contact form",
+        "code": "<form action=\"/subscribe\" method=\"post\">\n  <label for=\"email\">Email</label>\n  <input type=\"email\" id=\"email\" name=\"email\" required />\n\n  <fieldset>\n    <legend>Experience level</legend>\n    <label><input type=\"radio\" name=\"level\" value=\"beginner\" /> Beginner</label>\n    <label><input type=\"radio\" name=\"level\" value=\"advanced\" /> Advanced</label>\n  </fieldset>\n\n  <button type=\"submit\">Subscribe</button>\n</form>"
+      },
+      "quiz": [
+        {
+          "question": "How should a text input be linked to its visible label?",
+          "options": [
+            "Using the placeholder attribute only",
+            "Matching label for with input id",
+            "Putting the label after </html>",
+            "Using the alt attribute on the input"
+          ],
+          "answer": 1,
+          "explanation": "Explicit labeling via for and id is the accessible standard. Wrapping the input in <label> also works."
+        }
+      ]
+    },
+    {
+      "id": "html-semantic",
+      "title": "Semantic HTML",
+      "subtitle": "header, nav, main, article, section, aside, and footer",
+      "tags": ["Intermediate", "Semantics"],
+      "theory": "Semantic elements describe the role of content, not just its appearance. Instead of wrapping everything in generic <div> tags, use elements whose names match meaning: <header>, <nav>, <main>, <article>, <section>, <aside>, and <footer>.\n\nThere should be only one <main> per page, and it should contain the primary unique content. Skip links or landmarks help keyboard users jump to main quickly. <nav> wraps major navigation blocks; smaller link groups may not need it.\n\n<article> is self-contained content that could stand alone—blog post, card, forum post. <section> groups themed content inside a page or article and usually has a heading. <aside> is tangentially related—sidebars, pull quotes, ads.\n\nSemantic markup improves SEO, maintainability, and accessibility without changing visual design. CSS can still style these elements any way you like.",
+      "definition": {
+        "label": "Definition",
+        "text": "Semantic HTML uses elements that clearly describe their purpose in the document structure."
+      },
+      "keyPoints": [
+        "<main> holds the primary page content once per page",
+        "<article> for standalone content; <section> for themed groups",
+        "<nav> for major navigation regions",
+        "Prefer semantic tags over meaningless div soup"
+      ],
+      "codeExample": {
+        "label": "Semantic page layout",
+        "code": "<body>\n  <header>\n    <h1>Learnify</h1>\n    <nav aria-label=\"Primary\">\n      <a href=\"/\">Home</a>\n      <a href=\"/html\">HTML</a>\n    </nav>\n  </header>\n  <main>\n    <article>\n      <h2>Semantic HTML</h2>\n      <section>\n        <h3>Why it matters</h3>\n        <p>Meaningful tags help everyone understand your page.</p>\n      </section>\n    </article>\n    <aside>\n      <p>Related: CSS basics</p>\n    </aside>\n  </main>\n  <footer>\n    <p>&copy; 2026 Learnify</p>\n  </footer>\n</body>"
+      },
+      "quiz": [
+        {
+          "question": "Which element should wrap the primary content of the page?",
+          "options": ["<div class=\"main\">", "<main>", "<section>", "<header>"],
+          "answer": 1,
+          "explanation": "<main> is the dedicated landmark for primary content. There should be only one per page."
+        }
+      ]
+    },
+    {
+      "id": "html-accessibility",
+      "title": "Accessibility & Best Practices",
+      "subtitle": "Landmarks, ARIA basics, validation, and maintainable markup",
+      "tags": ["Intermediate", "Accessibility"],
+      "theory": "Accessible HTML ensures people using screen readers, keyboards, or other assistive tools can perceive, navigate, and interact with your content. Many requirements overlap with good general practice: valid structure, real headings, labels on forms, and text alternatives for images.\n\nUse native HTML elements before reaching for ARIA. Built-in buttons, links, and inputs already expose roles and keyboard support. If you add ARIA roles or aria-label, do so when no native element fits—but do not override native semantics incorrectly.\n\nValidate your HTML with the W3C validator or built-in IDE tools. Unclosed tags and duplicate ids break both layout and assistive behavior. Keep id values unique per page.\n\nWrite clear language, maintain sufficient color contrast in CSS, and ensure focus states remain visible when navigating with Tab. Document your components and keep markup readable so contributors on your open source project can improve lessons over time.",
+      "definition": {
+        "label": "Definition",
+        "text": "Web accessibility means designing HTML and related assets so people with diverse abilities can use the site effectively."
+      },
+      "keyPoints": [
+        "Prefer native elements over custom ARIA widgets",
+        "Unique ids; valid, well-nested markup",
+        "Keyboard focus must be visible and logical",
+        "Validate HTML and test with screen readers when possible"
+      ],
+      "codeExample": {
+        "label": "Accessible button vs div",
+        "code": "<!-- Good: native button -->\n<button type=\"button\" onclick=\"openMenu()\">\n  Open menu\n</button>\n\n<!-- Avoid: div pretending to be a button -->\n<div role=\"button\" tabindex=\"0\" onclick=\"openMenu()\">\n  Open menu\n</div>\n\n<img src=\"chart.png\" alt=\"Bar chart: 80% of students completed lesson 1\" />"
+      },
+      "quiz": [
+        {
+          "question": "When should you reach for ARIA attributes first?",
+          "options": [
+            "Before using any native HTML element",
+            "Only when a native element cannot provide the needed semantics",
+            "On every div to make them valid",
+            "Instead of alt text on images"
+          ],
+          "answer": 1,
+          "explanation": "The first rule of ARIA is to use native HTML when possible. ARIA fills gaps; it does not replace good markup."
+        },
+        {
+          "question": "Why must id attributes be unique on a page?",
+          "options": [
+            "So CSS cannot run",
+            "Because labels, links, and scripts rely on a single target per id",
+            "To make pages load slower",
+            "Browsers require duplicate ids for forms"
+          ],
+          "answer": 1,
+          "explanation": "Duplicate ids break label associations, fragment links, and scripting. Each id must identify one element."
+        }
+      ]
+    }
+  ]
+}

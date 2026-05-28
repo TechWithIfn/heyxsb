@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@300..900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet" />
+    <title>LearnTheory — Learn to Code Free</title>
+    <meta
+      name="description"
+      content="Free, open-source programming tutorials with theory, examples, and quizzes. Learn HTML, CSS, JavaScript, Python, and more."
+    />
+    <script>
+      window.addEventListener('error', function(event) {
+        var root = document.getElementById('root') || document.body || document.documentElement;
+        if (root) {
+          root.innerHTML = '<div style="padding: 24px; max-width: 600px; margin: 40px auto; font-family: system-ui, -apple-system, sans-serif; background: #fff5f5; border: 1px solid #feb2b2; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);"><h1 style="color: #c53030; font-size: 20px; font-weight: bold; margin-bottom: 12px;">Firefox Runtime Error:</h1><p style="color: #4a5568; font-size: 14px; margin-bottom: 16px;">An error occurred during startup before the script could load:</p><pre style="background: #fff; padding: 16px; border-radius: 4px; border: 1px solid #fed7d7; overflow: auto; font-size: 13px; font-family: monospace; color: #2d3748; line-height: 1.5; max-height: 250px;">' + (event.error && event.error.stack ? event.error.stack : event.message) + '</pre><button onclick="window.location.reload()" style="margin-top: 16px; background: #c53030; color: white; border: none; padding: 8px 16px; border-radius: 4px; font-weight: 600; cursor: pointer;">Reload Page</button></div>';
+        }
+      });
+      window.addEventListener('unhandledrejection', function(event) {
+        var root = document.getElementById('root') || document.body || document.documentElement;
+        if (root) {
+          root.innerHTML = '<div style="padding: 24px; max-width: 600px; margin: 40px auto; font-family: system-ui, -apple-system, sans-serif; background: #fff5f5; border: 1px solid #feb2b2; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);"><h1 style="color: #c53030; font-size: 20px; font-weight: bold; margin-bottom: 12px;">Firefox Unhandled Rejection:</h1><p style="color: #4a5568; font-size: 14px; margin-bottom: 16px;">An asynchronous operation failed:</p><pre style="background: #fff; padding: 16px; border-radius: 4px; border: 1px solid #fed7d7; overflow: auto; font-size: 13px; font-family: monospace; color: #2d3748; line-height: 1.5; max-height: 250px;">' + (event.reason && event.reason.stack ? event.reason.stack : event.reason) + '</pre><button onclick="window.location.reload()" style="margin-top: 16px; background: #c53030; color: white; border: none; padding: 8px 16px; border-radius: 4px; font-weight: 600; cursor: pointer;">Reload Page</button></div>';
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+

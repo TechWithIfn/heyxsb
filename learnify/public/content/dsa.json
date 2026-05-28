@@ -1,0 +1,170 @@
+{
+  "slug": "dsa",
+  "title": "DSA",
+  "description": "Data structures and algorithms — complexity, arrays, stacks, trees, and graphs.",
+  "lessons": [
+    {
+      "id": "dsa-intro",
+      "title": "DSA Introduction",
+      "subtitle": "Why structures and algorithms matter",
+      "tags": ["Beginner"],
+      "theory": "Data structures organize data; algorithms are step-by-step procedures that use those structures to solve problems.\n\nChoosing the right structure affects time and memory. A hash map offers fast lookups; a sorted array enables binary search.\n\nInterview prep and production systems both rely on understanding trade-offs, not memorizing every trick.\n\nYou will use Big O notation to compare growth rates as input size increases.",
+      "definition": {
+        "label": "Definition",
+        "text": "DSA is the study of how to store data efficiently and design procedures that run in acceptable time and space."
+      },
+      "keyPoints": [
+        "Structure choice drives performance",
+        "Algorithms operate on structures",
+        "Big O describes scaling behavior",
+        "Practice builds pattern recognition"
+      ],
+      "codeExample": {
+        "label": "Simple timing idea",
+        "language": "javascript",
+        "code": "// O(n): scan an array once\nfunction sum(arr) {\n  let total = 0\n  for (const x of arr) total += x\n  return total\n}"
+      },
+      "quiz": [
+        {
+          "question": "What does DSA stand for?",
+          "options": [
+            "Data Storage API",
+            "Data Structures and Algorithms",
+            "Dynamic Syntax Analysis",
+            "Database Schema Architecture"
+          ],
+          "answer": 1,
+          "explanation": "DSA is the pairing of data structures with algorithms that process them."
+        }
+      ],
+      "next": "dsa-complexity"
+    },
+    {
+      "id": "dsa-complexity",
+      "title": "Big O Basics",
+      "subtitle": "Time and space complexity",
+      "tags": ["Beginner"],
+      "theory": "Big O describes upper-bound growth as n grows. O(1) is constant time; O(n) grows linearly; O(n²) grows with nested loops over n.\n\nDrop constants and lower terms: O(2n + 5) is still O(n). Focus on dominant behavior for large inputs.\n\nSpace complexity counts extra memory beyond the input. An in-place algorithm might be O(1) extra space.\n\nWorst-case analysis is common unless the problem specifies average case.",
+      "definition": {
+        "label": "Definition",
+        "text": "Big O notation expresses how resource usage scales with input size n, ignoring constant factors."
+      },
+      "keyPoints": [
+        "O(1), O(log n), O(n), O(n log n), O(n²) are common",
+        "Nested loops often imply O(n²)",
+        "Binary search is O(log n) on sorted data",
+        "Space and time are analyzed separately"
+      ],
+      "codeExample": {
+        "label": "O(n²) pattern",
+        "language": "javascript",
+        "code": "function pairs(arr) {\n  const out = []\n  for (let i = 0; i < arr.length; i++) {\n    for (let j = i + 1; j < arr.length; j++) {\n      out.push([arr[i], arr[j]])\n    }\n  }\n  return out\n}"
+      },
+      "quiz": [
+        {
+          "question": "What is the complexity of scanning an array once?",
+          "options": ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+          "answer": 2,
+          "explanation": "A single loop over n elements is linear: O(n)."
+        }
+      ],
+      "prev": "dsa-intro",
+      "next": "dsa-arrays"
+    },
+    {
+      "id": "dsa-arrays",
+      "title": "Arrays and Strings",
+      "subtitle": "Indexing, two pointers, and sliding window",
+      "tags": ["Beginner"],
+      "theory": "Arrays offer O(1) random access by index but O(n) insertion in the middle of a contiguous array.\n\nMany problems use two pointers from both ends or a sliding window to avoid redundant scans.\n\nStrings are often treated as character arrays. Immutability in some languages means building new strings costs extra.\n\nPrefix sums precompute cumulative totals for fast range queries.",
+      "definition": {
+        "label": "Definition",
+        "text": "An array is a contiguous sequence of elements addressed by integer indices, usually with O(1) access time."
+      },
+      "keyPoints": [
+        "Index access is typically O(1)",
+        "Two pointers reduce duplicate work",
+        "Sliding window tracks a subrange",
+        "Strings share many array techniques"
+      ],
+      "codeExample": {
+        "label": "Two sum sorted (concept)",
+        "language": "javascript",
+        "code": "function twoSumSorted(nums, target) {\n  let left = 0\n  let right = nums.length - 1\n  while (left < right) {\n    const sum = nums[left] + nums[right]\n    if (sum === target) return [left, right]\n    if (sum < target) left++\n    else right--\n  }\n  return []\n}"
+      },
+      "quiz": [
+        {
+          "question": "Random access by index in a static array is typically?",
+          "options": ["O(n)", "O(log n)", "O(1)", "O(n²)"],
+          "answer": 2,
+          "explanation": "Computing base + index * element size gives constant-time access."
+        }
+      ],
+      "prev": "dsa-complexity",
+      "next": "dsa-stacks-queues"
+    },
+    {
+      "id": "dsa-stacks-queues",
+      "title": "Stacks and Queues",
+      "subtitle": "LIFO, FIFO, and when to use them",
+      "tags": ["Beginner"],
+      "theory": "A stack supports push and pop at one end — Last In, First Out (LIFO). Use it for parsing, undo, and DFS.\n\nA queue supports enqueue at the back and dequeue at the front — First In, First Out (FIFO). BFS on graphs uses a queue.\n\nBoth can be implemented with arrays or linked lists. Amortized array resizing is common in practice.\n\nDeque (double-ended queue) allows efficient operations at both ends.",
+      "definition": {
+        "label": "Definition",
+        "text": "A stack removes the most recently added item first; a queue removes the oldest waiting item first."
+      },
+      "keyPoints": [
+        "Stack: push/pop O(1) amortized",
+        "Queue: enqueue/dequeue O(1) with proper design",
+        "DFS uses a stack (or recursion)",
+        "BFS uses a queue"
+      ],
+      "codeExample": {
+        "label": "Stack with array",
+        "language": "javascript",
+        "code": "const stack = []\nstack.push(1)\nstack.push(2)\nconst top = stack.pop() // 2"
+      },
+      "quiz": [
+        {
+          "question": "Which structure is LIFO?",
+          "options": ["Queue", "Stack", "Heap", "Graph"],
+          "answer": 1,
+          "explanation": "Stacks are Last In, First Out."
+        }
+      ],
+      "prev": "dsa-arrays",
+      "next": "dsa-trees"
+    },
+    {
+      "id": "dsa-trees",
+      "title": "Trees and Graphs",
+      "subtitle": "Hierarchies, traversals, and search",
+      "tags": ["Beginner"],
+      "theory": "A tree is a connected acyclic graph with a root. Binary trees have at most two children per node.\n\nTraversals visit nodes in orders: preorder, inorder, postorder, or level-order (BFS).\n\nBinary search trees keep left smaller and right larger, enabling O(log n) search when balanced.\n\nGraphs add cycles and arbitrary connections. Represent with adjacency lists or matrices; run BFS/DFS for reachability.",
+      "definition": {
+        "label": "Definition",
+        "text": "A tree is a hierarchical structure of nodes and edges without cycles; a graph generalizes connections between entities."
+      },
+      "keyPoints": [
+        "BST property enables ordered search",
+        "BFS uses a queue; DFS uses stack/recursion",
+        "Adjacency list is space-efficient for sparse graphs",
+        "Balance matters for performance guarantees"
+      ],
+      "codeExample": {
+        "label": "BFS skeleton",
+        "language": "javascript",
+        "code": "function bfs(start, neighbors) {\n  const q = [start]\n  const seen = new Set([start])\n  while (q.length) {\n    const node = q.shift()\n    for (const n of neighbors(node)) {\n      if (!seen.has(n)) {\n        seen.add(n)\n        q.push(n)\n      }\n    }\n  }\n}"
+      },
+      "quiz": [
+        {
+          "question": "Which traversal uses a queue on a tree?",
+          "options": ["Preorder only", "Level-order (BFS)", "Inorder only", "Postorder only"],
+          "answer": 1,
+          "explanation": "Level-order traversal processes nodes breadth-first with a queue."
+        }
+      ],
+      "prev": "dsa-stacks-queues"
+    }
+  ]
+}

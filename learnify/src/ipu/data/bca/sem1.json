@@ -1,0 +1,278 @@
+[
+  {
+    "id": "bca-core-1",
+    "code": "BCA-101",
+    "name": "Fundamentals — BCA Semester 1",
+    "shortName": "BCA I",
+    "credits": 20,
+    "type": "theory",
+    "icon": "💻",
+    "description": "Introductory BCA topics: programming foundations, computer systems, basic mathematics and web essentials.",
+    "units": [
+      {
+        "unitNumber": 1,
+        "title": "Programming Fundamentals",
+        "topics": [
+          {
+            "id": "bca-s1-u1-t1",
+            "title": "Intro to Programming and Variables",
+            "subtopics": ["Variables","Data types","Input/Output"],
+            "content": {
+              "theory": [
+                "Programming starts with representing and manipulating data via variables and types; understanding primitive types and basic I/O is the first step.",
+                "Control flow constructs such as conditionals and loops enable algorithmic expression; simple programs combine these elements with I/O to solve problems.",
+                "Writing clear, well-structured code with comments and simple functions improves readability and maintainability for beginner programmers." 
+              ],
+              "definition": { "label": "Definition", "text": "A variable stores a value in memory identified by a name and associated with a data type describing allowed operations." },
+              "keyPoints": ["Declare and initialize variables","Understand primitive data types","Use input/output APIs","Follow naming conventions","Test small examples"],
+              "formulas": [],
+              "examples": [ { "problem": "Write program to swap two numbers", "solution": "Use temporary variable or arithmetic swap." }, { "problem": "Read and print a string", "solution": "Use language-specific input/read routines." } ],
+              "notes": ["Start with simple problems and build up"],
+              "examQuestions": [ { "marks": 4, "question": "Declare variables of different types." }, { "marks": 4, "question": "Write program to add two numbers." }, { "marks": 6, "question": "Explain role of data types." } ],
+              "pyqs": [ { "year": 2023, "question": "Simple I/O program." }, { "year": 2022, "question": "Variable types." } ],
+              "references": ["Intro programming textbooks"]
+            }
+          },
+          {
+            "id": "bca-s1-u1-t2",
+            "title": "Control Structures",
+            "subtopics": ["If-else","Loops","Switch"],
+            "content": {
+              "theory": [
+                "Control structures compose basic program logic; conditionals change execution flow and loops repeat computations until conditions are met.",
+                "Choosing the right loop and structuring conditions avoids infinite loops and errors; loop invariants are useful for reasoning about correctness at a simple level.",
+                "Practical exercises with for/while loops and nested conditionals build fluency for beginner programmers in BCA courses." 
+              ],
+              "definition": { "label": "Definition", "text": "Control structures determine the order of execution of statements based on boolean conditions or repetition constructs." },
+              "keyPoints": ["Use if-else for branching","Use for/while appropriately","Avoid off-by-one errors","Break/continue control flow","Test edge cases"],
+              "formulas": [],
+              "examples": [ { "problem": "Sum first n natural numbers", "solution": "Use loop to accumulate sum." }, { "problem": "Find max in array", "solution": "Iterate and track maximum." } ],
+              "notes": ["Trace loops manually for small inputs when debugging"],
+              "examQuestions": [ { "marks": 4, "question": "Write loop to compute factorial." }, { "marks": 4, "question": "Explain break usage." }, { "marks": 6, "question": "Detect off-by-one in code." } ],
+              "pyqs": [ { "year": 2023, "question": "Simple loop problem." }, { "year": 2022, "question": "Conditional usage." } ],
+              "references": ["Intro programming guides"]
+            }
+          },
+          {
+            "id": "bca-s1-u1-t3",
+            "title": "Functions and Modular Programming",
+            "subtopics": ["Functions","Parameters","Return values"],
+            "content": {
+              "theory": [
+                "Functions support modularity by encapsulating reusable logic with well-defined inputs and outputs, reducing code duplication and aiding organization.",
+                "Parameter passing, scope and return values are foundational concepts; understanding local vs global scope prevents common beginner bugs.",
+                "Simple decomposition of problems into functions is a key programming skill taught in early BCA semesters." 
+              ],
+              "definition": { "label": "Definition", "text": "A function is a named block of code that can be invoked with arguments to perform tasks and optionally return a result." },
+              "keyPoints": ["Define clear function interfaces","Keep functions short","Use parameters for inputs","Return values for results","Document behavior"],
+              "formulas": [],
+              "examples": [ { "problem": "Write function to compute gcd", "solution": "Implement Euclidean algorithm in a function." }, { "problem": "Modularize previous program", "solution": "Refactor code into functions." } ],
+              "notes": ["Prefer pure functions where possible for easier reasoning"],
+              "examQuestions": [ { "marks": 4, "question": "Define a function with parameters." }, { "marks": 4, "question": "Explain scope rules." }, { "marks": 6, "question": "Refactor code into functions." } ],
+              "pyqs": [ { "year": 2023, "question": "Function example." }, { "year": 2022, "question": "Scope question." } ],
+              "references": ["Beginner programming texts"]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 2,
+        "title": "Computer Systems Basics",
+        "topics": [
+          {
+            "id": "bca-s1-u2-t1",
+            "title": "Computer Organization Overview",
+            "subtopics": ["CPU","Memory","I/O"],
+            "content": {
+              "theory": [
+                "Computer organization covers the main components of a computer: processor, memory hierarchy and input/output devices and how they interact to execute programs.",
+                "Understanding fetch-decode-execute cycles and basic CPU datapath helps link high-level programs to machine behavior, useful for optimizing simple programs.",
+                "Memory types (registers, cache, RAM, secondary storage) have different speeds and uses, introducing students to performance considerations." 
+              ],
+              "definition": { "label": "Definition", "text": "Computer organization studies hardware components and their interactions to implement instruction execution and data movement." },
+              "keyPoints": ["Recognize CPU, memory, I/O roles","Understand basic instruction cycle","Know memory hierarchy","Identify primary vs secondary storage","Relate code to machine operations"],
+              "formulas": [],
+              "examples": [ { "problem": "Explain fetch-execute cycle", "solution": "Describe instruction fetch, decode and execute stages." }, { "problem": "Compare RAM vs disk", "solution": "Discuss speed and persistence differences." } ],
+              "notes": ["Hands-on experiments with simple programs illustrate cycles"],
+              "examQuestions": [ { "marks": 4, "question": "List main CPU stages." }, { "marks": 4, "question": "Define cache briefly." }, { "marks": 6, "question": "Explain memory hierarchy." } ],
+              "pyqs": [ { "year": 2023, "question": "Fetch-decode-execute." }, { "year": 2022, "question": "Storage types." } ],
+              "references": ["Intro computer organization texts"]
+            }
+          },
+          {
+            "id": "bca-s1-u2-t2",
+            "title": "Number Systems and Boolean Algebra",
+            "subtopics": ["Binary/Hex","Logic gates","Simplification"],
+            "content": {
+              "theory": [
+                "Number systems represent data at machine level; conversions between decimal, binary and hexadecimal are standard operations for understanding low-level representations.",
+                "Boolean algebra and logic gates implement decision logic in hardware; simplification techniques reduce gate counts and improve circuit efficiency.",
+                "These foundational topics support later digital design and programming tasks in BCA and are introduced with practical exercises." 
+              ],
+              "definition": { "label": "Definition", "text": "Boolean algebra manipulates binary variables using logical operations (AND, OR, NOT) to model digital circuits." },
+              "keyPoints": ["Perform base conversions","Understand bitwise operations","Simplify expressions with Karnaugh maps","Use gates to build circuits","Relate Boolean expressions to code"],
+              "formulas": [],
+              "examples": [ { "problem": "Convert 45 to binary", "solution": "Divide and record remainders to get 101101." }, { "problem": "Simplify Boolean expr", "solution": "Apply De Morgan and simplification rules." } ],
+              "notes": ["Practice conversions and truth tables regularly"],
+              "examQuestions": [ { "marks": 4, "question": "Convert decimal to binary." }, { "marks": 4, "question": "Truth table for NAND." }, { "marks": 6, "question": "Simplify expression via Karnaugh map." } ],
+              "pyqs": [ { "year": 2023, "question": "Number conversion." }, { "year": 2022, "question": "Boolean example." } ],
+              "references": ["Digital logic basics"]
+            }
+          },
+          {
+            "id": "bca-s1-u2-t3",
+            "title": "Software Tools and Environments",
+            "subtopics": ["IDEs","Version control","Build tools"],
+            "content": {
+              "theory": [
+                "Practical software development requires familiarity with tools: editors/IDEs, version control systems and build utilities to manage code and collaboration.",
+                "Version control (git) enables tracking changes and coordinating teams; basic workflows and branching models are introduced at BCA level.",
+                "Simple build and run workflows for classroom projects give students hands-on experience deploying code and managing dependencies." 
+              ],
+              "definition": { "label": "Definition", "text": "IDEs and version control systems aid development productivity by providing editing, debugging and history tracking features." },
+              "keyPoints": ["Learn basic git commands","Use IDE debugger","Automate builds","Document project README","Share code via repositories"],
+              "formulas": [],
+              "examples": [ { "problem": "Initialize git repo and commit", "solution": "Use git init, add, commit sequence." }, { "problem": "Run debugger on program", "solution": "Set breakpoint and step through." } ],
+              "notes": ["Use simple branching policies for student projects"],
+              "examQuestions": [ { "marks": 4, "question": "Git add/commit usage." }, { "marks": 4, "question": "Role of an IDE." }, { "marks": 6, "question": "Describe a simple build process." } ],
+              "pyqs": [ { "year": 2023, "question": "Git basics." }, { "year": 2022, "question": "IDE feature." } ],
+              "references": ["Version control tutorials"]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 3,
+        "title": "Mathematics for Computing",
+        "topics": [
+          {
+            "id": "bca-s1-u3-t1",
+            "title": "Elementary Discrete Mathematics",
+            "subtopics": ["Sets","Relations","Functions"],
+            "content": {
+              "theory": [
+                "Discrete mathematics introduces sets, relations and functions which underpin data structures and algorithms in computing.",
+                "Understanding function properties and relation types helps model program behavior and database relations at a conceptual level for BCA students.",
+                "Simple proofs and reasoning about sets prepare students for algorithmic thinking and further CS topics." 
+              ],
+              "definition": { "label": "Definition", "text": "Discrete mathematics studies mathematical structures that are fundamentally discrete rather than continuous." },
+              "keyPoints": ["Define sets and operations","Understand relations and properties","Recognize functions and bijections","Use basic proof techniques","Apply to simple counting"],
+              "formulas": [],
+              "examples": [ { "problem": "Show function is bijection", "solution": "Provide proof of one-to-one and onto." }, { "problem": "Set union/intersection", "solution": "Compute using listed elements." } ],
+              "notes": ["Practice Venn diagrams for intuition"],
+              "examQuestions": [ { "marks": 4, "question": "Define function and types." }, { "marks": 4, "question": "Compute set operations." }, { "marks": 6, "question": "Prove simple set identity." } ],
+              "pyqs": [ { "year": 2023, "question": "Set example." }, { "year": 2022, "question": "Function type." } ],
+              "references": ["Discrete mathematics introductory texts"]
+            }
+          },
+          {
+            "id": "bca-s1-u3-t2",
+            "title": "Basic Probability and Statistics",
+            "subtopics": ["Probability","Mean/Variance","Distributions"],
+            "content": {
+              "theory": [
+                "Introductory probability helps reason about uncertainty and expected outcomes, foundational for later data topics.",
+                "Descriptive statistics summarize data via measures like mean and variance; understanding distributions aids in interpreting computer science experiments.",
+                "Basic combinatorics supports probability computations for finite sample spaces commonly seen in exam problems." 
+              ],
+              "definition": { "label": "Definition", "text": "Probability quantifies the likelihood of events in a sample space; statistics summarize and infer properties of data." },
+              "keyPoints": ["Compute simple probabilities","Use mean and variance to summarize","Work with discrete distributions","Understand independence","Apply basic combinatorics"],
+              "formulas": ["E[X]=Σ x p(x), Var(X)=E[X^2]−E[X]^2"],
+              "examples": [ { "problem": "Compute probability of dice sum", "solution": "Enumerate outcomes and compute count/36." }, { "problem": "Compute mean of list", "solution": "Average values." } ],
+              "notes": ["Distinguish between population and sample measures"],
+              "examQuestions": [ { "marks": 4, "question": "Compute probability for simple event." }, { "marks": 4, "question": "Define mean and variance." }, { "marks": 6, "question": "Apply combinatorics to compute probability." } ],
+              "pyqs": [ { "year": 2023, "question": "Dice probability." }, { "year": 2022, "question": "Mean example." } ],
+              "references": ["Basic probability texts"]
+            }
+          },
+          {
+            "id": "bca-s1-u3-t3",
+            "title": "Logical Reasoning and Problem Solving",
+            "subtopics": ["Algorithms thinking","Pseudocode","Debugging"],
+            "content": {
+              "theory": [
+                "Logical reasoning applies structured thought to design algorithms and debug problems; pseudocode expresses logic without language syntax.",
+                "Decomposition, pattern recognition and abstraction are problem-solving skills practiced with algorithmic exercises in early BCA semesters.",
+                "Hands-on debugging and test-cases develop practical skills to validate and refine solutions." 
+              ],
+              "definition": { "label": "Definition", "text": "Problem solving in computing uses decomposition, pattern identification and algorithm design to produce correct and efficient solutions." },
+              "keyPoints": ["Break problems into subproblems","Write clear pseudocode","Use examples to test logic","Trace manually for small inputs","Iteratively refine solutions"],
+              "formulas": [],
+              "examples": [ { "problem": "Design algorithm to reverse string", "solution": "Use two-pointer swap or stack." }, { "problem": "Trace pseudocode on sample input", "solution": "Manually follow steps." } ],
+              "notes": ["Practice with varied problem sets to build skill"],
+              "examQuestions": [ { "marks": 4, "question": "Write pseudocode for simple task." }, { "marks": 4, "question": "Explain decomposition." }, { "marks": 6, "question": "Debug given pseudocode." } ],
+              "pyqs": [ { "year": 2023, "question": "Pseudocode exercise." }, { "year": 2022, "question": "Debug small snippet." } ],
+              "references": ["Intro problem solving guides"]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 4,
+        "title": "Web and Application Basics",
+        "topics": [
+          {
+            "id": "bca-s1-u4-t1",
+            "title": "HTML & CSS Fundamentals",
+            "subtopics": ["Structure","Styling","Forms"],
+            "content": {
+              "theory": [
+                "HTML structures web pages with semantic tags while CSS provides styling and layout capabilities enabling presentable user interfaces.",
+                "Forms collect user input and require validation; combining HTML semantics with CSS accessibility best practices yields usable pages for diverse users.",
+                "Responsive design basics using media queries introduce adaptation to different devices, a practical skill for BCA student projects." 
+              ],
+              "definition": { "label": "Definition", "text": "HTML defines page structure; CSS controls visual presentation and layout rules for rendering in browsers." },
+              "keyPoints": ["Use semantic tags","Separate content and presentation","Validate forms client-side and server-side","Design for accessibility","Test across browsers"],
+              "formulas": [],
+              "examples": [ { "problem": "Create simple form page", "solution": "Use <form>, inputs and basic CSS." }, { "problem": "Style header", "solution": "Apply CSS classes and layout styles." } ],
+              "notes": ["Prefer progressive enhancement"],
+              "examQuestions": [ { "marks": 4, "question": "Write HTML skeleton." }, { "marks": 4, "question": "Add CSS to center content." }, { "marks": 6, "question": "Create accessible form." } ],
+              "pyqs": [ { "year": 2023, "question": "HTML exercise." }, { "year": 2022, "question": "CSS rule." } ],
+              "references": ["MDN Web Docs"]
+            }
+          },
+          {
+            "id": "bca-s1-u4-t2",
+            "title": "Intro to JavaScript",
+            "subtopics": ["Variables","DOM","Events"],
+            "content": {
+              "theory": [
+                "JavaScript adds interactivity to web pages by manipulating the DOM and responding to user events; basic language constructs enable dynamic behavior.",
+                "Understanding event-driven programming, callbacks and simple DOM APIs allows students to build interactive front-end components for projects.",
+                "Safe DOM usage and basic debugging skills are taught to avoid common pitfalls like event listener leaks and performance issues." 
+              ],
+              "definition": { "label": "Definition", "text": "JavaScript is a high-level interpreted language used primarily for client-side scripting in web browsers to implement interactive behavior." },
+              "keyPoints": ["Understand variable scoping","Use event listeners","Manipulate DOM elements","Avoid blocking UIs","Debug with console and devtools"],
+              "formulas": [],
+              "examples": [ { "problem": "Change element text on button click", "solution": "Add event listener and modify innerText." }, { "problem": "Validate form input", "solution": "Check values and show messages." } ],
+              "notes": ["Use unobtrusive JS and progressive enhancement"],
+              "examQuestions": [ { "marks": 4, "question": "Add click handler to button." }, { "marks": 4, "question": "Select DOM element by id." }, { "marks": 6, "question": "Explain event propagation." } ],
+              "pyqs": [ { "year": 2023, "question": "DOM manipulation." }, { "year": 2022, "question": "Event listener example." } ],
+              "references": ["MDN JavaScript guide"]
+            }
+          },
+          {
+            "id": "bca-s1-u4-t3",
+            "title": "Basic Project Work and Ethics",
+            "subtopics": ["Small projects","Documentation","Academic integrity"],
+            "content": {
+              "theory": [
+                "Small guided projects combine learned skills into working artifacts; documentation and simple version control support collaboration and reproducibility.",
+                "Academic integrity and proper citation practices are emphasized to build good scholarly habits in software development contexts.",
+                "Students learn to prepare short reports, present demos and follow simple project management practices for semester assignments." 
+              ],
+              "definition": { "label": "Definition", "text": "A project integrates learning into a deliverable demonstrating applied skills, accompanied by documentation and presentations." },
+              "keyPoints": ["Plan scope realistically","Document code and usage","Follow citation and integrity rules","Prepare a short demo","Use simple version control"],
+              "formulas": [],
+              "examples": [ { "problem": "Build a static portfolio page", "solution": "Combine HTML/CSS and host via repo pages." }, { "problem": "Write README", "solution": "Include setup and contact info." } ],
+              "notes": ["Keep project scope small and achievable"],
+              "examQuestions": [ { "marks": 4, "question": "List README sections." }, { "marks": 4, "question": "Why cite sources?" }, { "marks": 6, "question": "Plan a small project timeline." } ],
+              "pyqs": [ { "year": 2023, "question": "Project idea." }, { "year": 2022, "question": "Documentation basics." } ],
+              "references": ["Teaching project guides"]
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,270 @@
+[
+  {
+    "id": "mathematics-2",
+    "code": "BS-201",
+    "name": "Mathematics-II",
+    "shortName": "Maths II",
+    "credits": 4,
+    "type": "theory",
+    "icon": "📊",
+    "description": "Discrete mathematics, transforms, and basic graph theory for IT applications.",
+    "units": [
+      {
+        "unitNumber": 1,
+        "title": "Discrete Mathematics",
+        "topics": [
+          {
+            "id": "dm-u1-t1",
+            "title": "Logic and Proofs",
+            "subtopics": ["Propositions","Implication","Proof techniques"],
+            "content": {
+              "theory": [
+                "Propositional logic provides the language for specifying conditions and reasoning about program correctness.",
+                "Proof techniques such as induction and contradiction are used to verify algorithmic properties and correctness claims.",
+                "Logical equivalences simplify complex boolean expressions often found in conditionals and circuit design." 
+              ],
+              "definition": { "label": "Definition", "text": "A proposition is a statement that is either true or false; logical connectives combine propositions into compound statements." },
+              "keyPoints": ["Truth tables","Quantifiers and scope","Use induction for recursive algorithms","Contradiction proves impossibility","Normalize boolean expressions"],
+              "formulas": [ { "name": "De Morgan", "formula": "¬(P ∧ Q) ≡ ¬P ∨ ¬Q" } ],
+              "examples": [ { "problem": "Prove sum formula by induction", "solution": "Use base case and inductive step." }, { "problem": "Simplify boolean expression", "solution": "Apply De Morgan and distributive laws." } ],
+              "notes": ["State base case clearly for induction","Use quantifier notation carefully"],
+              "examQuestions": [ { "marks": 2, "question": "Define proposition." }, { "marks": 5, "question": "Prove a small identity." }, { "marks": 10, "question": "Use induction to prove correctness." } ],
+              "pyqs": [ { "year": 2023, "question": "Induction proof", "marks": 10 }, { "year": 2022, "question": "Simplify logic", "marks": 5 } ],
+              "references": ["Discrete Mathematics - Rosen"]
+            }
+          },
+          {
+            "id": "dm-u1-t2",
+            "title": "Sets, Relations and Functions",
+            "subtopics": ["Set operations","Equivalence relations","Functions"],
+            "content": {
+              "theory": [
+                "Set theory and functions form the foundation of data model descriptions and type systems used in computing.",
+                "Equivalence relations partition sets and support grouping concepts like hashing and canonical forms.",
+                "Understanding injections, surjections, and bijections helps when reasoning about reversibility of mappings in programs." 
+              ],
+              "definition": { "label": "Definition", "text": "A function f from A to B assigns each element of A to exactly one element of B; relations are subsets of Cartesian products." },
+              "keyPoints": ["Operations: union, intersection, complement","Relation properties: reflexive, symmetric, transitive","Function types and cardinality","Use in database keys and mappings","Representations via adjacency"],
+              "formulas": [],
+              "examples": [ { "problem": "Show relation is equivalence", "solution": "Verify three properties." }, { "problem": "Find inverse mapping", "solution": "Check bijectivity and construct inverse." } ],
+              "notes": ["Clearly state domain and codomain"],
+              "examQuestions": [ { "marks": 2, "question": "Define function." }, { "marks": 5, "question": "Show relation is symmetric." }, { "marks": 10, "question": "Prove a mapping is bijective." } ],
+              "pyqs": [ { "year": 2023, "question": "Relation properties", "marks": 5 }, { "year": 2022, "question": "Function inverse", "marks": 10 } ],
+              "references": ["Discrete Mathematics - Kenneth Rosen"]
+            }
+          },
+          {
+            "id": "dm-u1-t3",
+            "title": "Combinatorics and Graph Basics",
+            "subtopics": ["Counting principles","Permutations","Graph definitions"],
+            "content": {
+              "theory": [
+                "Counting principles estimate solution spaces and are used in complexity estimates and enumeration problems.",
+                "Basic graph definitions introduce vertices, edges, paths and cycles—the language for modeling networks and dependencies.",
+                "Combinatorial reasoning underpins probabilistic analysis and hashing methods in IT systems." 
+              ],
+              "definition": { "label": "Definition", "text": "A graph G=(V,E) consists of a vertex set V and an edge set E connecting pairs of vertices." },
+              "keyPoints": ["Pigeonhole principle","Basic permutations and combinations","Graph traversal concepts","Represent graphs via adjacency list/matrix","Use counting for complexity bounds"],
+              "formulas": [],
+              "examples": [ { "problem": "Count combinations", "solution": "Apply nCr formula." }, { "problem": "Simple graph representation", "solution": "Construct adjacency list." } ],
+              "notes": ["State constraints when counting"],
+              "examQuestions": [ { "marks": 2, "question": "Define graph." }, { "marks": 5, "question": "Compute permutations." }, { "marks": 10, "question": "Apply counting to a problem." } ],
+              "pyqs": [ { "year": 2023, "question": "Counting example", "marks": 5 }, { "year": 2022, "question": "Graph task", "marks": 10 } ],
+              "references": ["Concrete Mathematics - Graham et al."]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 2,
+        "title": "Transforms and Signals",
+        "topics": [
+          {
+            "id": "tr-u2-t1",
+            "title": "Fourier Series and Transforms",
+            "subtopics": ["Fourier series","Continuous FT","Discrete FT"],
+            "content": {
+              "theory": [
+                "Fourier analysis decomposes signals into frequency components used in signal processing and compression algorithms.",
+                "Discrete Fourier Transform (DFT) enables frequency-domain processing on sampled data and underlies FFT implementations used widely in engineering.",
+                "Understanding aliasing and sampling interplay is essential when digitizing analog signals for processing in IT systems." 
+              ],
+              "definition": { "label": "Definition", "text": "Fourier transform converts a time-domain signal into its frequency-domain representation." },
+              "keyPoints": ["Orthogonality of basis functions","Sampling and aliasing concerns","Efficient FFT algorithms","Use for filtering and compression","Windowing effects"],
+              "formulas": [ { "name": "DFT", "formula": "X_k = Σ_{n=0}^{N-1} x_n e^{−j2πkn/N}" } ],
+              "examples": [ { "problem": "Compute DFT of simple sequence", "solution": "Apply formula or use FFT." }, { "problem": "Explain aliasing", "solution": "Show under-sampling example." } ],
+              "notes": ["Pick appropriate sampling rates","Use libraries for FFT in practice"],
+              "examQuestions": [ { "marks": 2, "question": "State DFT definition." }, { "marks": 5, "question": "Compute small DFT." }, { "marks": 10, "question": "Discuss aliasing." } ],
+              "pyqs": [ { "year": 2023, "question": "DFT computation", "marks": 5 }, { "year": 2022, "question": "FFT application", "marks": 10 } ],
+              "references": ["Oppenheim & Schafer - Signals and Systems"]
+            }
+          },
+          {
+            "id": "tr-u2-t2",
+            "title": "Sampling and Reconstruction",
+            "subtopics": ["Nyquist","Anti-aliasing","Interpolation"],
+            "content": {
+              "theory": [
+                "Sampling theory prescribes conditions to reconstruct analog signals from samples and avoid information loss.",
+                "Anti-aliasing filters prevent high-frequency content from folding into the sampled band when digitizing signals.",
+                "Interpolation methods reconstruct continuous approximations and are used in resampling and display scaling." 
+              ],
+              "definition": { "label": "Definition", "text": "Nyquist theorem states that to reconstruct a band-limited signal, sampling frequency must exceed twice the maximum signal frequency." },
+              "keyPoints": ["Nyquist rate","Use anti-alias filters","Reconstruction via sinc interpolation","Sampling practicalities in hardware","Quantization differences"],
+              "formulas": [ { "name": "Nyquist", "formula": "f_s > 2 f_{max}" } ],
+              "examples": [ { "problem": "Determine sampling rate", "solution": "Choose >2× signal bandwidth." }, { "problem": "Design anti-alias filter", "solution": "Select cutoff < f_s/2." } ],
+              "notes": ["Consider practical filter roll-off"],
+              "examQuestions": [ { "marks": 2, "question": "State Nyquist theorem." }, { "marks": 5, "question": "Explain anti-aliasing." }, { "marks": 10, "question": "Design sampling for a signal." } ],
+              "pyqs": [ { "year": 2023, "question": "Sampling calc", "marks": 5 }, { "year": 2022, "question": "Reconstruction example", "marks": 10 } ],
+              "references": ["Oppenheim & Schafer"]
+            }
+          },
+          {
+            "id": "tr-u2-t3",
+            "title": "Z-Transform and Discrete Systems",
+            "subtopics": ["Z-transform","Stability","Difference equations"],
+            "content": {
+              "theory": [
+                "Z-transform provides a tool for analyzing discrete-time systems, their stability and response—useful in digital filters and control loops.",
+                "Pole-zero analysis aids in designing stable filters and understanding resonance in discrete systems.",
+                "Difference equations model recurrence relations in algorithms and digital signal processes." 
+              ],
+              "definition": { "label": "Definition", "text": "Z-transform X(z)=Σ x[n] z^{−n} converts a discrete sequence into a complex function for analysis." },
+              "keyPoints": ["Region of convergence matters","Pole-zero plots determine stability","Use for designing IIR/FIR filters","Solve difference equations via Z-transform","Relate to DFT for frequency analysis"],
+              "formulas": [],
+              "examples": [ { "problem": "Z-transform of simple sequence", "solution": "Compute closed-form expression." }, { "problem": "Stability check", "solution": "Locate poles inside unit circle." } ],
+              "notes": ["Map z-plane to frequency for interpretation"],
+              "examQuestions": [ { "marks": 2, "question": "Define Z-transform." }, { "marks": 5, "question": "Compute transform for x[n]=a^n." }, { "marks": 10, "question": "Analyze stability via poles." } ],
+              "pyqs": [ { "year": 2023, "question": "Z-transform task", "marks": 5 }, { "year": 2022, "question": "Pole-zero analysis", "marks": 10 } ],
+              "references": ["Proakis & Manolakis - DSP"]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 3,
+        "title": "Graph Theory and Algorithms",
+        "topics": [
+          {
+            "id": "ga-u3-t1",
+            "title": "Graph Traversals",
+            "subtopics": ["BFS","DFS","Applications"],
+            "content": {
+              "theory": [
+                "Breadth-First and Depth-First Search are fundamental traversals used for exploring graphs, finding shortest paths in unweighted graphs, and topological ordering.",
+                "Traversal methods underpin many algorithms for connectivity, component labeling, and exploring state spaces in computation problems.",
+                "Efficient implementation uses adjacency lists and avoids repeated visits via marking arrays." 
+              ],
+              "definition": { "label": "Definition", "text": "BFS explores vertices in layers from a source, while DFS follows paths deeply before backtracking." },
+              "keyPoints": ["BFS uses queue, DFS uses stack/recursion","BFS finds shortest path in unweighted graphs","Track visited nodes to avoid cycles","Use adjacency lists for sparse graphs","Applications include web crawling and AI search"],
+              "formulas": [],
+              "examples": [ { "problem": "Run BFS on small graph", "solution": "List visit order and distances." }, { "problem": "Use DFS for cycle detection", "solution": "Track recursion stack to find back edges." } ],
+              "notes": ["Specify starting node and graph type"],
+              "examQuestions": [ { "marks": 2, "question": "State BFS algorithm." }, { "marks": 5, "question": "Implement DFS recursively." }, { "marks": 10, "question": "Use BFS to find shortest path." } ],
+              "pyqs": [ { "year": 2023, "question": "BFS traversal", "marks": 5 }, { "year": 2022, "question": "DFS application", "marks": 10 } ],
+              "references": ["Algorithm Design - Kleinberg & Tardos","CLRS"]
+            }
+          },
+          {
+            "id": "ga-u3-t2",
+            "title": "Shortest Paths and Trees",
+            "subtopics": ["Dijkstra","Prim/Kruskal","MST applications"],
+            "content": {
+              "theory": [
+                "Shortest path algorithms compute minimal-cost routes; Dijkstra solves non-negative weighted graphs efficiently with priority queues.",
+                "Minimum spanning trees connect all nodes with minimal total weight and find use in network design and clustering." ,
+                "Union-Find data structure accelerates Kruskal's algorithm for MST construction." 
+              ],
+              "definition": { "label": "Definition", "text": "A minimum spanning tree is a subset of edges connecting all vertices with minimal total weight." },
+              "keyPoints": ["Use heap for Dijkstra","Choose correct algorithm for graph density","MST via Prim or Kruskal","Union-Find for cycle checks","Applications in networking"],
+              "formulas": [],
+              "examples": [ { "problem": "Compute MST for small graph", "solution": "Apply Kruskal and sort edges." }, { "problem": "Run Dijkstra", "solution": "Use PQ to update distances." } ],
+              "notes": ["Check for negative edges before Dijkstra"],
+              "examQuestions": [ { "marks": 2, "question": "Define MST." }, { "marks": 5, "question": "Show one step of Prim's algorithm." }, { "marks": 10, "question": "Explain Dijkstra's correctness." } ],
+              "pyqs": [ { "year": 2023, "question": "MST example", "marks": 5 }, { "year": 2022, "question": "Shortest path problem", "marks": 10 } ],
+              "references": ["CLRS","Algorithm Design - Kleinberg & Tardos"]
+            }
+          },
+          {
+            "id": "ga-u3-t3",
+            "title": "Basic Complexity and Recurrence Relations",
+            "subtopics": ["Recurrence solving","Master theorem","Amortized analysis"],
+            "content": {
+              "theory": [
+                "Recurrence relations express runtime of recursive algorithms; solving them gives asymptotic bounds used to compare algorithm efficiency.",
+                "Amortized analysis distributes occasional expensive operations across many cheap ones to reason about average cost per operation.",
+                "Master theorem provides quick solutions to many divide-and-conquer recurrences encountered in algorithm design." 
+              ],
+              "definition": { "label": "Definition", "text": "A recurrence relation defines a function in terms of its values on smaller inputs, often arising from recursive algorithms." },
+              "keyPoints": ["Apply Master theorem when forms match","Use substitution for proof","Consider worst-case and average-case","Amortized analysis for dynamic arrays","Write recurrence clearly"],
+              "formulas": [],
+              "examples": [ { "problem": "Solve T(n)=2T(n/2)+n", "solution": "O(n log n) via Master theorem." }, { "problem": "Amortized push on dynamic array", "solution": "Show O(1) amortized cost." } ],
+              "notes": ["State base conditions for recurrence"],
+              "examQuestions": [ { "marks": 2, "question": "State master theorem." }, { "marks": 5, "question": "Solve simple recurrence." }, { "marks": 10, "question": "Amortized analysis example." } ],
+              "pyqs": [ { "year": 2023, "question": "Recurrence solve", "marks": 5 }, { "year": 2022, "question": "Amortized task", "marks": 10 } ],
+              "references": ["CLRS"]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 4,
+        "title": "Applied Topics and Lab",
+        "topics": [
+          {
+            "id": "lab-u4-t1",
+            "title": "Practical Graph Applications",
+            "subtopics": ["Routing","Network modeling","Small projects"],
+            "content": {
+              "theory": [
+                "Practical exercises reinforce theory by applying traversal and shortest-path algorithms to network routing and small datasets.",
+                "Modeling real networks involves mapping nodes and edges with weights representing latency, bandwidth or cost.",
+                "Small projects illustrate the role of graph algorithms in search engines, social networks and routing protocols." 
+              ],
+              "definition": { "label": "Definition", "text": "Routing selects paths in networks to deliver messages along minimal-cost or policy-compliant routes." },
+              "keyPoints": ["Model networks carefully","Translate domain to graph weights","Validate with test datasets","Visualize results","Document assumptions"],
+              "formulas": [],
+              "examples": [ { "problem": "Model a small network and run Dijkstra", "solution": "Assign link weights and compute paths." }, { "problem": "Build adjacency list from input", "solution": "Parse edges and store lists." } ],
+              "notes": ["Keep datasets small for lab timing"],
+              "examQuestions": [ { "marks": 2, "question": "Define routing." }, { "marks": 5, "question": "Model network exercise." }, { "marks": 10, "question": "Project write-up on graph algorithm." } ],
+              "pyqs": [ { "year": 2023, "question": "Lab task", "marks": 10 }, { "year": 2022, "question": "Network modeling", "marks": 10 } ],
+              "references": ["Algorithm Design - Kleinberg & Tardos"]
+            }
+          },
+          {
+            "id": "lab-u4-t2",
+            "title": "Discrete Project Work",
+            "subtopics": ["Problem statement","Implementation","Report"],
+            "content": {
+              "theory": ["Project work applies learned discrete and algorithmic concepts to small-team problems."],
+              "definition": { "label": "Definition", "text": "Project demonstrates integration of theory and implementation." },
+              "keyPoints": ["Define clear scope","Plan milestones","Test thoroughly"],
+              "formulas": [],
+              "examples": [ { "problem": "Implement shortest path demo", "solution": "Code and test with sample graphs." }, { "problem": "Prepare project report", "solution": "Include design, tests and results." } ],
+              "notes": ["Track contributions for grading"],
+              "examQuestions": [ { "marks": 2, "question": "Project planning step." }, { "marks": 5, "question": "Implementation detail." }, { "marks": 10, "question": "Report quality criteria." } ],
+              "pyqs": [ { "year": 2023, "question": "Project outline", "marks": 10 }, { "year": 2022, "question": "Implementation task", "marks": 10 } ],
+              "references": ["CLRS"]
+            }
+          },
+          {
+            "id": "lab-u4-t3",
+            "title": "Revision and Advanced Problems",
+            "subtopics": ["Mixed problems","Exam practice","Advanced exercises"],
+            "content": {
+              "theory": ["A revision unit consolidates knowledge and practices with mixed problems and past-year questions."],
+              "definition": { "label": "Definition", "text": "Revision focuses on problem-solving across topics to prepare for assessments." },
+              "keyPoints": ["Practice past questions","Work timed tests","Review weak areas"],
+              "formulas": [],
+              "examples": [ { "problem": "Solve mixed set", "solution": "Apply appropriate methods from each unit." }, { "problem": "Timed practice", "solution": "Simulate exam conditions." } ],
+              "notes": ["Create answer templates for common problems"],
+              "examQuestions": [ { "marks": 2, "question": "Simple revision question." }, { "marks": 5, "question": "Past-year style question." }, { "marks": 10, "question": "Comprehensive problem." } ],
+              "pyqs": [ { "year": 2023, "question": "Revision exercise", "marks": 10 }, { "year": 2022, "question": "Mixed problems", "marks": 10 } ],
+              "references": ["Problem Solving in Discrete Math - Author"]
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

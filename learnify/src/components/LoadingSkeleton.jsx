@@ -1,0 +1,92 @@
+function Shimmer({ className }) {
+  return (
+    <div
+      className={`animate-pulse rounded-md bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 bg-[length:200%_100%] dark:from-slate-700 dark:via-slate-600 dark:to-slate-700 ${className ?? ''}`}
+    />
+  )
+}
+
+function SidebarSkeleton() {
+  return (
+    <div className="hidden w-64 shrink-0 space-y-4 border-r border-slate-200 bg-[#f1f1f1] p-4 dark:border-slate-700 dark:bg-slate-900 lg:block">
+      <Shimmer className="h-4 w-32" />
+      {Array.from({ length: 8 }).map((_, i) => (
+        <Shimmer key={i} className="h-9 w-full" />
+      ))}
+    </div>
+  )
+}
+
+function LessonSkeleton() {
+  return (
+    <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-6 lg:flex-row lg:px-8">
+      <SidebarSkeleton />
+      <div className="min-w-0 flex-1 space-y-5">
+        <Shimmer className="h-10 w-2/3 max-w-md" />
+        <Shimmer className="h-4 w-full" />
+        <Shimmer className="h-4 w-full" />
+        <Shimmer className="h-4 w-5/6" />
+        <Shimmer className="mt-6 h-40 w-full rounded-lg" />
+        <Shimmer className="h-4 w-full" />
+        <Shimmer className="h-4 w-4/5" />
+      </div>
+    </div>
+  )
+}
+
+function PageSkeleton() {
+  return (
+    <div className="mx-auto max-w-7xl space-y-8 px-4 py-10 sm:px-6">
+      <div className="space-y-3 text-center sm:text-left">
+        <Shimmer className="mx-auto h-10 w-64 sm:mx-0" />
+        <Shimmer className="mx-auto h-4 w-96 max-w-full sm:mx-0" />
+      </div>
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <div
+            key={i}
+            className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800"
+          >
+            <Shimmer className="mb-4 h-10 w-10 rounded-lg" />
+            <Shimmer className="h-6 w-24" />
+            <Shimmer className="mt-3 h-4 w-20" />
+            <Shimmer className="mt-4 h-2 w-full rounded-full" />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function TopicSkeleton() {
+  return (
+    <div className="mx-auto max-w-7xl space-y-6 px-4 py-10 sm:px-6">
+      <Shimmer className="h-9 w-48" />
+      <Shimmer className="h-4 w-full max-w-2xl" />
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <Shimmer key={i} className="h-36 w-full rounded-xl" />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+/**
+ * @param {{ variant?: 'page' | 'lesson' | 'topic' }} props
+ */
+export function LoadingSkeleton({ variant = 'page' }) {
+  return (
+    <div
+      className="min-h-[40vh]"
+      role="status"
+      aria-live="polite"
+      aria-busy="true"
+      aria-label="Loading content"
+    >
+      {variant === 'lesson' && <LessonSkeleton />}
+      {variant === 'topic' && <TopicSkeleton />}
+      {variant === 'page' && <PageSkeleton />}
+    </div>
+  )
+}

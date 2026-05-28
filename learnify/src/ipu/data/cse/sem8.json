@@ -1,0 +1,3210 @@
+[
+  {
+    "id": "major-project-dissertation",
+    "code": "BCS-801",
+    "name": "Major Project (Dissertation)",
+    "shortName": "Major Project",
+    "credits": 8,
+    "type": "lab",
+    "icon": "🧾",
+    "description": "A full-scale capstone project covering planning, literature survey, system design, implementation, testing, dissertation writing, and defense preparation.",
+    "units": [
+      {
+        "id": "unit-1",
+        "unitNumber": 1,
+        "title": "Project Planning and Problem Definition",
+        "topics": [
+          {
+            "id": "problem-identification",
+            "title": "Problem Identification",
+            "subtopics": [
+              "Problem Statement",
+              "Objective",
+              "Scope"
+            ],
+            "content": {
+              "theory": [
+                "Problem Identification in Major Project (Dissertation) is studied as part of Project Planning and Problem Definition because it develops the core academic idea of selecting a feasible real-world problem and defining objectives. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Problem Identification is the study of selecting a feasible real-world problem and defining objectives."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of selecting a feasible real-world problem and defining objectives.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "Problem Identification: input -> process -> outcome",
+                  "description": "Basic conceptual flow for selecting a feasible real-world problem and defining objectives"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of problem identification in Major Project (Dissertation).",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does problem identification support major project (dissertation) learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying selecting a feasible real-world problem and defining objectives.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define problem identification."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of problem identification."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss problem identification in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of problem identification.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain problem identification with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "feasibility-and-schedule",
+            "title": "Feasibility and Schedule",
+            "subtopics": [
+              "Feasibility",
+              "Milestone",
+              "Timeline"
+            ],
+            "content": {
+              "theory": [
+                "Feasibility and Schedule in Major Project (Dissertation) is studied as part of Project Planning and Problem Definition because it develops the core academic idea of assessing resources, timeline, and deliverables. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Feasibility and Schedule is the study of assessing resources, timeline, and deliverables."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of assessing resources, timeline, and deliverables.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "Feasibility and Schedule: input -> process -> outcome",
+                  "description": "Basic conceptual flow for assessing resources, timeline, and deliverables"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of feasibility and schedule in Major Project (Dissertation).",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does feasibility and schedule support major project (dissertation) learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying assessing resources, timeline, and deliverables.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define feasibility and schedule."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of feasibility and schedule."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss feasibility and schedule in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of feasibility and schedule.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain feasibility and schedule with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "project-proposal",
+            "title": "Project Proposal",
+            "subtopics": [
+              "Proposal",
+              "Methodology",
+              "Deliverable"
+            ],
+            "content": {
+              "theory": [
+                "Project Proposal in Major Project (Dissertation) is studied as part of Project Planning and Problem Definition because it develops the core academic idea of presenting the idea, approach, and expected outcome. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Project Proposal is the study of presenting the idea, approach, and expected outcome."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of presenting the idea, approach, and expected outcome.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Waiting time",
+                  "formula": "WT = turnaround time - burst time",
+                  "description": "Scheduling metric"
+                },
+                {
+                  "name": "Turnaround time",
+                  "formula": "TAT = completion time - arrival time",
+                  "description": "Process completion metric"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Given a small process set, apply project proposal to compute performance.",
+                  "solution": "Step 1: list arrival time, burst time, and priority if needed.\nStep 2: draw the schedule according to the rule of the algorithm.\nStep 3: compute completion, turnaround, and waiting time.\nAnswer: present the final metric table and identify the average values."
+                },
+                {
+                  "problem": "Explain why project proposal matters in operating systems.",
+                  "solution": "Step 1: identify the resource or process behavior involved.\nStep 2: relate it to fairness, throughput, or responsiveness.\nStep 3: conclude with the system benefit.\nAnswer: the topic improves efficient and controlled CPU or resource management."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying presenting the idea, approach, and expected outcome.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define project proposal."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of project proposal."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss project proposal in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of project proposal.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain project proposal with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "unit-2",
+        "unitNumber": 2,
+        "title": "Literature Survey and Requirements",
+        "topics": [
+          {
+            "id": "literature-survey",
+            "title": "Literature Survey",
+            "subtopics": [
+              "Survey",
+              "Paper",
+              "Gap"
+            ],
+            "content": {
+              "theory": [
+                "Literature Survey in Major Project (Dissertation) is studied as part of Literature Survey and Requirements because it develops the core academic idea of studying existing solutions and research trends. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Literature Survey is the study of studying existing solutions and research trends."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of studying existing solutions and research trends.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "Literature Survey: input -> process -> outcome",
+                  "description": "Basic conceptual flow for studying existing solutions and research trends"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of literature survey in Major Project (Dissertation).",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does literature survey support major project (dissertation) learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying studying existing solutions and research trends.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define literature survey."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of literature survey."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss literature survey in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of literature survey.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain literature survey with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "requirement-analysis",
+            "title": "Requirement Analysis",
+            "subtopics": [
+              "Functional Requirement",
+              "Non-functional Requirement",
+              "Use Case"
+            ],
+            "content": {
+              "theory": [
+                "Requirement Analysis in Major Project (Dissertation) is studied as part of Literature Survey and Requirements because it develops the core academic idea of capturing functional and non-functional requirements. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Requirement Analysis is the study of capturing functional and non-functional requirements."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of capturing functional and non-functional requirements.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Function composition",
+                  "formula": "(f o g)(x) = f(g(x))",
+                  "description": "Combines two functions"
+                },
+                {
+                  "name": "Equivalence",
+                  "formula": "reflexive + symmetric + transitive",
+                  "description": "Properties of an equivalence relation"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Analyze the cost of a simple requirement analysis task.",
+                  "solution": "Step 1: count the dominant operations.\nStep 2: write the cost as a function of input size.\nStep 3: classify it using asymptotic notation.\nAnswer: the algorithm is described by its time and space growth rate."
+                },
+                {
+                  "problem": "Explain how requirement analysis helps in algorithm selection.",
+                  "solution": "Step 1: compare two candidate methods.\nStep 2: choose based on resource usage and input scale.\nStep 3: justify the choice with complexity reasoning.\nAnswer: algorithm analysis guides efficient and scalable programming decisions."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying capturing functional and non-functional requirements.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define requirement analysis."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of requirement analysis."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss requirement analysis in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of requirement analysis.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain requirement analysis with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "srs-preparation",
+            "title": "SRS Preparation",
+            "subtopics": [
+              "SRS",
+              "Validation",
+              "Baseline"
+            ],
+            "content": {
+              "theory": [
+                "SRS Preparation in Major Project (Dissertation) is studied as part of Literature Survey and Requirements because it develops the core academic idea of structuring the software requirement specification. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "SRS Preparation is the study of structuring the software requirement specification."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of structuring the software requirement specification.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Quality equation",
+                  "formula": "quality = correctness + reliability + maintainability",
+                  "description": "Software engineering outcome measure"
+                },
+                {
+                  "name": "Process model",
+                  "formula": "requirements -> design -> code -> test -> maintain",
+                  "description": "Standard lifecycle flow"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of srs preparation in Major Project (Dissertation).",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does srs preparation support major project (dissertation) learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying structuring the software requirement specification.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define srs preparation."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of srs preparation."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss srs preparation in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of srs preparation.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain srs preparation with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "unit-3",
+        "unitNumber": 3,
+        "title": "System Design",
+        "topics": [
+          {
+            "id": "architecture-design",
+            "title": "Architecture Design",
+            "subtopics": [
+              "Architecture",
+              "Module",
+              "Interface"
+            ],
+            "content": {
+              "theory": [
+                "Architecture Design in Major Project (Dissertation) is studied as part of System Design because it develops the core academic idea of overall structure, layers, and module interactions. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Architecture Design is the study of overall structure, layers, and module interactions."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of overall structure, layers, and module interactions.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "Architecture Design: input -> process -> outcome",
+                  "description": "Basic conceptual flow for overall structure, layers, and module interactions"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of architecture design in Major Project (Dissertation).",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does architecture design support major project (dissertation) learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying overall structure, layers, and module interactions.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define architecture design."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of architecture design."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss architecture design in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of architecture design.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain architecture design with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "database-and-api-design",
+            "title": "Database and API Design",
+            "subtopics": [
+              "Schema",
+              "API",
+              "Endpoint"
+            ],
+            "content": {
+              "theory": [
+                "Database and API Design in Major Project (Dissertation) is studied as part of System Design because it develops the core academic idea of data model and service contracts. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Database and API Design is the study of data model and service contracts."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of data model and service contracts.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "Database and API Design: input -> process -> outcome",
+                  "description": "Basic conceptual flow for data model and service contracts"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Apply database and api design to a small table design problem.",
+                  "solution": "Step 1: identify the relation, keys, and dependencies.\nStep 2: apply the relevant normalization or transaction rule.\nStep 3: confirm that redundancy or inconsistency is reduced.\nAnswer: the resulting design is more reliable and easier to maintain."
+                },
+                {
+                  "problem": "Explain how database and api design improves a database system.",
+                  "solution": "Step 1: look at the data quality or query requirement.\nStep 2: apply the standard DBMS principle.\nStep 3: show the benefit in integrity, performance, or recovery.\nAnswer: the topic improves correctness and practical efficiency in database applications."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying data model and service contracts.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define database and api design."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of database and api design."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss database and api design in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of database and api design.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain database and api design with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "ui-and-flow-design",
+            "title": "UI and Flow Design",
+            "subtopics": [
+              "Wireframe",
+              "Workflow",
+              "UX"
+            ],
+            "content": {
+              "theory": [
+                "UI and Flow Design in Major Project (Dissertation) is studied as part of System Design because it develops the core academic idea of screen flow, usability, and navigation. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "UI and Flow Design is the study of screen flow, usability, and navigation."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of screen flow, usability, and navigation.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "UI and Flow Design: input -> process -> outcome",
+                  "description": "Basic conceptual flow for screen flow, usability, and navigation"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of ui and flow design in Major Project (Dissertation).",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does ui and flow design support major project (dissertation) learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying screen flow, usability, and navigation.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define ui and flow design."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of ui and flow design."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss ui and flow design in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of ui and flow design.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain ui and flow design with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "unit-4",
+        "unitNumber": 4,
+        "title": "Implementation and Testing",
+        "topics": [
+          {
+            "id": "implementation-strategy",
+            "title": "Implementation Strategy",
+            "subtopics": [
+              "Coding",
+              "Integration",
+              "Version Control"
+            ],
+            "content": {
+              "theory": [
+                "Implementation Strategy in Major Project (Dissertation) is studied as part of Implementation and Testing because it develops the core academic idea of coding plan and module integration. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Implementation Strategy is the study of coding plan and module integration."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of coding plan and module integration.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "Implementation Strategy: input -> process -> outcome",
+                  "description": "Basic conceptual flow for coding plan and module integration"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of implementation strategy in Major Project (Dissertation).",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does implementation strategy support major project (dissertation) learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying coding plan and module integration.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define implementation strategy."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of implementation strategy."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss implementation strategy in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of implementation strategy.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain implementation strategy with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "testing-and-debugging",
+            "title": "Testing and Debugging",
+            "subtopics": [
+              "Test Case",
+              "Bug",
+              "Regression"
+            ],
+            "content": {
+              "theory": [
+                "Testing and Debugging in Major Project (Dissertation) is studied as part of Implementation and Testing because it develops the core academic idea of test cases, defect fixing, and validation. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Testing and Debugging is the study of test cases, defect fixing, and validation."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of test cases, defect fixing, and validation.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Defect density",
+                  "formula": "defects / size of software",
+                  "description": "Quality indicator"
+                },
+                {
+                  "name": "Test coverage",
+                  "formula": "covered requirements / total requirements x 100",
+                  "description": "Testing completeness measure"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of testing and debugging in Major Project (Dissertation).",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does testing and debugging support major project (dissertation) learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying test cases, defect fixing, and validation.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define testing and debugging."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of testing and debugging."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss testing and debugging in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of testing and debugging.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain testing and debugging with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "performance-review",
+            "title": "Performance Review",
+            "subtopics": [
+              "Performance",
+              "Optimization",
+              "Stability"
+            ],
+            "content": {
+              "theory": [
+                "Performance Review in Major Project (Dissertation) is studied as part of Implementation and Testing because it develops the core academic idea of stability, responsiveness, and refinement. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Performance Review is the study of stability, responsiveness, and refinement."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of stability, responsiveness, and refinement.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Speedup",
+                  "formula": "speedup = old execution time / new execution time",
+                  "description": "Measures gain from pipelining or optimization"
+                },
+                {
+                  "name": "CPI",
+                  "formula": "CPI = total cycles / total instructions",
+                  "description": "Processor performance indicator"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of performance review in Major Project (Dissertation).",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does performance review support major project (dissertation) learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying stability, responsiveness, and refinement.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define performance review."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of performance review."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss performance review in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of performance review.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain performance review with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "unit-5",
+        "unitNumber": 5,
+        "title": "Report Writing and Viva Preparation",
+        "topics": [
+          {
+            "id": "dissertation-structure",
+            "title": "Dissertation Structure",
+            "subtopics": [
+              "Abstract",
+              "Chapter",
+              "Conclusion"
+            ],
+            "content": {
+              "theory": [
+                "Dissertation Structure in Major Project (Dissertation) is studied as part of Report Writing and Viva Preparation because it develops the core academic idea of abstract, chapters, conclusion, and appendices. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Dissertation Structure is the study of abstract, chapters, conclusion, and appendices."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of abstract, chapters, conclusion, and appendices.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Tree property",
+                  "formula": "parent -> children hierarchy",
+                  "description": "Hierarchical structure rule"
+                },
+                {
+                  "name": "BST rule",
+                  "formula": "left subtree < root < right subtree",
+                  "description": "Ordering property of a search tree"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of dissertation structure in Major Project (Dissertation).",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does dissertation structure support major project (dissertation) learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying abstract, chapters, conclusion, and appendices.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define dissertation structure."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of dissertation structure."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss dissertation structure in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of dissertation structure.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain dissertation structure with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "presentation-and-demo",
+            "title": "Presentation and Demo",
+            "subtopics": [
+              "Slides",
+              "Demo",
+              "Defense"
+            ],
+            "content": {
+              "theory": [
+                "Presentation and Demo in Major Project (Dissertation) is studied as part of Report Writing and Viva Preparation because it develops the core academic idea of slides, live demo, and speaking strategy. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Presentation and Demo is the study of slides, live demo, and speaking strategy."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of slides, live demo, and speaking strategy.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "Presentation and Demo: input -> process -> outcome",
+                  "description": "Basic conceptual flow for slides, live demo, and speaking strategy"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of presentation and demo in Major Project (Dissertation).",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does presentation and demo support major project (dissertation) learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying slides, live demo, and speaking strategy.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define presentation and demo."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of presentation and demo."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss presentation and demo in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of presentation and demo.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain presentation and demo with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "viva-readiness",
+            "title": "Viva Readiness",
+            "subtopics": [
+              "Viva",
+              "Justification",
+              "Discussion"
+            ],
+            "content": {
+              "theory": [
+                "Viva Readiness in Major Project (Dissertation) is studied as part of Report Writing and Viva Preparation because it develops the core academic idea of answering project design and implementation questions. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Viva Readiness is the study of answering project design and implementation questions."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of answering project design and implementation questions.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "Viva Readiness: input -> process -> outcome",
+                  "description": "Basic conceptual flow for answering project design and implementation questions"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of viva readiness in Major Project (Dissertation).",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does viva readiness support major project (dissertation) learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying answering project design and implementation questions.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define viva readiness."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of viva readiness."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss viva readiness in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of viva readiness.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain viva readiness with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "comprehensive-viva",
+    "code": "BCS-803",
+    "name": "Comprehensive Viva",
+    "shortName": "Viva",
+    "credits": 2,
+    "type": "theory",
+    "icon": "🗣️",
+    "description": "An integrated oral review of core computer science subjects, emphasizing clarity, conceptual accuracy, and professional communication.",
+    "units": [
+      {
+        "id": "unit-1",
+        "unitNumber": 1,
+        "title": "Core CS Recall",
+        "topics": [
+          {
+            "id": "data-structures-recall",
+            "title": "Data Structures Recall",
+            "subtopics": [
+              "Array",
+              "List",
+              "Tree"
+            ],
+            "content": {
+              "theory": [
+                "Data Structures Recall in Comprehensive Viva is studied as part of Core CS Recall because it develops the core academic idea of main structures and their operations. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Data Structures Recall is the study of main structures and their operations."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of main structures and their operations.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "Data Structures Recall: input -> process -> outcome",
+                  "description": "Basic conceptual flow for main structures and their operations"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of data structures recall in Comprehensive Viva.",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does data structures recall support comprehensive viva learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying main structures and their operations.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define data structures recall."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of data structures recall."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss data structures recall in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of data structures recall.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain data structures recall with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "algorithms-recall",
+            "title": "Algorithms Recall",
+            "subtopics": [
+              "Complexity",
+              "Recursion",
+              "Sorting"
+            ],
+            "content": {
+              "theory": [
+                "Algorithms Recall in Comprehensive Viva is studied as part of Core CS Recall because it develops the core academic idea of analysis and design principles. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Algorithms Recall is the study of analysis and design principles."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of analysis and design principles.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Asymptotic growth",
+                  "formula": "T(n) = O(f(n))",
+                  "description": "Upper bound used for performance analysis"
+                },
+                {
+                  "name": "Space cost",
+                  "formula": "S(n) = auxiliary memory used by the algorithm",
+                  "description": "Measures extra memory requirement"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Analyze the cost of a simple algorithms recall task.",
+                  "solution": "Step 1: count the dominant operations.\nStep 2: write the cost as a function of input size.\nStep 3: classify it using asymptotic notation.\nAnswer: the algorithm is described by its time and space growth rate."
+                },
+                {
+                  "problem": "Explain how algorithms recall helps in algorithm selection.",
+                  "solution": "Step 1: compare two candidate methods.\nStep 2: choose based on resource usage and input scale.\nStep 3: justify the choice with complexity reasoning.\nAnswer: algorithm analysis guides efficient and scalable programming decisions."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying analysis and design principles.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define algorithms recall."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of algorithms recall."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss algorithms recall in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of algorithms recall.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain algorithms recall with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "programming-basics",
+            "title": "Programming Basics",
+            "subtopics": [
+              "Variables",
+              "Functions",
+              "Classes"
+            ],
+            "content": {
+              "theory": [
+                "Programming Basics in Comprehensive Viva is studied as part of Core CS Recall because it develops the core academic idea of syntax, logic, and modular code. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Programming Basics is the study of syntax, logic, and modular code."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of syntax, logic, and modular code.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Boolean identity",
+                  "formula": "A + A' = 1, A.A' = 0",
+                  "description": "Core simplification law"
+                },
+                {
+                  "name": "De Morgan",
+                  "formula": "(A.B)' = A' + B'",
+                  "description": "Fundamental logic transformation"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of programming basics in Comprehensive Viva.",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does programming basics support comprehensive viva learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying syntax, logic, and modular code.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define programming basics."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of programming basics."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss programming basics in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of programming basics.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain programming basics with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "unit-2",
+        "unitNumber": 2,
+        "title": "Systems Recall",
+        "topics": [
+          {
+            "id": "operating-systems",
+            "title": "Operating Systems",
+            "subtopics": [
+              "Process",
+              "Memory",
+              "File System"
+            ],
+            "content": {
+              "theory": [
+                "Operating Systems in Comprehensive Viva is studied as part of Systems Recall because it develops the core academic idea of process, memory, and file fundamentals. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Operating Systems is the study of process, memory, and file fundamentals."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of process, memory, and file fundamentals.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Speed ratio",
+                  "formula": "performance = faster level / slower level",
+                  "description": "Memory hierarchy comparison"
+                },
+                {
+                  "name": "Hit ratio",
+                  "formula": "hit ratio = hits / total accesses",
+                  "description": "Cache effectiveness measure"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Given a small process set, apply operating systems to compute performance.",
+                  "solution": "Step 1: list arrival time, burst time, and priority if needed.\nStep 2: draw the schedule according to the rule of the algorithm.\nStep 3: compute completion, turnaround, and waiting time.\nAnswer: present the final metric table and identify the average values."
+                },
+                {
+                  "problem": "Explain why operating systems matters in operating systems.",
+                  "solution": "Step 1: identify the resource or process behavior involved.\nStep 2: relate it to fairness, throughput, or responsiveness.\nStep 3: conclude with the system benefit.\nAnswer: the topic improves efficient and controlled CPU or resource management."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying process, memory, and file fundamentals.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define operating systems."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of operating systems."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss operating systems in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of operating systems.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain operating systems with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "computer-networks",
+            "title": "Computer Networks",
+            "subtopics": [
+              "TCP/IP",
+              "Routing",
+              "HTTP"
+            ],
+            "content": {
+              "theory": [
+                "Computer Networks in Comprehensive Viva is studied as part of Systems Recall because it develops the core academic idea of layered communication and protocols. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Computer Networks is the study of layered communication and protocols."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of layered communication and protocols.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Transmission delay",
+                  "formula": "Td = packet length / bandwidth",
+                  "description": "Time to push bits into the link"
+                },
+                {
+                  "name": "Propagation delay",
+                  "formula": "Tp = distance / propagation speed",
+                  "description": "Time for signal travel"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of computer networks in Comprehensive Viva.",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does computer networks support comprehensive viva learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying layered communication and protocols.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define computer networks."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of computer networks."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss computer networks in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of computer networks.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain computer networks with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "dbms",
+            "title": "DBMS",
+            "subtopics": [
+              "SQL",
+              "Normalization",
+              "Transaction"
+            ],
+            "content": {
+              "theory": [
+                "DBMS in Comprehensive Viva is studied as part of Systems Recall because it develops the core academic idea of schema, SQL, and transaction concepts. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "DBMS is the study of schema, SQL, and transaction concepts."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of schema, SQL, and transaction concepts.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Key constraint",
+                  "formula": "candidate key -> unique tuple",
+                  "description": "Ensures row uniqueness"
+                },
+                {
+                  "name": "Normalization",
+                  "formula": "1NF -> 2NF -> 3NF -> BCNF",
+                  "description": "Progressive decomposition rule"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Write a query for a basic dbms scenario.",
+                  "solution": "Step 1: identify the table and required columns.\nStep 2: write the SELECT clause with the correct condition.\nStep 3: verify the result set and ensure duplicates or missing rows are handled.\nAnswer: the query should reflect the required SQL logic for the given relation."
+                },
+                {
+                  "problem": "Explain how dbms is used in a database application.",
+                  "solution": "Step 1: define the data requirement.\nStep 2: map it to SQL or relational operations.\nStep 3: test the output on sample rows.\nAnswer: SQL gives a precise, declarative way to retrieve and modify data."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying schema, SQL, and transaction concepts.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define dbms."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of dbms."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss dbms in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of dbms.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain dbms with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "unit-3",
+        "unitNumber": 3,
+        "title": "Theory and Design Recall",
+        "topics": [
+          {
+            "id": "discrete-mathematics",
+            "title": "Discrete Mathematics",
+            "subtopics": [
+              "Logic",
+              "Graph",
+              "Recurrence"
+            ],
+            "content": {
+              "theory": [
+                "Discrete Mathematics in Comprehensive Viva is studied as part of Theory and Design Recall because it develops the core academic idea of logic, sets, graphs, and counting. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Discrete Mathematics is the study of logic, sets, graphs, and counting."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of logic, sets, graphs, and counting.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Boolean identity",
+                  "formula": "A + A' = 1, A.A' = 0",
+                  "description": "Core simplification law"
+                },
+                {
+                  "name": "De Morgan",
+                  "formula": "(A.B)' = A' + B'",
+                  "description": "Fundamental logic transformation"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of discrete mathematics in Comprehensive Viva.",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does discrete mathematics support comprehensive viva learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying logic, sets, graphs, and counting.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define discrete mathematics."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of discrete mathematics."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss discrete mathematics in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of discrete mathematics.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain discrete mathematics with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "software-engineering",
+            "title": "Software Engineering",
+            "subtopics": [
+              "SRS",
+              "Testing",
+              "Maintenance"
+            ],
+            "content": {
+              "theory": [
+                "Software Engineering in Comprehensive Viva is studied as part of Theory and Design Recall because it develops the core academic idea of lifecycle, testing, and quality. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Software Engineering is the study of lifecycle, testing, and quality."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of lifecycle, testing, and quality.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Quality equation",
+                  "formula": "quality = correctness + reliability + maintainability",
+                  "description": "Software engineering outcome measure"
+                },
+                {
+                  "name": "Process model",
+                  "formula": "requirements -> design -> code -> test -> maintain",
+                  "description": "Standard lifecycle flow"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of software engineering in Comprehensive Viva.",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does software engineering support comprehensive viva learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying lifecycle, testing, and quality.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define software engineering."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of software engineering."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss software engineering in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of software engineering.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain software engineering with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "toc-and-compiler-basics",
+            "title": "TOC and Compiler Basics",
+            "subtopics": [
+              "DFA",
+              "Grammar",
+              "Parser"
+            ],
+            "content": {
+              "theory": [
+                "TOC and Compiler Basics in Comprehensive Viva is studied as part of Theory and Design Recall because it develops the core academic idea of automata and language processing. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "TOC and Compiler Basics is the study of automata and language processing."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of automata and language processing.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Transition",
+                  "formula": "delta(q, a) = q'",
+                  "description": "Automaton state transition rule"
+                },
+                {
+                  "name": "Closure",
+                  "formula": "regular languages are closed under union, concat, and star",
+                  "description": "Core language property"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Given a small process set, apply toc and compiler basics to compute performance.",
+                  "solution": "Step 1: list arrival time, burst time, and priority if needed.\nStep 2: draw the schedule according to the rule of the algorithm.\nStep 3: compute completion, turnaround, and waiting time.\nAnswer: present the final metric table and identify the average values."
+                },
+                {
+                  "problem": "Explain why toc and compiler basics matters in operating systems.",
+                  "solution": "Step 1: identify the resource or process behavior involved.\nStep 2: relate it to fairness, throughput, or responsiveness.\nStep 3: conclude with the system benefit.\nAnswer: the topic improves efficient and controlled CPU or resource management."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying automata and language processing.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define toc and compiler basics."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of toc and compiler basics."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss toc and compiler basics in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of toc and compiler basics.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain toc and compiler basics with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "unit-4",
+        "unitNumber": 4,
+        "title": "Professional Speaking",
+        "topics": [
+          {
+            "id": "clarity-and-confidence",
+            "title": "Clarity and Confidence",
+            "subtopics": [
+              "Clarity",
+              "Confidence",
+              "Pace"
+            ],
+            "content": {
+              "theory": [
+                "Clarity and Confidence in Comprehensive Viva is studied as part of Professional Speaking because it develops the core academic idea of clear answers and steady delivery. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Clarity and Confidence is the study of clear answers and steady delivery."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of clear answers and steady delivery.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "Clarity and Confidence: input -> process -> outcome",
+                  "description": "Basic conceptual flow for clear answers and steady delivery"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of clarity and confidence in Comprehensive Viva.",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does clarity and confidence support comprehensive viva learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying clear answers and steady delivery.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define clarity and confidence."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of clarity and confidence."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss clarity and confidence in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of clarity and confidence.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain clarity and confidence with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "question-handling",
+            "title": "Question Handling",
+            "subtopics": [
+              "Listening",
+              "Precision",
+              "Follow-up"
+            ],
+            "content": {
+              "theory": [
+                "Question Handling in Comprehensive Viva is studied as part of Professional Speaking because it develops the core academic idea of listening and answering concisely. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Question Handling is the study of listening and answering concisely."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of listening and answering concisely.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "Question Handling: input -> process -> outcome",
+                  "description": "Basic conceptual flow for listening and answering concisely"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of question handling in Comprehensive Viva.",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does question handling support comprehensive viva learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying listening and answering concisely.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define question handling."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of question handling."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss question handling in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of question handling.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain question handling with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "presentation-etiquette",
+            "title": "Presentation Etiquette",
+            "subtopics": [
+              "Eye Contact",
+              "Tone",
+              "Etiquette"
+            ],
+            "content": {
+              "theory": [
+                "Presentation Etiquette in Comprehensive Viva is studied as part of Professional Speaking because it develops the core academic idea of body language and formal communication. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Presentation Etiquette is the study of body language and formal communication."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of body language and formal communication.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Transition",
+                  "formula": "delta(q, a) = q'",
+                  "description": "Automaton state transition rule"
+                },
+                {
+                  "name": "Closure",
+                  "formula": "regular languages are closed under union, concat, and star",
+                  "description": "Core language property"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of presentation etiquette in Comprehensive Viva.",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does presentation etiquette support comprehensive viva learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying body language and formal communication.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define presentation etiquette."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of presentation etiquette."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss presentation etiquette in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of presentation etiquette.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain presentation etiquette with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "industrial-training-report",
+    "code": "BCS-805",
+    "name": "Industrial Training Report",
+    "shortName": "Training Report",
+    "credits": 2,
+    "type": "theory",
+    "icon": "🏭",
+    "description": "Documentation of industrial training, workplace learning, technical exposure, report structure, and reflective summary writing.",
+    "units": [
+      {
+        "id": "unit-1",
+        "unitNumber": 1,
+        "title": "Organization and Role",
+        "topics": [
+          {
+            "id": "company-overview",
+            "title": "Company Overview",
+            "subtopics": [
+              "Organization",
+              "Department",
+              "Product"
+            ],
+            "content": {
+              "theory": [
+                "Company Overview in Industrial Training Report is studied as part of Organization and Role because it develops the core academic idea of industry background and domain understanding. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Company Overview is the study of industry background and domain understanding."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of industry background and domain understanding.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "Company Overview: input -> process -> outcome",
+                  "description": "Basic conceptual flow for industry background and domain understanding"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of company overview in Industrial Training Report.",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does company overview support industrial training report learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying industry background and domain understanding.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define company overview."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of company overview."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss company overview in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of company overview.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain company overview with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "role-and-observation",
+            "title": "Role and Observation",
+            "subtopics": [
+              "Role",
+              "Observation",
+              "Learning"
+            ],
+            "content": {
+              "theory": [
+                "Role and Observation in Industrial Training Report is studied as part of Organization and Role because it develops the core academic idea of what was learned during training. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Role and Observation is the study of what was learned during training."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of what was learned during training.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "Role and Observation: input -> process -> outcome",
+                  "description": "Basic conceptual flow for what was learned during training"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of role and observation in Industrial Training Report.",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does role and observation support industrial training report learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying what was learned during training.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define role and observation."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of role and observation."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss role and observation in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of role and observation.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain role and observation with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "workplace-etiquette",
+            "title": "Workplace Etiquette",
+            "subtopics": [
+              "Etiquette",
+              "Behavior",
+              "Teamwork"
+            ],
+            "content": {
+              "theory": [
+                "Workplace Etiquette in Industrial Training Report is studied as part of Organization and Role because it develops the core academic idea of professional conduct and communication. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Workplace Etiquette is the study of professional conduct and communication."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of professional conduct and communication.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "Workplace Etiquette: input -> process -> outcome",
+                  "description": "Basic conceptual flow for professional conduct and communication"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of workplace etiquette in Industrial Training Report.",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does workplace etiquette support industrial training report learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying professional conduct and communication.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define workplace etiquette."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of workplace etiquette."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss workplace etiquette in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of workplace etiquette.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain workplace etiquette with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "unit-2",
+        "unitNumber": 2,
+        "title": "Technical Exposure",
+        "topics": [
+          {
+            "id": "tools-and-platforms",
+            "title": "Tools and Platforms",
+            "subtopics": [
+              "Tool",
+              "Platform",
+              "Workflow"
+            ],
+            "content": {
+              "theory": [
+                "Tools and Platforms in Industrial Training Report is studied as part of Technical Exposure because it develops the core academic idea of software and systems used during training. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Tools and Platforms is the study of software and systems used during training."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of software and systems used during training.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Quality equation",
+                  "formula": "quality = correctness + reliability + maintainability",
+                  "description": "Software engineering outcome measure"
+                },
+                {
+                  "name": "Process model",
+                  "formula": "requirements -> design -> code -> test -> maintain",
+                  "description": "Standard lifecycle flow"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of tools and platforms in Industrial Training Report.",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does tools and platforms support industrial training report learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying software and systems used during training.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define tools and platforms."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of tools and platforms."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss tools and platforms in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of tools and platforms.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain tools and platforms with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "process-understanding",
+            "title": "Process Understanding",
+            "subtopics": [
+              "Process",
+              "Task",
+              "Procedure"
+            ],
+            "content": {
+              "theory": [
+                "Process Understanding in Industrial Training Report is studied as part of Technical Exposure because it develops the core academic idea of development or operational process exposure. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Process Understanding is the study of development or operational process exposure."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of development or operational process exposure.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Waiting time",
+                  "formula": "WT = turnaround time - burst time",
+                  "description": "Scheduling metric"
+                },
+                {
+                  "name": "Turnaround time",
+                  "formula": "TAT = completion time - arrival time",
+                  "description": "Process completion metric"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Given a small process set, apply process understanding to compute performance.",
+                  "solution": "Step 1: list arrival time, burst time, and priority if needed.\nStep 2: draw the schedule according to the rule of the algorithm.\nStep 3: compute completion, turnaround, and waiting time.\nAnswer: present the final metric table and identify the average values."
+                },
+                {
+                  "problem": "Explain why process understanding matters in operating systems.",
+                  "solution": "Step 1: identify the resource or process behavior involved.\nStep 2: relate it to fairness, throughput, or responsiveness.\nStep 3: conclude with the system benefit.\nAnswer: the topic improves efficient and controlled CPU or resource management."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying development or operational process exposure.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define process understanding."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of process understanding."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss process understanding in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of process understanding.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain process understanding with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "problem-solving",
+            "title": "Problem Solving",
+            "subtopics": [
+              "Issue",
+              "Resolution",
+              "Debugging"
+            ],
+            "content": {
+              "theory": [
+                "Problem Solving in Industrial Training Report is studied as part of Technical Exposure because it develops the core academic idea of how issues were identified and handled. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Problem Solving is the study of how issues were identified and handled."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of how issues were identified and handled.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "Problem Solving: input -> process -> outcome",
+                  "description": "Basic conceptual flow for how issues were identified and handled"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of problem solving in Industrial Training Report.",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does problem solving support industrial training report learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying how issues were identified and handled.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define problem solving."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of problem solving."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss problem solving in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of problem solving.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain problem solving with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "unit-3",
+        "unitNumber": 3,
+        "title": "Report Preparation",
+        "topics": [
+          {
+            "id": "writing-the-report",
+            "title": "Writing the Report",
+            "subtopics": [
+              "Abstract",
+              "Content",
+              "Conclusion"
+            ],
+            "content": {
+              "theory": [
+                "Writing the Report in Industrial Training Report is studied as part of Report Preparation because it develops the core academic idea of chapter structure and formal documentation. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Writing the Report is the study of chapter structure and formal documentation."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of chapter structure and formal documentation.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "Writing the Report: input -> process -> outcome",
+                  "description": "Basic conceptual flow for chapter structure and formal documentation"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of writing the report in Industrial Training Report.",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does writing the report support industrial training report learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying chapter structure and formal documentation.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define writing the report."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of writing the report."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss writing the report in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of writing the report.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain writing the report with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "evidence-and-annexure",
+            "title": "Evidence and Annexure",
+            "subtopics": [
+              "Appendix",
+              "Evidence",
+              "Record"
+            ],
+            "content": {
+              "theory": [
+                "Evidence and Annexure in Industrial Training Report is studied as part of Report Preparation because it develops the core academic idea of screenshots, logs, and appendices. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Evidence and Annexure is the study of screenshots, logs, and appendices."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of screenshots, logs, and appendices.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "Evidence and Annexure: input -> process -> outcome",
+                  "description": "Basic conceptual flow for screenshots, logs, and appendices"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of evidence and annexure in Industrial Training Report.",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does evidence and annexure support industrial training report learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying screenshots, logs, and appendices.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define evidence and annexure."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of evidence and annexure."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss evidence and annexure in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of evidence and annexure.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain evidence and annexure with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "referencing-and-style",
+            "title": "Referencing and Style",
+            "subtopics": [
+              "Reference",
+              "Format",
+              "Consistency"
+            ],
+            "content": {
+              "theory": [
+                "Referencing and Style in Industrial Training Report is studied as part of Report Preparation because it develops the core academic idea of clear formatting and citation discipline. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Referencing and Style is the study of clear formatting and citation discipline."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of clear formatting and citation discipline.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "Referencing and Style: input -> process -> outcome",
+                  "description": "Basic conceptual flow for clear formatting and citation discipline"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of referencing and style in Industrial Training Report.",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does referencing and style support industrial training report learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying clear formatting and citation discipline.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define referencing and style."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of referencing and style."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss referencing and style in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of referencing and style.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain referencing and style with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "unit-4",
+        "unitNumber": 4,
+        "title": "Reflection and Viva",
+        "topics": [
+          {
+            "id": "learning-outcomes",
+            "title": "Learning Outcomes",
+            "subtopics": [
+              "Outcome",
+              "Skill",
+              "Insight"
+            ],
+            "content": {
+              "theory": [
+                "Learning Outcomes in Industrial Training Report is studied as part of Reflection and Viva because it develops the core academic idea of skills and knowledge gained during training. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Learning Outcomes is the study of skills and knowledge gained during training."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of skills and knowledge gained during training.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Loss function",
+                  "formula": "loss = predicted - actual",
+                  "description": "Error measure used in learning"
+                },
+                {
+                  "name": "Accuracy",
+                  "formula": "accuracy = correct predictions / total predictions",
+                  "description": "Basic evaluation metric"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Evaluate a simple learning outcomes scenario.",
+                  "solution": "Step 1: identify the features and target.\nStep 2: apply the learning rule or metric.\nStep 3: interpret the result and state whether it improves prediction.\nAnswer: the model is assessed by how well it generalizes to unseen data."
+                },
+                {
+                  "problem": "Explain why learning outcomes is important for predictive systems.",
+                  "solution": "Step 1: connect data to the learning task.\nStep 2: show how the topic controls model behavior.\nStep 3: conclude with the evaluation benefit.\nAnswer: it helps build systems that learn from data and make measurable predictions."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying skills and knowledge gained during training.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define learning outcomes."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of learning outcomes."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss learning outcomes in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of learning outcomes.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain learning outcomes with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "challenges-and-improvements",
+            "title": "Challenges and Improvements",
+            "subtopics": [
+              "Challenge",
+              "Improvement",
+              "Feedback"
+            ],
+            "content": {
+              "theory": [
+                "Challenges and Improvements in Industrial Training Report is studied as part of Reflection and Viva because it develops the core academic idea of what was difficult and how it was handled. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Challenges and Improvements is the study of what was difficult and how it was handled."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of what was difficult and how it was handled.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "Challenges and Improvements: input -> process -> outcome",
+                  "description": "Basic conceptual flow for what was difficult and how it was handled"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of challenges and improvements in Industrial Training Report.",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does challenges and improvements support industrial training report learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying what was difficult and how it was handled.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define challenges and improvements."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of challenges and improvements."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss challenges and improvements in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of challenges and improvements.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain challenges and improvements with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          {
+            "id": "final-oral-review",
+            "title": "Final Oral Review",
+            "subtopics": [
+              "Viva",
+              "Summary",
+              "Defense"
+            ],
+            "content": {
+              "theory": [
+                "Final Oral Review in Industrial Training Report is studied as part of Reflection and Viva because it develops the core academic idea of presenting the training experience confidently. The topic is presented in a way that lets students move from definition to method, and then to practical interpretation.",
+                "In examination answers, the safest approach is to state the concept clearly, show the standard rule or process, and then connect it to a small worked situation. This structure works well for both theory papers and lab-oriented discussions.",
+                "For IPU CSE students, the topic also has a direct link to computing practice, since the same ideas often reappear in later courses, project work, and technical interviews. Revision should focus on terminology, one standard formula or rule, and one application."
+              ],
+              "definition": {
+                "label": "Definition",
+                "text": "Final Oral Review is the study of presenting the training experience confidently."
+              },
+              "keyPoints": [
+                "Understand the foundational ideas of presenting the training experience confidently.",
+                "Use standard notation and terminology correctly.",
+                "Explain the method before writing the final answer.",
+                "Connect the topic to a practical CSE use case.",
+                "Revise one worked example and one short-definition answer."
+              ],
+              "formulas": [
+                {
+                  "name": "Core relation",
+                  "formula": "Final Oral Review: input -> process -> outcome",
+                  "description": "Basic conceptual flow for presenting the training experience confidently"
+                },
+                {
+                  "name": "Rule of thumb",
+                  "formula": "follow standard definitions and apply the method step by step",
+                  "description": "General exam-safe approach"
+                }
+              ],
+              "examples": [
+                {
+                  "problem": "Explain a basic use of final oral review in Industrial Training Report.",
+                  "solution": "Step 1: identify the main concept or rule.\nStep 2: apply it to a simple example or scenario.\nStep 3: conclude with the result or interpretation.\nAnswer: the topic helps students solve standard questions and connect theory to practice."
+                },
+                {
+                  "problem": "How does final oral review support industrial training report learning?",
+                  "solution": "Step 1: state the purpose of the topic.\nStep 2: show how it is applied in study or practice.\nStep 3: summarize the takeaway for exams and projects.\nAnswer: it strengthens the learner's ability to reason clearly and apply standard methods."
+                }
+              ],
+              "notes": [
+                "Keep the standard assumptions and notation in mind while studying presenting the training experience confidently.",
+                "Write answers in a stepwise way so that marks are earned for method as well as final result."
+              ],
+              "examQuestions": [
+                {
+                  "marks": 2,
+                  "question": "Define final oral review."
+                },
+                {
+                  "marks": 5,
+                  "question": "Explain the basic idea and one application of final oral review."
+                },
+                {
+                  "marks": 10,
+                  "question": "Discuss final oral review in detail with a suitable example or diagram."
+                }
+              ],
+              "pyqs": [
+                {
+                  "year": 2023,
+                  "question": "State the definition or rule of final oral review.",
+                  "marks": 2
+                },
+                {
+                  "year": 2022,
+                  "question": "Explain final oral review with an academic example.",
+                  "marks": 5
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

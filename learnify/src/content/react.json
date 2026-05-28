@@ -1,0 +1,225 @@
+{
+  "slug": "react",
+  "title": "React",
+  "description": "Build UIs with components, JSX, props, state, hooks, and effects.",
+  "lessons": [
+    {
+      "id": "react-intro",
+      "title": "React Introduction",
+      "subtitle": "Components, the virtual DOM, and declarative UI",
+      "tags": ["Beginner"],
+      "theory": "React is a JavaScript library for building user interfaces from composable components. You describe what the UI should look like for a given state; React updates the DOM efficiently.\n\nComponents are functions or classes that return JSX — syntax that looks like HTML inside JavaScript.\n\nThe virtual DOM diffing algorithm minimizes expensive direct DOM writes.\n\nReact fits single-page apps, design systems, and islands of interactivity inside larger sites.",
+      "definition": {
+        "label": "Definition",
+        "text": "React is a declarative UI library where reusable components render output from props and state."
+      },
+      "keyPoints": [
+        "UI = f(state)",
+        "Components compose into trees",
+        "JSX transpiles to React.createElement calls",
+        "Works with Vite, Next.js, and more"
+      ],
+      "codeExample": {
+        "label": "Hello component",
+        "language": "jsx",
+        "code": "function Hello() {\n  return <h1>Hello, Learnify!</h1>\n}"
+      },
+      "quiz": [
+        {
+          "question": "What does React primarily help you build?",
+          "options": ["Databases", "User interfaces", "Operating systems", "CSS files only"],
+          "answer": 1,
+          "explanation": "React focuses on view layers and component-based UIs."
+        },
+        {
+          "question": "What concept does React use to decide when the UI should change?",
+          "options": ["Database schema", "State", "FTP", "Cookies only"],
+          "answer": 1,
+          "explanation": "React re-renders when state or props change."
+        },
+        {
+          "question": "What kind of code do React components usually return?",
+          "options": ["SQL queries", "JSX", "Shell scripts", "Binary files"],
+          "answer": 1,
+          "explanation": "Components typically return JSX to describe UI structure."
+        }
+      ],
+      "next": "react-jsx"
+    },
+    {
+      "id": "react-jsx",
+      "title": "JSX",
+      "subtitle": "Embedding markup and expressions in components",
+      "tags": ["Beginner"],
+      "theory": "JSX lets you write HTML-like tags in JavaScript. It must compile (Vite, Babel) before browsers run it.\n\nEmbed expressions with curly braces: <p>{count}</p>. Attributes use camelCase: className, htmlFor.\n\nOne parent element per return is required unless you use a Fragment: <>...</>.\n\nSelf-closing tags need a slash: <img src=\"...\" alt=\"\" />.",
+      "definition": {
+        "label": "Definition",
+        "text": "JSX is a syntax extension that describes UI structure as XML-like tags within JavaScript source files."
+      },
+      "keyPoints": [
+        "className instead of class",
+        "Curly braces for JavaScript expressions",
+        "Fragments avoid extra DOM nodes",
+        "Compile step required"
+      ],
+      "codeExample": {
+        "label": "JSX",
+        "language": "jsx",
+        "code": "function Greeting({ name }) {\n  return (\n    <section>\n      <h2>Hi, {name}</h2>\n    </section>\n  )\n}"
+      },
+      "quiz": [
+        {
+          "question": "Which attribute replaces class in JSX?",
+          "options": ["class", "className", "cssClass", "styleName"],
+          "answer": 1,
+          "explanation": "className maps to the DOM class attribute because class is reserved in JavaScript."
+        },
+        {
+          "question": "Why must JSX usually return one parent element?",
+          "options": ["Because browsers demand it", "Because JSX compiles into a single expression", "Because CSS breaks otherwise", "Because React forbids children"],
+          "answer": 1,
+          "explanation": "A component return must resolve to one root element or a Fragment."
+        },
+        {
+          "question": "What is a Fragment used for in React?",
+          "options": ["To create a database table", "To avoid extra wrapper DOM nodes", "To replace props", "To store state forever"],
+          "answer": 1,
+          "explanation": "Fragments group children without adding unnecessary DOM elements."
+        }
+      ],
+      "prev": "react-intro",
+      "next": "react-props"
+    },
+    {
+      "id": "react-props",
+      "title": "Props",
+      "subtitle": "Passing data from parent to child",
+      "tags": ["Beginner"],
+      "theory": "Props are read-only inputs to a component, like function arguments. The parent passes them as attributes: <Card title=\"HTML\" />.\n\nDestructure in the parameter list: function Card({ title }) { ... }.\n\nProps flow one way: down the tree. Children should not mutate props.\n\nDefault values can use default parameters or defaultProps in older patterns.",
+      "definition": {
+        "label": "Definition",
+        "text": "Props are the external configuration a parent component supplies to a child component."
+      },
+      "keyPoints": [
+        "Props are immutable for the child",
+        "Spread rest props onto DOM elements carefully",
+        "Children prop holds nested JSX",
+        "Type or document props in larger apps"
+      ],
+      "codeExample": {
+        "label": "Props",
+        "language": "jsx",
+        "code": "function LessonCard({ title, count }) {\n  return (\n    <article>\n      <h3>{title}</h3>\n      <p>{count} lessons</p>\n    </article>\n  )\n}"
+      },
+      "quiz": [
+        {
+          "question": "Can a child component change its props directly?",
+          "options": ["Yes, always", "No, props are read-only", "Only on Tuesdays", "Only with useState"],
+          "answer": 1,
+          "explanation": "Props are owned by the parent; the child should treat them as immutable."
+        },
+        {
+          "question": "What is the usual direction of props flow?",
+          "options": ["From child to parent", "From parent to child", "Randomly in both directions", "Only through CSS"],
+          "answer": 1,
+          "explanation": "Props are passed down the component tree."
+        },
+        {
+          "question": "What prop pattern is often used to pass nested UI?",
+          "options": ["children", "route", "style", "key only"],
+          "answer": 0,
+          "explanation": "The children prop carries nested JSX into a component."
+        }
+      ],
+      "prev": "react-jsx",
+      "next": "react-state"
+    },
+    {
+      "id": "react-state",
+      "title": "State with useState",
+      "subtitle": "Local data that changes over time",
+      "tags": ["Beginner"],
+      "theory": "State is data a component remembers between renders. useState returns a value and a setter: const [count, setCount] = useState(0).\n\nCalling the setter schedules a re-render with the new value. Do not mutate state objects directly — create new copies.\n\nState updates may batch for performance. Functional updates help when the next value depends on the previous: setCount(c => c + 1).\n\nLift state up when siblings need to share data.",
+      "definition": {
+        "label": "Definition",
+        "text": "State is mutable component memory that triggers re-renders when updated through the provided setter function."
+      },
+      "keyPoints": [
+        "useState(initial) returns [value, setValue]",
+        "Setters trigger re-render",
+        "Immutable updates for objects/arrays",
+        "Lift shared state to common parent"
+      ],
+      "codeExample": {
+        "label": "Counter",
+        "language": "jsx",
+        "code": "import { useState } from 'react'\n\nfunction Counter() {\n  const [count, setCount] = useState(0)\n  return (\n    <button onClick={() => setCount(count + 1)}>\n      Count: {count}\n    </button>\n  )\n}"
+      },
+      "quiz": [
+        {
+          "question": "What hook adds local state to a function component?",
+          "options": ["useEffect", "useState", "useRef only", "useMemo"],
+          "answer": 1,
+          "explanation": "useState is the primary hook for local component state."
+        },
+        {
+          "question": "Why should state objects be replaced immutably?",
+          "options": ["Because mutation is faster in React", "Because React detects updates by new references", "Because objects cannot change", "Because hooks require arrays only"],
+          "answer": 1,
+          "explanation": "Creating a new object or array helps React see that state changed."
+        },
+        {
+          "question": "What form of setState is useful when the next value depends on the previous one?",
+          "options": ["setCount(count + 1) only", "Functional update: setCount(c => c + 1)", "useMemo", "console.log"],
+          "answer": 1,
+          "explanation": "Functional updates avoid stale state when updates are queued."
+        }
+      ],
+      "prev": "react-props",
+      "next": "react-effects"
+    },
+    {
+      "id": "react-effects",
+      "title": "useEffect",
+      "subtitle": "Side effects after render",
+      "tags": ["Beginner"],
+      "theory": "useEffect runs code after paint — fetching data, subscribing to events, or syncing with non-React APIs.\n\nPass a dependency array to control when it re-runs: useEffect(fn, [id]) runs when id changes. An empty array runs once on mount.\n\nReturn a cleanup function to unsubscribe or cancel timers on unmount or before re-running.\n\nKeep effects focused; heavy logic may belong in event handlers or data libraries.",
+      "definition": {
+        "label": "Definition",
+        "text": "An effect is work that connects a component to the outside world, scheduled after React commits DOM updates."
+      },
+      "keyPoints": [
+        "Runs after render",
+        "Dependency array controls re-runs",
+        "Cleanup prevents leaks",
+        "Do not fetch in render body — use effects or loaders"
+      ],
+      "codeExample": {
+        "label": "Document title effect",
+        "language": "jsx",
+        "code": "import { useEffect, useState } from 'react'\n\nfunction Page({ title }) {\n  useEffect(() => {\n    document.title = title\n  }, [title])\n  return <h1>{title}</h1>\n}"
+      },
+      "quiz": [
+        {
+          "question": "When does useEffect run relative to paint?",
+          "options": ["Before render", "After render", "Never", "Only in SSR"],
+          "answer": 1,
+          "explanation": "Effects run after the browser paints the updated UI (in the default layout effect timing for useEffect)."
+        },
+        {
+          "question": "What should you return from an effect that sets up a subscription?",
+          "options": ["A JSX element", "A cleanup function", "A new state object", "Nothing at all"],
+          "answer": 1,
+          "explanation": "Cleanup prevents leaks and removes subscriptions or timers."
+        },
+        {
+          "question": "What does an empty dependency array usually mean?",
+          "options": ["Run the effect once on mount", "Run every render", "Never run", "Only run in production"],
+          "answer": 0,
+          "explanation": "An empty array means the effect runs after the first render only."
+        }
+      ],
+      "prev": "react-state"
+    }
+  ]
+}

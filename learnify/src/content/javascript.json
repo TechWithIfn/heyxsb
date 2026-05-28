@@ -1,0 +1,444 @@
+{
+  "slug": "javascript",
+  "title": "JavaScript",
+  "description": "Learn browser JavaScript from variables and functions to arrays, objects, the DOM, and events.",
+  "sidebarSections": [
+    {
+      "heading": "JavaScript Tutorial",
+      "lessonIds": [
+        "js-intro",
+        "js-variables",
+        "js-data-types",
+        "js-functions",
+        "js-arrays",
+        "js-objects",
+        "js-dom",
+        "js-events"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "js-intro",
+      "title": "JS Introduction",
+      "subtitle": "What JavaScript is, where it runs, and your first script",
+      "group": "JavaScript Fundamentals",
+      "tags": ["Beginner", "Fundamentals"],
+      "theory": "JavaScript is a versatile programming language that runs in web browsers, on servers (Node.js), and in many other environments. In the browser, it makes pages interactive: validating forms, updating content without reloads, and responding to user input.\n\nHTML provides structure, CSS provides style, and JavaScript provides behavior. Scripts can live in external .js files (recommended) or inline in HTML. Place deferred scripts at the end of <body> or use defer so the DOM is ready before code runs.\n\nThe console in DevTools is your first debugging tool. console.log() prints values; errors appear in red with file names and line numbers. Modern JavaScript uses ES2015+ features supported by all current browsers.\n\nJavaScript is dynamically typed: variables can hold different types over time. It uses curly braces for blocks and semicolons are optional but often used for clarity. Learning the fundamentals here prepares you for frameworks like React later.",
+      "definition": {
+        "label": "Definition",
+        "text": "JavaScript is a high-level scripting language used primarily to add interactivity and logic to web pages in the browser."
+      },
+      "keyPoints": [
+        "JavaScript adds behavior to HTML and CSS",
+        "External scripts improve organization and caching",
+        "console.log helps inspect values while learning",
+        "ES6+ syntax is standard in modern browsers",
+        "DevTools Console shows errors and output"
+      ],
+      "codeExample": {
+        "label": "Hello, JavaScript",
+        "language": "javascript",
+        "code": "// app.js\nconsole.log('Hello, LearnTheory!');\n\ndocument.title = 'JS Introduction';"
+      },
+      "quiz": [
+        {
+          "question": "What is JavaScript's main role in a typical web page?",
+          "options": [
+            "Defining page structure",
+            "Styling colors and fonts",
+            "Adding interactivity and logic",
+            "Storing data in SQL only"
+          ],
+          "answer": 2,
+          "explanation": "JavaScript handles behavior and interactivity. HTML structures; CSS styles."
+        },
+        {
+          "question": "Which method prints a message to the browser console?",
+          "options": ["print()", "console.log()", "echo()", "document.write() only"],
+          "answer": 1,
+          "explanation": "console.log() is the standard way to debug output in DevTools."
+        },
+        {
+          "question": "Where should deferred scripts ideally run relative to the DOM?",
+          "options": [
+            "Before any HTML exists",
+            "After the document is parsed or with defer",
+            "Only in CSS files",
+            "Never in browsers"
+          ],
+          "answer": 1,
+          "explanation": "defer or placing scripts at the end avoids running before elements exist."
+        }
+      ]
+    },
+    {
+      "id": "js-variables",
+      "title": "Variables",
+      "subtitle": "let, const, naming rules, and reassignment",
+      "group": "JavaScript Fundamentals",
+      "tags": ["Beginner", "Syntax"],
+      "theory": "Variables store values you reuse and update. declare with let or const. const prevents reassignment of the binding; let allows it. Avoid var in modern code—it has confusing scope rules.\n\nNames must start with a letter, $, or _, and can contain digits afterward. Use camelCase for variables and functions: lessonCount, userName. Names should describe intent, not single letters (except short loop counters).\n\nYou can declare without assigning: let score; then score = 10. const must be initialized when declared. const objects can still have properties changed; only the variable binding is fixed.\n\nBlock scope means let and const exist only inside the nearest { } block—loops, if branches, and functions. This prevents accidental leaks compared to older var behavior.",
+      "definition": {
+        "label": "Definition",
+        "text": "A variable is a named container that holds a value and can be declared with let (reassignable) or const (binding not reassigned)."
+      },
+      "keyPoints": [
+        "Prefer const unless you need to reassign",
+        "let allows reassignment; const does not",
+        "camelCase is the common naming style",
+        "Variables are block-scoped with let and const",
+        "const still allows mutating object properties"
+      ],
+      "codeExample": {
+        "label": "let and const",
+        "language": "javascript",
+        "code": "const siteName = 'LearnTheory';\nlet visitors = 0;\n\nvisitors += 1;\nconsole.log(siteName, visitors);\n\n// siteName = 'Other'; // TypeError: Assignment to constant"
+      },
+      "quiz": [
+        {
+          "question": "Which keyword should you use for a value that never gets reassigned?",
+          "options": ["var", "let", "const", "static"],
+          "answer": 2,
+          "explanation": "const prevents reassigning the variable to a new value."
+        },
+        {
+          "question": "What happens if you reassign a let variable?",
+          "options": [
+            "Syntax error always",
+            "It is allowed",
+            "The browser deletes the page",
+            "Only const can be reassigned"
+          ],
+          "answer": 1,
+          "explanation": "let is designed for values that change over time."
+        },
+        {
+          "question": "Which variable name follows common JavaScript style?",
+          "options": ["lesson-count", "LessonCount", "lessonCount", "2lessons"],
+          "answer": 2,
+          "explanation": "camelCase (lessonCount) is standard; hyphens are invalid in identifiers."
+        }
+      ]
+    },
+    {
+      "id": "js-data-types",
+      "title": "Data Types",
+      "subtitle": "Primitives, typeof, strings, numbers, booleans, and null",
+      "group": "JavaScript Fundamentals",
+      "tags": ["Beginner", "Types"],
+      "theory": "JavaScript values belong to types. Primitives include string, number, boolean, undefined, null, bigint, and symbol. Objects (including arrays and functions) are reference types.\n\ntypeof operator returns a string describing a primitive: typeof 'hi' is 'string', typeof 42 is 'number'. typeof null is 'object'—a long-standing quirk you should remember.\n\nStrings use quotes; template literals use backticks for interpolation: `Hello, ${name}`. Numbers include integers and floats; special values NaN and Infinity exist. Booleans are true and false, often from comparisons.\n\n== loose equality coerces types; === strict equality compares without coercion. Prefer === and !== to avoid surprises like 0 == false being true. undefined means a variable was declared but not assigned; null is an intentional empty value.",
+      "definition": {
+        "label": "Definition",
+        "text": "Data types classify values in JavaScript as primitives (immutable single values) or objects (collections and complex data)."
+      },
+      "keyPoints": [
+        "Primitives: string, number, boolean, undefined, null, bigint, symbol",
+        "typeof checks primitive types (with null quirk)",
+        "Template literals embed expressions with ${}",
+        "Use === for strict equality comparisons",
+        "null is assigned intentionally; undefined is the default missing value"
+      ],
+      "codeExample": {
+        "label": "Types and strict equality",
+        "language": "javascript",
+        "code": "const name = 'Ada';\nconst score = 95;\nconst passed = score >= 60;\n\nconsole.log(typeof name, typeof score);\nconsole.log(`Great job, ${name}!`);\nconsole.log(0 == false, 0 === false);"
+      },
+      "quiz": [
+        {
+          "question": "What does typeof null return in JavaScript?",
+          "options": ["'null'", "'undefined'", "'object'", "'number'"],
+          "answer": 2,
+          "explanation": "typeof null returns 'object' due to a historical bug kept for compatibility."
+        },
+        {
+          "question": "Which operator avoids type coercion in comparisons?",
+          "options": ["==", "===", "=", "?? only"],
+          "answer": 1,
+          "explanation": "=== compares value and type without converting operands."
+        },
+        {
+          "question": "How do you embed a variable in a template string?",
+          "options": [
+            "'Hello, ${name}' with single quotes",
+            "`Hello, ${name}` with backticks",
+            "Hello + name only",
+            "str(name)"
+          ],
+          "answer": 1,
+          "explanation": "Backticks enable ${expression} interpolation in template literals."
+        }
+      ]
+    },
+    {
+      "id": "js-functions",
+      "title": "Functions",
+      "subtitle": "Declarations, expressions, arrow functions, and parameters",
+      "group": "JavaScript Fundamentals",
+      "tags": ["Beginner", "Functions"],
+      "theory": "Functions package reusable logic. Function declarations are hoisted: function greet() { } can be called before its line in the file. Function expressions assign a function to a variable and are not hoisted the same way.\n\nArrow functions (const add = (a, b) => a + b) have concise syntax and inherit this from the surrounding scope—useful in callbacks. For multi-line bodies, use braces and return.\n\nParameters can have default values: function createUser(name = 'Guest'). Extra arguments passed at call time are ignored unless you use rest syntax (...args).\n\nreturn sends a value back; functions without return yield undefined. Pure functions that only depend on inputs are easier to test and reason about than functions that mutate global state.",
+      "definition": {
+        "label": "Definition",
+        "text": "A function is a callable block of code that accepts inputs (parameters) and may return a value to the caller."
+      },
+      "keyPoints": [
+        "Declarations are hoisted; expressions are not",
+        "Arrow functions use => and concise syntax",
+        "Default parameters apply when arguments are undefined",
+        "return exits the function with a value",
+        "Keep functions focused on one clear task"
+      ],
+      "codeExample": {
+        "label": "Functions and arrows",
+        "language": "javascript",
+        "code": "function square(n) {\n  return n * n;\n}\n\nconst double = (n) => n * 2;\n\nfunction greet(name = 'learner') {\n  return `Hello, ${name}!`;\n}\n\nconsole.log(square(4), double(3), greet());"
+      },
+      "quiz": [
+        {
+          "question": "What does an arrow function without curly braces return?",
+          "options": [
+            "Always undefined",
+            "The value of the expression after =>",
+            "The document object",
+            "Nothing—syntax error"
+          ],
+          "answer": 1,
+          "explanation": "Concise arrows implicitly return the expression: n => n * 2 returns the product."
+        },
+        {
+          "question": "How do default parameters work?",
+          "options": [
+            "They run only in strict mode",
+            "They apply when the argument is undefined",
+            "They prevent all arguments",
+            "They replace return statements"
+          ],
+          "answer": 1,
+          "explanation": "Defaults fill in when the corresponding argument is missing or undefined."
+        },
+        {
+          "question": "What is returned if a function has no return statement?",
+          "options": ["null", "0", "undefined", "false always"],
+          "answer": 2,
+          "explanation": "Functions without return complete with the value undefined."
+        }
+      ]
+    },
+    {
+      "id": "js-arrays",
+      "title": "Arrays",
+      "subtitle": "Creating, indexing, and transforming lists of values",
+      "group": "JavaScript Data",
+      "tags": ["Beginner", "Collections"],
+      "theory": "Arrays store ordered lists: const nums = [1, 2, 3]. Index from 0; use length for the count. Push and pop modify the end; unshift and shift modify the front.\n\nHigher-order methods are essential: map transforms each item, filter keeps items that pass a test, find returns the first match, reduce accumulates a single result. They avoid manual for-loop boilerplate and bugs.\n\nSpread syntax copies or merges arrays: [...a, ...b]. Destructuring pulls items out: const [first, second] = colors. includes() checks membership; indexOf() finds an index.\n\nArrays can hold mixed types but usually represent homogeneous collections. JSON APIs often return arrays of objects you map into UI components.",
+      "definition": {
+        "label": "Definition",
+        "text": "An array is an ordered, zero-indexed collection of values with a length property and many built-in iteration methods."
+      },
+      "keyPoints": [
+        "Indexes start at 0; length is the item count",
+        "map, filter, and reduce transform data declaratively",
+        "push/pop modify the end of the array",
+        "Spread [...arr] copies elements into a new array",
+        "includes checks if a value exists"
+      ],
+      "codeExample": {
+        "label": "Array methods",
+        "language": "javascript",
+        "code": "const scores = [72, 85, 91, 68];\n\nconst passed = scores.filter((s) => s >= 70);\nconst curved = scores.map((s) => s + 5);\nconst total = scores.reduce((sum, s) => sum + s, 0);\n\nconsole.log(passed, curved, total);"
+      },
+      "quiz": [
+        {
+          "question": "What index is the first element of an array?",
+          "options": ["1", "0", "-1", "length"],
+          "answer": 1,
+          "explanation": "JavaScript arrays are zero-indexed; the first item is at index 0."
+        },
+        {
+          "question": "Which method creates a new array with only items that pass a test?",
+          "options": ["map", "filter", "push", "sort only"],
+          "answer": 1,
+          "explanation": "filter returns a new array containing elements where the callback returns true."
+        },
+        {
+          "question": "What does reduce with an initial value 0 typically do for numbers?",
+          "options": [
+            "Removes all items",
+            "Accumulates a single combined result like a sum",
+            "Sorts alphabetically",
+            "Converts to string only"
+          ],
+          "answer": 1,
+          "explanation": "reduce walks the array and combines values into one accumulator result."
+        }
+      ]
+    },
+    {
+      "id": "js-objects",
+      "title": "Objects",
+      "subtitle": "Properties, methods, destructuring, and JSON",
+      "group": "JavaScript Data",
+      "tags": ["Beginner", "Objects"],
+      "theory": "Objects group related data as key–value pairs: const user = { name: 'Ada', role: 'admin' }. Access with dot notation user.name or brackets user['role'] when the key is dynamic.\n\nMethods are functions stored as properties: const app = { start() { console.log('go'); } }. Inside methods, this refers to the object (behavior varies with arrows—avoid arrows for object methods if you need dynamic this).\n\nDestructuring extracts fields: const { name, role } = user. Spread copies properties: { ...defaults, ...overrides }. Object.keys(obj) lists property names.\n\nJSON (JavaScript Object Notation) is a text format for APIs. JSON.stringify converts objects to strings; JSON.parse reads strings back. JSON keys must be double-quoted strings.",
+      "definition": {
+        "label": "Definition",
+        "text": "An object is a collection of named properties, each holding a value, used to model real-world entities in code."
+      },
+      "keyPoints": [
+        "Curly braces { } create object literals",
+        "Dot and bracket notation access properties",
+        "Methods are functions as object properties",
+        "Destructuring unpacks properties into variables",
+        "JSON.stringify and JSON.parse exchange data with APIs"
+      ],
+      "codeExample": {
+        "label": "Object and JSON",
+        "language": "javascript",
+        "code": "const lesson = {\n  id: 'js-objects',\n  title: 'Objects',\n  complete: false,\n  markDone() {\n    this.complete = true;\n  },\n};\n\nlesson.markDone();\nconst json = JSON.stringify(lesson);\nconsole.log(JSON.parse(json));"
+      },
+      "quiz": [
+        {
+          "question": "How do you access a property named role on object user?",
+          "options": ["user->role", "user(role)", "user.role or user['role']", "role.user only"],
+          "answer": 2,
+          "explanation": "Dot notation and bracket notation are the standard access patterns."
+        },
+        {
+          "question": "What does JSON.stringify do?",
+          "options": [
+            "Parses a string into an object",
+            "Converts a value to a JSON string",
+            "Deletes all properties",
+            "Sorts keys alphabetically only"
+          ],
+          "answer": 1,
+          "explanation": "JSON.stringify serializes JavaScript values into a JSON-formatted string."
+        },
+        {
+          "question": "What does const { title } = lesson accomplish?",
+          "options": [
+            "Adds a new method",
+            "Destructures title into a variable",
+            "Loops over the object",
+            "Converts to an array"
+          ],
+          "answer": 1,
+          "explanation": "Destructuring assigns lesson.title to the variable title."
+        }
+      ]
+    },
+    {
+      "id": "js-dom",
+      "title": "DOM Manipulation",
+      "subtitle": "Selecting elements, changing content, classes, and attributes",
+      "group": "JavaScript Browser",
+      "tags": ["Intermediate", "DOM"],
+      "theory": "The DOM (Document Object Model) is the browser's tree representation of HTML. JavaScript can read and update it, which changes what users see without a full page reload.\n\nquerySelector and querySelectorAll find elements with CSS selectors: document.querySelector('#title'). textContent changes text; innerHTML parses HTML (use carefully to avoid XSS).\n\nclassList.add, remove, and toggle switch CSS classes—preferred over changing inline styles for maintainability. setAttribute and dataset (data-* attributes) store custom data on elements.\n\ncreateElement and append let you build nodes in memory before inserting them. Document fragments batch inserts efficiently. Always check that selectors match an element before using it to avoid null errors.",
+      "definition": {
+        "label": "Definition",
+        "text": "DOM manipulation is updating the live HTML tree in the browser using JavaScript to change content, structure, or attributes."
+      },
+      "keyPoints": [
+        "document.querySelector uses CSS selectors",
+        "textContent sets plain text; innerHTML parses markup",
+        "classList toggles CSS classes safely",
+        "createElement builds new nodes programmatically",
+        "Guard against null when an element is missing"
+      ],
+      "codeExample": {
+        "label": "Update the DOM",
+        "language": "javascript",
+        "code": "const heading = document.querySelector('#lesson-title');\nconst btn = document.querySelector('.mark-read');\n\nheading.textContent = 'DOM Manipulation';\n\nbtn.addEventListener('click', () => {\n  btn.classList.toggle('is-done');\n  btn.dataset.status = 'done';\n});"
+      },
+      "quiz": [
+        {
+          "question": "Which API selects the first element matching a CSS selector?",
+          "options": [
+            "document.getElementById only",
+            "document.querySelector",
+            "window.select",
+            "Array.map"
+          ],
+          "answer": 1,
+          "explanation": "querySelector returns the first match for any valid CSS selector."
+        },
+        {
+          "question": "Why is classList.toggle often better than editing style directly?",
+          "options": [
+            "It removes HTML",
+            "It keeps presentation in CSS classes",
+            "It prevents events",
+            "It only works on tables"
+          ],
+          "answer": 1,
+          "explanation": "Classes separate styling in CSS from behavior in JavaScript."
+        },
+        {
+          "question": "What does element.dataset.status refer to?",
+          "options": [
+            "A CSS file named status",
+            "The data-status HTML attribute",
+            "The status property of window",
+            "A database connection"
+          ],
+          "answer": 1,
+          "explanation": "dataset maps to data-* attributes: data-status becomes dataset.status."
+        }
+      ]
+    },
+    {
+      "id": "js-events",
+      "title": "Events",
+      "subtitle": "Listeners, the event object, propagation, and forms",
+      "group": "JavaScript Browser",
+      "tags": ["Intermediate", "Events"],
+      "theory": "Browsers emit events when users interact: clicks, keyboard input, form submission, and more. addEventListener attaches a handler: button.addEventListener('click', handler). Named functions or arrows both work; removeListener needs the same function reference.\n\nThe event object describes what happened: event.target is the element that triggered the event; event.preventDefault() stops default behavior like form navigation; stopPropagation limits bubbling up the tree.\n\nEvent delegation attaches one listener on a parent and checks event.target—efficient for lists that change. Input events fire on every keystroke; change often fires when a control loses focus after editing.\n\nKeyboard accessibility matters: support Enter and Space on custom buttons, and do not rely on click alone for critical actions. Passive listeners improve scroll performance for touch and wheel events.",
+      "definition": {
+        "label": "Definition",
+        "text": "An event is a signal that something occurred in the browser; a listener runs your callback when that event fires on an element."
+      },
+      "keyPoints": [
+        "addEventListener registers handlers without overwriting HTML",
+        "event.target identifies the element that triggered the event",
+        "preventDefault stops default browser actions",
+        "Delegation handles dynamic child elements efficiently",
+        "Input and change events suit forms and controls"
+      ],
+      "codeExample": {
+        "label": "Form and delegation",
+        "language": "javascript",
+        "code": "const form = document.querySelector('#signup');\nconst list = document.querySelector('#todo-list');\n\nform.addEventListener('submit', (e) => {\n  e.preventDefault();\n  const email = form.querySelector('input[name=email]').value;\n  console.log('Signed up:', email);\n});\n\nlist.addEventListener('click', (e) => {\n  if (e.target.matches('button.delete')) {\n    e.target.closest('li')?.remove();\n  }\n});"
+      },
+      "quiz": [
+        {
+          "question": "How do you stop a form from reloading the page on submit?",
+          "options": [
+            "event.stopPropagation() only",
+            "event.preventDefault() in the handler",
+            "return false in HTML only",
+            "Remove the form element"
+          ],
+          "answer": 1,
+          "explanation": "preventDefault() cancels the default submit navigation so you handle data in JS."
+        },
+        {
+          "question": "What is event delegation?",
+          "options": [
+            "Attaching many listeners to every child",
+            "Listening on a parent and handling events from children",
+            "Deleting all events",
+            "Using only inline onclick"
+          ],
+          "answer": 1,
+          "explanation": "One parent listener can respond to events bubbling from matching descendants."
+        },
+        {
+          "question": "Which property refers to the element that triggered the event?",
+          "options": ["event.parent", "event.target", "event.style", "event.html"],
+          "answer": 1,
+          "explanation": "event.target is the deepest element involved in the event dispatch."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,278 @@
+[
+  {
+    "id": "bca-core-2",
+    "code": "BCA-102",
+    "name": "Applications — BCA Semester 2",
+    "shortName": "BCA II",
+    "credits": 20,
+    "type": "theory",
+    "icon": "🛠️",
+    "description": "Continuing BCA foundational skills: data structures, databases, OS basics and applied tools.",
+    "units": [
+      {
+        "unitNumber": 1,
+        "title": "Basic Data Structures",
+        "topics": [
+          {
+            "id": "bca-s2-u1-t1",
+            "title": "Arrays and Linked Lists",
+            "subtopics": ["Static arrays","Singly/doubly lists","Operations"],
+            "content": {
+              "theory": [
+                "Arrays provide contiguous storage for elements enabling O(1) indexed access; linked lists allow dynamic insertion and deletion with pointer-based nodes.",
+                "Understanding trade-offs—memory locality vs insertion cost—is essential when selecting basic structures for BCA-level programs.",
+                "Implementing and traversing these structures builds foundational programming skills and prepares students for further data structure topics." 
+              ],
+              "definition": { "label": "Definition", "text": "An array is a contiguous memory block; a linked list is a sequence of nodes each storing data and reference to next (and possibly previous) node." },
+              "keyPoints": ["Arrays: O(1) access","Lists: O(1) insert at head","Traversal cost O(n)","Use lists for dynamic sizes","Consider memory overhead"],
+              "formulas": [],
+              "examples": [ { "problem": "Reverse linked list", "solution": "Iterative pointer reversal." }, { "problem": "Resize array", "solution": "Allocate larger array and copy." } ],
+              "notes": ["Implementations vary by language and runtime"],
+              "examQuestions": [ { "marks": 4, "question": "Insert in linked list code." }, { "marks": 4, "question": "Access array element." }, { "marks": 6, "question": "Compare array vs list." } ],
+              "pyqs": [ { "year": 2023, "question": "Linked list implement." }, { "year": 2022, "question": "Array operation." } ],
+              "references": ["Intro DS textbooks"]
+            }
+          },
+          {
+            "id": "bca-s2-u1-t2",
+            "title": "Stacks and Queues",
+            "subtopics": ["LIFO","FIFO","Applications"],
+            "content": {
+              "theory": [
+                "Stacks (LIFO) and queues (FIFO) are abstract data types supporting push/pop or enqueue/dequeue operations used in expression evaluation, BFS and undo functionality.",
+                "Implementations use arrays or linked lists depending on expected operations and memory characteristics; circular buffers implement efficient queues.",
+                "Recognizing appropriate usage patterns for these structures is a core competency in introductory BCA courses." 
+              ],
+              "definition": { "label": "Definition", "text": "A stack stores elements in last-in-first-out order; a queue stores elements in first-in-first-out order." },
+              "keyPoints": ["Use stack for expression eval","Queue for breadth-first tasks","Circular buffer for fixed-size queue","Check for underflow/overflow","Implement with array or linked list"],
+              "formulas": [],
+              "examples": [ { "problem": "Use stack to check balanced parentheses", "solution": "Push open braces and pop on match." }, { "problem": "Queue for BFS", "solution": "Enqueue neighbors and process level-by-level." } ],
+              "notes": ["Handle edge cases like empty structure"],
+              "examQuestions": [ { "marks": 4, "question": "Implement stack push/pop." }, { "marks": 4, "question": "Explain queue usage in BFS." }, { "marks": 6, "question": "Design circular buffer behavior." } ],
+              "pyqs": [ { "year": 2023, "question": "Stack problem." }, { "year": 2022, "question": "Queue use-case." } ],
+              "references": ["Intro DS guides"]
+            }
+          },
+          {
+            "id": "bca-s2-u1-t3",
+            "title": "Basic Trees and Traversals",
+            "subtopics": ["Binary trees","Traversals","Applications"],
+            "content": {
+              "theory": [
+                "Binary trees structure hierarchical data and support traversal orders (in-order, pre-order, post-order) useful for expression trees and hierarchical storage.",
+                "Understanding recursive traversal implementations solidifies recursion skills and underpins search tree concepts introduced later in BCA curriculum.",
+                "Simple tree operations like insertion and traversal are core exercises for students to practice recursion and pointers/references." 
+              ],
+              "definition": { "label": "Definition", "text": "A binary tree is a node-based structure where each node has at most two children commonly termed left and right." },
+              "keyPoints": ["Implement recursive traversals","Use in expression evaluation","Base case for recursion","Count nodes and height","Understand empty tree handling"],
+              "formulas": [],
+              "examples": [ { "problem": "Print inorder traversal", "solution": "Recursive left-root-right algorithm." }, { "problem": "Compute tree height", "solution": "Recursively compute max child height +1." } ],
+              "notes": ["Practice both iterative and recursive traversals"],
+              "examQuestions": [ { "marks": 4, "question": "Write inorder traversal." }, { "marks": 4, "question": "Define tree height." }, { "marks": 6, "question": "Use tree for expression evaluation." } ],
+              "pyqs": [ { "year": 2023, "question": "Traversal exercise." }, { "year": 2022, "question": "Tree height." } ],
+              "references": ["Intro DS materials"]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 2,
+        "title": "Intro to Databases",
+        "topics": [
+          {
+            "id": "bca-s2-u2-t1",
+            "title": "Database Concepts",
+            "subtopics": ["Tables","Keys","Queries"],
+            "content": {
+              "theory": [
+                "Databases store structured data in tables with relationships mapped via keys; simple SQL queries retrieve and filter data using SELECT, WHERE and basic clauses.",
+                "Primary and foreign keys enforce relationships and integrity constraints; normalization up to 3NF is introduced to reduce redundancy in beginner contexts.",
+                "Hands-on SQL practice helps students form queries to select, insert and update data in small sample databases." 
+              ],
+              "definition": { "label": "Definition", "text": "A relational database stores data in tables with rows and columns and uses a query language (SQL) to manipulate and retrieve data." },
+              "keyPoints": ["Understand table schema","Use primary keys","Write simple SELECT queries","Normalize simple tables","Practice CRUD operations"],
+              "formulas": [],
+              "examples": [ { "problem": "Write SELECT with WHERE", "solution": "SELECT name FROM students WHERE grade>'A'." }, { "problem": "Insert row into table", "solution": "Use INSERT INTO statement." } ],
+              "notes": ["Practice on small sample DBs like SQLite"],
+              "examQuestions": [ { "marks": 4, "question": "Write simple SELECT query." }, { "marks": 4, "question": "Define primary key." }, { "marks": 6, "question": "Normalize small table." } ],
+              "pyqs": [ { "year": 2023, "question": "SQL select." }, { "year": 2022, "question": "Key concept." } ],
+              "references": ["Intro DB tutorials"]
+            }
+          },
+          {
+            "id": "bca-s2-u2-t2",
+            "title": "Simple SQL Queries and Joins",
+            "subtopics": ["Select","Join","Aggregate"],
+            "content": {
+              "theory": [
+                "Joining tables combines data across relations; inner and outer joins solve common retrieval tasks in basic applications taught in BCA courses.",
+                "Aggregate functions (SUM, AVG, COUNT) and GROUP BY support summarizing data for simple reports used in class assignments.",
+                "Students practice building queries that combine selection, join and aggregation to extract meaningful information from small datasets." 
+              ],
+              "definition": { "label": "Definition", "text": "A join combines rows from two or more tables based on related columns to produce a single result set for queries." },
+              "keyPoints": ["Use INNER JOIN for matching rows","Use LEFT JOIN for optional matches","Group and aggregate for summaries","Filter with HAVING post-grouping","Test queries on sample data"],
+              "formulas": [],
+              "examples": [ { "problem": "Join students and enrollments", "solution": "SELECT s.name, e.course FROM students s JOIN enroll e ON s.id=e.sid" }, { "problem": "Compute average", "solution": "SELECT AVG(score) FROM results;" } ],
+              "notes": ["Check join cardinality and unintended cross-joins"],
+              "examQuestions": [ { "marks": 4, "question": "Write a basic join." }, { "marks": 4, "question": "Use GROUP BY to summarize." }, { "marks": 6, "question": "Explain left vs inner join." } ],
+              "pyqs": [ { "year": 2023, "question": "Join example." }, { "year": 2022, "question": "Aggregate use." } ],
+              "references": ["SQL tutorials"]
+            }
+          },
+          {
+            "id": "bca-s2-u2-t3",
+            "title": "Database Project: Small App",
+            "subtopics": ["Design","Populate","Query"],
+            "content": {
+              "theory": [
+                "A small project with a simple schema reinforces database concepts: design tables, populate sample data, and write queries to serve application needs.",
+                "Mapping application features to queries and planning schema upfront reduces rework and demonstrates the role of databases in applications for BCA students.",
+                "Integrating a simple UI or command-line front-end completes the learning loop by producing user-facing artifacts from data queries." 
+              ],
+              "definition": { "label": "Definition", "text": "A small database project is an applied task designing schema, populating data and building queries to support application features." },
+              "keyPoints": ["Plan schema by use cases","Populate representative data","Write queries for app features","Test queries for correctness","Document sample dataset"],
+              "formulas": [],
+              "examples": [ { "problem": "Design student-result DB", "solution": "Tables for students, courses, marks; queries for student report." }, { "problem": "Build small CLI to query DB", "solution": "Use sqlite and simple UI." } ],
+              "notes": ["Keep scope small for semester projects"],
+              "examQuestions": [ { "marks": 4, "question": "Outline DB schema for small app." }, { "marks": 4, "question": "Write query to fetch student marks." }, { "marks": 6, "question": "Plan data population strategy." } ],
+              "pyqs": [ { "year": 2023, "question": "Design small DB." }, { "year": 2022, "question": "Query writing." } ],
+              "references": ["Intro DB guides"]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 3,
+        "title": "Operating Systems Basics",
+        "topics": [
+          {
+            "id": "bca-s2-u3-t1",
+            "title": "Introduction to OS",
+            "subtopics": ["Roles","Processes","Scheduling"],
+            "content": {
+              "theory": [
+                "An operating system manages hardware resources and provides abstractions for processes, memory and I/O enabling programs to run safely and efficiently.",
+                "Basic process concepts, creation and lifecycle are introduced without deep kernel internals to provide foundational understanding to BCA students.",
+                "Simple scheduling ideas and process states illustrate how multitasking is achieved on modern systems." 
+              ],
+              "definition": { "label": "Definition", "text": "An OS is system software that manages hardware resources and provides common services for computer programs." },
+              "keyPoints": ["Know process lifecycle","Understand role of OS","Recognize scheduling basics","I/O abstraction importance","OS as resource manager"],
+              "formulas": [],
+              "examples": [ { "problem": "List process states", "solution": "New, ready, running, waiting, terminated." }, { "problem": "Explain context switch", "solution": "Save/restore CPU state." } ],
+              "notes": ["Focus on concepts rather than implementation details"],
+              "examQuestions": [ { "marks": 4, "question": "Define OS briefly." }, { "marks": 4, "question": "Explain process state." }, { "marks": 6, "question": "Describe scheduling intuition." } ],
+              "pyqs": [ { "year": 2023, "question": "Process lifecycle." }, { "year": 2022, "question": "OS role." } ],
+              "references": ["Intro OS texts"]
+            }
+          },
+          {
+            "id": "bca-s2-u3-t2",
+            "title": "File Systems Basics",
+            "subtopics": ["Files","Directories","Permissions"],
+            "content": {
+              "theory": [
+                "File systems organize persistent storage into files and directories with metadata; permissions and simple security models control access.",
+                "Students learn basic file operations and permission models through hands-on exercises that cement the relationship between applications and storage.",
+                "Understanding path structures, absolute vs relative paths and basic file I/O completes a practical introduction to filesystems for BCA coursework." 
+              ],
+              "definition": { "label": "Definition", "text": "A file system defines how data is stored and organized on storage media and how access is controlled." },
+              "keyPoints": ["Use file APIs","Understand directories vs files","Set appropriate permissions","Use absolute/relative paths","Backup important data"],
+              "formulas": [],
+              "examples": [ { "problem": "Create and read file via program", "solution": "Use file open/read/write routines." }, { "problem": "Set permissions", "solution": "Use chmod or platform-specific tools." } ],
+              "notes": ["Practice with small projects to solidify concepts"],
+              "examQuestions": [ { "marks": 4, "question": "Basic file I/O code." }, { "marks": 4, "question": "Define permission bits." }, { "marks": 6, "question": "Explain directory structure." } ],
+              "pyqs": [ { "year": 2023, "question": "File read example." }, { "year": 2022, "question": "Permission basics." } ],
+              "references": ["Intro OS or file I/O tutorials"]
+            }
+          },
+          {
+            "id": "bca-s2-u3-t3",
+            "title": "System Utilities and Shells",
+            "subtopics": ["Shell commands","Scripting","Automation"],
+            "content": {
+              "theory": [
+                "Basic shell usage and common utilities empower students to interact with operating systems, manage files and automate simple tasks via scripts.",
+                "Writing small shell scripts to automate repetitive workflow (build, run, test) introduces automation and reproducibility best practices for student projects.",
+                "Using command-line tools for searching, file manipulation and process inspection builds practical skills for development and system maintenance." 
+              ],
+              "definition": { "label": "Definition", "text": "A shell is a command-line interface that interprets and executes user commands and scripts to manage the OS and applications." },
+              "keyPoints": ["Learn essential shell commands","Script small workflows","Use pipes and redirection","Automate repetitive tasks","Keep scripts readable"],
+              "formulas": [],
+              "examples": [ { "problem": "Write script to backup files", "solution": "Use tar and cron or scheduled tasks." }, { "problem": "Use grep to search", "solution": "Apply grep with patterns to find text." } ],
+              "notes": ["Prefer cross-platform tools for student work when possible"],
+              "examQuestions": [ { "marks": 4, "question": "Basic shell command usage." }, { "marks": 4, "question": "Write simple shell script." }, { "marks": 6, "question": "Automate file backup." } ],
+              "pyqs": [ { "year": 2023, "question": "Scripting exercise." }, { "year": 2022, "question": "Shell command usage." } ],
+              "references": ["Shell scripting guides"]
+            }
+          }
+        ]
+      },
+      {
+        "unitNumber": 4,
+        "title": "Applied Tools and Practices",
+        "topics": [
+          {
+            "id": "bca-s2-u4-t1",
+            "title": "Version Control Basics",
+            "subtopics": ["Git","Commits","Branches"],
+            "content": {
+              "theory": [
+                "Version control systems track changes to code and documents; Git is the widely used distributed system supporting branching and collaboration.",
+                "Basic workflows include committing frequently, pushing to remote repositories and using branches for feature development to isolate work before merging.",
+                "Understanding core commands and resolving simple merge conflicts are practical skills for collaborative assignments in BCA courses." 
+              ],
+              "definition": { "label": "Definition", "text": "Version control records historical changes to files and supports branching, merging and collaborative workflows." },
+              "keyPoints": ["Commit small changes","Push to remote for backup","Use branches for features","Write clear commit messages","Resolve conflicts carefully"],
+              "formulas": [],
+              "examples": [ { "problem": "Create repo and commit", "solution": "git init, add, commit sequence." }, { "problem": "Create branch and merge", "solution": "git checkout -b feature; merge back." } ],
+              "notes": ["Use hosted platforms like GitHub for collaboration"],
+              "examQuestions": [ { "marks": 4, "question": "Git add/commit commands." }, { "marks": 4, "question": "Branch creation." }, { "marks": 6, "question": "Resolve simple merge conflict." } ],
+              "pyqs": [ { "year": 2023, "question": "Git basics." }, { "year": 2022, "question": "Branch example." } ],
+              "references": ["Git documentation"]
+            }
+          },
+          {
+            "id": "bca-s2-u4-t2",
+            "title": "Testing and Debugging Basics",
+            "subtopics": ["Unit tests","Debuggers","Logs"],
+            "content": {
+              "theory": [
+                "Testing ensures correctness; unit tests verify small components while simple debugging tools help locate and fix defects in student programs.",
+                "Writing a few targeted tests prevents regressions and encourages test-driven thinking even in small coursework projects, improving code reliability.",
+                "Using logging and step-debugging helps students observe runtime behavior and diagnose issues more effectively than trial-and-error edits." 
+              ],
+              "definition": { "label": "Definition", "text": "Testing is the process of executing code to check behavior against expected outcomes; debugging isolates and resolves defects." },
+              "keyPoints": ["Write simple unit tests","Use assertions","Run debugger to step through code","Log important state","Re-run failing tests after fix"],
+              "formulas": [],
+              "examples": [ { "problem": "Write test for sum function", "solution": "Use assert or test framework to check outputs." }, { "problem": "Use debugger to step", "solution": "Set breakpoint and step into function." } ],
+              "notes": ["Keep tests small and focused"],
+              "examQuestions": [ { "marks": 4, "question": "Write a simple unit test." }, { "marks": 4, "question": "Explain role of logging." }, { "marks": 6, "question": "Debugging exercise." } ],
+              "pyqs": [ { "year": 2023, "question": "Test example." }, { "year": 2022, "question": "Debug scenario." } ],
+              "references": ["Testing tutorials"]
+            }
+          },
+          {
+            "id": "bca-s2-u4-t3",
+            "title": "Ethics and Responsible Computing",
+            "subtopics": ["Academic integrity","Privacy basics","Responsible coding"],
+            "content": {
+              "theory": [
+                "Ethical computing covers plagiarism avoidance, data privacy basics and professional behavior necessary for students entering the IT profession.",
+                "Simple privacy principles include minimal data collection and consent; understanding these concepts early shapes responsible development practices.",
+                "Academic integrity policies and proper citation of sources are emphasized for fair assessment and professional behavior in academia and industry." 
+              ],
+              "definition": { "label": "Definition", "text": "Responsible computing includes ethical behavior, privacy awareness, and adherence to academic/professional standards." },
+              "keyPoints": ["Avoid plagiarism","Minimize data collected","Respect user privacy","Cite external code or resources","Follow institutional honor codes"],
+              "formulas": [],
+              "examples": [ { "problem": "Cite third-party code used", "solution": "Document source and license." }, { "problem": "Design minimal data form", "solution": "Collect only required fields." } ],
+              "notes": ["Discuss real-world cases to illustrate principles"],
+              "examQuestions": [ { "marks": 4, "question": "Why cite sources?" }, { "marks": 4, "question": "List privacy principles." }, { "marks": 6, "question": "Describe academic integrity importance." } ],
+              "pyqs": [ { "year": 2023, "question": "Ethics example." }, { "year": 2022, "question": "Privacy basics." } ],
+              "references": ["Institutional policies and ethics reading"]
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
