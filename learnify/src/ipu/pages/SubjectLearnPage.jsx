@@ -13,6 +13,7 @@ import { useSubjectData } from '../hooks/useSubjectData'
 import { getBranchMeta, recordRecentSubjectVisit } from '../utils/navigationData'
 import { useTheme } from '../../context/ThemeContext'
 import { useFocusTrap } from '../../hooks/useFocusTrap'
+import { getCompletedTopicIds, getTopicProgress } from '../hooks/useIPUProgress'
 
 
 function ContentComingSoon({ branchId, semNumber, subjectId }) {
@@ -136,6 +137,7 @@ export function SubjectLearnPage() {
   const [expectedSearch, setExpectedSearch] = useState('')
   const [previousSearch, setPreviousSearch] = useState('')
   const [notesTopicId, setNotesTopicId] = useState('')
+  const [progressVersion, setProgressVersion] = useState(0)
 
   const {
     subject,
@@ -147,7 +149,6 @@ export function SubjectLearnPage() {
     allTopicsFlat,
     prevTopic,
     nextTopic,
-    visitedTopics,
   } = useSubjectData(branchId, semNumber, subjectId, topicId)
 
   const branch = getBranchMeta(branchId)
@@ -236,17 +237,31 @@ export function SubjectLearnPage() {
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [])
 
+  useEffect(() => {
+    const refresh = () => setProgressVersion((current) => current + 1)
+    window.addEventListener('learnify-ipu-progress-updated', refresh)
+    return () => window.removeEventListener('learnify-ipu-progress-updated', refresh)
+  }, [])
+
   const handleTopicSelect = (_, nextTopicId) => {
     setActiveTopic(nextTopicId)
   }
 
-  const progressPercent = useMemo(() => {
-    if (!allTopicsFlat.length) {
-      return 0
+  const topicProgress = useMemo(() => {
+    if (!branchId || !semNumber || !subject?.id) {
+      return { done: 0, total: 0, percent: 0, unitBreakdown: [] }
     }
 
-    return Math.round((visitedTopics.size / allTopicsFlat.length) * 100)
-  }, [allTopicsFlat.length, visitedTopics.size])
+    return getTopicProgress(branchId, semNumber, subject.id)
+  }, [branchId, semNumber, subject?.id, progressVersion])
+
+  const completedTopicIds = useMemo(() => {
+    if (!branchId || !semNumber || !subject?.id) {
+      return new Set()
+    }
+
+    return getCompletedTopicIds(branchId, semNumber, subject.id)
+  }, [branchId, semNumber, subject?.id, progressVersion])
 
   const filteredExpectedTopics = useMemo(() => {
     const needle = expectedSearch.trim().toLowerCase()
@@ -342,10 +357,10 @@ export function SubjectLearnPage() {
             branchId={branchId}
             sem={semNumber}
             subject={subject}
-            progressPercent={progressPercent}
+            progressPercent={topicProgress.percent}
             onToggleDark={toggleTheme}
             onSearch={() => setSearchOpen(true)}
-            onProgressClick={() => navigate('/ipu/dashboard')}
+            onProgressClick={() => setActiveSection('progress')}
             onExpectedQuestions={openExpectedQuestions}
             onPreviousYearQuestions={openPreviousYearQuestions}
             onNotes={openNotes}
@@ -359,7 +374,7 @@ export function SubjectLearnPage() {
             onTopicSelect={handleTopicSelect}
             sidebarOpen={sidebarOpen}
             onClose={() => setSidebarOpen((value) => !value)}
-            visitedTopics={visitedTopics}
+            visitedTopics={completedTopicIds}
             branchId={branchId}
             semNumber={semNumber}
           />
@@ -376,55 +391,21 @@ export function SubjectLearnPage() {
             branchId={branchId}
             semNumber={semNumber}
           />
-        ) : (
+        ) : allTopicsFlat.length === 0 ? (
           <main className="mx-auto flex min-h-[55vh] max-w-3xl flex-col items-center justify-center px-4 py-16 text-center">
             <div className="rounded-full bg-emerald-100 px-4 py-1 text-sm font-semibold text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
-              Ready to start
+              Content coming soon
             </div>
-            <h1 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl">
-              {subject.name}
+            <h1 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl">
+              No topic content available yet
             </h1>
             <p className="mt-3 max-w-lg text-sm leading-6 text-slate-600 dark:text-slate-300">
-              Select a topic from the sidebar, or open Quick Actions: Quiz, Notes, Expected Questions, or Previous Year Questions.
+              We are preparing unit and topic theory for this subject.
             </p>
-
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <button
-                type="button"
-                onClick={() => setSidebarOpen(true)}
-                className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              >
-                Browse Topics
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate(`/quiz?ipu=1&branch=${encodeURIComponent(branchId)}&sem=${encodeURIComponent(semNumber)}&subjectId=${encodeURIComponent(subject.id)}`)}
-                className="rounded-lg bg-[#04AA6D] px-4 py-2 text-sm font-semibold text-white"
-              >
-                Start Quiz
-              </button>
-              <button
-                type="button"
-                onClick={openNotes}
-                className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              >
-                My Notes
-              </button>
-              <button
-                type="button"
-                onClick={openExpectedQuestions}
-                className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              >
-                Expected Questions
-              </button>
-              <button
-                type="button"
-                onClick={openPreviousYearQuestions}
-                className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              >
-                Previous Year Questions
-              </button>
-            </div>
+          </main>
+        ) : (
+          <main className="mx-auto flex min-h-[30vh] max-w-2xl items-center justify-center px-4 py-10 text-center">
+            <p className="text-sm text-slate-500 dark:text-slate-400">Opening topic...</p>
           </main>
         )}
       </IPULearnLayout>
@@ -435,6 +416,46 @@ export function SubjectLearnPage() {
           onOpenTopic={(path) => navigate(path)}
         />
       )}
+
+      <SectionModal
+        open={activeSection === 'progress'}
+        title="Reading Progress"
+        description="Auto-tracked completion as you read to the end of each topic."
+        onClose={closeSection}
+        className="max-w-3xl"
+      >
+        <div className="grid gap-3 sm:grid-cols-3">
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900/70">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Completed</p>
+            <p className="mt-2 text-2xl font-black text-slate-900 dark:text-white">{topicProgress.done}</p>
+          </div>
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900/70">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Total Topics</p>
+            <p className="mt-2 text-2xl font-black text-slate-900 dark:text-white">{topicProgress.total}</p>
+          </div>
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900/70">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Progress</p>
+            <p className="mt-2 text-2xl font-black text-emerald-600 dark:text-emerald-400">{topicProgress.percent}%</p>
+          </div>
+        </div>
+
+        <div className="mt-5 space-y-3">
+          {topicProgress.unitBreakdown.map((unit, index) => {
+            const unitPercent = unit.total > 0 ? Math.round((unit.done / unit.total) * 100) : 0
+            return (
+              <div key={unit.unitId} className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-950/50">
+                <div className="flex items-center justify-between gap-3 text-sm">
+                  <p className="font-semibold text-slate-900 dark:text-white">Unit {index + 1}</p>
+                  <p className="text-slate-600 dark:text-slate-300">{unit.done}/{unit.total}</p>
+                </div>
+                <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800">
+                  <div className="h-full rounded-full bg-emerald-500 transition-all duration-500" style={{ width: `${unitPercent}%` }} />
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </SectionModal>
 
       <SectionModal
         open={activeSection === 'expected'}

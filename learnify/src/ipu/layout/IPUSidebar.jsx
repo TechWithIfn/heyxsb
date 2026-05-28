@@ -21,7 +21,7 @@ function UnitItem({
         className="w-full flex items-center justify-between px-4 py-3.5 text-slate-700 hover:bg-slate-100/70 dark:text-slate-200 dark:hover:bg-slate-800/50 transition-colors"
       >
         <div className="flex flex-col items-start text-left min-w-0 pr-2">
-          <span className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Unit {unit.unitNumber}</span>
+          <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-slate-400 dark:text-slate-500">Unit {unit.unitNumber}</span>
           <span className="text-sm font-semibold text-slate-800 dark:text-slate-200 mt-0.5 truncate w-full">{unit.title}</span>
         </div>
         <div className="flex items-center gap-2 shrink-0">
@@ -32,17 +32,17 @@ function UnitItem({
         </div>
       </button>
 
-      <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'}`}>
-        <ul className="py-1 px-2 space-y-0.5">
+      <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-[900px] opacity-100' : 'max-h-0 opacity-0'}`}>
+        <ul className="py-1.5 px-2.5 space-y-1">
           {unit.topics.map(topic => {
             const isTopicActive = topic.id === activeTopicId
             return (
               <li key={topic.id}>
                 <button
                   onClick={() => onTopicSelect(unit.unitNumber, topic.id)}
-                  className={`w-full text-left px-3 py-2 flex items-center justify-between text-[13px] transition-all duration-200 rounded-lg ${
+                  className={`w-full text-left px-3 py-2.5 flex items-center justify-between text-[13px] transition-all duration-200 rounded-xl ${
                     isTopicActive 
-                      ? 'bg-[#04AA6D] text-white font-semibold shadow-sm dark:bg-green-600' 
+                      ? 'bg-emerald-600 text-white font-semibold shadow-sm dark:bg-emerald-500' 
                       : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/50 dark:hover:text-slate-100'
                   }`}
                 >
@@ -52,7 +52,7 @@ function UnitItem({
                       <Bookmark className={`h-3.5 w-3.5 shrink-0 ${isTopicActive ? 'text-white' : 'text-amber-500'} fill-current`} aria-hidden="true" />
                     )}
                   </span>
-                  <span className={`ml-1 text-xs font-bold shrink-0 ${isTopicActive ? 'text-white' : 'text-[#04AA6D] dark:text-green-400'}`}>
+                  <span className={`ml-1 text-xs font-bold shrink-0 ${isTopicActive ? 'text-white' : 'text-emerald-600 dark:text-emerald-400'}`}>
                     {visited.has(topic.id) ? '✓' : ''}
                   </span>
                 </button>
@@ -85,6 +85,15 @@ export default function IPUSidebar({
   semNumber,
 }) {
   const [openUnits, setOpenUnits] = useState(() => new Set())
+  const units = subject?.units || []
+
+  useEffect(() => {
+    if (openUnits.size > 0 || units.length === 0) {
+      return
+    }
+
+    setOpenUnits(new Set([units[0].unitNumber]))
+  }, [openUnits.size, units])
 
   useEffect(() => {
     if (activeUnit == null) {
@@ -109,7 +118,6 @@ export default function IPUSidebar({
     })
   }
 
-  const units = subject?.units || []
   const topicMatches = new Set(visitedTopics)
 
   useEffect(() => {
@@ -119,13 +127,13 @@ export default function IPUSidebar({
   }, [])
 
   const sidebar = (
-    <aside className="w-60 min-w-[240px] max-w-[240px] h-full fixed left-0 top-16 bottom-0 overflow-y-auto bg-slate-50/80 border-r border-slate-200/80 dark:bg-slate-900/90 dark:border-slate-800/80 backdrop-blur-md">
-      <div className="px-4 py-4 border-b border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-950/40">
+    <aside className="w-64 min-w-[256px] max-w-[256px] h-full fixed left-0 top-16 bottom-0 overflow-y-auto bg-slate-50/85 border-r border-slate-200/80 dark:bg-slate-900/90 dark:border-slate-800/80 backdrop-blur-md">
+      <div className="px-4 py-4 border-b border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-950/40">
         <div className="text-slate-800 dark:text-white font-bold text-[15px] leading-snug line-clamp-2">{subject?.name}</div>
         <div className="text-xs text-slate-500 dark:text-slate-400 mt-1.5 font-mono bg-slate-100 dark:bg-slate-850 px-2 py-0.5 rounded inline-block">{subject?.code}</div>
       </div>
 
-      <div className="pb-16 mt-2">
+      <div className="pb-16 mt-1">
         {units.map(unit => (
           <UnitItem
             key={unit.unitNumber}

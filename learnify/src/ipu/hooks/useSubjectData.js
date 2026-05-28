@@ -122,9 +122,7 @@ export function useSubjectData(branchId, semNumber, subjectId, initialTopicId) {
     }
 
     const initialTopic = resolveTopicById(allTopicsFlat, initialTopicId)
-    const restoredTopicId = safeReadLocalStorage(storageKey)
-    const restoredTopic = resolveTopicById(allTopicsFlat, restoredTopicId)
-    const nextTopic = initialTopic ?? restoredTopic ?? null
+    const nextTopic = initialTopic ?? allTopicsFlat[0] ?? null
 
     if (!nextTopic) {
       return

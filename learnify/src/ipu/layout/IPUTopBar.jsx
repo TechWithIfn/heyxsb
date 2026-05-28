@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useTheme } from '../../context/ThemeContext'
-import { Search, Sun, Moon, LayoutDashboard, BarChart2, FileText, Calendar, Edit3 } from 'lucide-react'
+import { Search, Sun, Moon, BarChart2, FileText, Calendar, Edit3 } from 'lucide-react'
 
 export default function IPUTopBar({
   branchId,
@@ -118,38 +118,31 @@ export default function IPUTopBar({
               </Link>
             )}
 
-            <Link
-              to={`/quiz?ipu=1&branch=${encodeURIComponent(branchId)}&sem=${encodeURIComponent(sem)}&subjectId=${encodeURIComponent(subject?.id)}`}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#04AA6D] hover:bg-[#059862] text-white rounded-lg text-xs font-bold transition-all shadow-xs hover:shadow active:scale-95 dark:bg-green-600 dark:hover:bg-green-500"
-            >
-              Quiz
-            </Link>
-
-            <Link 
-              to="/ipu/dashboard" 
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#04AA6D] hover:bg-[#059862] text-white rounded-lg text-xs font-bold transition-all shadow-xs hover:shadow active:scale-95 dark:bg-green-600 dark:hover:bg-green-500"
-            >
-              <LayoutDashboard className="w-3.5 h-3.5" />
-              <span>Dashboard</span>
-            </Link>
-            
             <button 
               onClick={onProgressClick} 
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-slate-200 hover:border-[#04AA6D] text-slate-600 hover:text-[#04AA6D] rounded-lg text-xs font-bold transition-all hover:bg-slate-50 active:scale-95 dark:border-slate-800 dark:hover:border-green-500 dark:text-slate-450 dark:hover:text-green-400 dark:hover:bg-slate-800/40"
+              aria-label="Open reading progress"
+              title="Reading progress"
+              className="inline-flex h-9 items-center gap-2 rounded-full border border-slate-200 bg-white px-2.5 text-xs font-bold text-slate-700 transition hover:border-emerald-400 hover:text-emerald-700 hover:bg-emerald-50 active:scale-95 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-emerald-500 dark:hover:text-emerald-300 dark:hover:bg-slate-800"
             >
-              <BarChart2 className="w-3.5 h-3.5" />
-              <span>My Progress</span>
+              <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-emerald-500 px-1.5 text-[10px] text-white">
+                {Math.max(0, Math.min(100, Math.round(progressPercent)))}
+              </span>
+              <BarChart2 className="h-3.5 w-3.5" />
             </button>
           </div>
-        </div>
-      </div>
 
-      {/* Progress Bar Container */}
-      <div className="h-0.5 w-full bg-slate-100 dark:bg-slate-800/40">
-        <div 
-          className="h-full bg-[#04AA6D] dark:bg-green-500 transition-all duration-500 ease-out" 
-          style={{ width: `${Math.max(0, Math.min(100, progressPercent))}%` }} 
-        />
+          <button
+            onClick={onProgressClick}
+            aria-label="Open reading progress"
+            title="Reading progress"
+            className="sm:hidden inline-flex h-9 items-center gap-1 rounded-full border border-slate-200 bg-white px-2 text-[11px] font-bold text-slate-700 transition hover:border-emerald-400 hover:text-emerald-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200"
+          >
+            <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-emerald-500 px-1 text-[9px] text-white">
+              {Math.max(0, Math.min(100, Math.round(progressPercent)))}
+            </span>
+            <BarChart2 className="h-3.5 w-3.5" />
+          </button>
+        </div>
       </div>
     </header>
   )

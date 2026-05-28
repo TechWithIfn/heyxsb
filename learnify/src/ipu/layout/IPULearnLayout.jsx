@@ -9,7 +9,7 @@ export default function IPULearnLayout({ topbar, sidebar, children }) {
         <main
           id="main-content"
           tabIndex={-1}
-          className="flex-1 min-h-[calc(100vh-4rem)] px-4 py-8 outline-none md:pl-[240px] md:px-8 lg:px-12"
+          className="flex-1 min-h-[calc(100vh-4rem)] px-4 py-8 outline-none md:pl-[256px] md:px-8 lg:px-12"
         >
           <div className="mx-auto w-full max-w-5xl">{children}</div>
         </main>

@@ -1,11 +1,9 @@
-import { useEffect, useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { Bookmark, Check, Share2 } from 'lucide-react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { Bookmark } from 'lucide-react'
 import TheoryBlock from './blocks/TheoryBlock'
 import FormulaBlock from './blocks/FormulaBlock'
 import ExampleBlock from './blocks/ExampleBlock'
-import { ProgressRing } from './ProgressRing'
-import { getTopicProgress, isDone, markDone, markUndone } from '../hooks/useIPUProgress'
+import { isDone, markDone } from '../hooks/useIPUProgress'
 import { isBookmarked, removeBookmark, saveBookmark } from '../hooks/useIPUBookmarks'
 
 function getTopicUnitId(topic, fallback = 'unit-1') {
@@ -23,7 +21,8 @@ export default function TopicRenderer({
   semNumber,
 }) {
   const [version, setVersion] = useState(0)
-  const [notesOpen, setNotesOpen] = useState(true)
+  const articleRef = useRef(null)
+  const autoDoneRef = useRef(false)
 
   useEffect(() => {
     const refresh = () => setVersion((current) => current + 1)
@@ -38,30 +37,8 @@ export default function TopicRenderer({
   const content = topic.content || {}
   const unitId = getTopicUnitId(topic)
   const topicId = String(topic?.id ?? '')
-  const progress = useMemo(() => {
-    if (!branchId || !semNumber || !subject?.id) {
-      return { done: 0, total: 0, percent: 0, unitBreakdown: [] }
-    }
-
-    return getTopicProgress(branchId, semNumber, subject.id)
-  }, [branchId, semNumber, subject?.id, version])
-
   const done = Boolean(branchId && semNumber && subject?.id && unitId && topicId && isDone(branchId, semNumber, subject.id, unitId, topicId))
   const bookmarked = Boolean(branchId && semNumber && subject?.id && topicId && isBookmarked(branchId, semNumber, subject.id, topicId))
-
-  const handleToggleDone = () => {
-    if (!branchId || !semNumber || !subject?.id || !topicId) {
-      return
-    }
-
-    if (done) {
-      markUndone(branchId, semNumber, subject.id, unitId, topicId)
-    } else {
-      markDone(branchId, semNumber, subject.id, unitId, topicId)
-    }
-
-    setVersion((current) => current + 1)
-  }
 
   const handleToggleBookmark = () => {
     if (!branchId || !semNumber || !subject?.id || !topicId) {
@@ -86,18 +63,49 @@ export default function TopicRenderer({
     setVersion((current) => current + 1)
   }
 
-  const handleShare = async () => {
-    const text = window.location.href
-    try {
-      if (navigator.share) {
-        await navigator.share({ title: topic.title, url: text })
-      } else {
-        await navigator.clipboard.writeText(text)
-      }
-    } catch (error) {
-      console.warn('Unable to share topic link', error)
+  useEffect(() => {
+    autoDoneRef.current = false
+  }, [topicId])
+
+  useEffect(() => {
+    if (!branchId || !semNumber || !subject?.id || !topicId || done) {
+      return
     }
-  }
+
+    const markTopicIfRead = () => {
+      if (autoDoneRef.current) {
+        return
+      }
+
+      const article = articleRef.current
+      if (!article) {
+        return
+      }
+
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight
+      const scrollBottom = window.scrollY + viewportHeight
+      const articleTop = window.scrollY + article.getBoundingClientRect().top
+      const readThreshold = articleTop + article.offsetHeight - 140
+
+      if (scrollBottom >= readThreshold) {
+        autoDoneRef.current = true
+        markDone(branchId, semNumber, subject.id, unitId, topicId)
+      }
+    }
+
+    const onScroll = () => {
+      markTopicIfRead()
+    }
+
+    markTopicIfRead()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
+  }, [branchId, done, semNumber, subject?.id, topicId, unitId])
 
   const PrevNextButtons = () => (
     <div className="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 pt-6 dark:border-slate-800">
@@ -128,73 +136,35 @@ export default function TopicRenderer({
   )
 
   return (
-    <article className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
-      <header className="rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-950/70 sm:p-8">
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div className="space-y-3">
-            <div className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
-              {subject?.name ? <span>{subject.name}</span> : null}
-              {unitId ? <span>Unit {unitId}</span> : null}
-            </div>
-            <h1 className="text-3xl font-black tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+    <article ref={articleRef} className="mx-auto max-w-3xl px-4 py-6 sm:px-6 lg:px-0">
+      <header className="mb-6 border-b border-slate-200 pb-5 dark:border-slate-800">
+        <div className="flex items-start justify-between gap-4">
+          <div className="min-w-0">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+              {subject?.name ? `${subject.name} · ` : ''}Unit {unitId}
+            </p>
+            <h1 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-3xl">
               {topic.title || 'Untitled topic'}
             </h1>
             {topic.description || content.summary ? (
-              <p className="max-w-3xl text-sm leading-6 text-slate-600 dark:text-slate-300">
+              <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
                 {topic.description || content.summary}
               </p>
             ) : null}
           </div>
-
-          <div className="flex flex-wrap gap-2">
-            <button
-              type="button"
-              onClick={handleToggleDone}
-              className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition ${done ? 'bg-emerald-600 text-white hover:bg-emerald-700' : 'bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800'}`}
-            >
-              <Check className="h-4 w-4" />
-              {done ? 'Mark undone' : 'Mark done'}
-            </button>
-            <button
-              type="button"
-              onClick={handleToggleBookmark}
-              className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition ${bookmarked ? 'bg-amber-500 text-white hover:bg-amber-600' : 'bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800'}`}
-            >
-              <Bookmark className="h-4 w-4" />
-              {bookmarked ? 'Bookmarked' : 'Bookmark'}
-            </button>
-            <button
-              type="button"
-              onClick={handleShare}
-              className="inline-flex items-center gap-2 rounded-full bg-[#04AA6D] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#03995f]"
-            >
-              <Share2 className="h-4 w-4" />
-              Share
-            </button>
-          </div>
-        </div>
-
-        <div className="mt-6 grid gap-6 lg:grid-cols-[auto_1fr] lg:items-center">
-          <ProgressRing percent={progress.percent} label="Progress" />
-
-          <div className="grid gap-3 sm:grid-cols-3">
-            <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-900">
-              <div className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Done</div>
-              <div className="mt-1 text-2xl font-black text-slate-900 dark:text-white">{progress.done}</div>
-            </div>
-            <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-900">
-              <div className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Total</div>
-              <div className="mt-1 text-2xl font-black text-slate-900 dark:text-white">{progress.total}</div>
-            </div>
-            <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-900">
-              <div className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Status</div>
-              <div className="mt-1 text-2xl font-black text-slate-900 dark:text-white">{done ? 'Completed' : 'In progress'}</div>
-            </div>
-          </div>
+          <button
+            type="button"
+            onClick={handleToggleBookmark}
+            className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border transition ${bookmarked ? 'border-amber-300 bg-amber-50 text-amber-600 dark:border-amber-500/40 dark:bg-amber-500/10 dark:text-amber-300' : 'border-slate-200 text-slate-500 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800'}`}
+            aria-label={bookmarked ? 'Remove bookmark' : 'Bookmark topic'}
+            aria-pressed={bookmarked}
+          >
+            <Bookmark className="h-4 w-4" />
+          </button>
         </div>
       </header>
 
-      <div className="mt-8 space-y-8">
+      <div className="space-y-8">
         {content.definition && (
           <div className="my-8 rounded border-l-4 border-[#2196F3] bg-[#E7F3FE] p-6 text-[#282A35] dark:bg-[#1e3a5f]/40 dark:text-[#E0E0E0]">
             <h2 className="mt-0 mb-2 text-xl font-semibold">{content.definition.label || 'Definition'}</h2>
@@ -229,22 +199,6 @@ export default function TopicRenderer({
             <h2 className="mt-0 mb-2 text-xl font-semibold">Note</h2>
             <div className="text-base">{content.notes}</div>
           </div>
-        )}
-
-        {Array.isArray(topic.quiz) && topic.quiz.length > 0 && (
-          <section className="my-10">
-            <h2 className="mb-4 text-2xl font-semibold text-[#282A35] dark:text-white">
-              Topic Quiz
-            </h2>
-            <div className="mt-2">
-              <Link
-                to={`/quiz?ipu=1&branch=${encodeURIComponent(branchId)}&sem=${encodeURIComponent(semNumber)}&subjectId=${encodeURIComponent(subject?.id)}&topicId=${encodeURIComponent(topicId)}`}
-                className="inline-flex items-center gap-2 rounded-lg bg-[#04AA6D] px-4 py-2 text-sm font-semibold text-white"
-              >
-                Open Topic Quiz
-              </Link>
-            </div>
-          </section>
         )}
 
         {content.references && content.references.length > 0 && (

@@ -227,6 +227,28 @@ export function getTopicProgress(branchId, sem, subjectId) {
   }
 }
 
+export function getCompletedTopicIds(branchId, sem, subjectId) {
+  const snapshot = getSubjectSnapshot(branchId, sem, subjectId)
+
+  if (!snapshot) {
+    return new Set()
+  }
+
+  const store = readProgressStore()
+  const completed = new Set()
+
+  snapshot.units.forEach((unit) => {
+    unit.topics.forEach((topic) => {
+      const key = buildTopicKey(branchId, sem, subjectId, unit.unitId, topic.topicId)
+      if (store[key]?.done) {
+        completed.add(topic.topicId)
+      }
+    })
+  })
+
+  return completed
+}
+
 export function getSemProgress(branchId, sem, totalSubjects = 0) {
   const snapshot = getSemesterSnapshot(branchId, sem)
 
