@@ -111,7 +111,7 @@ export function LineChart({
               x={p.x}
               y={height - 10}
               textAnchor="middle"
-              className="fill-slate-600 text-[9px] dark:fill-slate-400"
+              className="fill-slate-600 text-[10px] dark:fill-slate-400"
             >
               {p.label}
             </text>

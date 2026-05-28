@@ -5,14 +5,55 @@
 @layer base {
   html {
     @apply antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
   }
 
   body {
     @apply bg-white text-[#282A35] transition-colors duration-200;
+    line-height: 1.6;
   }
 
   html.dark body {
     @apply bg-slate-950 text-slate-100;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.25;
+    text-wrap: balance;
+  }
+
+  p,
+  li,
+  label,
+  button,
+  input,
+  textarea,
+  select {
+    line-height: 1.55;
+  }
+
+  img,
+  svg,
+  video,
+  canvas,
+  iframe {
+    max-width: 100%;
+    height: auto;
+  }
+
+  pre,
+  code,
+  kbd,
+  samp {
+    font-variant-ligatures: none;
   }
 
   :focus-visible {
@@ -158,7 +199,8 @@
   margin-top: 0;
   margin-bottom: 1.25rem;
   color: var(--w3-secondary-text);
-  text-align: justify;
+  text-align: left;
+  overflow-wrap: anywhere;
 }
 
 .prose ul {
@@ -179,6 +221,7 @@
   margin-top: 0.35rem;
   margin-bottom: 0.35rem;
   color: var(--w3-secondary-text);
+  overflow-wrap: anywhere;
 }
 
 .prose strong {
@@ -198,6 +241,20 @@
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.prose :where(pre, table, blockquote) {
+  max-width: 100%;
+}
+
+.prose pre {
+  overflow-x: auto;
+}
+
+.prose table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .prose thead {
@@ -320,5 +377,48 @@
 .dark .prose blockquote {
   color: var(--w3-dark-text);
   background-color: var(--w3-dark-note-bg);
+}
+
+/* Compatibility mappings for legacy non-tailwind token classes used in templates. */
+.text-slate-650 {
+  color: #475569;
+}
+
+.text-slate-850 {
+  color: #1e293b;
+}
+
+.text-slate-555 {
+  color: #64748b;
+}
+
+.text-emerald-450 {
+  color: #34d399;
+}
+
+.hover\:border-emerald-555:hover {
+  border-color: #10b981;
+}
+
+.dark .dark\:bg-slate-850 {
+  background-color: #1f2937;
+}
+
+.dark .dark\:text-slate-350 {
+  color: #cbd5e1;
+}
+
+.dark .dark\:text-slate-450 {
+  color: #94a3b8;
+}
+
+.hover\:bg-slate-250:hover {
+  background-color: #e2e8f0;
+}
+
+/* Raise readability floor for legacy ultra-small labels. */
+.text-\[9px\] {
+  font-size: 0.75rem;
+  line-height: 1.2;
 }
 

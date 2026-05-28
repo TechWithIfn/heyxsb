@@ -7,7 +7,6 @@ import { ToastProvider } from './context/ToastContext'
 import { unregisterServiceWorkers } from './lib/unregisterServiceWorkers'
 import './styles/index.css'
 import './styles/w3colors.css'
-import './styles/w3colors.css'
 
 // Add global error event listeners to handle errors that happen before mounting or in unhandled promises.
 window.addEventListener('error', (event) => {

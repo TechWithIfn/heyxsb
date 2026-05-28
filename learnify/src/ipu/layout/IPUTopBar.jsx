@@ -137,7 +137,7 @@ export default function IPUTopBar({
             title="Reading progress"
             className="sm:hidden inline-flex h-9 items-center gap-1 rounded-full border border-slate-200 bg-white px-2 text-[11px] font-bold text-slate-700 transition hover:border-emerald-400 hover:text-emerald-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200"
           >
-            <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-emerald-500 px-1 text-[9px] text-white">
+            <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-emerald-500 px-1 text-[10px] text-white">
               {Math.max(0, Math.min(100, Math.round(progressPercent)))}
             </span>
             <BarChart2 className="h-3.5 w-3.5" />

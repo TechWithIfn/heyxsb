@@ -1,6 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
-import { GraduationCap } from 'lucide-react'
+import { AnimatePresence, motion } from 'framer-motion'
+import {
+  BarChart3,
+  Bookmark,
+  BookOpen,
+  GraduationCap,
+  Info,
+  RefreshCcw,
+  Sparkles,
+} from 'lucide-react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useShortcuts } from '../context/ShortcutsContext'
 import { useFocusTrap } from '../hooks/useFocusTrap'
@@ -15,12 +23,58 @@ const MAIN_LINKS = [
   { to: '/bookmarks', label: 'Bookmarks' },
 ]
 
-const MORE_LINKS = [
-  { to: '/references', label: 'References' },
-  { to: '/quiz', label: 'Quiz' },
-  { to: '/analytics', label: 'Analytics' },
-  { to: '/about', label: 'About' },
-  { to: '/changelog', label: "What's New" },
+const MORE_SECTIONS = [
+  {
+    title: 'Resources',
+    items: [
+      {
+        to: '/references',
+        label: 'References',
+        description: 'Quick reference material',
+        icon: BookOpen,
+      },
+      {
+        to: '/quiz',
+        label: 'Quiz',
+        description: 'Practice and revision',
+        icon: Sparkles,
+      },
+    ],
+  },
+  {
+    title: 'Explore',
+    items: [
+      {
+        to: '/analytics',
+        label: 'Analytics',
+        description: 'Learning trends and activity',
+        icon: BarChart3,
+      },
+      {
+        to: '/bookmarks',
+        label: 'Bookmarks',
+        description: 'Saved lessons and topics',
+        icon: Bookmark,
+      },
+    ],
+  },
+  {
+    title: 'Updates',
+    items: [
+      {
+        to: '/changelog',
+        label: "What's New",
+        description: 'Latest changes and releases',
+        icon: RefreshCcw,
+      },
+      {
+        to: '/about',
+        label: 'About',
+        description: 'Project info and purpose',
+        icon: Info,
+      },
+    ],
+  },
 ]
 
 function BookIcon({ className }) {
@@ -171,7 +225,7 @@ const drawerLinkClass = ({ isActive }) =>
   }`
 
 function navLinkClass({ isActive }) {
-  return `relative rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+  return `relative whitespace-nowrap rounded-xl px-3.5 py-2.5 text-sm font-semibold transition-colors ${
     isActive
       ? 'bg-[#04AA6D] text-white'
       : 'text-white/85 hover:bg-white/10 hover:text-white'
@@ -197,14 +251,6 @@ function NavLinkWithIndicator({ to, children }) {
       )}
     </NavLink>
   )
-}
-
-function moreDropdownLinkClass({ isActive }) {
-  return `block w-full px-4 py-2.5 text-left text-sm transition-colors ${
-    isActive
-      ? 'bg-[#04AA6D] font-medium text-white'
-      : 'text-white/85 hover:bg-[#163028] hover:text-white'
-  }`
 }
 
 function MoreDropdown({ onNavigate }) {
@@ -233,7 +279,7 @@ function MoreDropdown({ onNavigate }) {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className={`inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+        className={`inline-flex h-11 items-center gap-2 whitespace-nowrap rounded-xl px-4 text-sm font-semibold transition-colors ${
           open
             ? 'bg-[#04AA6D] text-white'
             : 'text-white/85 hover:bg-white/10 hover:text-white'
@@ -247,28 +293,59 @@ function MoreDropdown({ onNavigate }) {
           className={`h-4 w-4 transition-transform ${open ? 'rotate-180' : ''}`}
         />
       </button>
-      {open && (
-        <div
-          role="menu"
-          aria-labelledby="nav-more-button"
-          className="absolute left-0 top-full z-50 mt-1 min-w-[11rem] overflow-hidden rounded-lg border border-[#dddddd] bg-[#1a1a2a] py-1 shadow-lg"
-        >
-          {MORE_LINKS.map(({ to, label }) => (
-            <NavLink
-              key={to}
-              to={to}
-              role="menuitem"
-              className={moreDropdownLinkClass}
-              onClick={() => {
-                setOpen(false)
-                onNavigate?.()
-              }}
-            >
-              {label}
-            </NavLink>
-          ))}
-        </div>
-      )}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            role="menu"
+            aria-labelledby="nav-more-button"
+            className="absolute right-0 top-full z-50 mt-3 w-[min(92vw,24rem)] overflow-hidden rounded-2xl border border-white/10 bg-[#111827]/95 p-2 shadow-2xl backdrop-blur-xl"
+            initial={{ opacity: 0, y: -8, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -6, scale: 0.98 }}
+            transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="grid gap-2 sm:grid-cols-2">
+              {MORE_SECTIONS.map((section) => (
+                <div key={section.title} className="space-y-1.5">
+                  <p className="px-2 pt-1 text-[11px] font-bold uppercase tracking-[0.2em] text-white/50">
+                    {section.title}
+                  </p>
+                  {section.items.map(({ to, label, description, icon: Icon }) => (
+                    <NavLink
+                      key={to}
+                      to={to}
+                      role="menuitem"
+                      className={({ isActive }) =>
+                        `flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors ${
+                          isActive
+                            ? 'bg-[#04AA6D] text-white'
+                            : 'text-white/85 hover:bg-white/10 hover:text-white'
+                        }`
+                      }
+                      onClick={() => {
+                        setOpen(false)
+                        onNavigate?.()
+                      }}
+                    >
+                      <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/10">
+                        <Icon className="h-4 w-4" aria-hidden="true" />
+                      </span>
+                      <span className="min-w-0 flex-1">
+                        <span className="block whitespace-nowrap text-sm font-semibold">
+                          {label}
+                        </span>
+                        <span className="mt-0.5 block text-xs leading-5 text-white/60">
+                          {description}
+                        </span>
+                      </span>
+                    </NavLink>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
@@ -310,32 +387,32 @@ export function Navbar() {
 
   return (
     <motion.header
-      className="no-print sticky top-0 z-30 border-b border-[#444444] bg-[#282A35] shadow-sm dark:bg-[#1a1a2a]"
+      className="no-print sticky top-0 z-30 border-b border-white/10 bg-[#1f2430]/95 shadow-[0_1px_0_rgba(255,255,255,0.03)] backdrop-blur-xl dark:bg-[#111827]/95"
       initial={navbarDrop.initial}
       animate={navbarDrop.animate}
       transition={navbarDrop.transition}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex h-14 items-center gap-2 sm:gap-4 lg:gap-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center gap-4 overflow-hidden sm:gap-5 lg:gap-6 xl:gap-8">
           <Link
             to="/"
-            className="flex min-w-0 shrink-0 items-center gap-2 text-base font-bold text-white sm:text-xl"
+            className="flex min-w-0 shrink-0 items-center gap-3 whitespace-nowrap rounded-xl px-1 py-1 text-base font-semibold text-white transition-opacity hover:opacity-90 sm:text-xl"
             onClick={() => setDrawerOpen(false)}
             aria-label="LearnTheory home"
           >
             <span
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#04AA6D] text-white sm:h-9 sm:w-9"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#04AA6D] text-white shadow-lg shadow-emerald-500/20 sm:h-11 sm:w-11"
               aria-hidden="true"
             >
-              <BookIcon className="h-4 w-4 sm:h-5 sm:w-5" />
+              <BookIcon className="h-5 w-5 sm:h-[1.15rem] sm:w-[1.15rem]" />
             </span>
-            <span className="truncate text-slate-900 dark:text-white">
+            <span className="truncate font-extrabold tracking-tight text-white">
               LearnTheory
             </span>
           </Link>
 
           <nav
-            className="hidden items-center gap-1 lg:flex"
+            className="hidden min-w-0 flex-none items-center gap-2 overflow-hidden lg:flex xl:gap-3"
             aria-label="Main navigation"
           >
             {MAIN_LINKS.map(({ to, label }) => (
@@ -356,17 +433,17 @@ export function Navbar() {
             <MoreDropdown />
           </nav>
 
-          <div className="hidden min-w-0 flex-1 justify-center md:flex lg:max-w-md lg:px-4">
+          <div className="hidden min-w-0 flex-[1_1_24rem] justify-center md:flex lg:max-w-[22rem] lg:px-3 xl:max-w-[26rem]">
             <SearchBar />
           </div>
 
-          <div className="ml-auto flex items-center gap-1.5 sm:gap-2">
+          <div className="ml-auto flex items-center gap-2 sm:gap-2.5">
             {/* Search button removed per user request */}
 
             <button
               type="button"
               onClick={() => setHelpOpen(true)}
-              className="hidden h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white transition-colors hover:bg-white/10 sm:flex"
+              className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition-all hover:bg-white/10 hover:border-white/20 sm:flex"
               aria-label="Keyboard shortcuts (?)"
             >
               <HelpIcon className="h-5 w-5" />
@@ -375,7 +452,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={toggleTheme}
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white transition-colors hover:bg-white/10"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition-all hover:bg-white/10 hover:border-white/20"
               aria-label={isDark ? 'Switch to light mode (Ctrl+D)' : 'Switch to dark mode (Ctrl+D)'}
             >
               <motion.span
@@ -393,7 +470,7 @@ export function Navbar() {
 
             <button
               type="button"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white transition-colors hover:bg-white/10 lg:hidden"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition-all hover:bg-white/10 hover:border-white/20 lg:hidden"
               aria-label={drawerOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={drawerOpen}
               aria-controls="nav-drawer"
@@ -431,19 +508,19 @@ export function Navbar() {
           role="dialog"
           aria-modal="true"
           aria-label="Navigation menu"
-          className={`absolute right-0 top-0 flex h-full w-full max-w-xs flex-col border-l border-[#dddddd] bg-[#282A35] shadow-2xl transition-transform duration-300 ease-out sm:max-w-sm ${
+          className={`absolute right-0 top-0 flex h-full w-full max-w-xs flex-col border-l border-white/10 bg-[#1f2430] shadow-2xl transition-transform duration-300 ease-out sm:max-w-sm dark:bg-[#111827] ${
             drawerOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
           
         >
-          <div className="flex h-14 items-center justify-between border-b border-[#444444] px-4">
-            <span className="font-semibold text-white">
+          <div className="flex h-16 items-center justify-between border-b border-white/10 px-4">
+            <span className="text-base font-bold tracking-tight text-white">
               Menu
             </span>
             <button
               type="button"
               onClick={() => setDrawerOpen(false)}
-              className="flex h-9 w-9 items-center justify-center rounded-lg text-white/85 hover:bg-white/10 hover:text-white"
+              className="flex h-10 w-10 items-center justify-center rounded-xl text-white/85 transition-all hover:bg-white/10 hover:text-white"
               aria-label="Close menu"
             >
               <CloseIcon className="h-5 w-5" />
@@ -492,7 +569,7 @@ export function Navbar() {
                   More
                 </p>
               </li>
-              {MORE_LINKS.map(({ to, label }) => (
+              {MORE_SECTIONS.flatMap((section) => section.items).map(({ to, label }) => (
                 <li key={to}>
                   <NavLink
                     to={to}
@@ -515,20 +592,20 @@ export function Navbar() {
             </ul>
           </nav>
 
-          <div className="border-t border-[#444444] p-4">
+          <div className="border-t border-white/10 p-4">
             <button
               type="button"
               onClick={() => {
                 setDrawerOpen(false)
                 setSearchOpen(true)
               }}
-              className="mb-3 flex w-full items-center justify-center gap-2 rounded-lg border border-[#04AA6D] bg-[#04AA6D] py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#059862]"
+              className="mb-3 flex h-11 w-full items-center justify-center gap-2 rounded-xl border border-[#04AA6D] bg-[#04AA6D] px-4 text-sm font-semibold text-white transition-all hover:bg-[#059862]"
               aria-label="Open search"
             >
               <SearchNavIcon className="h-4 w-4" />
               Open search
             </button>
-            <p className="mb-2 text-xs font-medium uppercase tracking-wide text-slate-600 dark:text-slate-300">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
               Quick search
             </p>
             <SearchBar />

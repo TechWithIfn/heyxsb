@@ -17,14 +17,10 @@ export default function TheoryBlock({ theory = [] }) {
     <section className="mb-6">
       <div className="space-y-4">
         {theory.map((para, idx) => {
-          const firstChar = para?.trim()?.charAt(0) || ''
-          const rest = para?.trim()?.slice(1) || ''
+          const text = para?.trim() || ''
           return (
-            <p key={idx} className={`text-gray-600 dark:text-gray-300 leading-7 text-base` }>
-              {idx === 0 ? (
-                <span className="first-letter:float-left first-letter:text-6xl first-letter:font-bold first-letter:leading-none first-letter:mr-3 first-letter:text-[#04a04a]">{firstChar}</span>
-              ) : null}
-              {formatInlineBold((idx === 0 ? rest : para))}
+            <p key={idx} className="text-base leading-8 text-slate-700 dark:text-slate-300">
+              {formatInlineBold(text)}
             </p>
           )
         })}

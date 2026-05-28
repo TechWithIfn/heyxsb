@@ -21,11 +21,11 @@ function UnitItem({
         className="w-full flex items-center justify-between px-4 py-3.5 text-slate-700 hover:bg-slate-100/70 dark:text-slate-200 dark:hover:bg-slate-800/50 transition-colors"
       >
         <div className="flex flex-col items-start text-left min-w-0 pr-2">
-          <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-slate-400 dark:text-slate-500">Unit {unit.unitNumber}</span>
+          <span className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">Unit {unit.unitNumber}</span>
           <span className="text-sm font-semibold text-slate-800 dark:text-slate-200 mt-0.5 truncate w-full">{unit.title}</span>
         </div>
         <div className="flex items-center gap-2 shrink-0">
-          <span className="text-[10px] font-bold bg-green-50 text-green-700 dark:bg-green-950/40 dark:text-green-400 px-2 py-0.5 rounded-full border border-green-100/50 dark:border-green-900/30">
+          <span className="text-xs font-bold bg-green-50 text-green-700 dark:bg-green-950/40 dark:text-green-400 px-2 py-0.5 rounded-full border border-green-100/50 dark:border-green-900/30">
             {completed}/{unit.topics.length}
           </span>
           <ChevronDown className={`w-4 h-4 transition-transform text-slate-400 dark:text-slate-500 ${isOpen ? 'rotate-180' : ''}`} />
@@ -130,7 +130,7 @@ export default function IPUSidebar({
     <aside className="w-64 min-w-[256px] max-w-[256px] h-full fixed left-0 top-16 bottom-0 overflow-y-auto bg-slate-50/85 border-r border-slate-200/80 dark:bg-slate-900/90 dark:border-slate-800/80 backdrop-blur-md">
       <div className="px-4 py-4 border-b border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-950/40">
         <div className="text-slate-800 dark:text-white font-bold text-[15px] leading-snug line-clamp-2">{subject?.name}</div>
-        <div className="text-xs text-slate-500 dark:text-slate-400 mt-1.5 font-mono bg-slate-100 dark:bg-slate-850 px-2 py-0.5 rounded inline-block">{subject?.code}</div>
+        <div className="mt-1.5 inline-block rounded bg-slate-100 px-2 py-0.5 font-mono text-xs text-slate-600 dark:bg-slate-800 dark:text-slate-300">{subject?.code}</div>
       </div>
 
       <div className="pb-16 mt-1">
@@ -164,7 +164,7 @@ export default function IPUSidebar({
               <div className="font-bold text-slate-800 dark:text-white truncate text-base">{subject?.name}</div>
               <div className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-mono">{subject?.code}</div>
             </div>
-            <button onClick={onClose} className="p-2 bg-slate-100 hover:bg-slate-250 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-350 rounded-lg transition-colors">
+            <button onClick={onClose} className="rounded-lg bg-slate-100 p-2 text-slate-600 transition-colors hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
           </div>

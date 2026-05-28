@@ -161,7 +161,7 @@ export function Progress() {
                 <div>
                   <Link
                     to={`/${topic.slug}`}
-                    className="text-lg font-bold text-slate-850 hover:text-[#04AA6D] dark:text-white dark:hover:text-emerald-400 transition-colors"
+                    className="text-lg font-bold text-slate-900 transition-colors hover:text-[#04AA6D] dark:text-white dark:hover:text-emerald-400"
                   >
                     {topic.title}
                   </Link>

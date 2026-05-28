@@ -85,7 +85,7 @@ export function SearchBar() {
           Search lessons
         </label>
         <div className="relative">
-          <SearchIcon className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+          <SearchIcon className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
           <input
             id="lesson-search"
             type="search"
@@ -94,14 +94,14 @@ export function SearchBar() {
             onChange={(e) => setQuery(e.target.value)}
             onFocus={() => query.trim() && setOpen(true)}
             autoComplete="off"
-            className="w-full rounded-md border border-slate-200 bg-slate-50 py-2 pl-9 pr-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-[#04AA6D] focus:outline-none focus:ring-2 focus:ring-[#04AA6D]/30 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 dark:placeholder:text-slate-500"
+            className="h-11 w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-11 pr-4 text-sm font-medium text-slate-900 placeholder:text-slate-400 shadow-sm transition focus:border-[#04AA6D] focus:outline-none focus:ring-4 focus:ring-[#04AA6D]/15 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500"
           />
         </div>
       </form>
 
       {showDropdown && (
         <div
-          className="absolute left-0 right-0 top-full z-50 mt-2 max-h-80 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-xl dark:border-slate-600 dark:bg-slate-800"
+          className="absolute left-0 right-0 top-full z-50 mt-2 max-h-80 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-2xl dark:border-slate-700 dark:bg-slate-800"
           role="listbox"
           aria-label="Search results"
         >
@@ -116,7 +116,7 @@ export function SearchBar() {
                   key={group.topicSlug}
                   className="border-b border-slate-100 last:border-b-0 dark:border-slate-700"
                 >
-                  <p className="sticky top-0 bg-slate-50 px-4 py-2 text-xs font-bold uppercase tracking-wide text-[#04AA6D] dark:bg-slate-900 dark:text-green-400">
+                  <p className="sticky top-0 bg-slate-50 px-4 py-2.5 text-xs font-bold uppercase tracking-[0.18em] text-[#04AA6D] dark:bg-slate-900 dark:text-emerald-400">
                     {group.topicTitle}
                   </p>
                   <ul>
@@ -129,13 +129,13 @@ export function SearchBar() {
                             setQuery('')
                             setOpen(false)
                           }}
-                          className="block px-4 py-2.5 transition-colors hover:bg-green-50 dark:hover:bg-green-900/20"
+                          className="block px-4 py-3 transition-colors hover:bg-emerald-50 dark:hover:bg-emerald-950/20"
                         >
-                          <span className="block text-sm font-medium text-slate-900 dark:text-slate-100">
+                          <span className="block text-sm font-semibold text-slate-900 dark:text-slate-100">
                             {item.title}
                           </span>
                           {item.subtitle && (
-                            <span className="mt-0.5 line-clamp-1 block text-xs text-slate-500 dark:text-slate-400">
+                            <span className="mt-1 line-clamp-1 block text-xs text-slate-500 dark:text-slate-400">
                               {item.subtitle}
                             </span>
                           )}

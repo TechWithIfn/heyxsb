@@ -40,11 +40,11 @@ function LessonCard({ topicSlug, lesson, index }) {
         {lesson.title}
       </h3>
       {description && (
-        <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-650 dark:text-slate-400">
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
           {description}
         </p>
       )}
-      <span className="mt-4 text-sm font-bold text-[#04AA6D] dark:text-emerald-450">
+      <span className="mt-4 text-sm font-bold text-[#04AA6D] dark:text-emerald-400">
         Read lesson →
       </span>
     </Link>

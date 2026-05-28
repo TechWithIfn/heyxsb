@@ -95,7 +95,7 @@ export function BarChart({
                 x={x + barWidth / 2}
                 y={y - 4}
                 textAnchor="middle"
-                className="fill-slate-700 text-[9px] font-semibold dark:fill-slate-300"
+                className="fill-slate-700 text-[10px] font-semibold dark:fill-slate-300"
               >
                 {d.value}
               </text>

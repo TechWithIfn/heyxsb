@@ -1,6 +1,13 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import {
+  BarChart3,
+  BookOpen,
+  LifeBuoy,
+  Mail,
+  Sparkles,
+} from 'lucide-react'
 import { useTopicProgress } from '../hooks/useProgress'
 import { staggerContainer, staggerItem } from '../lib/motion'
 import { getLatestVersion } from '../lib/changelog'
@@ -231,6 +238,137 @@ function lessonCountFor(slug, fallback) {
   return count
 }
 
+function GitHubMark({ className }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12C24 5.37 18.63 0 12 0z" />
+    </svg>
+  )
+}
+
+const FOOTER_CARD_COLUMNS = [
+  {
+    title: 'LearnTheory',
+    description:
+      'Open, theory-first lessons built to keep learning simple, readable, and fast.',
+    primary: { to: '/about', label: 'About LearnTheory' },
+    secondary: { to: '/changelog', label: "What's New" },
+  },
+  {
+    title: 'Support',
+    description:
+      'Need help or want to reach out? Use the support mail link and we will open your mail app.',
+    primary: { href: 'mailto:ansari@gmail.com', label: 'Contact Support', icon: Mail },
+    secondary: { href: 'mailto:ansari@gmail.com', label: 'ansari@gmail.com', icon: Mail },
+  },
+]
+
+const FOOTER_TITLE_LINKS = [
+  {
+    title: 'Languages',
+    links: [
+      { to: '/html', label: 'HTML' },
+      { to: '/css', label: 'CSS' },
+      { to: '/javascript', label: 'JavaScript' },
+      { to: '/python', label: 'Python' },
+      { to: '/sql', label: 'SQL' },
+      { to: '/java', label: 'Java' },
+      { to: '/dsa', label: 'DSA' },
+      { to: '/react', label: 'React' },
+    ],
+  },
+  {
+    title: 'IPU Syllabus Theory',
+    links: [
+      { to: '/ipu-syllabus', label: 'Branches' },
+      { to: '/ipu-syllabus/cse', label: 'Semesters' },
+      { to: '/ipu-syllabus/cse/semester/1', label: 'Subjects' },
+      { to: '/ipu-syllabus/bookmarks', label: 'Bookmarks' },
+    ],
+  },
+  {
+    title: 'Branches',
+    links: [
+      { to: '/ipu-syllabus/cse', label: 'CSE' },
+      { to: '/ipu-syllabus/it', label: 'IT' },
+      { to: '/ipu-syllabus/ai-ds', label: 'AI&DS' },
+      { to: '/ipu-syllabus/ece', label: 'ECE' },
+      { to: '/ipu-syllabus/eee', label: 'EEE' },
+      { to: '/ipu-syllabus/me', label: 'ME' },
+      { to: '/ipu-syllabus/ce', label: 'CE' },
+      { to: '/ipu-syllabus/mca', label: 'MCA' },
+      { to: '/ipu-syllabus/bca', label: 'BCA' },
+      { to: '/ipu-syllabus/mba', label: 'MBA' },
+    ],
+  },
+  {
+    title: 'More',
+    links: [
+      { to: '/roadmap', label: 'Roadmap' },
+      { to: '/progress', label: 'Progress' },
+      { to: '/bookmarks', label: 'Bookmarks' },
+      { to: '/analytics', label: 'Analytics' },
+      { to: '/quiz', label: 'Quiz' },
+      { to: '/references', label: 'References' },
+    ],
+  },
+]
+
+function FooterCardLink({ to, href, label, icon: Icon, external }) {
+  const content = (
+    <>
+      {Icon ? (
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 transition-colors group-hover:bg-emerald-100 dark:bg-emerald-950/30 dark:text-emerald-400 dark:group-hover:bg-emerald-900/40">
+          <Icon className="h-4.5 w-4.5" aria-hidden="true" />
+        </span>
+      ) : null}
+      <span className="min-w-0 flex-1">
+        <span className="block text-sm font-semibold text-slate-900 transition-colors group-hover:text-emerald-700 dark:text-white dark:group-hover:text-emerald-300">
+          {label}
+        </span>
+      </span>
+    </>
+  )
+
+  const className =
+    'group flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-white/80 px-3 py-3 transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-200 hover:bg-white hover:shadow-md dark:border-slate-800 dark:bg-slate-900/40 dark:hover:border-emerald-900/60 dark:hover:bg-slate-900'
+
+  if (to) {
+    return (
+      <Link to={to} className={className}>
+        {content}
+      </Link>
+    )
+  }
+
+  return (
+    <a
+      href={href}
+      className={className}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noopener noreferrer' : undefined}
+    >
+      {content}
+    </a>
+  )
+}
+
+function FooterTitleLink({ to, label }) {
+  return (
+    <Link
+      to={to}
+      className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 transition-colors hover:border-emerald-200 hover:text-emerald-700 dark:border-slate-800 dark:bg-slate-900/60 dark:text-slate-300 dark:hover:border-emerald-900/60 dark:hover:text-emerald-300"
+    >
+      {label}
+    </Link>
+  )
+}
+
 function TopicCard({ card }) {
   const count = lessonCountFor(card.slug, card.fallbackLessons)
   const { done, total, percent } = useTopicProgress(card.slug)
@@ -283,7 +421,7 @@ function TopicCard({ card }) {
           </div>
         )}
 
-        <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-650 dark:text-slate-400">
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
           {card.description}
         </p>
 
@@ -322,7 +460,7 @@ export function Home() {
           <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl md:text-6xl lg:text-7xl">
             Learn to Code — <span className="bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">Free Theory</span> for Everyone
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base text-slate-650 dark:text-slate-400 sm:text-lg md:text-xl leading-relaxed">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-600 dark:text-slate-400 sm:text-lg md:text-xl">
             Master programming fundamentals with clear explanations, examples, and
             quizzes. No sign-up, no paywalls — just open a topic and start reading.
           </p>
@@ -369,7 +507,7 @@ export function Home() {
             {FEATURES.map((feature) => (
               <div
                 key={feature.title}
-                className="rounded-2xl border border-slate-100 bg-white p-6 text-center shadow-premium dark:border-slate-850 dark:bg-slate-900/30 dark:shadow-dark-premium sm:text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-premium-hover dark:hover:shadow-dark-premium-hover"
+                className="rounded-2xl border border-slate-100 bg-white p-6 text-center shadow-premium transition-all duration-300 hover:-translate-y-1 hover:shadow-premium-hover dark:border-slate-800 dark:bg-slate-900/30 dark:shadow-dark-premium dark:hover:shadow-dark-premium-hover sm:text-left"
               >
                 <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 dark:bg-emerald-950/30 dark:text-emerald-400 sm:mx-0 shadow-inner">
                   <FeatureIcon
@@ -390,43 +528,82 @@ export function Home() {
         </div>
       </section>
 
-      <footer className="mt-auto border-t border-slate-200 bg-slate-50 px-4 py-10 text-slate-600 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-400">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 text-center sm:flex-row sm:text-left">
-          <div>
-            <p className="font-bold text-slate-900 dark:text-white text-base">LearnTheory</p>
-            <p className="mt-1 text-sm text-slate-500 dark:text-slate-500">
-              Open source education platform · MIT License
-            </p>
-          </div>
-          <div className="flex flex-col items-center gap-3 sm:items-end">
-            <a
-              href="https://github.com/learn-theory/learn-theory"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-slate-200/60 hover:bg-slate-200 dark:bg-slate-800/60 dark:hover:bg-slate-850 px-4 py-2.5 text-sm font-semibold text-slate-850 dark:text-white transition-all duration-200"
-            >
-              <svg
-                className="h-5 w-5 fill-current"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
-              </svg>
-              View on GitHub
-            </a>
-            <div className="flex flex-wrap items-center justify-center gap-2.5 sm:justify-end">
-              <Link
-                to="/changelog"
-                className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-semibold text-emerald-600 transition-colors hover:border-emerald-300 dark:border-slate-800 dark:bg-slate-900 dark:text-emerald-400 dark:hover:border-emerald-800"
-                title="View changelog"
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
-                v{getLatestVersion()}
-              </Link>
-              <p className="text-xs text-slate-400 dark:text-slate-555">
-                © {new Date().getFullYear()} LearnTheory · MIT License
-              </p>
+      <footer className="mt-auto border-t border-slate-200 bg-gradient-to-b from-slate-50 to-white px-4 py-12 text-slate-600 dark:border-slate-800 dark:from-slate-950 dark:to-slate-950 dark:text-slate-400 sm:py-14">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-10 lg:grid-cols-[1fr_1.25fr] xl:grid-cols-[1fr_1.5fr]">
+            <div className="space-y-4 max-w-xl">
+              {FOOTER_CARD_COLUMNS.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-3xl border border-slate-200/80 bg-white/90 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/50"
+                >
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-300">
+                    {card.title}
+                  </p>
+                  <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-400">
+                    {card.description}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <FooterCardLink {...card.primary} />
+                    <FooterCardLink {...card.secondary} />
+                  </div>
+                </div>
+              ))}
+
+              <div className="rounded-3xl border border-slate-200/80 bg-white/90 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/50">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-300">
+                  LearnTheory More
+                </p>
+                <div className="mt-4 flex flex-wrap items-center gap-3">
+                  <a
+                    href="https://github.com/learn-theory/learn-theory"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 transition-all duration-200 hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 dark:border-slate-800 dark:bg-slate-900/60 dark:text-white dark:hover:border-emerald-900/50 dark:hover:bg-emerald-950/30 dark:hover:text-emerald-300"
+                  >
+                    <GitHubMark className="h-4 w-4" />
+                    View on GitHub
+                  </a>
+                  <Link
+                    to="/changelog"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-2 text-sm font-semibold text-emerald-700 transition-colors hover:border-emerald-300 hover:bg-emerald-100 dark:border-emerald-900/40 dark:bg-emerald-950/30 dark:text-emerald-300 dark:hover:border-emerald-800/60 dark:hover:bg-emerald-900/30"
+                    title="View changelog"
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
+                    v{getLatestVersion()}
+                  </Link>
+                </div>
+              </div>
             </div>
+
+            <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+              {FOOTER_TITLE_LINKS.map((section) => (
+                <div key={section.title} className="space-y-3">
+                  <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-500">
+                    {section.title}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {section.links.map((link) => (
+                      <FooterTitleLink key={link.label} {...link} />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-10 flex flex-col gap-4 border-t border-slate-200 pt-6 text-sm text-slate-500 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between">
+            <p>© {new Date().getFullYear()} LearnTheory · MIT License</p>
+            <p className="max-w-xl text-left sm:text-right">
+              Contact support at{' '}
+              <a
+                href="mailto:ansari@gmail.com"
+                className="font-semibold text-emerald-700 transition-colors hover:text-emerald-600 dark:text-emerald-300 dark:hover:text-emerald-200"
+              >
+                ansari@gmail.com
+              </a>
+              .
+            </p>
           </div>
         </div>
       </footer>

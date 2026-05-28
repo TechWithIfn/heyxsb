@@ -55,9 +55,9 @@ export function TopicsPage() {
             <li key={slug}>
               <Link
                 to={`/${slug}`}
-                className="group relative block rounded-2xl border border-slate-100 bg-white p-6 shadow-premium transition-all duration-300 hover:border-emerald-555 hover:shadow-premium-hover dark:border-slate-800/80 dark:bg-slate-900/40 dark:shadow-dark-premium dark:hover:shadow-dark-premium-hover"
+                className="group relative block rounded-2xl border border-slate-100 bg-white p-6 shadow-premium transition-all duration-300 hover:border-emerald-500 hover:shadow-premium-hover dark:border-slate-800/80 dark:bg-slate-900/40 dark:shadow-dark-premium dark:hover:shadow-dark-premium-hover"
               >
-                <h2 className="font-bold text-lg text-slate-850 group-hover:text-[#04AA6D] dark:text-white dark:group-hover:text-emerald-400 transition-colors">{title}</h2>
+                <h2 className="text-lg font-bold text-slate-900 transition-colors group-hover:text-[#04AA6D] dark:text-white dark:group-hover:text-emerald-400">{title}</h2>
                 <p className="mt-1.5 text-sm font-semibold text-[#04AA6D] dark:text-emerald-400">
                   {count} lesson{count === 1 ? '' : 's'}
                 </p>

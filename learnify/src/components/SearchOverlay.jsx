@@ -136,15 +136,15 @@ export function SearchOverlay({ open, onClose }) {
             </div>
 
             <p className="mt-3 shrink-0 text-center text-xs text-slate-300">
-              <kbd className="rounded border border-white/25 bg-white/10 px-1.5 py-0.5 font-mono text-[10px] text-white">
+              <kbd className="rounded border border-white/25 bg-white/10 px-1.5 py-0.5 font-mono text-xs text-white">
                 Esc
               </kbd>{' '}
               to close ·{' '}
-              <kbd className="rounded border border-white/25 bg-white/10 px-1.5 py-0.5 font-mono text-[10px] text-white">
+              <kbd className="rounded border border-white/25 bg-white/10 px-1.5 py-0.5 font-mono text-xs text-white">
                 Ctrl
               </kbd>
               +
-              <kbd className="rounded border border-white/25 bg-white/10 px-1.5 py-0.5 font-mono text-[10px] text-white">
+              <kbd className="rounded border border-white/25 bg-white/10 px-1.5 py-0.5 font-mono text-xs text-white">
                 K
               </kbd>{' '}
               to open
