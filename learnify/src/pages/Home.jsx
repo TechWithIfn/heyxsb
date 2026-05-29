@@ -2,8 +2,10 @@ import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import {
+  ArrowUpRight,
   BarChart3,
   BookOpen,
+  Globe,
   LifeBuoy,
   Mail,
   Sparkles,
@@ -251,23 +253,6 @@ function GitHubMark({ className }) {
   )
 }
 
-const FOOTER_CARD_COLUMNS = [
-  {
-    title: 'LearnTheory',
-    description:
-      'Open, theory-first lessons built to keep learning simple, readable, and fast.',
-    primary: { to: '/about', label: 'About LearnTheory' },
-    secondary: { to: '/changelog', label: "What's New" },
-  },
-  {
-    title: 'Support',
-    description:
-      'Need help or want to reach out? Use the support mail link and we will open your mail app.',
-    primary: { href: 'mailto:ansari@gmail.com', label: 'Contact Support', icon: Mail },
-    secondary: { href: 'mailto:ansari@gmail.com', label: 'ansari@gmail.com', icon: Mail },
-  },
-]
-
 const FOOTER_TITLE_LINKS = [
   {
     title: 'Languages',
@@ -283,7 +268,7 @@ const FOOTER_TITLE_LINKS = [
     ],
   },
   {
-    title: 'IPU Syllabus Theory',
+    title: 'Theory',
     links: [
       { to: '/ipu-syllabus', label: 'Branches' },
       { to: '/ipu-syllabus/cse', label: 'Semesters' },
@@ -319,24 +304,57 @@ const FOOTER_TITLE_LINKS = [
   },
 ]
 
-function FooterCardLink({ to, href, label, icon: Icon, external }) {
+const FOOTER_QUICK_LINKS = [
+  { to: '/', label: 'Home' },
+  { to: '/roadmap', label: 'Roadmap' },
+  { to: '/progress', label: 'Progress' },
+  { to: '/quiz', label: 'Quiz' },
+  { to: '/changelog', label: 'Changelog' },
+]
+
+const FOOTER_SOCIAL_LINKS = [
+  {
+    href: 'https://github.com/learn-theory/learn-theory',
+    label: 'GitHub',
+    icon: GitHubMark,
+    external: true,
+  },
+  {
+    href: 'https://learn-theory.github.io',
+    label: 'Website',
+    icon: Globe,
+    external: true,
+  },
+  {
+    href: 'mailto:ansari@gmail.com',
+    label: 'Email',
+    icon: Mail,
+    external: false,
+  },
+]
+
+function FooterActionLink({ to, href, label, helper, icon: Icon, external }) {
   const content = (
     <>
-      {Icon ? (
-        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 transition-colors group-hover:bg-emerald-100 dark:bg-emerald-950/30 dark:text-emerald-400 dark:group-hover:bg-emerald-900/40">
-          <Icon className="h-4.5 w-4.5" aria-hidden="true" />
-        </span>
-      ) : null}
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 transition-colors group-hover:bg-emerald-100 group-hover:text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400 dark:group-hover:bg-emerald-900/40">
+        <Icon className="h-4.5 w-4.5" aria-hidden="true" />
+      </span>
       <span className="min-w-0 flex-1">
         <span className="block text-sm font-semibold text-slate-900 transition-colors group-hover:text-emerald-700 dark:text-white dark:group-hover:text-emerald-300">
           {label}
         </span>
+        {helper ? (
+          <span className="mt-0.5 block text-xs text-slate-500 dark:text-slate-400">
+            {helper}
+          </span>
+        ) : null}
       </span>
+      <ArrowUpRight className="h-4 w-4 shrink-0 text-slate-400 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:text-emerald-500" />
     </>
   )
 
   const className =
-    'group flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-white/80 px-3 py-3 transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-200 hover:bg-white hover:shadow-md dark:border-slate-800 dark:bg-slate-900/40 dark:hover:border-emerald-900/60 dark:hover:bg-slate-900'
+    'group flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-white/90 px-4 py-3 transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-200 hover:bg-white hover:shadow-md dark:border-slate-800 dark:bg-slate-900/40 dark:hover:border-emerald-900/60 dark:hover:bg-slate-900'
 
   if (to) {
     return (
@@ -358,11 +376,26 @@ function FooterCardLink({ to, href, label, icon: Icon, external }) {
   )
 }
 
+function FooterSocialButton({ href, label, icon: Icon, external }) {
+  return (
+    <a
+      href={href}
+      aria-label={label}
+      title={label}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noopener noreferrer' : undefined}
+      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/80 bg-white text-slate-500 transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 hover:shadow-sm dark:border-slate-800 dark:bg-slate-900/60 dark:text-slate-400 dark:hover:border-emerald-900/60 dark:hover:bg-emerald-950/30 dark:hover:text-emerald-300"
+    >
+      <Icon className="h-4 w-4" aria-hidden="true" />
+    </a>
+  )
+}
+
 function FooterTitleLink({ to, label }) {
   return (
     <Link
       to={to}
-      className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 transition-colors hover:border-emerald-200 hover:text-emerald-700 dark:border-slate-800 dark:bg-slate-900/60 dark:text-slate-300 dark:hover:border-emerald-900/60 dark:hover:text-emerald-300"
+      className="inline-flex rounded-full border border-slate-200/80 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-200 hover:text-emerald-700 hover:shadow-sm dark:border-slate-800 dark:bg-slate-900/60 dark:text-slate-300 dark:hover:border-emerald-900/60 dark:hover:text-emerald-300"
     >
       {label}
     </Link>
@@ -528,45 +561,130 @@ export function Home() {
         </div>
       </section>
 
-      <footer className="mt-auto border-t border-slate-200 bg-gradient-to-b from-slate-50 to-white px-4 py-12 text-slate-600 dark:border-slate-800 dark:from-slate-950 dark:to-slate-950 dark:text-slate-400 sm:py-14">
+      <footer className="mt-auto border-t border-emerald-100/80 bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.08),_transparent_36%),radial-gradient(circle_at_top_right,_rgba(15,23,42,0.04),_transparent_28%),linear-gradient(180deg,_rgba(248,250,252,0.92),_rgba(255,255,255,0.98))] px-4 py-12 text-slate-600 backdrop-blur-md dark:border-slate-800 dark:bg-[radial-gradient(circle_at_top_left,_rgba(16,185,129,0.12),_transparent_36%),radial-gradient(circle_at_top_right,_rgba(255,255,255,0.04),_transparent_28%),linear-gradient(180deg,_rgba(2,6,23,0.92),_rgba(2,6,23,0.98))] dark:text-slate-400 sm:py-14">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-10 lg:grid-cols-[1fr_1.25fr] xl:grid-cols-[1fr_1.5fr]">
-            <div className="space-y-4 max-w-xl">
-              {FOOTER_CARD_COLUMNS.map((card) => (
-                <div
-                  key={card.title}
-                  className="rounded-3xl border border-slate-200/80 bg-white/90 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/50"
-                >
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-300">
-                    {card.title}
-                  </p>
-                  <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-400">
-                    {card.description}
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    <FooterCardLink {...card.primary} />
-                    <FooterCardLink {...card.secondary} />
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/80 shadow-[0_24px_80px_-38px_rgba(15,23,42,0.32)] backdrop-blur-xl dark:border-slate-800/80 dark:bg-slate-950/70 dark:shadow-[0_24px_80px_-38px_rgba(0,0,0,0.45)]">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent" />
+            <div className="pointer-events-none absolute -left-20 top-8 h-44 w-44 rounded-full bg-emerald-400/10 blur-3xl" />
+            <div className="pointer-events-none absolute -right-20 bottom-6 h-44 w-44 rounded-full bg-slate-900/5 blur-3xl dark:bg-white/5" />
+
+            <div className="relative p-5 sm:p-6 lg:p-7">
+              <div className="grid gap-6 xl:grid-cols-[1.05fr_1.35fr]">
+                <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-1">
+                  <div className="rounded-[1.75rem] border border-slate-200/80 bg-white/90 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/45">
+                    <p className="text-xs font-bold uppercase tracking-[0.22em] text-emerald-700 dark:text-emerald-300">
+                      LearnTheory
+                    </p>
+                    <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                      Theory-first learning, tuned for speed and clarity.
+                    </h2>
+                    <p className="mt-3 max-w-xl text-sm leading-7 text-slate-600 dark:text-slate-400">
+                      Compact, readable lessons for programming fundamentals, IPU
+                      syllabus navigation, and quick progress tracking.
+                    </p>
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      <span className="inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 dark:border-emerald-900/50 dark:bg-emerald-950/35 dark:text-emerald-300">
+                        Open source
+                      </span>
+                      <span className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600 dark:border-slate-800 dark:bg-slate-900/60 dark:text-slate-300">
+                        Theory first
+                      </span>
+                      <span className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600 dark:border-slate-800 dark:bg-slate-900/60 dark:text-slate-300">
+                        Fast navigation
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="rounded-[1.75rem] border border-slate-200/80 bg-white/90 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/45">
+                    <p className="text-xs font-bold uppercase tracking-[0.22em] text-emerald-700 dark:text-emerald-300">
+                      Support
+                    </p>
+                    <p className="mt-3 max-w-xl text-sm leading-7 text-slate-600 dark:text-slate-400">
+                      Clean contact options with aligned actions and consistent icon
+                      sizing for support requests, source browsing, and quick updates.
+                    </p>
+                    <div className="mt-5 grid gap-3">
+                      <FooterActionLink
+                        href="mailto:ansari@gmail.com"
+                        label="Email support"
+                        helper="ansari@gmail.com"
+                        icon={Mail}
+                      />
+                      <FooterActionLink
+                        href="https://github.com/learn-theory/learn-theory"
+                        label="View source"
+                        helper="GitHub repository"
+                        icon={GitHubMark}
+                        external
+                      />
+                    </div>
                   </div>
                 </div>
-              ))}
 
-              <div className="rounded-3xl border border-slate-200/80 bg-white/90 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/50">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-300">
-                  LearnTheory More
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {FOOTER_TITLE_LINKS.map((section) => (
+                    <div
+                      key={section.title}
+                      className="rounded-[1.5rem] border border-slate-200/80 bg-white/85 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/45"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="flex h-9 w-9 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 dark:bg-emerald-950/30 dark:text-emerald-400">
+                          {section.title === 'Languages' ? (
+                            <BookOpen className="h-4 w-4" aria-hidden="true" />
+                          ) : section.title === 'Theory' ? (
+                            <Sparkles className="h-4 w-4" aria-hidden="true" />
+                          ) : section.title === 'Branches' ? (
+                            <BarChart3 className="h-4 w-4" aria-hidden="true" />
+                          ) : (
+                            <LifeBuoy className="h-4 w-4" aria-hidden="true" />
+                          )}
+                        </span>
+                        <div>
+                          <h3 className="text-xs font-bold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-500">
+                            {section.title}
+                          </h3>
+                          <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                            Curated quick links grouped for easy scanning.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="mt-4 flex flex-wrap gap-2.5">
+                        {section.links.map((link) => (
+                          <FooterTitleLink key={link.label} {...link} />
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-6 flex flex-col gap-4 border-t border-slate-200/80 pt-5 text-sm text-slate-500 dark:border-slate-800 sm:items-center lg:flex-row lg:justify-between">
+                <p className="text-center lg:text-left">
+                  © {new Date().getFullYear()} LearnTheory · MIT License
                 </p>
-                <div className="mt-4 flex flex-wrap items-center gap-3">
-                  <a
-                    href="https://github.com/learn-theory/learn-theory"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 transition-all duration-200 hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 dark:border-slate-800 dark:bg-slate-900/60 dark:text-white dark:hover:border-emerald-900/50 dark:hover:bg-emerald-950/30 dark:hover:text-emerald-300"
-                  >
-                    <GitHubMark className="h-4 w-4" />
-                    View on GitHub
-                  </a>
+
+                <div className="flex flex-wrap items-center justify-center gap-2">
+                  {FOOTER_QUICK_LINKS.map((link) => (
+                    <Link
+                      key={link.label}
+                      to={link.to}
+                      className="inline-flex items-center rounded-full border border-slate-200/80 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-600 transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-200 hover:text-emerald-700 hover:shadow-sm dark:border-slate-800 dark:bg-slate-900/60 dark:text-slate-300 dark:hover:border-emerald-900/60 dark:hover:text-emerald-300"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap items-center justify-center gap-3 lg:justify-end">
+                  <div className="flex items-center gap-2">
+                    {FOOTER_SOCIAL_LINKS.map((social) => (
+                      <FooterSocialButton key={social.label} {...social} />
+                    ))}
+                  </div>
+
                   <Link
                     to="/changelog"
-                    className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-2 text-sm font-semibold text-emerald-700 transition-colors hover:border-emerald-300 hover:bg-emerald-100 dark:border-emerald-900/40 dark:bg-emerald-950/30 dark:text-emerald-300 dark:hover:border-emerald-800/60 dark:hover:bg-emerald-900/30"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-emerald-700 transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-300 hover:bg-emerald-100 hover:shadow-sm dark:border-emerald-900/40 dark:bg-emerald-950/35 dark:text-emerald-300 dark:hover:border-emerald-800/60 dark:hover:bg-emerald-900/35"
                     title="View changelog"
                   >
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
@@ -575,35 +693,6 @@ export function Home() {
                 </div>
               </div>
             </div>
-
-            <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-              {FOOTER_TITLE_LINKS.map((section) => (
-                <div key={section.title} className="space-y-3">
-                  <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-500">
-                    {section.title}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {section.links.map((link) => (
-                      <FooterTitleLink key={link.label} {...link} />
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-10 flex flex-col gap-4 border-t border-slate-200 pt-6 text-sm text-slate-500 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between">
-            <p>© {new Date().getFullYear()} LearnTheory · MIT License</p>
-            <p className="max-w-xl text-left sm:text-right">
-              Contact support at{' '}
-              <a
-                href="mailto:ansari@gmail.com"
-                className="font-semibold text-emerald-700 transition-colors hover:text-emerald-600 dark:text-emerald-300 dark:hover:text-emerald-200"
-              >
-                ansari@gmail.com
-              </a>
-              .
-            </p>
           </div>
         </div>
       </footer>
