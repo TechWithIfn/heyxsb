@@ -1,9 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
 import { Link, useNavigate } from 'react-router-dom'
 import { useShortcuts } from '../context/ShortcutsContext'
 import { useToast } from '../context/ToastContext'
-import { easeOut } from '../lib/motion'
 import { toggleBookmark } from '../lib/bookmarks'
 import { trackQuizResult } from '../lib/analytics'
 import { setLessonComplete } from '../lib/progress'
@@ -94,6 +92,23 @@ function PrintIcon({ className }) {
   )
 }
 
+function CheckIcon({ className }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M20 6 9 17l-5-5" />
+    </svg>
+  )
+}
+
 function lessonId(lesson) {
   return lesson ? getLessonId(lesson) : null
 }
@@ -134,6 +149,15 @@ function ChevronRight({ className }) {
 
 const sectionHeading =
   'mb-4 border-l-4 border-[#04AA6D] pl-3 text-xl font-bold text-slate-900 dark:border-green-500 dark:text-white sm:text-2xl print:border-slate-800 print:text-black'
+
+const actionButtonBase =
+  'inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl border px-4 text-sm font-semibold shadow-sm transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#04AA6D] focus-visible:ring-offset-2 active:translate-y-px dark:focus-visible:ring-offset-slate-950 sm:w-auto'
+
+const actionButtonNeutral =
+  'border-slate-200 bg-white text-slate-700 hover:border-[#04AA6D] hover:text-[#04AA6D] hover:shadow-md dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-green-500 dark:hover:text-green-400'
+
+const actionButtonPrimary =
+  'border-[#04AA6D] bg-[#04AA6D] text-white hover:bg-[#059862] hover:shadow-md dark:border-green-500 dark:bg-green-600 dark:hover:bg-green-500'
 
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -183,6 +207,17 @@ export function LessonReader({ lesson, topic, prevLesson, nextLesson }) {
   const handlePrint = useCallback(() => {
     window.print()
   }, [])
+
+  const handleCompleteToggle = useCallback(
+    (checked) => {
+      if (!topicSlug || !id) return
+      setLessonComplete(topicSlug, id, checked)
+      toast(checked ? 'Lesson marked complete' : 'Lesson marked incomplete', {
+        type: 'success',
+      })
+    },
+    [topicSlug, id, toast],
+  )
 
   useEffect(() => {
     if (!lesson) {
@@ -236,13 +271,52 @@ export function LessonReader({ lesson, topic, prevLesson, nextLesson }) {
   const codeLanguage =
     lesson.codeExample?.language ?? topic?.slug ?? 'text'
 
-  const handleCompleteToggle = (checked) => {
-    if (!topicSlug || !id) return
-    setLessonComplete(topicSlug, id, checked)
-    if (checked) {
-      toast('Lesson marked complete', { type: 'success' })
-    }
-  }
+  const actionButtons = [
+    {
+      key: 'share',
+      onClick: handleShare,
+      label: 'Share',
+      longLabel: 'Share lesson',
+      icon: <ShareIcon className="h-4 w-4" />,
+      variant: 'neutral',
+      props: {
+        ariaExpanded: shareOpen,
+        ariaHaspopup: 'dialog',
+      },
+    },
+    {
+      key: 'print',
+      onClick: handlePrint,
+      label: 'Print',
+      longLabel: 'Print lesson',
+      icon: <PrintIcon className="h-4 w-4" />,
+      variant: 'neutral',
+      props: {},
+    },
+    {
+      key: 'ask-ai',
+      onClick: () => setAskAIOpen(true),
+      label: 'Ask AI',
+      longLabel: 'Ask AI about this lesson',
+      icon: <SparkleIcon className="h-4 w-4" />,
+      variant: 'primary',
+      props: {
+        ariaExpanded: askAIOpen,
+        ariaHaspopup: 'dialog',
+      },
+    },
+    {
+      key: 'bookmark',
+      onClick: handleBookmark,
+      label: bookmarked ? 'Saved' : 'Bookmark',
+      longLabel: bookmarked ? 'Remove bookmark' : 'Bookmark this lesson',
+      icon: <BookmarkIcon className="h-4 w-4" filled={bookmarked} />,
+      variant: bookmarked ? 'primary' : 'neutral',
+      props: {
+        ariaPressed: bookmarked,
+      },
+    },
+  ]
 
   const seo = buildLessonSeo({
     lesson,
@@ -252,7 +326,7 @@ export function LessonReader({ lesson, topic, prevLesson, nextLesson }) {
   })
 
   return (
-    <article className="lesson-print-root w-full min-w-0 max-w-none lg:max-w-4xl">
+    <article className="lesson-print-root mx-auto w-full min-w-0 max-w-[950px] px-4 md:px-8">
       <PageSeo
         title={seo.fullTitle}
         description={seo.description}
@@ -277,182 +351,108 @@ export function LessonReader({ lesson, topic, prevLesson, nextLesson }) {
         LearnTheory — {topicTitle}
       </p>
 
-      <nav
-        className="no-print mb-6 flex flex-wrap items-center gap-1 text-sm text-slate-600 dark:text-slate-400"
-        aria-label="Breadcrumb"
-      >
-        <Link
-          to="/"
-          className="transition-colors hover:text-[#04AA6D] dark:hover:text-green-400"
-        >
-          Home
-        </Link>
-        <span className="text-slate-500 dark:text-slate-500" aria-hidden="true">
-          ›
-        </span>
-        {topicSlug && (
-          <>
-            <Link
-              to={`/${topicSlug}`}
-              className="transition-colors hover:text-[#04AA6D] dark:hover:text-green-400"
+      <header className="lesson-print-header mb-6 rounded-3xl border border-slate-200 bg-white/95 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-950/70 print:border-slate-300 print:bg-white print:shadow-none">
+        <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_auto] xl:items-start">
+          <div className="min-w-0 space-y-4">
+            <nav
+              className="no-print flex flex-wrap items-center gap-1 text-sm text-slate-600 dark:text-slate-400"
+              aria-label="Breadcrumb"
             >
-              {topicTitle}
-            </Link>
-            <span
-              className="text-slate-500 dark:text-slate-500"
-              aria-hidden="true"
-            >
-              ›
-            </span>
-          </>
-        )}
-        <span className="font-medium text-slate-700 dark:text-slate-200">
-          {lesson.title}
-        </span>
-      </nav>
+              <Link
+                to="/"
+                className="transition-colors hover:text-[#04AA6D] dark:hover:text-green-400"
+              >
+                Home
+              </Link>
+              <span
+                className="text-slate-500 dark:text-slate-500"
+                aria-hidden="true"
+              >
+                ›
+              </span>
+              {topicSlug && (
+                <>
+                  <Link
+                    to={`/${topicSlug}`}
+                    className="transition-colors hover:text-[#04AA6D] dark:hover:text-green-400"
+                  >
+                    {topicTitle}
+                  </Link>
+                  <span
+                    className="text-slate-500 dark:text-slate-500"
+                    aria-hidden="true"
+                  >
+                    ›
+                  </span>
+                </>
+              )}
+              <span className="font-medium text-slate-700 dark:text-slate-200">
+                {lesson.title}
+              </span>
+            </nav>
 
-      <header className="lesson-print-header mb-8 border-b border-slate-200 pb-6 dark:border-slate-700 print:border-slate-300">
-        <div className="flex flex-wrap items-start justify-between gap-3">
-          <h1 className="min-w-0 flex-1 text-2xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-3xl lg:text-4xl print:text-black">
-            {lesson.title}
-          </h1>
-          <div className="no-print flex shrink-0 flex-wrap items-center gap-2">
-            <button
-              type="button"
-              onClick={handleShare}
-              className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-[#04AA6D] hover:text-[#04AA6D] dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-green-500 dark:hover:text-green-400"
-              aria-haspopup="dialog"
-              aria-expanded={shareOpen}
-              aria-label="Share this lesson"
-            >
-              <ShareIcon className="h-4 w-4" />
-              <span className="hidden sm:inline">Share This Lesson</span>
-              <span className="sm:hidden">Share</span>
-            </button>
-            <button
-              type="button"
-              onClick={handlePrint}
-              className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:border-[#04AA6D] hover:text-[#04AA6D] dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-green-500 dark:hover:text-green-400"
-              aria-label="Print lesson"
-            >
-              <PrintIcon className="h-4 w-4" />
-              <span className="hidden sm:inline">Print Lesson</span>
-              <span className="sm:hidden">Print</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setAskAIOpen(true)}
-              className="inline-flex items-center gap-2 rounded-lg border border-[#04AA6D] bg-[#04AA6D] px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#059862] hover:shadow-md active:scale-95 dark:border-green-500 dark:bg-green-600 dark:hover:bg-green-500"
-              aria-haspopup="dialog"
-              aria-expanded={askAIOpen}
-              aria-label="Ask AI about this lesson"
-            >
-              <SparkleIcon className="h-4 w-4" />
-              <span>Ask AI</span>
-            </button>
-            <button
-              type="button"
-              onClick={handleBookmark}
-              className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border transition-all duration-200 hover:scale-105 active:scale-95 ${
-                bookmarked
-                  ? 'border-[#04AA6D] bg-[#04AA6D] text-white dark:border-green-500 dark:bg-green-600'
-                  : 'border-slate-200 bg-white text-slate-500 hover:border-[#04AA6D] hover:text-[#04AA6D] dark:border-slate-600 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-green-500 dark:hover:text-green-400'
-              }`}
-              aria-label={bookmarked ? 'Remove bookmark' : 'Bookmark this lesson'}
-              aria-pressed={bookmarked}
-            >
-              <BookmarkIcon className="h-5 w-5" filled={bookmarked} />
-            </button>
+            <div className="space-y-3">
+                  <h1 className="min-w-0 text-[48px] font-bold tracking-tight text-slate-900 dark:text-white">
+                    {lesson.title}
+                  </h1>
+                  {lesson.subtitle && (
+                    <p className="max-w-3xl text-[18px] leading-[1.8] text-slate-600 dark:text-slate-400">
+                      {lesson.subtitle}
+                    </p>
+                  )}
+              {lesson.tags?.length > 0 && (
+                <ul className="no-print flex flex-wrap gap-2">
+                  {lesson.tags.map((tag) => (
+                    <li
+                      key={tag}
+                      className="rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-700 dark:border-emerald-900/40 dark:bg-emerald-950/35 dark:text-emerald-300"
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+
+          <div className="no-print grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:justify-start xl:justify-end">
+            {actionButtons.map((button) => {
+              const variantClass =
+                button.variant === 'primary'
+                  ? actionButtonPrimary
+                  : actionButtonNeutral
+
+              return (
+                <button
+                  key={button.key}
+                  type="button"
+                  onClick={button.onClick}
+                  className={`${actionButtonBase} ${variantClass}`}
+                  aria-label={button.longLabel}
+                  {...(button.props.ariaExpanded !== undefined
+                    ? { 'aria-expanded': button.props.ariaExpanded }
+                    : {})}
+                  {...(button.props.ariaHaspopup
+                    ? { 'aria-haspopup': button.props.ariaHaspopup }
+                    : {})}
+                  {...(button.props.ariaPressed !== undefined
+                    ? { 'aria-pressed': button.props.ariaPressed }
+                    : {})}
+                >
+                  {button.icon}
+                  <span>{button.label}</span>
+                </button>
+              )
+            })}
           </div>
         </div>
-        {lesson.subtitle && (
-          <p className="mt-3 text-base text-slate-600 dark:text-slate-400 sm:text-lg print:text-slate-700">
-            {lesson.subtitle}
-          </p>
-        )}
-        {lesson.tags?.length > 0 && (
-          <ul className="no-print mt-4 flex flex-wrap gap-2">
-            {lesson.tags.map((tag) => (
-              <li
-                key={tag}
-                className="rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400 border border-emerald-100/50 dark:border-emerald-900/30"
-              >
-                {tag}
-              </li>
-            ))}
-          </ul>
-        )}
 
-        <motion.div
-          layout
-          className={`no-print mt-6 flex flex-wrap items-center justify-between gap-4 rounded-2xl border p-4.5 transition-all duration-300 ${
-            complete
-              ? 'border-green-200 bg-green-50/40 dark:border-green-900/40 dark:bg-green-950/20'
-              : 'border-slate-200 bg-slate-50/50 dark:border-slate-800/80 dark:bg-slate-900/20'
-          }`}
-          animate={
-            complete
-              ? {
-                  boxShadow: '0 0 0 3px rgba(16, 185, 129, 0.15)',
-                }
-              : { boxShadow: '0 0 0 0px rgba(16, 185, 129, 0)' }
-          }
-          transition={{ duration: 0.35, ease: easeOut }}
-        >
-          <label className="flex cursor-pointer items-center gap-2.5">
-            <input
-              type="checkbox"
-              checked={complete}
-              onChange={(e) => handleCompleteToggle(e.target.checked)}
-              className="h-5 w-5 rounded border-slate-300 text-[#10B981] focus:ring-[#10B981] dark:border-slate-700 dark:bg-slate-800 dark:focus:ring-emerald-500 transition-colors"
-            />
-            <span className="text-sm font-semibold text-slate-750 dark:text-slate-200">
-              Mark lesson as complete
-            </span>
-          </label>
-          <motion.button
-            type="button"
-            onClick={() => handleCompleteToggle(!complete)}
-            aria-label={
-              complete
-                ? 'Mark lesson as incomplete'
-                : 'Mark lesson as complete'
-            }
-            whileTap={{ scale: 0.95 }}
-            animate={
-              complete
-                ? {
-                    scale: 1,
-                    backgroundColor: '#10B981',
-                    color: '#ffffff',
-                  }
-                : {
-                    scale: 1,
-                    backgroundColor: '#ffffff',
-                    color: '#0f172a',
-                  }
-            }
-            transition={{ type: 'spring', stiffness: 420, damping: 18 }}
-            className={`rounded-xl border px-4 py-2 text-sm font-bold shadow-xs transition-all active:scale-[0.97] ${
-              complete
-                ? 'border-emerald-500 text-white dark:border-green-600 dark:bg-green-600 dark:hover:bg-green-500'
-                : 'border-slate-200 text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:bg-slate-900/60 dark:hover:bg-slate-800'
-            }`}
-          >
-            {complete ? 'Completed ✓' : 'Mark as Done ✓'}
-          </motion.button>
-        </motion.div>
+        {/* Removed large dashboard-style completion panel for a cleaner reading experience. */}
       </header>
 
-      <div className="no-print">
-        <SummaryCard
-          lessonTitle={lesson.title}
-          theoryText={lesson.theory ?? ''}
-          resetKey={`${topicSlug}/${id}`}
-        />
-      </div>
+      {/* Summary card removed to keep lesson view focused and uncluttered */}
 
-      <div className="lesson-print-body text-base leading-relaxed text-slate-800 dark:text-slate-300 sm:text-[17px] print:text-black">
+      <div className="lesson-print-body text-[18px] leading-[1.8] text-slate-800 dark:text-slate-300 print:text-black">
         {theory && (
           <section className="mb-8" aria-labelledby="theory-heading">
             <h2 id="theory-heading" className={sectionHeading}>
@@ -532,42 +532,22 @@ export function LessonReader({ lesson, topic, prevLesson, nextLesson }) {
       </div>
 
       {(prevLesson || nextLesson) && (
-        <nav
-          className="no-print mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 sm:pt-8 md:flex-row md:justify-between dark:border-slate-700"
-          aria-label="Lesson navigation"
-        >
-          {prevLesson ? (
-            <Link
-              to={`/${topicSlug}/${lessonId(prevLesson)}`}
-              className="inline-flex w-full items-center justify-center gap-2 rounded bg-[#04AA6D] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#059862] dark:bg-green-700 dark:hover:bg-green-600 md:w-auto md:justify-start"
-            >
-              <ChevronLeft className="h-4 w-4 shrink-0" />
-              <span>
-                <span className="block text-xs font-normal text-white/80">
-                  Previous
-                </span>
-                {prevLesson.title}
-              </span>
-            </Link>
-          ) : (
-            <span className="hidden sm:block" />
-          )}
-          {nextLesson ? (
-            <Link
-              to={`/${topicSlug}/${lessonId(nextLesson)}`}
-              className="inline-flex w-full items-center justify-center gap-2 rounded bg-[#04AA6D] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#059862] dark:bg-green-700 dark:hover:bg-green-600 md:w-auto md:justify-end md:text-right"
-            >
-              <span>
-                <span className="block text-xs font-normal text-white/80">
-                  Next
-                </span>
-                {nextLesson.title}
-              </span>
-              <ChevronRight className="h-4 w-4 shrink-0" />
-            </Link>
-          ) : (
-            <span className="hidden sm:block" />
-          )}
+        <nav className="no-print mt-10 border-t border-slate-200 pt-6 dark:border-slate-700 text-center" aria-label="Lesson navigation">
+          <div className="mx-auto flex items-center justify-between max-w-md">
+            {prevLesson ? (
+              <Link to={`/${topicSlug}/${lessonId(prevLesson)}`} className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-[#04AA6D]">
+                <ChevronLeft className="h-4 w-4" /> Previous
+              </Link>
+            ) : <div />}
+
+            <div className="text-sm text-slate-500">{/* Topic counter not available in this context */}</div>
+
+            {nextLesson ? (
+              <Link to={`/${topicSlug}/${lessonId(nextLesson)}`} className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-[#04AA6D]">
+                Next <ChevronRight className="h-4 w-4" />
+              </Link>
+            ) : <div />}
+          </div>
         </nav>
       )}
 

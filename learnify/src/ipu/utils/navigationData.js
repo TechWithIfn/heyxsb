@@ -1,4 +1,5 @@
 import branchList from '../data/branches.json'
+import { getEnglishName } from './translate'
 
 const semesterLoaders = import.meta.glob('../data/**/sem*.json')
 const semesterCache = new Map()
@@ -145,12 +146,12 @@ export function summarizeSemester(subjects) {
 }
 
 function buildSearchIndex(branch, semesters) {
-  const parts = [branch.name, branch.shortName, branch.description, branch.id]
+  const parts = [getEnglishName(branch), branch.shortName, branch.description, branch.id]
 
   semesters.forEach((semester) => {
     parts.push(`semester ${semester.semNumber}`)
     semester.subjects.forEach((subject) => {
-      parts.push(subject.name, subject.subjectCode, subject.code, subject.description)
+    parts.push(getEnglishName(subject), subject.subjectCode, subject.code, subject.description)
       subject.units.forEach((unit) => {
         parts.push(unit.title)
         unit.topics.forEach((topic) => {

@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTopics } from '../context/TopicsContext'
-import { buildSearchIndex } from '../lib/search'
+import { buildSearchIndex, buildIpuIndex } from '../lib/search'
 import { getTopics, LIVE_TOPIC_SLUGS } from '../lib/topics'
+import { loadBranchCatalog } from '../ipu/utils/navigationData'
 
 export function useSearchIndex() {
   const { version, ensureAllTopics } = useTopics()
@@ -26,9 +27,26 @@ export function useSearchIndex() {
     }
   }, [ensureAllTopics, version])
 
+  const [branches, setBranches] = useState(null)
+
+  useEffect(() => {
+    let active = true
+    loadBranchCatalog().then((data) => {
+      if (!active) return
+      setBranches(Array.isArray(data) ? data : [])
+    })
+    return () => {
+      active = false
+    }
+  }, [])
+
   return useMemo(() => {
     const topics = getTopics()
     if (topics.length === 0) return { index: [], loading }
-    return { index: buildSearchIndex(topics), loading }
-  }, [version, loading])
+
+    const topicIndex = buildSearchIndex(topics)
+    const ipuIndex = buildIpuIndex(branches || [])
+
+    return { index: [...topicIndex, ...ipuIndex], loading }
+  }, [version, loading, branches])
 }

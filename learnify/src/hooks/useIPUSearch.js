@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import ipuBranches from '../data/ipuData.js'
+import { getEnglishName } from '../ipu/utils/translate'
 
 const EMPTY = { branches: [], subjects: [], topics: [] }
 
@@ -18,7 +19,7 @@ function buildSearchIndex(query) {
 
   for (const branch of ipuBranches) {
     const branchMatch =
-      matches(q, branch.name) ||
+      matches(q, getEnglishName(branch)) ||
       matches(q, branch.shortName) ||
       matches(q, branch.id)
 
@@ -29,7 +30,7 @@ function buildSearchIndex(query) {
         semNum: null,
         subjectId: null,
         topicId: null,
-        name: branch.name,
+        name: getEnglishName(branch),
         shortName: branch.shortName,
         icon: branch.icon,
         breadcrumb: 'IPU Syllabus',
@@ -40,7 +41,7 @@ function buildSearchIndex(query) {
     for (const sem of branch.semesters) {
       for (const subject of sem.subjects) {
         const subjectMatch =
-          matches(q, subject.name) ||
+          matches(q, getEnglishName(subject)) ||
           matches(q, subject.subjectCode) ||
           matches(q, subject.description)
 
@@ -51,7 +52,7 @@ function buildSearchIndex(query) {
             semNum: sem.semNumber,
             subjectId: subject.id,
             topicId: null,
-            name: subject.name,
+            name: getEnglishName(subject),
             shortName: branch.shortName,
             icon: branch.icon,
             breadcrumb: `${branch.shortName} · Semester ${sem.semNumber}`,
@@ -62,7 +63,7 @@ function buildSearchIndex(query) {
 
         for (const unit of subject.units) {
           for (const topic of unit.topics) {
-            if (
+                if (
               matches(q, topic.title) ||
               matches(q, topic.content?.slice(0, 200))
             ) {
@@ -75,7 +76,7 @@ function buildSearchIndex(query) {
                 name: topic.title,
                 shortName: branch.shortName,
                 icon: branch.icon,
-                breadcrumb: `${branch.shortName} · Sem ${sem.semNumber} · ${subject.name}`,
+                breadcrumb: `${branch.shortName} · Sem ${sem.semNumber} · ${getEnglishName(subject)}`,
                 path: `/ipu-syllabus/${branch.id}/semester/${sem.semNumber}/subject/${subject.id}#${topic.id}`,
                 subjectCode: subject.subjectCode,
               })

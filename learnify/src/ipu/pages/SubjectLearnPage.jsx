@@ -11,6 +11,7 @@ import PersonalNotes from '../components/PersonalNotes'
 import IPUSearchOverlay from '../components/IPUSearchOverlay'
 import { useSubjectData } from '../hooks/useSubjectData'
 import { getBranchMeta, recordRecentSubjectVisit } from '../utils/navigationData'
+import { getEnglishName } from '../utils/translate'
 import { useTheme } from '../../context/ThemeContext'
 import { useFocusTrap } from '../../hooks/useFocusTrap'
 import { getCompletedTopicIds, getTopicProgress } from '../hooks/useIPUProgress'
@@ -212,11 +213,11 @@ export function SubjectLearnPage() {
 
     recordRecentSubjectVisit({
       branchId: branch.id,
-      branchName: branch.name,
+      branchName: getEnglishName(branch),
       branchShortName: branch.shortName,
       semNumber,
       subjectId: subject.id,
-      subjectName: subject.name,
+      subjectName: getEnglishName(subject),
       subjectCode: subject.subjectCode ?? subject.code,
       unitId: activeUnit?.unitId,
       unitTitle: activeUnit?.title ?? activeUnit?.unitTitle,
@@ -485,7 +486,7 @@ export function SubjectLearnPage() {
                   '',
                 ]),
               ])
-              downloadMarkdown(`${subject.name}-expected-questions.md`, lines)
+              downloadMarkdown(`${getEnglishName(subject)}-expected-questions.md`, lines)
             }}
             className="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 dark:border-slate-800 dark:text-slate-200 dark:hover:bg-slate-900"
           >
@@ -555,7 +556,7 @@ export function SubjectLearnPage() {
                   '',
                 ]),
               ])
-              downloadMarkdown(`${subject.name}-previous-year-questions.md`, lines)
+              downloadMarkdown(`${getEnglishName(subject)}-previous-year-questions.md`, lines)
             }}
             className="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 dark:border-slate-800 dark:text-slate-200 dark:hover:bg-slate-900"
           >

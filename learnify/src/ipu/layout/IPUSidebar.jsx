@@ -22,7 +22,7 @@ function UnitItem({
       >
         <div className="flex flex-col items-start text-left min-w-0 pr-2">
           <span className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">Unit {unit.unitNumber}</span>
-          <span className="text-sm font-semibold text-slate-800 dark:text-slate-200 mt-0.5 truncate w-full">{unit.title}</span>
+          <span className="text-sm font-semibold text-slate-800 dark:text-slate-200 mt-0.5 break-words whitespace-normal w-full">{unit.title}</span>
         </div>
         <div className="flex items-center gap-2 shrink-0">
           <span className="text-xs font-bold bg-green-50 text-green-700 dark:bg-green-950/40 dark:text-green-400 px-2 py-0.5 rounded-full border border-green-100/50 dark:border-green-900/30">
@@ -46,8 +46,8 @@ function UnitItem({
                       : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/50 dark:hover:text-slate-100'
                   }`}
                 >
-                  <span className="flex min-w-0 items-center gap-2 truncate pr-2">
-                    <span className="truncate">{topic.title}</span>
+                  <span className="flex min-w-0 items-center gap-2 pr-2">
+                    <span className="break-words whitespace-normal">{topic.title}</span>
                     {isBookmarked(branchId, semNumber, subjectId, topic.id) && (
                       <Bookmark className={`h-3.5 w-3.5 shrink-0 ${isTopicActive ? 'text-white' : 'text-amber-500'} fill-current`} aria-hidden="true" />
                     )}
@@ -127,7 +127,7 @@ export default function IPUSidebar({
   }, [])
 
   const sidebar = (
-    <aside className="w-64 min-w-[256px] max-w-[256px] h-full fixed left-0 top-16 bottom-0 overflow-y-auto bg-slate-50/85 border-r border-slate-200/80 dark:bg-slate-900/90 dark:border-slate-800/80 backdrop-blur-md">
+    <aside className="w-[320px] min-w-[320px] max-w-[320px] h-[calc(100vh-4rem)] sticky top-16 overflow-y-auto bg-slate-50/85 border-r border-slate-200/80 dark:bg-slate-900/90 dark:border-slate-800/80 backdrop-blur-md">
       <div className="px-4 py-4 border-b border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-950/40">
         <div className="text-slate-800 dark:text-white font-bold text-[15px] leading-snug line-clamp-2">{subject?.name}</div>
         <div className="mt-1.5 inline-block rounded bg-slate-100 px-2 py-0.5 font-mono text-xs text-slate-600 dark:bg-slate-800 dark:text-slate-300">{subject?.code}</div>
@@ -158,7 +158,7 @@ export default function IPUSidebar({
       <div className="hidden md:block">{sidebar}</div>
 
       <div className={`md:hidden fixed inset-y-0 left-0 z-40 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transform transition-transform duration-300 ease-out`}>
-        <div className="w-72 h-full bg-slate-50 dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shadow-2xl overflow-y-auto flex flex-col">
+        <div className="w-80 h-full bg-slate-50 dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shadow-2xl overflow-y-auto flex flex-col">
           <div className="px-4 py-4 flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
             <div className="min-w-0 pr-4">
               <div className="font-bold text-slate-800 dark:text-white truncate text-base">{subject?.name}</div>

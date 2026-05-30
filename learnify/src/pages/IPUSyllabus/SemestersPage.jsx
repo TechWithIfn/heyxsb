@@ -17,6 +17,7 @@ import {
 } from 'lucide-react'
 import { IPUBreadcrumb } from '../../components/IPU/IPUBreadcrumb'
 import { getBranch } from '../../data/ipuData.js'
+import { getEnglishName } from '../../ipu/utils/translate'
 import { readSemProgress } from '../../lib/ipuProgress.js'
 import { easeOut } from '../../lib/motion'
 
@@ -124,7 +125,7 @@ function SemesterCard({ branchId, slot }) {
                     key={sub.id}
                     className="max-w-full truncate rounded-md bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-700 dark:bg-slate-900 dark:text-slate-300"
                   >
-                    {sub.name}
+                    {getEnglishName(sub)}
                   </li>
                 ))}
                 {more > 0 && (
@@ -208,7 +209,7 @@ export function SemestersPage() {
           items={[
             { label: 'Home', to: '/' },
             { label: 'IPU Syllabus', to: '/ipu-syllabus' },
-            { label: branch.name },
+            { label: getEnglishName(branch) },
           ]}
         />
       </motion.div>
@@ -224,14 +225,14 @@ export function SemestersPage() {
 
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-5">
           <span
-            className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-slate-50 dark:bg-slate-900/80 ${branch.color}`}
+            className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-slate-50 dark:bg-slate-900/80 ${branch.color}`}
           >
-            <BranchIcon name={branch.icon} className="h-10 w-10" />
+            <BranchIcon name={branch.icon} className="h-5 w-5" />
           </span>
           <div className="min-w-0 flex-1">
             <div className="flex flex-wrap items-center gap-3">
               <h1 className="text-3xl font-bold text-slate-900 dark:text-white sm:text-4xl">
-                {branch.name}
+                {getEnglishName(branch)}
               </h1>
               <span
                 className={`rounded-full bg-slate-100 px-3 py-1 text-sm font-bold dark:bg-slate-900 ${branch.color}`}

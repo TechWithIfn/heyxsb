@@ -2183,8 +2183,1086 @@ const ipuBranches = [
             "subjectCode": "BAS-203",
             "credits": 4,
             "type": "theory",
-            "description": "Atomic structure, bonding, and engineering materials chemistry. // TODO: add units",
-            "units": []
+            "description": "Fuels, combustion, coal, petroleum, and gaseous fuel systems for engineering applications.",
+            "units": [
+              {
+                "unitNumber": 1,
+                "title": "Fuels and Combustion",
+                "topics": [
+                  {
+                    "id": "applied-chemistry-u1-t1",
+                    "title": "Fuels: Classification and Characteristics of Fuels",
+                    "content": "Fuels: Classification and Characteristics of Fuels is part of the fuels and combustion syllabus for Applied Chemistry. The topic should be studied with a focus on definition, engineering significance, and at least one practical use.\n\nA compact exam answer should include what the topic means, why it matters, and the standard key points that distinguish it from related fuel topics.",
+                    "keyPoints": [
+                      "Know the basic definition and use.",
+                      "Link the idea to fuel engineering.",
+                      "Remember at least one practical example.",
+                      "Write short, direct exam answers."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Standard example",
+                        "explanation": "Relate the topic to a real fuel or refinery application."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "Define the topic.",
+                      "State its importance.",
+                      "Write two key points from the syllabus."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t2",
+                    "title": "Calorific Value of Fuels",
+                    "content": "Calorific Value of Fuels explains the heat liberated when a fuel burns completely. The section distinguishes gross calorific value from net calorific value and shows why latent heat losses reduce the usable heat output.\n\nThis topic is important for comparing fuels in boilers, furnaces, and engines because the same mass of fuel can deliver very different amounts of heat depending on composition and moisture content.",
+                    "keyPoints": [
+                      "Know the meaning of GCV and NCV.",
+                      "Calorific value is usually written in kJ/kg or MJ/kg.",
+                      "Moisture and hydrogen content affect the usable heat.",
+                      "Fuel selection often starts with calorific value."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Fuel comparison",
+                        "explanation": "A higher calorific value means more heat for the same fuel mass."
+                      }
+                    ],
+                    "formulas": [
+                      {
+                        "name": "NCV relation",
+                        "formula": "NCV = GCV - latent heat of water formed",
+                        "description": "NCV excludes the heat lost with steam in flue gases."
+                      }
+                    ],
+                    "examQuestions": [
+                      "Define calorific value and differentiate GCV and NCV.",
+                      "Why is NCV lower than GCV?",
+                      "State the units used for calorific value."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t3",
+                    "title": "Comparison of Solid, Liquid and Gaseous Fuels",
+                    "content": "Comparison of Solid, Liquid and Gaseous Fuels is part of the fuels and combustion syllabus for Applied Chemistry. The topic should be studied with a focus on definition, engineering significance, and at least one practical use.\n\nA compact exam answer should include what the topic means, why it matters, and the standard key points that distinguish it from related fuel topics.",
+                    "keyPoints": [
+                      "Know the basic definition and use.",
+                      "Link the idea to fuel engineering.",
+                      "Remember at least one practical example.",
+                      "Write short, direct exam answers."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Standard example",
+                        "explanation": "Relate the topic to a real fuel or refinery application."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "Define the topic.",
+                      "State its importance.",
+                      "Write two key points from the syllabus."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t4",
+                    "title": "Determination of Calorific Value using Bomb Calorimeter",
+                    "content": "Determination of Calorific Value using Bomb Calorimeter describes the experimental method used to measure heat of combustion. The bomb calorimeter gives accurate results for solid and liquid fuels, while Boy's calorimeter is commonly used for gaseous fuels.\n\nIn exam answers, students should mention the principle, apparatus, correction terms, and the type of fuel for which the method is best suited.",
+                    "keyPoints": [
+                      "Bomb calorimeter is a constant-volume method.",
+                      "Boy's calorimeter is used mainly for gases.",
+                      "Temperature rise is the main observed quantity.",
+                      "Corrections are applied for wire and side reactions."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Practical setup",
+                        "explanation": "A measured temperature rise is converted into calorific value."
+                      }
+                    ],
+                    "formulas": [
+                      {
+                        "name": "Heat calculation",
+                        "formula": "Heat released = water equivalent x temperature rise - corrections",
+                        "description": "Use the calorimeter constant or water equivalent."
+                      }
+                    ],
+                    "examQuestions": [
+                      "Explain the working principle of the calorimeter.",
+                      "Why is oxygen used in the bomb?",
+                      "Compare bomb and Boy's calorimeters."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t5",
+                    "title": "Determination of Calorific Value using Boy's Calorimeter",
+                    "content": "Determination of Calorific Value using Boy's Calorimeter describes the experimental method used to measure heat of combustion. The bomb calorimeter gives accurate results for solid and liquid fuels, while Boy's calorimeter is commonly used for gaseous fuels.\n\nIn exam answers, students should mention the principle, apparatus, correction terms, and the type of fuel for which the method is best suited.",
+                    "keyPoints": [
+                      "Bomb calorimeter is a constant-volume method.",
+                      "Boy's calorimeter is used mainly for gases.",
+                      "Temperature rise is the main observed quantity.",
+                      "Corrections are applied for wire and side reactions."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Practical setup",
+                        "explanation": "A measured temperature rise is converted into calorific value."
+                      }
+                    ],
+                    "formulas": [
+                      {
+                        "name": "Heat calculation",
+                        "formula": "Heat released = water equivalent x temperature rise - corrections",
+                        "description": "Use the calorimeter constant or water equivalent."
+                      }
+                    ],
+                    "examQuestions": [
+                      "Explain the working principle of the calorimeter.",
+                      "Why is oxygen used in the bomb?",
+                      "Compare bomb and Boy's calorimeters."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t6",
+                    "title": "Dulong Formula for Calorific Value",
+                    "content": "Dulong Formula for Calorific Value presents a theoretical estimate of calorific value based on ultimate analysis. Dulong's formula is a fast way to approximate the heat of combustion when laboratory calorimetry is not available.\n\nThe formula is widely used in fuel engineering because it connects fuel composition directly with expected heating performance.",
+                    "keyPoints": [
+                      "Use percentage composition of C, H, O, and S.",
+                      "Oxygen reduces the useful hydrogen term.",
+                      "It is an approximate but practical formula.",
+                      "Common in short numerical questions."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Engineering estimate",
+                        "explanation": "Quick theoretical value from ultimate analysis."
+                      }
+                    ],
+                    "formulas": [
+                      {
+                        "name": "Dulong formula",
+                        "formula": "HCV = 337C + 1442(H - O/8) + 93S",
+                        "description": "C, H, O, and S are mass percentages."
+                      }
+                    ],
+                    "examQuestions": [
+                      "Write Dulong's formula.",
+                      "Why does oxygen lower the hydrogen contribution?",
+                      "Give one advantage of the formula."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t7",
+                    "title": "Numerical Problems on Calorific Value",
+                    "content": "Numerical Problems on Calorific Value focuses on the calculation steps required in fuel and combustion problems. The main task is to choose the correct formula, keep units consistent, and present the final answer clearly.\n\nFor exam practice, students should solve numerical problems involving calorific value, coal analysis, and combustion air requirement because these are standard university-style questions.",
+                    "keyPoints": [
+                      "Write the known data before solving.",
+                      "Check unit conversions carefully.",
+                      "Use formula and substitution in a clean sequence.",
+                      "Report the answer with the correct unit."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Worked calculation",
+                        "explanation": "A standard numerical should show formula, substitution, and result."
+                      }
+                    ],
+                    "formulas": [
+                      {
+                        "name": "Basic relation",
+                        "formula": "Heat released = mass of fuel x calorific value",
+                        "description": "Used when calorific value is already given."
+                      }
+                    ],
+                    "examQuestions": [
+                      "Solve a standard numerical from this topic.",
+                      "Show the formula before substitution.",
+                      "Explain how the final unit is obtained."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t8",
+                    "title": "Solid Fuels - Coal",
+                    "content": "Solid Fuels - Coal explains coal as the major solid fossil fuel used in power and metallurgy. Coal quality depends on carbon content, volatile matter, ash, moisture, and sulphur, so the topic is closely linked with fuel ranking and industrial selection.\n\nGood exam answers should compare coal ranks and relate coal properties to practical applications like steam raising, coke production, and furnace operation.",
+                    "keyPoints": [
+                      "Coal is a fossil solid fuel.",
+                      "Higher rank coal has higher carbon content.",
+                      "Low ash and low sulphur are desirable.",
+                      "Coal is important for metallurgy and power generation."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Fuel rank",
+                        "explanation": "Anthracite is the highest-rank coal commonly discussed in exams."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "Define coal and classify its ranks.",
+                      "Why is anthracite considered superior?",
+                      "State two uses of coal."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t9",
+                    "title": "Proximate Analysis of Coal",
+                    "content": "Proximate Analysis of Coal covers the standard laboratory methods used to assess coal quality. Proximate analysis reports moisture, volatile matter, ash, and fixed carbon, while ultimate analysis reports the elemental composition needed for combustion calculations.\n\nThese analyses help engineers judge ignition behavior, smoke formation, pollution potential, and suitability for boilers or coke ovens.",
+                    "keyPoints": [
+                      "Proximate analysis gives fuel fractions.",
+                      "Ultimate analysis gives elemental percentages.",
+                      "Fixed carbon is usually found by difference in proximate analysis.",
+                      "Sulphur is important for corrosion and pollution concerns."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Coal test result",
+                        "explanation": "Analysis data is used to grade the coal for real applications."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "Differentiate proximate and ultimate analysis.",
+                      "How is fixed carbon found?",
+                      "Why is sulphur content important?"
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t10",
+                    "title": "Ultimate Analysis of Coal",
+                    "content": "Ultimate Analysis of Coal covers the standard laboratory methods used to assess coal quality. Proximate analysis reports moisture, volatile matter, ash, and fixed carbon, while ultimate analysis reports the elemental composition needed for combustion calculations.\n\nThese analyses help engineers judge ignition behavior, smoke formation, pollution potential, and suitability for boilers or coke ovens.",
+                    "keyPoints": [
+                      "Proximate analysis gives fuel fractions.",
+                      "Ultimate analysis gives elemental percentages.",
+                      "Fixed carbon is usually found by difference in proximate analysis.",
+                      "Sulphur is important for corrosion and pollution concerns."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Coal test result",
+                        "explanation": "Analysis data is used to grade the coal for real applications."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "Differentiate proximate and ultimate analysis.",
+                      "How is fixed carbon found?",
+                      "Why is sulphur content important?"
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t11",
+                    "title": "Numerical Problems on Coal Analysis",
+                    "content": "Numerical Problems on Coal Analysis focuses on the calculation steps required in fuel and combustion problems. The main task is to choose the correct formula, keep units consistent, and present the final answer clearly.\n\nFor exam practice, students should solve numerical problems involving calorific value, coal analysis, and combustion air requirement because these are standard university-style questions.",
+                    "keyPoints": [
+                      "Write the known data before solving.",
+                      "Check unit conversions carefully.",
+                      "Use formula and substitution in a clean sequence.",
+                      "Report the answer with the correct unit."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Worked calculation",
+                        "explanation": "A standard numerical should show formula, substitution, and result."
+                      }
+                    ],
+                    "formulas": [
+                      {
+                        "name": "Basic relation",
+                        "formula": "Heat released = mass of fuel x calorific value",
+                        "description": "Used when calorific value is already given."
+                      }
+                    ],
+                    "examQuestions": [
+                      "Solve a standard numerical from this topic.",
+                      "Show the formula before substitution.",
+                      "Explain how the final unit is obtained."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t12",
+                    "title": "Carbonisation of Coal",
+                    "content": "Carbonisation of Coal explains the industrial conversion of coal into stronger fuel or useful by-products. Carbonisation removes volatile matter, coke ovens recover valuable chemicals, and by-product recovery improves both economics and environmental performance.\n\nThese topics are often asked together because they describe a complete coke-making and coal-utilization sequence.",
+                    "keyPoints": [
+                      "The process is done in the absence of air.",
+                      "Useful by-products are recovered from gases and tar.",
+                      "Coke is the main solid residue.",
+                      "High-temperature treatment generally gives stronger coke."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Coke-making route",
+                        "explanation": "Coal is heated without air to produce coke and by-products."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "Explain carbonisation of coal.",
+                      "What is the Otto-Hoffmann coke oven?",
+                      "Name the coal by-products recovered."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t13",
+                    "title": "Otto-Hoffmann Coke Oven",
+                    "content": "Otto-Hoffmann Coke Oven explains the industrial conversion of coal into stronger fuel or useful by-products. Carbonisation removes volatile matter, coke ovens recover valuable chemicals, and by-product recovery improves both economics and environmental performance.\n\nThese topics are often asked together because they describe a complete coke-making and coal-utilization sequence.",
+                    "keyPoints": [
+                      "The process is done in the absence of air.",
+                      "Useful by-products are recovered from gases and tar.",
+                      "Coke is the main solid residue.",
+                      "High-temperature treatment generally gives stronger coke."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Coke-making route",
+                        "explanation": "Coal is heated without air to produce coke and by-products."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "Explain carbonisation of coal.",
+                      "What is the Otto-Hoffmann coke oven?",
+                      "Name the coal by-products recovered."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t14",
+                    "title": "Recovery of Coal By-products",
+                    "content": "Recovery of Coal By-products explains the industrial conversion of coal into stronger fuel or useful by-products. Carbonisation removes volatile matter, coke ovens recover valuable chemicals, and by-product recovery improves both economics and environmental performance.\n\nThese topics are often asked together because they describe a complete coke-making and coal-utilization sequence.",
+                    "keyPoints": [
+                      "The process is done in the absence of air.",
+                      "Useful by-products are recovered from gases and tar.",
+                      "Coke is the main solid residue.",
+                      "High-temperature treatment generally gives stronger coke."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Coke-making route",
+                        "explanation": "Coal is heated without air to produce coke and by-products."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "Explain carbonisation of coal.",
+                      "What is the Otto-Hoffmann coke oven?",
+                      "Name the coal by-products recovered."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t15",
+                    "title": "Metallurgical Coke",
+                    "content": "Metallurgical Coke explains coal as the major solid fossil fuel used in power and metallurgy. Coal quality depends on carbon content, volatile matter, ash, moisture, and sulphur, so the topic is closely linked with fuel ranking and industrial selection.\n\nGood exam answers should compare coal ranks and relate coal properties to practical applications like steam raising, coke production, and furnace operation.",
+                    "keyPoints": [
+                      "Coal is a fossil solid fuel.",
+                      "Higher rank coal has higher carbon content.",
+                      "Low ash and low sulphur are desirable.",
+                      "Coal is important for metallurgy and power generation."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Fuel rank",
+                        "explanation": "Anthracite is the highest-rank coal commonly discussed in exams."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "Define coal and classify its ranks.",
+                      "Why is anthracite considered superior?",
+                      "State two uses of coal."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t16",
+                    "title": "Liquid Fuels - Petroleum and Petroleum Products",
+                    "content": "Liquid Fuels - Petroleum and Petroleum Products deals with crude oil as a liquid fuel source and the refinery operations used to convert it into useful products. Fractional distillation, refining, and cracking all aim to maximize the yield of transport fuels and heating oils.\n\nStudents should remember that liquid fuel quality is influenced by volatility, knock resistance, sulphur content, and product distribution from the refinery.",
+                    "keyPoints": [
+                      "Petroleum is a mixture of hydrocarbons.",
+                      "Refining separates and upgrades crude oil.",
+                      "Cracking converts heavier fractions to lighter ones.",
+                      "Fuel quality is related to volatility and knock resistance."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Refinery processing",
+                        "explanation": "Crude oil is turned into fuels, lubricants, and other fractions."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "What is petroleum refining?",
+                      "Differentiate thermal and catalytic cracking.",
+                      "Why is cracking used in refineries?"
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t17",
+                    "title": "Refining of Petroleum",
+                    "content": "Refining of Petroleum deals with crude oil as a liquid fuel source and the refinery operations used to convert it into useful products. Fractional distillation, refining, and cracking all aim to maximize the yield of transport fuels and heating oils.\n\nStudents should remember that liquid fuel quality is influenced by volatility, knock resistance, sulphur content, and product distribution from the refinery.",
+                    "keyPoints": [
+                      "Petroleum is a mixture of hydrocarbons.",
+                      "Refining separates and upgrades crude oil.",
+                      "Cracking converts heavier fractions to lighter ones.",
+                      "Fuel quality is related to volatility and knock resistance."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Refinery processing",
+                        "explanation": "Crude oil is turned into fuels, lubricants, and other fractions."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "What is petroleum refining?",
+                      "Differentiate thermal and catalytic cracking.",
+                      "Why is cracking used in refineries?"
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t18",
+                    "title": "Thermal Cracking",
+                    "content": "Thermal Cracking deals with crude oil as a liquid fuel source and the refinery operations used to convert it into useful products. Fractional distillation, refining, and cracking all aim to maximize the yield of transport fuels and heating oils.\n\nStudents should remember that liquid fuel quality is influenced by volatility, knock resistance, sulphur content, and product distribution from the refinery.",
+                    "keyPoints": [
+                      "Petroleum is a mixture of hydrocarbons.",
+                      "Refining separates and upgrades crude oil.",
+                      "Cracking converts heavier fractions to lighter ones.",
+                      "Fuel quality is related to volatility and knock resistance."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Refinery processing",
+                        "explanation": "Crude oil is turned into fuels, lubricants, and other fractions."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "What is petroleum refining?",
+                      "Differentiate thermal and catalytic cracking.",
+                      "Why is cracking used in refineries?"
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t19",
+                    "title": "Catalytic Cracking",
+                    "content": "Catalytic Cracking deals with crude oil as a liquid fuel source and the refinery operations used to convert it into useful products. Fractional distillation, refining, and cracking all aim to maximize the yield of transport fuels and heating oils.\n\nStudents should remember that liquid fuel quality is influenced by volatility, knock resistance, sulphur content, and product distribution from the refinery.",
+                    "keyPoints": [
+                      "Petroleum is a mixture of hydrocarbons.",
+                      "Refining separates and upgrades crude oil.",
+                      "Cracking converts heavier fractions to lighter ones.",
+                      "Fuel quality is related to volatility and knock resistance."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Refinery processing",
+                        "explanation": "Crude oil is turned into fuels, lubricants, and other fractions."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "What is petroleum refining?",
+                      "Differentiate thermal and catalytic cracking.",
+                      "Why is cracking used in refineries?"
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t20",
+                    "title": "Knocking Characteristics of Fuels",
+                    "content": "Knocking Characteristics of Fuels explains how fuel quality is judged in internal combustion engines. Octane number is used for petrol fuels and cetane number is used for diesel fuels. Both ratings are connected with the way a fuel ignites and burns inside the engine.\n\nEngineers use these numbers to reduce knock, improve efficiency, and choose the correct fuel for the engine type.",
+                    "keyPoints": [
+                      "Octane number is for spark-ignition engines.",
+                      "Cetane number is for compression-ignition engines.",
+                      "Higher octane resists knock better.",
+                      "Higher cetane means easier ignition in diesel engines."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Engine rating",
+                        "explanation": "Fuel ratings tell how the fuel behaves under engine conditions."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "Differentiate octane and cetane numbers.",
+                      "Why is knock resistance important?",
+                      "How do fuel ratings affect engine performance?"
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t21",
+                    "title": "Octane Number and Rating",
+                    "content": "Octane Number and Rating explains how fuel quality is judged in internal combustion engines. Octane number is used for petrol fuels and cetane number is used for diesel fuels. Both ratings are connected with the way a fuel ignites and burns inside the engine.\n\nEngineers use these numbers to reduce knock, improve efficiency, and choose the correct fuel for the engine type.",
+                    "keyPoints": [
+                      "Octane number is for spark-ignition engines.",
+                      "Cetane number is for compression-ignition engines.",
+                      "Higher octane resists knock better.",
+                      "Higher cetane means easier ignition in diesel engines."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Engine rating",
+                        "explanation": "Fuel ratings tell how the fuel behaves under engine conditions."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "Differentiate octane and cetane numbers.",
+                      "Why is knock resistance important?",
+                      "How do fuel ratings affect engine performance?"
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t22",
+                    "title": "Cetane Number and Rating",
+                    "content": "Cetane Number and Rating explains how fuel quality is judged in internal combustion engines. Octane number is used for petrol fuels and cetane number is used for diesel fuels. Both ratings are connected with the way a fuel ignites and burns inside the engine.\n\nEngineers use these numbers to reduce knock, improve efficiency, and choose the correct fuel for the engine type.",
+                    "keyPoints": [
+                      "Octane number is for spark-ignition engines.",
+                      "Cetane number is for compression-ignition engines.",
+                      "Higher octane resists knock better.",
+                      "Higher cetane means easier ignition in diesel engines."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Engine rating",
+                        "explanation": "Fuel ratings tell how the fuel behaves under engine conditions."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "Differentiate octane and cetane numbers.",
+                      "Why is knock resistance important?",
+                      "How do fuel ratings affect engine performance?"
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t23",
+                    "title": "Gaseous Fuels - Natural Gas (NG)",
+                    "content": "Gaseous Fuels - Natural Gas (NG) describes a gaseous fuel used for heating, power generation, or transport. The fuels in this group vary in composition, calorific value, and method of preparation, but they are all studied because gases usually burn more cleanly than solid fuels.\n\nFor exam preparation, students should know the components, preparation, uses, and relative advantages of each gaseous fuel.",
+                    "keyPoints": [
+                      "Gaseous fuels mix easily with air.",
+                      "Many gaseous fuels are by-products of coal or petroleum processing.",
+                      "They generally burn cleanly with less ash.",
+                      "Composition determines heating value and uses."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Clean combustion",
+                        "explanation": "Gaseous fuels often give better control and lower residue."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "Describe the fuel, its composition, and its uses.",
+                      "Why are gaseous fuels convenient?",
+                      "State one advantage of this gaseous fuel."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t24",
+                    "title": "Compressed Natural Gas (CNG)",
+                    "content": "Compressed Natural Gas (CNG) describes a gaseous fuel used for heating, power generation, or transport. The fuels in this group vary in composition, calorific value, and method of preparation, but they are all studied because gases usually burn more cleanly than solid fuels.\n\nFor exam preparation, students should know the components, preparation, uses, and relative advantages of each gaseous fuel.",
+                    "keyPoints": [
+                      "Gaseous fuels mix easily with air.",
+                      "Many gaseous fuels are by-products of coal or petroleum processing.",
+                      "They generally burn cleanly with less ash.",
+                      "Composition determines heating value and uses."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Clean combustion",
+                        "explanation": "Gaseous fuels often give better control and lower residue."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "Describe the fuel, its composition, and its uses.",
+                      "Why are gaseous fuels convenient?",
+                      "State one advantage of this gaseous fuel."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t25",
+                    "title": "Liquefied Petroleum Gas (LPG)",
+                    "content": "Liquefied Petroleum Gas (LPG) describes a gaseous fuel used for heating, power generation, or transport. The fuels in this group vary in composition, calorific value, and method of preparation, but they are all studied because gases usually burn more cleanly than solid fuels.\n\nFor exam preparation, students should know the components, preparation, uses, and relative advantages of each gaseous fuel.",
+                    "keyPoints": [
+                      "Gaseous fuels mix easily with air.",
+                      "Many gaseous fuels are by-products of coal or petroleum processing.",
+                      "They generally burn cleanly with less ash.",
+                      "Composition determines heating value and uses."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Clean combustion",
+                        "explanation": "Gaseous fuels often give better control and lower residue."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "Describe the fuel, its composition, and its uses.",
+                      "Why are gaseous fuels convenient?",
+                      "State one advantage of this gaseous fuel."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t26",
+                    "title": "Coal Gas",
+                    "content": "Coal Gas describes a gaseous fuel used for heating, power generation, or transport. The fuels in this group vary in composition, calorific value, and method of preparation, but they are all studied because gases usually burn more cleanly than solid fuels.\n\nFor exam preparation, students should know the components, preparation, uses, and relative advantages of each gaseous fuel.",
+                    "keyPoints": [
+                      "Gaseous fuels mix easily with air.",
+                      "Many gaseous fuels are by-products of coal or petroleum processing.",
+                      "They generally burn cleanly with less ash.",
+                      "Composition determines heating value and uses."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Clean combustion",
+                        "explanation": "Gaseous fuels often give better control and lower residue."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "Describe the fuel, its composition, and its uses.",
+                      "Why are gaseous fuels convenient?",
+                      "State one advantage of this gaseous fuel."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t27",
+                    "title": "Oil Gas",
+                    "content": "Oil Gas describes a gaseous fuel used for heating, power generation, or transport. The fuels in this group vary in composition, calorific value, and method of preparation, but they are all studied because gases usually burn more cleanly than solid fuels.\n\nFor exam preparation, students should know the components, preparation, uses, and relative advantages of each gaseous fuel.",
+                    "keyPoints": [
+                      "Gaseous fuels mix easily with air.",
+                      "Many gaseous fuels are by-products of coal or petroleum processing.",
+                      "They generally burn cleanly with less ash.",
+                      "Composition determines heating value and uses."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Clean combustion",
+                        "explanation": "Gaseous fuels often give better control and lower residue."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "Describe the fuel, its composition, and its uses.",
+                      "Why are gaseous fuels convenient?",
+                      "State one advantage of this gaseous fuel."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t28",
+                    "title": "Producer Gas",
+                    "content": "Producer Gas describes a gaseous fuel used for heating, power generation, or transport. The fuels in this group vary in composition, calorific value, and method of preparation, but they are all studied because gases usually burn more cleanly than solid fuels.\n\nFor exam preparation, students should know the components, preparation, uses, and relative advantages of each gaseous fuel.",
+                    "keyPoints": [
+                      "Gaseous fuels mix easily with air.",
+                      "Many gaseous fuels are by-products of coal or petroleum processing.",
+                      "They generally burn cleanly with less ash.",
+                      "Composition determines heating value and uses."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Clean combustion",
+                        "explanation": "Gaseous fuels often give better control and lower residue."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "Describe the fuel, its composition, and its uses.",
+                      "Why are gaseous fuels convenient?",
+                      "State one advantage of this gaseous fuel."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t29",
+                    "title": "Water Gas",
+                    "content": "Water Gas describes a gaseous fuel used for heating, power generation, or transport. The fuels in this group vary in composition, calorific value, and method of preparation, but they are all studied because gases usually burn more cleanly than solid fuels.\n\nFor exam preparation, students should know the components, preparation, uses, and relative advantages of each gaseous fuel.",
+                    "keyPoints": [
+                      "Gaseous fuels mix easily with air.",
+                      "Many gaseous fuels are by-products of coal or petroleum processing.",
+                      "They generally burn cleanly with less ash.",
+                      "Composition determines heating value and uses."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Clean combustion",
+                        "explanation": "Gaseous fuels often give better control and lower residue."
+                      }
+                    ],
+                    "formulas": [],
+                    "examQuestions": [
+                      "Describe the fuel, its composition, and its uses.",
+                      "Why are gaseous fuels convenient?",
+                      "State one advantage of this gaseous fuel."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t30",
+                    "title": "Combustion of Fuels",
+                    "content": "Combustion of Fuels deals with the chemical and thermal basis of burning fuel in air. Students must understand complete and incomplete combustion, air-fuel ratio, excess air, and the heat released during oxidation.\n\nThis section brings together the earlier fuel topics and prepares the student for combustion numericals and design-based exam questions.",
+                    "keyPoints": [
+                      "Complete combustion gives maximum heat.",
+                      "Insufficient air leads to CO and soot.",
+                      "Theoretical air is calculated from stoichiometry.",
+                      "Combustion efficiency depends on mixing and burner design."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Heat release",
+                        "explanation": "The fuel-air reaction converts chemical energy into useful heat."
+                      }
+                    ],
+                    "formulas": [
+                      {
+                        "name": "Basic relation",
+                        "formula": "Fuel + O2 -> CO2 + H2O + heat",
+                        "description": "Ideal complete combustion equation."
+                      }
+                    ],
+                    "examQuestions": [
+                      "Define combustion and distinguish complete from incomplete combustion.",
+                      "What is excess air?",
+                      "Why is combustion efficiency important?"
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t31",
+                    "title": "Numerical Problems on Combustion of Fuels",
+                    "content": "Numerical Problems on Combustion of Fuels focuses on the calculation steps required in fuel and combustion problems. The main task is to choose the correct formula, keep units consistent, and present the final answer clearly.\n\nFor exam practice, students should solve numerical problems involving calorific value, coal analysis, and combustion air requirement because these are standard university-style questions.",
+                    "keyPoints": [
+                      "Write the known data before solving.",
+                      "Check unit conversions carefully.",
+                      "Use formula and substitution in a clean sequence.",
+                      "Report the answer with the correct unit."
+                    ],
+                    "examples": [
+                      {
+                        "title": "Worked calculation",
+                        "explanation": "A standard numerical should show formula, substitution, and result."
+                      }
+                    ],
+                    "formulas": [
+                      {
+                        "name": "Basic relation",
+                        "formula": "Heat released = mass of fuel x calorific value",
+                        "description": "Used when calorific value is already given."
+                      }
+                    ],
+                    "examQuestions": [
+                      "Solve a standard numerical from this topic.",
+                      "Show the formula before substitution.",
+                      "Explain how the final unit is obtained."
+                    ],
+                    "references": [
+                      {
+                        "title": "Applied Chemistry Textbook",
+                        "author": "IPU Faculty Notes"
+                      },
+                      {
+                        "title": "Engineering Chemistry Reference",
+                        "author": "Standard Text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
           },
           {
             "id": "electronic-devices-circuits",

@@ -17,6 +17,7 @@ import {
 } from 'lucide-react'
 import { IPUBreadcrumb } from '../../components/IPU/IPUBreadcrumb'
 import ipuBranches from '../../data/ipuData.js'
+import { getEnglishName } from '../../ipu/utils/translate'
 import useIPUSearch from '../../hooks/useIPUSearch.js'
 import { easeOut } from '../../lib/motion'
 
@@ -280,7 +281,7 @@ export function BranchesPage() {
                       <span
                         className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900/80 ${branch.color}`}
                       >
-                        <BranchIcon name={branch.icon} className="h-6 w-6" />
+                        <BranchIcon name={branch.icon} className="h-5 w-5" />
                       </span>
                       <span
                         className={`shrink-0 rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-bold dark:bg-slate-900 ${branch.color}`}
@@ -290,7 +291,7 @@ export function BranchesPage() {
                     </div>
 
                     <h2 className="mt-4 text-lg font-bold text-slate-900 dark:text-white">
-                      {branch.name}
+                      {getEnglishName(branch)}
                     </h2>
 
                     <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">

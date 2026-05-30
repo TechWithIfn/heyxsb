@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSearchIndex } from '../hooks/useSearchIndex'
-import { groupResultsByTopic, searchLessons } from '../lib/search'
+import { groupResultsByTopic, searchLessons, searchIpuSubjects } from '../lib/search'
 
 function SearchIcon({ className }) {
   return (
@@ -21,7 +21,7 @@ function SearchIcon({ className }) {
   )
 }
 
-export function SearchBar() {
+export function SearchBar({ scope } = {}) {
   const [query, setQuery] = useState('')
   const [debouncedQuery, setDebouncedQuery] = useState('')
   const [open, setOpen] = useState(false)
@@ -37,10 +37,13 @@ export function SearchBar() {
 
   const { index: searchIndex } = useSearchIndex()
 
-  const results = useMemo(
-    () => searchLessons(debouncedQuery, searchIndex),
-    [debouncedQuery, searchIndex],
-  )
+  const results = useMemo(() => {
+    if (scope && (scope.type === 'ipu' || scope.type === 'ipu-branch') && scope.branchId) {
+      // semNumber may be undefined for branch-level scope
+      return searchIpuSubjects(debouncedQuery, searchIndex, scope.branchId, scope.semNumber)
+    }
+    return searchLessons(debouncedQuery, searchIndex)
+  }, [debouncedQuery, searchIndex, scope])
 
   const grouped = useMemo(() => groupResultsByTopic(results), [results])
 
@@ -74,7 +77,14 @@ export function SearchBar() {
     if (first) {
       setQuery('')
       setOpen(false)
-      navigate(`/${first.topicSlug}/${first.lessonId}`)
+      if (scope && (scope.type === 'ipu' || scope.type === 'ipu-branch') && scope.branchId) {
+        // topicSlug is in `ipu/{branch}/{sem}` — extract sem from the first result if available
+        const parts = first.topicSlug ? first.topicSlug.split('/') : []
+        const sem = scope.semNumber ?? (parts.length >= 3 ? parts[2] : '')
+        navigate(`/ipu/${scope.branchId}/${sem}/${first.lessonId}`)
+      } else {
+        navigate(`/${first.topicSlug}/${first.lessonId}`)
+      }
     }
   }
 
@@ -123,7 +133,11 @@ export function SearchBar() {
                     {group.lessons.map((item) => (
                       <li key={`${item.topicSlug}-${item.lessonId}`}>
                         <Link
-                          to={`/${item.topicSlug}/${item.lessonId}`}
+                          to={
+                            scope && scope.type === 'ipu' && scope.branchId && scope.semNumber
+                              ? `/ipu/${scope.branchId}/${scope.semNumber}/${item.lessonId}`
+                              : `/${item.topicSlug}/${item.lessonId}`
+                          }
                           role="option"
                           onClick={() => {
                             setQuery('')
@@ -132,7 +146,18 @@ export function SearchBar() {
                           className="block px-4 py-3 transition-colors hover:bg-emerald-50 dark:hover:bg-emerald-950/20"
                         >
                           <span className="block text-sm font-semibold text-slate-900 dark:text-slate-100">
-                            {item.title}
+                            {item.matchedField === 'title' && item.excerptParts ? (
+                              item.excerptParts.map((part, idx) => (
+                                <span
+                                  key={idx}
+                                  className={part.highlight ? 'text-emerald-600 font-bold' : ''}
+                                >
+                                  {part.text}
+                                </span>
+                              ))
+                            ) : (
+                              item.title
+                            )}
                           </span>
                           {item.subtitle && (
                             <span className="mt-1 line-clamp-1 block text-xs text-slate-500 dark:text-slate-400">

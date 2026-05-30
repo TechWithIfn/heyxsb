@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Bookmark, ChevronDown, Search, Star } from 'lucide-react'
 import { easeOut } from '../../lib/motion'
+import { getEnglishName } from '../../ipu/utils/translate'
 
 function TopicRow({ topic, unitLabel, isActive, isRead, onSelect }) {
   return (
@@ -141,7 +142,7 @@ export function TopicSidebar({
     <div className="flex h-full min-w-0 flex-col">
       <div className="border-b border-slate-200 p-4 dark:border-slate-700">
         <h2 className="truncate text-base font-bold text-slate-900 dark:text-white">
-          {subject.name}
+          {getEnglishName(subject)}
         </h2>
         <div className="mt-3">
           <div className="mb-1 flex justify-between text-xs font-medium text-slate-500 dark:text-slate-400">

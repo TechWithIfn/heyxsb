@@ -56,8 +56,8 @@ export function LessonPage() {
   const { lesson, topicMeta, prevLesson, nextLesson, sections } = lessonData
 
   return (
-    <div className="mx-auto flex w-full max-w-7xl flex-col lg:min-h-[calc(100vh-3.5rem)] lg:flex-row">
-      <div className="no-print w-full shrink-0 px-4 pt-3 sm:px-6 lg:w-64 lg:max-w-[16rem] lg:px-0 lg:pt-6">
+    <div className="mx-auto flex w-full max-w-7xl flex-col lg:h-[calc(100vh-4rem)] lg:min-h-0 lg:flex-row lg:overflow-hidden">
+      <div className="no-print w-full shrink-0 px-4 pt-3 sm:px-6 lg:w-64 lg:max-w-[16rem] lg:px-0 lg:pt-6 lg:min-h-0">
         <Sidebar
           topicSlug={topicSlug}
           currentLessonId={lessonIdParam}
@@ -68,7 +68,7 @@ export function LessonPage() {
       <main
         id="main-content"
         tabIndex={-1}
-        className="w-full min-w-0 flex-1 px-4 py-4 outline-none sm:px-6 sm:py-6 lg:px-8 lg:py-8"
+        className="w-full min-w-0 flex-1 px-4 py-4 outline-none sm:px-6 sm:py-6 lg:px-8 lg:py-8 lg:min-h-0 lg:h-full lg:overflow-y-auto scrollbar-hidden"
       >
         <LessonTransition>
           <LessonReader

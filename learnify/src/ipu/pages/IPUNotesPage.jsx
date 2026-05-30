@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Download, Search, Trash2 } from 'lucide-react'
 import { loadBranchCatalog } from '../utils/navigationData'
+import { getEnglishName } from '../utils/translate'
 import { buildNoteKey } from '../components/PersonalNotes'
 
 const NOTE_PREFIX = 'ipu-note-'
@@ -55,11 +56,11 @@ function buildTopicIndex(catalog) {
           unit.topics.forEach((topic) => {
             index.set(buildNoteKey(branch.id, semester.semNumber, subject.id, topic.id), {
               branchId: branch.id,
-              branchName: branch.name,
+              branchName: getEnglishName(branch),
               branchShortName: branch.shortName,
               sem: semester.semNumber,
               subjectId: subject.id,
-              subjectName: subject.name,
+              subjectName: getEnglishName(subject),
               subjectCode: subject.subjectCode || subject.code,
               unitId: unit.id,
               unitTitle: unit.title,

@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowLeft, BookOpen, X } from 'lucide-react'
+import { ArrowLeft, Menu, X } from 'lucide-react'
 import { IPUBreadcrumb } from '../../components/IPU/IPUBreadcrumb'
 import { TopicSidebar } from '../../components/IPU/TopicSidebar'
+import AppliedChemistrySidebar from '../../components/IPU/AppliedChemistrySidebar'
 import { TopicContent } from '../../components/IPU/TopicContent'
 import { getBranch } from '../../data/ipuData.js'
+import { getEnglishName } from '../../ipu/utils/translate'
 import { getAllTopicIds } from '../../lib/ipuSubjectStorage'
 import { useIpuSubjectStorage } from '../../hooks/useIpuSubjectStorage'
 
@@ -36,7 +38,7 @@ function SubjectNotFound({ branch, semNum, subjectId }) {
         items={[
           { label: 'Home', to: '/' },
           { label: 'IPU Syllabus', to: '/ipu-syllabus' },
-          { label: branch.name, to: `/ipu-syllabus/${branch.id}` },
+          { label: getEnglishName(branch), to: `/ipu-syllabus/${branch.id}` },
           { label: `Semester ${semNum}`, to: `/ipu-syllabus/${branch.id}/semester/${semNum}` },
           { label: 'Subject not found' },
         ]}
@@ -173,8 +175,17 @@ export function SubjectPage() {
 
   return (
     <div className="flex min-h-[calc(100vh-3.5rem)] w-full max-w-[100vw] overflow-x-hidden">
-      <aside className="sticky top-14 hidden h-[calc(100vh-3.5rem)] w-[260px] shrink-0 overflow-hidden border-r border-slate-200 bg-white dark:border-slate-800 dark:bg-gray-900 md:block">
-        <TopicSidebar {...sidebarProps} />
+      <aside className="sticky top-14 hidden h-[calc(100vh-3.5rem)] w-[360px] shrink-0 overflow-hidden border-r border-slate-200 bg-white dark:border-slate-800 dark:bg-gray-900 md:block">
+        {subject.id === 'applied-chemistry' ? (
+          <AppliedChemistrySidebar
+            currentTopic={activeTopic}
+            onSelect={(id) => scrollToTopic(id)}
+            readCount={storage.readCount}
+            totalTopics={totalTopics}
+          />
+        ) : (
+          <TopicSidebar {...sidebarProps} />
+        )}
       </aside>
 
       <div
@@ -206,7 +217,7 @@ export function SubjectPage() {
         className="fixed bottom-20 right-4 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-green-700 text-white shadow-lg hover:bg-green-800 md:hidden dark:bg-green-600 dark:hover:bg-green-500"
         aria-label="Open topic menu"
       >
-        <BookOpen className="h-6 w-6" aria-hidden="true" />
+        <Menu className="h-6 w-6" aria-hidden="true" />
       </button>
 
       <AnimatePresence>
@@ -214,7 +225,7 @@ export function SubjectPage() {
           <>
             <motion.button
               type="button"
-              className="fixed inset-0 z-50 bg-black/50 md:hidden"
+              className="fixed inset-0 z-50 bg-black/50 backdrop-blur-[1px] md:hidden"
               aria-label="Close menu"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -222,17 +233,17 @@ export function SubjectPage() {
               onClick={() => setDrawerOpen(false)}
             />
             <motion.div
-              className="fixed inset-x-0 bottom-0 z-50 flex max-h-[min(85dvh,85vh)] w-full max-w-[100vw] flex-col overflow-hidden rounded-t-2xl border border-slate-200 bg-white shadow-2xl md:hidden dark:border-slate-700 dark:bg-gray-900"
-              initial={{ y: '100%' }}
-              animate={{ y: 0 }}
-              exit={{ y: '100%' }}
+              className="fixed inset-y-0 left-0 z-50 flex h-full w-[min(100vw,360px)] max-w-[100vw] flex-col overflow-hidden border-r border-slate-200 bg-white shadow-2xl md:hidden dark:border-slate-700 dark:bg-gray-900"
+              initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
               transition={{ type: 'spring', stiffness: 380, damping: 32 }}
               role="dialog"
               aria-modal="true"
               aria-label="Topic navigation"
             >
               <div className="flex shrink-0 items-center justify-between border-b border-slate-200 px-4 py-3 dark:border-slate-700">
-                <span className="truncate font-semibold text-slate-900 dark:text-white">
+                <span className="min-w-0 whitespace-normal break-words font-semibold text-slate-900 dark:text-white">
                   Topics
                 </span>
                 <button
@@ -245,7 +256,16 @@ export function SubjectPage() {
                 </button>
               </div>
               <div className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden overscroll-contain">
-                <TopicSidebar {...sidebarProps} />
+                {subject.id === 'applied-chemistry' ? (
+                  <AppliedChemistrySidebar
+                    currentTopic={activeTopic}
+                    onSelect={(id) => { scrollToTopic(id); setDrawerOpen(false) }}
+                    readCount={storage.readCount}
+                    totalTopics={totalTopics}
+                  />
+                ) : (
+                  <TopicSidebar {...sidebarProps} />
+                )}
               </div>
             </motion.div>
           </>

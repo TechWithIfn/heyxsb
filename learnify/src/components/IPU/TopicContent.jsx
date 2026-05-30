@@ -8,6 +8,7 @@ import {
   toggleBookmark,
 } from '../../lib/ipuSubjectStorage'
 import { easeOut } from '../../lib/motion'
+import { getEnglishName } from '../../ipu/utils/translate'
 
 function ExamAccordion({ questions }) {
   const [open, setOpen] = useState(false)
@@ -215,12 +216,12 @@ export function TopicContent({
         items={[
           { label: 'Home', to: '/' },
           { label: 'IPU Syllabus', to: '/ipu-syllabus' },
-          { label: branch.name, to: `/ipu-syllabus/${branch.id}` },
+          { label: getEnglishName(branch), to: `/ipu-syllabus/${branch.id}` },
           {
             label: `Semester ${semNum}`,
             to: `/ipu-syllabus/${branch.id}/semester/${semNum}`,
           },
-          { label: subject.name },
+          { label: getEnglishName(subject) },
         ]}
       />
 
@@ -243,7 +244,7 @@ export function TopicContent({
           </span>
         </div>
         <h1 className="mt-4 text-3xl font-bold text-slate-900 dark:text-white sm:text-4xl">
-          {subject.name}
+          {getEnglishName(subject)}
         </h1>
         <p className="mt-3 max-w-3xl text-base leading-relaxed text-slate-600 dark:text-slate-400">
           {subject.description}
@@ -260,7 +261,7 @@ export function TopicContent({
             Content coming soon
           </p>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-            Unit-wise notes for {subject.name} are being prepared. Check back
+            Unit-wise notes for {getEnglishName(subject)} are being prepared. Check back
             later or browse another subject.
           </p>
         </div>

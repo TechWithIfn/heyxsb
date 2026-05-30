@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { ArrowRight, CalendarDays, Flame, NotebookText, Target, Trophy } from 'lucide-react'
 import { AnimatedCounter } from '../../components/AnimatedCounter'
 import { ProgressRing } from '../components/ProgressRing'
+import { getEnglishName } from '../utils/translate'
 import { IPU_RECENT_ACTIVITY_EVENT, loadBranchCatalog, readRecentTopicVisits } from '../utils/navigationData'
 import {
   getAllTimeTotal,
@@ -204,7 +205,7 @@ export function IPUDashboard() {
           return {
             key: `${branch.id}-${semester.semNumber}`,
             branchId: branch.id,
-            branchName: branch.name,
+            branchName: getEnglishName(branch),
             branchShortName: branch.shortName,
             semNumber: semester.semNumber,
             subjectCount: semester.subjectCount,
@@ -395,10 +396,10 @@ export function IPUDashboard() {
                 <div className="mt-6 grid gap-4 sm:grid-cols-2">
                   {summary.studiedBranches.map((branch) => (
                     <button key={branch.id} type="button" onClick={() => navigate(`/ipu/${branch.id}`)} className="flex items-center gap-4 rounded-3xl border border-slate-200 bg-slate-50 p-4 text-left transition-all hover:-translate-y-0.5 hover:shadow-lg dark:border-slate-800 dark:bg-slate-950/50">
-                      <ProgressRing percent={branch.progress} size={88} strokeWidth={9} color="#10b981" />
+                      <ProgressRing percent={branch.progress} size={64} strokeWidth={8} color="#10b981" />
                       <div className="min-w-0 flex-1">
                         <p className="text-base font-bold text-slate-900 dark:text-white">{branch.shortName}</p>
-                        <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{branch.name}</p>
+                        <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{getEnglishName(branch)}</p>
                       </div>
                     </button>
                   ))}
@@ -452,9 +453,9 @@ export function IPUDashboard() {
               </div>
             ) : (
               <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                {summary.semesterProgress.map((semester) => (
+                  {summary.semesterProgress.map((semester) => (
                   <button key={semester.key} type="button" onClick={() => navigate(`/ipu/${semester.branchId}/${semester.semNumber}`)} className="flex items-center gap-4 rounded-3xl border border-slate-200 bg-slate-50 p-4 text-left transition-all hover:-translate-y-0.5 hover:shadow-lg dark:border-slate-800 dark:bg-slate-950/50">
-                    <ProgressRing percent={semester.progress} size={88} strokeWidth={9} color="#10b981" />
+                    <ProgressRing percent={semester.progress} size={64} strokeWidth={8} color="#10b981" />
                     <div className="min-w-0 flex-1">
                       <p className="text-base font-bold text-slate-900 dark:text-white">{semester.branchShortName} Sem {semester.semNumber}</p>
                       <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{semester.subjectCount} subjects · {semester.totalTopics} topics</p>

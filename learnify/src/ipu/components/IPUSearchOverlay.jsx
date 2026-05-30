@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Search, X } from 'lucide-react'
 import { loadBranchCatalog } from '../utils/navigationData'
+import { getEnglishName } from '../utils/translate'
 
 const RECENT_SEARCHES_KEY = 'learnify-ipu-recent-searches-v1'
 
@@ -185,18 +186,18 @@ export default function IPUSearchOverlay({ open, onClose, onOpenTopic }) {
 
               rows.push({
                 branchId: branch.id,
-                branchName: branch.name,
+                branchName: getEnglishName(branch),
                 branchShortName: branch.shortName,
                 semNumber: semester.semNumber,
                 subjectId: subject.id,
-                subjectName: subject.name,
+                subjectName: getEnglishName(subject),
                 subjectCode: subject.subjectCode || subject.code,
                 unitId: unit.id,
                 unitTitle: unit.title,
                 topicId: topic.id,
                 topicTitle: topic.title,
                 groupKey: `${branch.id}|${semester.semNumber}|${subject.id}|${unit.id}`,
-                groupLabel: `In ${branch.shortName} > Sem ${semester.semNumber} > ${subject.name} > ${unit.title}`,
+                groupLabel: `In ${branch.shortName} > Sem ${semester.semNumber} > ${getEnglishName(subject)} > ${unit.title}`,
                 excerpt: excerptSource,
                 searchedText: searchText,
               })

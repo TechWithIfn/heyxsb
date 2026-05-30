@@ -16,6 +16,11 @@
     line-height: 1.6;
   }
 
+  /* Ensure full height for app so internal containers can control scrolling */
+  html, body, #root {
+    height: 100%;
+  }
+
   html.dark body {
     @apply bg-slate-950 text-slate-100;
   }
@@ -79,6 +84,17 @@
 
 .animate-fade-in {
   animation: fade-in 0.35s ease-out forwards;
+}
+
+/* Hide scrollbar visuals while keeping native scroll behavior */
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 /* Lesson print layout */

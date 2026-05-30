@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { ArrowLeft } from 'lucide-react'
 import { IPUBreadcrumb } from '../../components/IPU/IPUBreadcrumb'
 import { getBranch } from '../../data/ipuData.js'
+import { getEnglishName } from '../../ipu/utils/translate'
 import { readSubjectProgress } from '../../lib/ipuProgress.js'
 import { easeOut } from '../../lib/motion'
 
@@ -112,7 +113,7 @@ function SubjectCard({ branchId, semNum, subject }) {
             {subject.subjectCode}
           </p>
           <h2 className="mt-1 text-xl font-bold text-slate-900 dark:text-white">
-            {subject.name}
+            {getEnglishName(subject)}
           </h2>
           <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
             {subject.description}
@@ -198,7 +199,7 @@ export function SubjectsPage() {
           items={[
             { label: 'Home', to: '/' },
             { label: 'IPU Syllabus', to: '/ipu-syllabus' },
-            { label: branch.name, to: `/ipu-syllabus/${branchId}` },
+            { label: getEnglishName(branch), to: `/ipu-syllabus/${branchId}` },
             { label: `Semester ${semNumber}` },
           ]}
         />
@@ -214,7 +215,7 @@ export function SubjectsPage() {
         </Link>
 
         <h1 className="text-3xl font-bold text-slate-900 dark:text-white sm:text-4xl">
-          Semester {semNumber} — {branch.name}
+          Semester {semNumber} — {getEnglishName(branch)}
         </h1>
         <p className="mt-2 text-base text-slate-600 dark:text-slate-400">
           {sortedSubjects.length} subject

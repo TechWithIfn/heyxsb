@@ -140,7 +140,7 @@ function SidebarInner({
                           : 'text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300'
                       }`}
                     />
-                    <span className="min-w-0 flex-1 leading-snug">{lesson.title}</span>
+                    <span className="min-w-0 flex-1 leading-snug break-words whitespace-normal">{lesson.title}</span>
                     <CompleteCheck
                       topicSlug={topicSlug}
                       lessonIdParam={id}
@@ -208,8 +208,8 @@ function SidebarInner({
         </aside>
       </div>
 
-      {/* Desktop: always-visible sidebar */}
-      <aside className="hidden w-full shrink-0 overflow-y-auto border-r border-slate-100 bg-slate-50/30 lg:block lg:max-h-[calc(100vh-3.5rem)] lg:w-64 dark:border-slate-800/80 dark:bg-slate-950/20 px-2">
+      {/* Desktop: always-visible sidebar (sticky, independent scroll) */}
+      <aside className="hidden lg:block lg:sticky lg:top-16 lg:h-[calc(100vh-4rem)] lg:overflow-y-auto lg:w-96 w-full shrink-0 border-r border-slate-100 bg-slate-50/30 dark:border-slate-800/80 dark:bg-slate-950/20 px-2">
         {sidebarNav}
       </aside>
     </>

@@ -19,6 +19,7 @@ import { IPUBreadcrumb } from '../../components/IPU/IPUBreadcrumb'
 import ipuBranches from '../../data/ipuData.js'
 import { getAllBookmarkedTopics } from '../../lib/ipuSubjectStorage'
 import { easeOut } from '../../lib/motion'
+import { getEnglishName } from '../../ipu/utils/translate'
 
 const ICON_MAP = {
   Cpu,
@@ -65,12 +66,12 @@ function resolveBookmarks() {
         if (topics.length > 0) {
           groups.push({
             branchId: branch.id,
-            branchName: branch.name,
+            branchName: getEnglishName(branch),
             shortName: branch.shortName,
             icon: branch.icon,
             semNum: sem.semNumber,
             subjectId: subject.id,
-            subjectName: subject.name,
+            subjectName: getEnglishName(subject),
             subjectCode: subject.subjectCode,
             topics,
           })

@@ -20,12 +20,14 @@ import {
   Zap,
 } from 'lucide-react'
 import { IPUBreadcrumb } from '../../components/IPU/IPUBreadcrumb'
+import { SearchBar } from '../../components/SearchBar'
 import { readSubjectProgress } from '../../lib/ipuProgress'
 import {
   getBranchMeta,
   getBranchProgramLabel,
   loadBranchDetail,
 } from '../utils/navigationData'
+import { getEnglishName } from '../utils/translate'
 import { ProgressRing } from '../components/ProgressRing'
 import { getSemProgress, registerSemesterSnapshot } from '../hooks/useIPUProgress'
 
@@ -81,7 +83,7 @@ function buildSemesterDescription(branch, semester) {
     return ''
   }
 
-  const highlightedSubjects = semester.subjects.slice(0, 3).map((subject) => subject.name)
+  const highlightedSubjects = semester.subjects.slice(0, 3).map((subject) => getEnglishName(subject))
   const subjectLabel = semester.subjectCount === 1 ? 'subject' : 'subjects'
   const topicLabel = semester.totalTopics === 1 ? 'topic' : 'topics'
 
@@ -90,6 +92,33 @@ function buildSemesterDescription(branch, semester) {
   }
 
   return `Semester ${semester.semNumber} groups ${semester.subjectCount} ${subjectLabel} and ${semester.totalTopics} ${topicLabel} in a recommended order for ${branch.shortName}.`
+}
+
+const CSE_SEM1_SUBJECT_ORDER = [
+  'Manufacturing Process',
+  'Applied Chemistry',
+  'Applied Mathematics 1',
+  'Applied Physics 1',
+  'Basic Chemistry',
+  'Communications Skills',
+  'Electrical Science',
+  'Indian Constitution',
+  'Human Values And Ethics',
+  'Programming In C',
+]
+
+function sortCseSem1Subjects(subjects, branchId, semNumber) {
+  if (String(branchId ?? '').toLowerCase() !== 'cse' || semNumber !== 1) {
+    return subjects
+  }
+
+  const order = new Map(CSE_SEM1_SUBJECT_ORDER.map((name, index) => [name, index]))
+
+  return [...subjects].sort((left, right) => {
+    const leftRank = order.get(left?.name) ?? Number.MAX_SAFE_INTEGER
+    const rightRank = order.get(right?.name) ?? Number.MAX_SAFE_INTEGER
+    return leftRank - rightRank
+  })
 }
 
 function SubjectCard({ branchId, semNumber, subject, index, onOpen }) {
@@ -132,8 +161,8 @@ function SubjectCard({ branchId, semNumber, subject, index, onOpen }) {
             )}
           </div>
 
-          <h3 className="mt-4 text-xl font-black leading-tight text-slate-900 dark:text-white sm:text-[1.65rem]">
-            {subject.name}
+            <h3 className="mt-4 text-xl font-black leading-tight text-slate-900 dark:text-white sm:text-[1.65rem]">
+            {getEnglishName(subject)}
           </h3>
           <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
             {subject.description}
@@ -144,7 +173,7 @@ function SubjectCard({ branchId, semNumber, subject, index, onOpen }) {
           <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
             {subject.credits} credits
           </span>
-          <ProgressRing percent={progress} size={84} strokeWidth={8} color="#10b981" />
+          <ProgressRing percent={progress} size={64} strokeWidth={7} color="#10b981" />
         </div>
       </div>
 
@@ -235,20 +264,31 @@ export function SemesterPage() {
     return branch.semesters.find((item) => item.semNumber === activeSemNumber) ?? null
   }, [branch, activeSemNumber])
 
+  const recommendedSubjects = useMemo(
+    () => sortCseSem1Subjects(semester?.subjects ?? [], branchId, activeSemNumber),
+    [semester, branchId, activeSemNumber],
+  )
+
+  const displaySemester = useMemo(
+    () => (semester ? { ...semester, subjects: recommendedSubjects } : null),
+    [semester, recommendedSubjects],
+  )
+
   useEffect(() => {
-    if (branch && semester) {
-      registerSemesterSnapshot(branch.id, semester.semNumber, semester.subjects, branch)
+    if (branch && displaySemester) {
+      registerSemesterSnapshot(branch.id, displaySemester.semNumber, displaySemester.subjects, branch)
     }
-  }, [branch, semester])
+  }, [branch, displaySemester])
 
   const branchMeta = getBranchMeta(branchId)
   const semesterDescription = useMemo(
-    () => (branch && semester ? buildSemesterDescription(branch, semester) : ''),
-    [branch, semester],
+    () => (branch && displaySemester ? buildSemesterDescription(branch, displaySemester) : ''),
+    [branch, displaySemester],
   )
-  const recommendedSubjects = useMemo(() => semester?.subjects ?? [], [semester])
   const semesterProgress =
-    branch && semester ? getSemProgress(branch.id, semester.semNumber, semester.subjects.length) : 0
+    branch && displaySemester
+      ? getSemProgress(branch.id, displaySemester.semNumber, displaySemester.subjects.length)
+      : 0
 
   const semesterTabs = useMemo(
     () => Array.from({ length: 8 }, (_, index) => index + 1),
@@ -380,68 +420,7 @@ export function SemesterPage() {
           ]}
         />
 
-        <header className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm transition-colors duration-300 dark:border-slate-800 dark:bg-slate-900">
-          <div className="p-6 sm:p-8">
-            <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-              <div className="flex items-start gap-4">
-                <div className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${branch.color} text-white shadow-lg`}>
-                  <BranchIcon name={branch.icon} className="h-8 w-8" />
-                </div>
-                <div>
-                  <span className="inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold uppercase tracking-[0.22em] text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300">
-                    {getBranchProgramLabel(branchMeta ?? branch)}
-                  </span>
-                  <h1 className="mt-4 text-4xl font-black tracking-tight text-slate-900 dark:text-white">
-                    Semester {activeSemNumber}
-                  </h1>
-                  <p className="mt-2 text-base text-slate-600 dark:text-slate-400">
-                    {semester.subjectCount} subject{semester.subjectCount === 1 ? '' : 's'}
-                  </p>
-                  <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600 dark:text-slate-400">
-                    {semesterDescription}
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-8 flex flex-wrap items-center gap-6">
-                <ProgressRing percent={semesterProgress} size={112} strokeWidth={10} color="#0ea5e9" label="Semester" />
-                <div className="grid flex-1 gap-3 sm:grid-cols-2">
-                  <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-950/50">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-                      Subjects
-                    </p>
-                    <p className="mt-2 text-2xl font-black text-slate-900 dark:text-white">
-                      {semester.subjectCount}
-                    </p>
-                  </div>
-                  <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-950/50">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-                      Topics
-                    </p>
-                    <p className="mt-2 text-2xl font-black text-slate-900 dark:text-white">
-                      {semester.totalTopics}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <Link
-                to={`/ipu/${branch.id}`}
-                className="inline-flex items-center gap-2 self-start rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition-colors hover:border-emerald-300 hover:text-emerald-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-emerald-700 dark:hover:text-emerald-300"
-              >
-                <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-                Back to branch
-              </Link>
-            </div>
-
-            <p className="mt-5 max-w-3xl text-base leading-7 text-slate-600 dark:text-slate-400">
-              Browse the semester in the recommended learning order. Each subject card shows
-              units, topics, progress, and the fastest route into the lesson content.
-            </p>
-          </div>
-
-          {/* Semester navigation moved below the main site navbar to stick there */}
-        </header>
+        {/* Header removed per user request: compact view without hero/summary */}
 
         
 
@@ -464,7 +443,9 @@ export function SemesterPage() {
                     {semester.subjects.length} subject grid with progress tracking.
                   </p>
                 </div>
-                <Sparkles className="h-5 w-5 text-emerald-500" aria-hidden="true" />
+                <div className="w-full max-w-md">
+                  <SearchBar scope={{ type: 'ipu', branchId: branch.id, semNumber: activeSemNumber }} />
+                </div>
               </div>
 
               <div className="grid grid-cols-1 items-stretch gap-5 md:grid-cols-2 2xl:grid-cols-3">
@@ -499,7 +480,7 @@ export function SemesterPage() {
                       </span>
                       <span className="min-w-0 flex-1">
                         <span className="block font-semibold text-slate-900 dark:text-white">
-                          {subject.name}
+                          {getEnglishName(subject)}
                         </span>
                         <span className="block text-xs text-slate-500 dark:text-slate-400">
                           {subject.subjectCode || subject.code} · {subject.credits} credits

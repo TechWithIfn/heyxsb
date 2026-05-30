@@ -22,6 +22,7 @@ import {
   IPU_RECENT_ACTIVITY_EVENT,
   readRecentSubjects,
 } from '../utils/navigationData'
+import { getEnglishName, getEnglishShortName } from '../utils/translate'
 
 const ICON_MAP = {
   Cpu,
@@ -109,21 +110,21 @@ function BranchCard({ branch, onOpen }) {
       className="group flex h-full w-full flex-col rounded-lg border border-[#dddddd] bg-[#f1f1f1] p-6 text-left transition-colors hover:border-[#04AA6D] dark:border-[#444444] dark:bg-[#2e2e3e] dark:hover:border-[#04AA6D]"
     >
       <div className="flex items-center justify-between w-full">
-        <span className="inline-flex h-12 w-12 items-center justify-center rounded bg-[#282A35] text-white dark:bg-[#1a1a2a]">
-          <BranchIcon name={branch.icon} className="h-6 w-6" />
-        </span>
+          <span className="inline-flex h-12 w-12 items-center justify-center rounded bg-[#282A35] text-white dark:bg-[#1a1a2a]">
+            <BranchIcon name={branch.icon} className="h-5 w-5" />
+          </span>
         <span className="rounded bg-[#04AA6D] px-2 py-1 text-xs font-bold uppercase text-white">
           {getBranchProgramLabel(branch)}
         </span>
       </div>
 
       <div className="mt-6 flex-1">
-        <h3 className="text-2xl font-bold text-[#282A35] dark:text-[#E0E0E0]">
-          {branch.shortName}
-        </h3>
-        <p className="mt-2 text-sm text-[#595959] dark:text-[#AAAAAA]">
-          {branch.name}
-        </p>
+            <h3 className="text-2xl font-bold text-[#282A35] dark:text-[#E0E0E0]">
+              {getEnglishShortName(branch) || branch.shortName}
+            </h3>
+            <p className="mt-2 text-sm text-[#595959] dark:text-[#AAAAAA]">
+              {getEnglishName(branch)}
+            </p>
         <p className="mt-4 text-sm font-semibold text-[#04AA6D]">
           {branch.totalSemesters} semester{branch.totalSemesters === 1 ? '' : 's'}
         </p>
@@ -181,45 +182,10 @@ export function IPUHomePage() {
 
   return (
     <main className="min-h-screen bg-white dark:bg-[#282A35]">
-      {/* Jumbotron Header - W3Schools style */}
-      <section className="bg-[#282A35] px-4 py-16 text-center text-white dark:bg-[#1a1a2a] sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-            IPU Syllabus Reference
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-[#AAAAAA]">
-            Study all IPU branches with unit-wise theory, examples &amp; exam prep.
-          </p>
-
-          <div className="mx-auto mt-8 max-w-2xl">
-            <div className="relative flex items-center">
-              <input
-                type="search"
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                placeholder="Search our tutorials, e.g. Data Structures"
-                className="w-full rounded-full border-2 border-transparent bg-white py-3 pl-5 pr-12 text-lg text-[#282A35] placeholder:text-[#595959] focus:border-[#04AA6D] focus:outline-none"
-              />
-              <button 
-                type="button" 
-                className="absolute right-2 flex h-10 w-10 items-center justify-center rounded-full bg-[#04AA6D] text-white hover:bg-[#059862]"
-                aria-label="Search"
-              >
-                <Search className="h-5 w-5" />
-              </button>
-            </div>
-          </div>
-
-          <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm font-semibold">
-            <Link
-              to="/ipu/dashboard"
-              className="rounded bg-[#04AA6D] px-6 py-2.5 text-white hover:bg-[#059862]"
-            >
-              Open Dashboard
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Jumbotron removed per user request; show compact page header */}
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <h1 className="text-2xl font-bold text-[#282A35] dark:text-white">IPU Syllabus Reference</h1>
+      </div>
 
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <section>

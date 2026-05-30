@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import { Search, Download } from 'lucide-react'
 import { loadSubjectData, getAllTopicsFlat } from '../utils/dataLoader'
 import ReactMarkdown from 'react-markdown'
+import { getEnglishName } from '../utils/translate'
 
 export default function PreviousYearPage() {
   const [params] = useSearchParams()
@@ -69,7 +70,7 @@ export default function PreviousYearPage() {
     <main className="mx-auto max-w-4xl px-4 py-10">
       <div className="flex items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold">Previous Year Questions — {subject.name}</h1>
+          <h1 className="text-2xl font-bold">Previous Year Questions — {getEnglishName(subject)}</h1>
           <p className="text-sm text-slate-600">Semester-wise previous year questions aggregated by topic.</p>
         </div>
         <div className="flex items-center gap-2">

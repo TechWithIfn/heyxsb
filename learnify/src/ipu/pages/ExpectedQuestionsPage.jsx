@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { Search, Download } from 'lucide-react'
 import { loadSubjectData, getAllTopicsFlat } from '../utils/dataLoader'
+import { getEnglishName } from '../utils/translate'
 import ReactMarkdown from 'react-markdown'
 
 export default function ExpectedQuestionsPage() {
@@ -56,7 +57,7 @@ export default function ExpectedQuestionsPage() {
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = `${subject?.name || 'subject'}-expected-questions.md`
+    a.download = `${getEnglishName(subject) || 'subject'}-expected-questions.md`
     a.click()
     URL.revokeObjectURL(url)
   }
@@ -69,11 +70,11 @@ export default function ExpectedQuestionsPage() {
     <main className="mx-auto max-w-4xl px-4 py-10">
       <div className="flex items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold">Expected Exam Questions — {subject.name}</h1>
+          <h1 className="text-2xl font-bold">Expected Exam Questions — {getEnglishName(subject)}</h1>
           <p className="text-sm text-slate-600">Unit & topic wise important questions and expected university questions.</p>
         </div>
         <div className="flex items-center gap-2">
-          <button onClick={downloadAll} className="rounded-lg bg-emerald-600 px-3 py-2 text-white">Download</button>
+            <button onClick={downloadAll} className="rounded-lg bg-emerald-600 px-3 py-2 text-white">Download</button>
         </div>
       </div>
 

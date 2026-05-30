@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { IPUBreadcrumb } from '../../components/IPU/IPUBreadcrumb'
+import { SearchBar } from '../../components/SearchBar'
 import { readSemProgress } from '../../lib/ipuProgress'
 import { loadBranchDetail } from '../utils/navigationData'
 import { registerSemesterSnapshot } from '../hooks/useIPUProgress'
@@ -177,31 +178,30 @@ export function BranchPage() {
           ]}
         />
 
-        <section className="mt-5 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm transition-colors duration-300 dark:border-slate-800 dark:bg-slate-900 sm:p-8">
-            <div className="mb-5 flex items-center justify-between">
-              <div>
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-                  Semesters
-                </h2>
-                <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-                  8-semester path with progress tracking.
-                </p>
-              </div>
+        <section className="mt-5">
+          <div className="mb-5 flex items-center justify-between">
+            <div>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Semesters</h2>
+              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">8-semester path with progress tracking.</p>
             </div>
+            <div className="w-full max-w-md">
+              <SearchBar scope={{ type: 'ipu-branch', branchId: branch.id }} />
+            </div>
+          </div>
 
-            <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
-              <AnimatePresence>
-                {roadmap.map(({ semester, active }) => (
-                  <SemesterRoadmapCard
-                    key={semester.semNumber}
-                    branchId={branch.id}
-                    semester={semester}
-                    active={active}
-                    onOpen={() => active && navigate(`/ipu/${branch.id}/${semester.semNumber}`)}
-                  />
-                ))}
-              </AnimatePresence>
-            </div>
+          <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+            <AnimatePresence>
+              {roadmap.map(({ semester, active }) => (
+                <SemesterRoadmapCard
+                  key={semester.semNumber}
+                  branchId={branch.id}
+                  semester={semester}
+                  active={active}
+                  onOpen={() => active && navigate(`/ipu/${branch.id}/${semester.semNumber}`)}
+                />
+              ))}
+            </AnimatePresence>
+          </div>
         </section>
       </div>
     </main>
