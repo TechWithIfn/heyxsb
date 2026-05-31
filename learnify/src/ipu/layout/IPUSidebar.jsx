@@ -20,9 +20,8 @@ function UnitItem({
         onClick={toggle} 
         className="w-full flex items-center justify-between px-4 py-3.5 text-slate-700 hover:bg-slate-100/70 dark:text-slate-200 dark:hover:bg-slate-800/50 transition-colors"
       >
-        <div className="flex flex-col items-start text-left min-w-0 pr-2">
-          <span className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">Unit {unit.unitNumber}</span>
-          <span className="text-sm font-semibold text-slate-800 dark:text-slate-200 mt-0.5 break-words whitespace-normal w-full">{unit.title}</span>
+          <div className="flex flex-col items-start text-left min-w-0 pr-2">
+          <span className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">{`UNIT ${unit.unitNumber}`}</span>
         </div>
         <div className="flex items-center gap-2 shrink-0">
           <span className="text-xs font-bold bg-green-50 text-green-700 dark:bg-green-950/40 dark:text-green-400 px-2 py-0.5 rounded-full border border-green-100/50 dark:border-green-900/30">

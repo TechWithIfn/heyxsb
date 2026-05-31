@@ -118,7 +118,23 @@
     "type": "theory",
     "icon": "🌿",
     "description": "Fundamentals of environment, ecology, pollution, and conservation.",
-    "units": []
+    "units": [
+      {
+        "unitNumber": 4,
+        "title": "Human Dimensions of Environment",
+        "topics": [
+          { "id": "env-u4-t1", "title": "Human Population and Environment", "content": { "theory": ["Interactions between human populations and the environment; carrying capacity and resource pressures."] } },
+          { "id": "env-u4-t2", "title": "Population Growth", "content": { "theory": ["Trends, causes and consequences of population growth; demographic transition and population policies."] } },
+          { "id": "env-u4-t3", "title": "Human Rights", "content": { "theory": ["Linkages between human rights and environmental protection, access to resources and environmental justice."] } },
+          { "id": "env-u4-t4", "title": "Family Welfare Programmes", "content": { "theory": ["Overview of family welfare initiatives, reproductive health services and their role in sustainable development."] } },
+          { "id": "env-u4-t5", "title": "Environment and Human Health", "content": { "theory": ["How environmental factors affect human health; common environmental diseases and prevention strategies."] } },
+          { "id": "env-u4-t6", "title": "HIV/AIDS", "content": { "theory": ["Basic facts about HIV/AIDS, transmission, prevention and the social-environmental implications."] } },
+          { "id": "env-u4-t7", "title": "Women Welfare", "content": { "theory": ["Programs and policies for women's welfare and empowerment; gender perspectives in environmental planning."] } },
+          { "id": "env-u4-t8", "title": "Child Welfare", "content": { "theory": ["Child health, nutrition and welfare programs; environmental determinants of child well-being."] } },
+          { "id": "env-u4-t9", "title": "Role of Information Technology (IT)", "content": { "theory": ["Use of IT in environmental management, monitoring, awareness, and decision support systems."] } }
+        ]
+      }
+    ]
   },
   {
     "id": "applied-chemistry",

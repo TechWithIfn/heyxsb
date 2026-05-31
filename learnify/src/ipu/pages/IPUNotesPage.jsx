@@ -53,7 +53,7 @@ function buildTopicIndex(catalog) {
     branch.semesters.forEach((semester) => {
       semester.subjects.forEach((subject) => {
         subject.units.forEach((unit) => {
-          unit.topics.forEach((topic) => {
+              unit.topics.forEach((topic) => {
             index.set(buildNoteKey(branch.id, semester.semNumber, subject.id, topic.id), {
               branchId: branch.id,
               branchName: getEnglishName(branch),
@@ -63,7 +63,7 @@ function buildTopicIndex(catalog) {
               subjectName: getEnglishName(subject),
               subjectCode: subject.subjectCode || subject.code,
               unitId: unit.id,
-              unitTitle: unit.title,
+              unitTitle: `UNIT ${unit.unitNumber}`,
               topicId: topic.id,
               topicTitle: topic.title,
             })

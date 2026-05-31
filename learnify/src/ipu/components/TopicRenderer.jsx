@@ -157,7 +157,7 @@ export default function TopicRenderer({
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
-              {subject?.name ? `${getEnglishName(subject)} · ` : ''}Unit {unitId}
+              {subject?.name ? `${getEnglishName(subject)} · ` : ''}{`UNIT ${unitId}`}
             </p>
             <h1 className="mt-2 text-[48px] font-bold tracking-tight text-slate-900 dark:text-white">
               {topic.title || 'Untitled topic'}

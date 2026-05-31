@@ -193,11 +193,11 @@ export default function IPUSearchOverlay({ open, onClose, onOpenTopic }) {
                 subjectName: getEnglishName(subject),
                 subjectCode: subject.subjectCode || subject.code,
                 unitId: unit.id,
-                unitTitle: unit.title,
+                unitTitle: `UNIT ${unit.unitNumber}`,
                 topicId: topic.id,
                 topicTitle: topic.title,
                 groupKey: `${branch.id}|${semester.semNumber}|${subject.id}|${unit.id}`,
-                groupLabel: `In ${branch.shortName} > Sem ${semester.semNumber} > ${getEnglishName(subject)} > ${unit.title}`,
+                groupLabel: `In ${branch.shortName} > Sem ${semester.semNumber} > ${getEnglishName(subject)} > UNIT ${unit.unitNumber}`,
                 excerpt: excerptSource,
                 searchedText: searchText,
               })

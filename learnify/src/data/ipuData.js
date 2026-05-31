@@ -1,74 +1,4 @@
-/**
- * @file ipuData.js — IPU syllabus content for LearnTheory (GGSIPU programmes).
- *
- * ## Data shape (TypeScript-style)
- *
- * @typedef {Object} IpuTopic
- * @property {string} id — Unique slug within subject (e.g. "mat-u1-t1")
- * @property {string} title
- * @property {string} content — Multi-paragraph markdown-friendly plain text (\\n\\n between paragraphs)
- * @property {string[]} keyPoints
- * @property {{ title: string, explanation: string }[]} examples
- * @property {{ name: string, formula: string, description?: string }[]} formulas
- * @property {string[]} examQuestions
- * @property {{ title: string, author: string }[]} [references]
- *
- * @typedef {Object} IpuUnit
- * @property {number} unitNumber — 1-based
- * @property {string} title
- * @property {IpuTopic[]} topics
- *
- * @typedef {Object} IpuSubject
- * @property {string} id — URL slug (e.g. "mathematics-1")
- * @property {string} name
- * @property {string} subjectCode — Official code (e.g. "BAS-101")
- * @property {number} credits
- * @property {"theory"|"lab"} type
- * @property {string} description
- * @property {IpuUnit[]} units — Empty [] shows "Content coming soon" in the app
- *
- * @typedef {Object} IpuSemester
- * @property {number} semNumber
- * @property {IpuSubject[]} subjects
- *
- * @typedef {Object} IpuBranch
- * @property {string} id — URL slug (e.g. "cse")
- * @property {string} name
- * @property {string} shortName
- * @property {string} icon — lucide-react export name (see below)
- * @property {string} color — Tailwind text class (e.g. "text-blue-600")
- * @property {string} description
- * @property {number} totalSemesters
- * @property {IpuSemester[]} semesters
- *
- * ## Add a new branch
- * 1. Add a branch() entry to scripts/generate-ipu-data.mjs (or edit this file directly).
- * 2. Set id, name, shortName, icon (lucide name), color, totalSemesters.
- * 3. Build semesters with sem(n, subjects[]) or emptySem(n, subjectTuples).
- * 4. Run: node scripts/generate-ipu-data.mjs
- * 5. Map the icon string in page ICON_MAP objects (BranchesPage, SemestersPage, etc.).
- *
- * ## Add subjects to an existing semester
- * 1. Locate the branch in generate-ipu-data.mjs.
- * 2. Append a tuple to emptySem or sem subjects:
- *    [id, name, subjectCode, credits, type, description]
- * 3. For full lesson content, pass a units array to subject() with unit() and topic() helpers.
- * 4. Regenerate with node scripts/generate-ipu-data.mjs
- *
- * ## localStorage keys (app-wide)
- * - ipu_sem_progress_{branchId}_{semNumber} — 0–100 semester rollup
- * - ipu_subject_progress_{branchId}_{semNum}_{subjectId} — 0–100 per subject
- * - ipu_read_topics_{subjectId} — string[] of topic ids marked read
- * - ipu_bookmarks_{subjectId} — string[] of bookmarked topic ids
- *
- * ## lucide-react icon names
- * Use PascalCase names matching lucide exports: Cpu, Monitor, Brain, Radio, Zap, Cog,
- * Building2, GraduationCap, Laptop, Briefcase, BookOpen, etc.
- * Browse: https://lucide.dev/icons — the string in data must match the React import name.
- *
- * CSE branch has full Sem 1–8 subject names; Mathematics-I includes complete units.
- * Other subjects may have units: [] until content is added (descriptions may note TODO).
- */
+/** Auto-synced ipuData.js — units copied from src/ipu/data/cse/sem1.json */
 
 const ipuBranches = [
   {
@@ -1366,266 +1296,7 @@ const ipuBranches = [
             "credits": 3,
             "type": "theory",
             "description": "Orthographic projection, sections, and CAD fundamentals.",
-            "units": [
-              {
-                "unitNumber": 1,
-                "title": "Engineering Graphics — Unit 1",
-                "topics": [
-                  {
-                    "id": "engineering-u1-t1",
-                    "title": "Engineering Graphics: Core Concepts (Part A)",
-                    "content": "This unit develops foundational ideas in Engineering Graphics aligned with the IPU BTech CSE first-year syllabus. Students learn definitions, standard terminology, and problem-solving workflows used in end-semester examinations and GATE-style assessments.\n\nConceptual clarity is emphasized before numerical drills. Diagrams, tables, and worked examples mirror typical question patterns set by Guru Gobind Singh Indraprastha University affiliated colleges. Laboratory and tutorial hours reinforce lecture topics through guided practice.\n\nConnections to computer science—such as how physical laws inform hardware limits or how measurement discipline supports reliable benchmarking—are highlighted for CSE learners.",
-                    "keyPoints": [
-                      "Master standard units and notation for the unit theme",
-                      "Apply definitions to numerical and conceptual questions",
-                      "Interpret diagrams used in IPU question papers",
-                      "Relate theory to lab/tutorial outcomes",
-                      "Build revision notes mapped to unit outcomes"
-                    ],
-                    "examples": [
-                      {
-                        "title": "Worked example",
-                        "explanation": "Stepwise solution showing given data, formula, and conclusion."
-                      },
-                      {
-                        "title": "Concept map",
-                        "explanation": "Links prerequisites to advanced semester topics."
-                      }
-                    ],
-                    "formulas": [],
-                    "examQuestions": [
-                      "Define key terms in Engineering Graphics for Unit 1.",
-                      "Solve a standard numerical from previous-year pattern.",
-                      "Explain assumptions in the model used.",
-                      "List common student errors and how to avoid them.",
-                      "Outline a 10-minute viva answer for this topic."
-                    ],
-                    "references": [
-                      {
-                        "title": "IPU Syllabus Handbook",
-                        "author": "GGSIPU"
-                      },
-                      {
-                        "title": "Standard Textbook",
-                        "author": "Faculty Board"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "engineering-u1-t2",
-                    "title": "Engineering Graphics: Applications (Part B)",
-                    "content": "Applications extend Part A theory to engineering judgment. Students analyze cases where ideal models deviate from real systems and learn when to apply corrections or safety factors.\n\nProblem sets include multi-step questions combining two ideas from the unit—typical of IPU internal assessments. Collaborative tutorials encourage peer explanation, which strengthens communication skills alongside technical accuracy.\n\nFor CSE students, application topics note how the physical or professional skill supports later courses such as embedded systems, VLSI, or industry internships.",
-                    "keyPoints": [
-                      "Combine two concepts in multi-step problems",
-                      "Justify approximations with engineering reasoning",
-                      "Present solutions with neat units and significant figures",
-                      "Use graphs or sketches where they clarify reasoning",
-                      "Prepare short oral summaries for lab/viva"
-                    ],
-                    "examples": [
-                      {
-                        "title": "Case study",
-                        "explanation": "Realistic scenario requiring unit formulas and interpretation."
-                      },
-                      {
-                        "title": "Design trade-off",
-                        "explanation": "Compare options using quantitative criteria."
-                      }
-                    ],
-                    "formulas": [],
-                    "examQuestions": [
-                      "Solve an application-level numerical problem.",
-                      "Interpret a graph or circuit diagram provided.",
-                      "Discuss limitations of the ideal model.",
-                      "Write a brief lab report style conclusion.",
-                      "Map the topic to a future semester subject."
-                    ],
-                    "references": [
-                      {
-                        "title": "Engineering Applications",
-                        "author": "IPU Notes"
-                      },
-                      {
-                        "title": "Practice Problems",
-                        "author": "Dept. Compilation"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "unitNumber": 2,
-                "title": "Engineering Graphics — Unit 2",
-                "topics": [
-                  {
-                    "id": "engineering-u2-t1",
-                    "title": "Engineering Graphics: Core Concepts (Part A)",
-                    "content": "This unit develops foundational ideas in Engineering Graphics aligned with the IPU BTech CSE first-year syllabus. Students learn definitions, standard terminology, and problem-solving workflows used in end-semester examinations and GATE-style assessments.\n\nConceptual clarity is emphasized before numerical drills. Diagrams, tables, and worked examples mirror typical question patterns set by Guru Gobind Singh Indraprastha University affiliated colleges. Laboratory and tutorial hours reinforce lecture topics through guided practice.\n\nConnections to computer science—such as how physical laws inform hardware limits or how measurement discipline supports reliable benchmarking—are highlighted for CSE learners.",
-                    "keyPoints": [
-                      "Master standard units and notation for the unit theme",
-                      "Apply definitions to numerical and conceptual questions",
-                      "Interpret diagrams used in IPU question papers",
-                      "Relate theory to lab/tutorial outcomes",
-                      "Build revision notes mapped to unit outcomes"
-                    ],
-                    "examples": [
-                      {
-                        "title": "Worked example",
-                        "explanation": "Stepwise solution showing given data, formula, and conclusion."
-                      },
-                      {
-                        "title": "Concept map",
-                        "explanation": "Links prerequisites to advanced semester topics."
-                      }
-                    ],
-                    "formulas": [],
-                    "examQuestions": [
-                      "Define key terms in Engineering Graphics for Unit 2.",
-                      "Solve a standard numerical from previous-year pattern.",
-                      "Explain assumptions in the model used.",
-                      "List common student errors and how to avoid them.",
-                      "Outline a 10-minute viva answer for this topic."
-                    ],
-                    "references": [
-                      {
-                        "title": "IPU Syllabus Handbook",
-                        "author": "GGSIPU"
-                      },
-                      {
-                        "title": "Standard Textbook",
-                        "author": "Faculty Board"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "engineering-u2-t2",
-                    "title": "Engineering Graphics: Applications (Part B)",
-                    "content": "Applications extend Part A theory to engineering judgment. Students analyze cases where ideal models deviate from real systems and learn when to apply corrections or safety factors.\n\nProblem sets include multi-step questions combining two ideas from the unit—typical of IPU internal assessments. Collaborative tutorials encourage peer explanation, which strengthens communication skills alongside technical accuracy.\n\nFor CSE students, application topics note how the physical or professional skill supports later courses such as embedded systems, VLSI, or industry internships.",
-                    "keyPoints": [
-                      "Combine two concepts in multi-step problems",
-                      "Justify approximations with engineering reasoning",
-                      "Present solutions with neat units and significant figures",
-                      "Use graphs or sketches where they clarify reasoning",
-                      "Prepare short oral summaries for lab/viva"
-                    ],
-                    "examples": [
-                      {
-                        "title": "Case study",
-                        "explanation": "Realistic scenario requiring unit formulas and interpretation."
-                      },
-                      {
-                        "title": "Design trade-off",
-                        "explanation": "Compare options using quantitative criteria."
-                      }
-                    ],
-                    "formulas": [],
-                    "examQuestions": [
-                      "Solve an application-level numerical problem.",
-                      "Interpret a graph or circuit diagram provided.",
-                      "Discuss limitations of the ideal model.",
-                      "Write a brief lab report style conclusion.",
-                      "Map the topic to a future semester subject."
-                    ],
-                    "references": [
-                      {
-                        "title": "Engineering Applications",
-                        "author": "IPU Notes"
-                      },
-                      {
-                        "title": "Practice Problems",
-                        "author": "Dept. Compilation"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "unitNumber": 3,
-                "title": "Engineering Graphics — Unit 3",
-                "topics": [
-                  {
-                    "id": "engineering-u3-t1",
-                    "title": "Engineering Graphics: Core Concepts (Part A)",
-                    "content": "This unit develops foundational ideas in Engineering Graphics aligned with the IPU BTech CSE first-year syllabus. Students learn definitions, standard terminology, and problem-solving workflows used in end-semester examinations and GATE-style assessments.\n\nConceptual clarity is emphasized before numerical drills. Diagrams, tables, and worked examples mirror typical question patterns set by Guru Gobind Singh Indraprastha University affiliated colleges. Laboratory and tutorial hours reinforce lecture topics through guided practice.\n\nConnections to computer science—such as how physical laws inform hardware limits or how measurement discipline supports reliable benchmarking—are highlighted for CSE learners.",
-                    "keyPoints": [
-                      "Master standard units and notation for the unit theme",
-                      "Apply definitions to numerical and conceptual questions",
-                      "Interpret diagrams used in IPU question papers",
-                      "Relate theory to lab/tutorial outcomes",
-                      "Build revision notes mapped to unit outcomes"
-                    ],
-                    "examples": [
-                      {
-                        "title": "Worked example",
-                        "explanation": "Stepwise solution showing given data, formula, and conclusion."
-                      },
-                      {
-                        "title": "Concept map",
-                        "explanation": "Links prerequisites to advanced semester topics."
-                      }
-                    ],
-                    "formulas": [],
-                    "examQuestions": [
-                      "Define key terms in Engineering Graphics for Unit 3.",
-                      "Solve a standard numerical from previous-year pattern.",
-                      "Explain assumptions in the model used.",
-                      "List common student errors and how to avoid them.",
-                      "Outline a 10-minute viva answer for this topic."
-                    ],
-                    "references": [
-                      {
-                        "title": "IPU Syllabus Handbook",
-                        "author": "GGSIPU"
-                      },
-                      {
-                        "title": "Standard Textbook",
-                        "author": "Faculty Board"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "engineering-u3-t2",
-                    "title": "Engineering Graphics: Applications (Part B)",
-                    "content": "Applications extend Part A theory to engineering judgment. Students analyze cases where ideal models deviate from real systems and learn when to apply corrections or safety factors.\n\nProblem sets include multi-step questions combining two ideas from the unit—typical of IPU internal assessments. Collaborative tutorials encourage peer explanation, which strengthens communication skills alongside technical accuracy.\n\nFor CSE students, application topics note how the physical or professional skill supports later courses such as embedded systems, VLSI, or industry internships.",
-                    "keyPoints": [
-                      "Combine two concepts in multi-step problems",
-                      "Justify approximations with engineering reasoning",
-                      "Present solutions with neat units and significant figures",
-                      "Use graphs or sketches where they clarify reasoning",
-                      "Prepare short oral summaries for lab/viva"
-                    ],
-                    "examples": [
-                      {
-                        "title": "Case study",
-                        "explanation": "Realistic scenario requiring unit formulas and interpretation."
-                      },
-                      {
-                        "title": "Design trade-off",
-                        "explanation": "Compare options using quantitative criteria."
-                      }
-                    ],
-                    "formulas": [],
-                    "examQuestions": [
-                      "Solve an application-level numerical problem.",
-                      "Interpret a graph or circuit diagram provided.",
-                      "Discuss limitations of the ideal model.",
-                      "Write a brief lab report style conclusion.",
-                      "Map the topic to a future semester subject."
-                    ],
-                    "references": [
-                      {
-                        "title": "Engineering Applications",
-                        "author": "IPU Notes"
-                      },
-                      {
-                        "title": "Practice Problems",
-                        "author": "Dept. Compilation"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
+            "units": []
           },
           {
             "id": "programming-in-c",
@@ -1634,266 +1305,7 @@ const ipuBranches = [
             "credits": 4,
             "type": "theory",
             "description": "Structured programming, pointers, and problem solving in C.",
-            "units": [
-              {
-                "unitNumber": 1,
-                "title": "Programming in C — Unit 1",
-                "topics": [
-                  {
-                    "id": "programming-u1-t1",
-                    "title": "Programming in C: Core Concepts (Part A)",
-                    "content": "This unit develops foundational ideas in Programming in C aligned with the IPU BTech CSE first-year syllabus. Students learn definitions, standard terminology, and problem-solving workflows used in end-semester examinations and GATE-style assessments.\n\nConceptual clarity is emphasized before numerical drills. Diagrams, tables, and worked examples mirror typical question patterns set by Guru Gobind Singh Indraprastha University affiliated colleges. Laboratory and tutorial hours reinforce lecture topics through guided practice.\n\nConnections to computer science—such as how physical laws inform hardware limits or how measurement discipline supports reliable benchmarking—are highlighted for CSE learners.",
-                    "keyPoints": [
-                      "Master standard units and notation for the unit theme",
-                      "Apply definitions to numerical and conceptual questions",
-                      "Interpret diagrams used in IPU question papers",
-                      "Relate theory to lab/tutorial outcomes",
-                      "Build revision notes mapped to unit outcomes"
-                    ],
-                    "examples": [
-                      {
-                        "title": "Worked example",
-                        "explanation": "Stepwise solution showing given data, formula, and conclusion."
-                      },
-                      {
-                        "title": "Concept map",
-                        "explanation": "Links prerequisites to advanced semester topics."
-                      }
-                    ],
-                    "formulas": [],
-                    "examQuestions": [
-                      "Define key terms in Programming in C for Unit 1.",
-                      "Solve a standard numerical from previous-year pattern.",
-                      "Explain assumptions in the model used.",
-                      "List common student errors and how to avoid them.",
-                      "Outline a 10-minute viva answer for this topic."
-                    ],
-                    "references": [
-                      {
-                        "title": "IPU Syllabus Handbook",
-                        "author": "GGSIPU"
-                      },
-                      {
-                        "title": "Standard Textbook",
-                        "author": "Faculty Board"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "programming-u1-t2",
-                    "title": "Programming in C: Applications (Part B)",
-                    "content": "Applications extend Part A theory to engineering judgment. Students analyze cases where ideal models deviate from real systems and learn when to apply corrections or safety factors.\n\nProblem sets include multi-step questions combining two ideas from the unit—typical of IPU internal assessments. Collaborative tutorials encourage peer explanation, which strengthens communication skills alongside technical accuracy.\n\nFor CSE students, application topics note how the physical or professional skill supports later courses such as embedded systems, VLSI, or industry internships.",
-                    "keyPoints": [
-                      "Combine two concepts in multi-step problems",
-                      "Justify approximations with engineering reasoning",
-                      "Present solutions with neat units and significant figures",
-                      "Use graphs or sketches where they clarify reasoning",
-                      "Prepare short oral summaries for lab/viva"
-                    ],
-                    "examples": [
-                      {
-                        "title": "Case study",
-                        "explanation": "Realistic scenario requiring unit formulas and interpretation."
-                      },
-                      {
-                        "title": "Design trade-off",
-                        "explanation": "Compare options using quantitative criteria."
-                      }
-                    ],
-                    "formulas": [],
-                    "examQuestions": [
-                      "Solve an application-level numerical problem.",
-                      "Interpret a graph or circuit diagram provided.",
-                      "Discuss limitations of the ideal model.",
-                      "Write a brief lab report style conclusion.",
-                      "Map the topic to a future semester subject."
-                    ],
-                    "references": [
-                      {
-                        "title": "Engineering Applications",
-                        "author": "IPU Notes"
-                      },
-                      {
-                        "title": "Practice Problems",
-                        "author": "Dept. Compilation"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "unitNumber": 2,
-                "title": "Programming in C — Unit 2",
-                "topics": [
-                  {
-                    "id": "programming-u2-t1",
-                    "title": "Programming in C: Core Concepts (Part A)",
-                    "content": "This unit develops foundational ideas in Programming in C aligned with the IPU BTech CSE first-year syllabus. Students learn definitions, standard terminology, and problem-solving workflows used in end-semester examinations and GATE-style assessments.\n\nConceptual clarity is emphasized before numerical drills. Diagrams, tables, and worked examples mirror typical question patterns set by Guru Gobind Singh Indraprastha University affiliated colleges. Laboratory and tutorial hours reinforce lecture topics through guided practice.\n\nConnections to computer science—such as how physical laws inform hardware limits or how measurement discipline supports reliable benchmarking—are highlighted for CSE learners.",
-                    "keyPoints": [
-                      "Master standard units and notation for the unit theme",
-                      "Apply definitions to numerical and conceptual questions",
-                      "Interpret diagrams used in IPU question papers",
-                      "Relate theory to lab/tutorial outcomes",
-                      "Build revision notes mapped to unit outcomes"
-                    ],
-                    "examples": [
-                      {
-                        "title": "Worked example",
-                        "explanation": "Stepwise solution showing given data, formula, and conclusion."
-                      },
-                      {
-                        "title": "Concept map",
-                        "explanation": "Links prerequisites to advanced semester topics."
-                      }
-                    ],
-                    "formulas": [],
-                    "examQuestions": [
-                      "Define key terms in Programming in C for Unit 2.",
-                      "Solve a standard numerical from previous-year pattern.",
-                      "Explain assumptions in the model used.",
-                      "List common student errors and how to avoid them.",
-                      "Outline a 10-minute viva answer for this topic."
-                    ],
-                    "references": [
-                      {
-                        "title": "IPU Syllabus Handbook",
-                        "author": "GGSIPU"
-                      },
-                      {
-                        "title": "Standard Textbook",
-                        "author": "Faculty Board"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "programming-u2-t2",
-                    "title": "Programming in C: Applications (Part B)",
-                    "content": "Applications extend Part A theory to engineering judgment. Students analyze cases where ideal models deviate from real systems and learn when to apply corrections or safety factors.\n\nProblem sets include multi-step questions combining two ideas from the unit—typical of IPU internal assessments. Collaborative tutorials encourage peer explanation, which strengthens communication skills alongside technical accuracy.\n\nFor CSE students, application topics note how the physical or professional skill supports later courses such as embedded systems, VLSI, or industry internships.",
-                    "keyPoints": [
-                      "Combine two concepts in multi-step problems",
-                      "Justify approximations with engineering reasoning",
-                      "Present solutions with neat units and significant figures",
-                      "Use graphs or sketches where they clarify reasoning",
-                      "Prepare short oral summaries for lab/viva"
-                    ],
-                    "examples": [
-                      {
-                        "title": "Case study",
-                        "explanation": "Realistic scenario requiring unit formulas and interpretation."
-                      },
-                      {
-                        "title": "Design trade-off",
-                        "explanation": "Compare options using quantitative criteria."
-                      }
-                    ],
-                    "formulas": [],
-                    "examQuestions": [
-                      "Solve an application-level numerical problem.",
-                      "Interpret a graph or circuit diagram provided.",
-                      "Discuss limitations of the ideal model.",
-                      "Write a brief lab report style conclusion.",
-                      "Map the topic to a future semester subject."
-                    ],
-                    "references": [
-                      {
-                        "title": "Engineering Applications",
-                        "author": "IPU Notes"
-                      },
-                      {
-                        "title": "Practice Problems",
-                        "author": "Dept. Compilation"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "unitNumber": 3,
-                "title": "Programming in C — Unit 3",
-                "topics": [
-                  {
-                    "id": "programming-u3-t1",
-                    "title": "Programming in C: Core Concepts (Part A)",
-                    "content": "This unit develops foundational ideas in Programming in C aligned with the IPU BTech CSE first-year syllabus. Students learn definitions, standard terminology, and problem-solving workflows used in end-semester examinations and GATE-style assessments.\n\nConceptual clarity is emphasized before numerical drills. Diagrams, tables, and worked examples mirror typical question patterns set by Guru Gobind Singh Indraprastha University affiliated colleges. Laboratory and tutorial hours reinforce lecture topics through guided practice.\n\nConnections to computer science—such as how physical laws inform hardware limits or how measurement discipline supports reliable benchmarking—are highlighted for CSE learners.",
-                    "keyPoints": [
-                      "Master standard units and notation for the unit theme",
-                      "Apply definitions to numerical and conceptual questions",
-                      "Interpret diagrams used in IPU question papers",
-                      "Relate theory to lab/tutorial outcomes",
-                      "Build revision notes mapped to unit outcomes"
-                    ],
-                    "examples": [
-                      {
-                        "title": "Worked example",
-                        "explanation": "Stepwise solution showing given data, formula, and conclusion."
-                      },
-                      {
-                        "title": "Concept map",
-                        "explanation": "Links prerequisites to advanced semester topics."
-                      }
-                    ],
-                    "formulas": [],
-                    "examQuestions": [
-                      "Define key terms in Programming in C for Unit 3.",
-                      "Solve a standard numerical from previous-year pattern.",
-                      "Explain assumptions in the model used.",
-                      "List common student errors and how to avoid them.",
-                      "Outline a 10-minute viva answer for this topic."
-                    ],
-                    "references": [
-                      {
-                        "title": "IPU Syllabus Handbook",
-                        "author": "GGSIPU"
-                      },
-                      {
-                        "title": "Standard Textbook",
-                        "author": "Faculty Board"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "programming-u3-t2",
-                    "title": "Programming in C: Applications (Part B)",
-                    "content": "Applications extend Part A theory to engineering judgment. Students analyze cases where ideal models deviate from real systems and learn when to apply corrections or safety factors.\n\nProblem sets include multi-step questions combining two ideas from the unit—typical of IPU internal assessments. Collaborative tutorials encourage peer explanation, which strengthens communication skills alongside technical accuracy.\n\nFor CSE students, application topics note how the physical or professional skill supports later courses such as embedded systems, VLSI, or industry internships.",
-                    "keyPoints": [
-                      "Combine two concepts in multi-step problems",
-                      "Justify approximations with engineering reasoning",
-                      "Present solutions with neat units and significant figures",
-                      "Use graphs or sketches where they clarify reasoning",
-                      "Prepare short oral summaries for lab/viva"
-                    ],
-                    "examples": [
-                      {
-                        "title": "Case study",
-                        "explanation": "Realistic scenario requiring unit formulas and interpretation."
-                      },
-                      {
-                        "title": "Design trade-off",
-                        "explanation": "Compare options using quantitative criteria."
-                      }
-                    ],
-                    "formulas": [],
-                    "examQuestions": [
-                      "Solve an application-level numerical problem.",
-                      "Interpret a graph or circuit diagram provided.",
-                      "Discuss limitations of the ideal model.",
-                      "Write a brief lab report style conclusion.",
-                      "Map the topic to a future semester subject."
-                    ],
-                    "references": [
-                      {
-                        "title": "Engineering Applications",
-                        "author": "IPU Notes"
-                      },
-                      {
-                        "title": "Practice Problems",
-                        "author": "Dept. Compilation"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
+            "units": []
           },
           {
             "id": "communication-skills",
@@ -1902,266 +1314,827 @@ const ipuBranches = [
             "credits": 2,
             "type": "theory",
             "description": "Technical communication, presentations, and professional writing.",
+            "units": []
+          },
+          {
+            "id": "applied-chemistry",
+            "name": "Applied Chemistry",
+            "subjectCode": "BSC-102",
+            "credits": 3,
+            "type": "theory",
+            "description": "Basic chemistry concepts relevant to engineering applications.",
             "units": [
               {
                 "unitNumber": 1,
-                "title": "Communication Skills — Unit 1",
+                "title": "Fuels and Combustion",
                 "topics": [
                   {
-                    "id": "communication-u1-t1",
-                    "title": "Communication Skills: Core Concepts (Part A)",
-                    "content": "This unit develops foundational ideas in Communication Skills aligned with the IPU BTech CSE first-year syllabus. Students learn definitions, standard terminology, and problem-solving workflows used in end-semester examinations and GATE-style assessments.\n\nConceptual clarity is emphasized before numerical drills. Diagrams, tables, and worked examples mirror typical question patterns set by Guru Gobind Singh Indraprastha University affiliated colleges. Laboratory and tutorial hours reinforce lecture topics through guided practice.\n\nConnections to computer science—such as how physical laws inform hardware limits or how measurement discipline supports reliable benchmarking—are highlighted for CSE learners.",
-                    "keyPoints": [
-                      "Master standard units and notation for the unit theme",
-                      "Apply definitions to numerical and conceptual questions",
-                      "Interpret diagrams used in IPU question papers",
-                      "Relate theory to lab/tutorial outcomes",
-                      "Build revision notes mapped to unit outcomes"
-                    ],
-                    "examples": [
-                      {
-                        "title": "Worked example",
-                        "explanation": "Stepwise solution showing given data, formula, and conclusion."
-                      },
-                      {
-                        "title": "Concept map",
-                        "explanation": "Links prerequisites to advanced semester topics."
-                      }
-                    ],
-                    "formulas": [],
-                    "examQuestions": [
-                      "Define key terms in Communication Skills for Unit 1.",
-                      "Solve a standard numerical from previous-year pattern.",
-                      "Explain assumptions in the model used.",
-                      "List common student errors and how to avoid them.",
-                      "Outline a 10-minute viva answer for this topic."
-                    ],
-                    "references": [
-                      {
-                        "title": "IPU Syllabus Handbook",
-                        "author": "GGSIPU"
-                      },
-                      {
-                        "title": "Standard Textbook",
-                        "author": "Faculty Board"
-                      }
-                    ]
+                    "id": "applied-chemistry-u1-t1",
+                    "title": "Fuels: Classification and Characteristics of Fuels",
+                    "content": "Fuels are classified as solid, liquid, and gaseous. This classification is based on physical state and influences storage, handling, and combustion control.\n\nImportant characteristics include calorific value, ignition temperature, moisture content, ash content, sulfur content, volatility, and combustion efficiency.\n\nA good fuel should have high calorific value, moderate ignition temperature, low moisture and ash, low sulfur, easy availability, and safe handling properties.\n\n| Fuel Type | Example | Main Advantage | Main Limitation |\n|---|---|---|---|\n| Solid | Coal | Cheap and widely available | Ash handling and smoke |\n| Liquid | Diesel | High energy density, easy pumping | Storage/fire risk |\n| Gas | NG/LPG | Clean and controllable combustion | Pressurized storage needed |"
                   },
                   {
-                    "id": "communication-u1-t2",
-                    "title": "Communication Skills: Applications (Part B)",
-                    "content": "Applications extend Part A theory to engineering judgment. Students analyze cases where ideal models deviate from real systems and learn when to apply corrections or safety factors.\n\nProblem sets include multi-step questions combining two ideas from the unit—typical of IPU internal assessments. Collaborative tutorials encourage peer explanation, which strengthens communication skills alongside technical accuracy.\n\nFor CSE students, application topics note how the physical or professional skill supports later courses such as embedded systems, VLSI, or industry internships.",
-                    "keyPoints": [
-                      "Combine two concepts in multi-step problems",
-                      "Justify approximations with engineering reasoning",
-                      "Present solutions with neat units and significant figures",
-                      "Use graphs or sketches where they clarify reasoning",
-                      "Prepare short oral summaries for lab/viva"
-                    ],
-                    "examples": [
-                      {
-                        "title": "Case study",
-                        "explanation": "Realistic scenario requiring unit formulas and interpretation."
-                      },
-                      {
-                        "title": "Design trade-off",
-                        "explanation": "Compare options using quantitative criteria."
-                      }
-                    ],
-                    "formulas": [],
-                    "examQuestions": [
-                      "Solve an application-level numerical problem.",
-                      "Interpret a graph or circuit diagram provided.",
-                      "Discuss limitations of the ideal model.",
-                      "Write a brief lab report style conclusion.",
-                      "Map the topic to a future semester subject."
-                    ],
-                    "references": [
-                      {
-                        "title": "Engineering Applications",
-                        "author": "IPU Notes"
-                      },
-                      {
-                        "title": "Practice Problems",
-                        "author": "Dept. Compilation"
-                      }
-                    ]
+                    "id": "applied-chemistry-u1-t2",
+                    "title": "Calorific Values of Fuels",
+                    "content": "Calorific value indicates fuel quality and is used in boiler design, engine performance analysis, and fuel-cost comparison.\n\nHCV is always greater than LCV because HCV assumes water formed during combustion is condensed and latent heat is recovered.\n\nFor engineering applications involving exhaust gases at high temperature, LCV is commonly used because water stays in vapor state."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t3",
+                    "title": "Comparison Between Solid, Liquid and Gaseous Fuels",
+                    "content": "Solid fuels are easy to store and cheap but produce ash and particulate emissions.\n\nLiquid fuels have better energy density and can be pumped/atomized; combustion control is easier than solids.\n\nGaseous fuels provide clean and almost complete combustion with excellent control, but storage/transport infrastructure is expensive.\n\n| Parameter | Solid | Liquid | Gaseous |\n|---|---|---|---|\n| Combustion control | Poor | Better | Best |\n| Cleanliness | Low | Medium | High |\n| Handling | Bulk/Manual | Pumpable | Piping/compressed storage |"
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t4",
+                    "title": "Bomb Calorimeter",
+                    "content": "A weighed fuel sample is burned in a sealed steel bomb filled with oxygen. Heat released raises water temperature around the bomb.\n\nFrom temperature rise and calorimeter constant, heat of combustion is obtained. Fuse wire and acid corrections are applied for accuracy.\n\nBomb calorimeter gives highly reliable HCV values and is a standard laboratory method."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t5",
+                    "title": "Boy’s Calorimeter",
+                    "content": "Fuel burns at a burner and transfers heat to a known water flow. Temperature rise of water is measured.\n\nIt is comparatively simpler than bomb calorimeter but less accurate due to heat losses.\n\nUsed for gaseous fuels and demonstration-level practical understanding of calorimetry."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t6",
+                    "title": "Dulong Formula",
+                    "content": "This empirical formula provides quick theoretical calorific value without direct calorimeter experiment.\n\nThe term (H − O/8) accounts for hydrogen unavailable for combustion because some hydrogen is already bound with oxygen in fuel."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t7",
+                    "title": "Numericals on Calorific Value",
+                    "content": "Numericals on Calorific Value is studied in B.Tech 1st semester to build understanding of fuel selection, combustion behavior, and engineering efficiency.\n\nIn exam answers, explain principle, process/equipment, formula (if applicable), and practical relevance.\n\nWrite a structured answer with heading-wise flow and include neat labelled representation wherever needed."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t8",
+                    "title": "Coal",
+                    "content": "Coal rank determines moisture, volatile matter, fixed carbon, and calorific value.\n\nHigh-rank coals have more carbon and higher CV; low-rank coals have more moisture and lower CV.\n\nCoal is used in thermal power, metallurgy, cement kilns and industrial heating."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t9",
+                    "title": "Proximate Analysis of Coal",
+                    "content": "This quick test predicts combustion behavior and suitability of coal for boiler/coke use.\n\nHigh moisture lowers useful heating value; high ash reduces efficiency and increases slagging."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t10",
+                    "title": "Ultimate Analysis of Coal",
+                    "content": "Ultimate analysis is used for stoichiometric combustion calculations, emission estimation, and Dulong formula.\n\nSulfur and nitrogen content are especially important for environmental regulation and flue gas treatment."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t11",
+                    "title": "Numericals on Coal Analysis",
+                    "content": "Numericals on Coal Analysis is studied in B.Tech 1st semester to build understanding of fuel selection, combustion behavior, and engineering efficiency.\n\nIn exam answers, explain principle, process/equipment, formula (if applicable), and practical relevance.\n\nWrite a structured answer with heading-wise flow and include neat labelled representation wherever needed."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t12",
+                    "title": "Carbonisation of Coal",
+                    "content": "Low-temperature carbonisation gives softer coke with higher volatile matter.\n\nHigh-temperature carbonisation produces strong metallurgical coke used in blast furnaces."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t13",
+                    "title": "Otto-Hoffmann Oven",
+                    "content": "It consists of narrow silica chambers alternately heated with producer gas and air in regenerators.\n\nThe process recovers by-products like tar, ammonia, benzol and gas before gas reuse."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t14",
+                    "title": "Recovery of By-products",
+                    "content": "Main recoveries include tar, ammonia (as ammonium sulfate), naphthalene, benzol and coke oven gas.\n\nBy-product recovery improves economy and reduces emissions from carbonisation plants."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t15",
+                    "title": "Metallurgical Coke",
+                    "content": "Metallurgical Coke is studied in B.Tech 1st semester to build understanding of fuel selection, combustion behavior, and engineering efficiency.\n\nIn exam answers, explain principle, process/equipment, formula (if applicable), and practical relevance.\n\nWrite a structured answer with heading-wise flow and include neat labelled representation wherever needed."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t16",
+                    "title": "Petroleum Products",
+                    "content": "Major fractions: LPG, petrol, naphtha, kerosene, diesel, lubricating oil, paraffin wax, bitumen.\n\nEach fraction has distinct boiling range and application in transport, heating, lubrication and roads."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t17",
+                    "title": "Refining of Petroleum",
+                    "content": "Primary refining uses fractional distillation in atmospheric and vacuum columns.\n\nSecondary processes include cracking, reforming, desulfurization, and blending to meet fuel specs."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t18",
+                    "title": "Thermal Cracking",
+                    "content": "It improves gasoline yield from heavy petroleum fractions.\n\nReaction occurs via free-radical mechanism and can produce unsaturated products and some coke."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t19",
+                    "title": "Catalytic Cracking",
+                    "content": "Compared to thermal cracking, catalytic cracking gives better octane number and higher selectivity.\n\nFluid catalytic cracking (FCC) is a common industrial process with catalyst regeneration loop."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t20",
+                    "title": "Knocking Characteristics",
+                    "content": "In SI engines, autoignition of end gas causes knock; in CI engines, delayed ignition and sudden combustion cause diesel knock.\n\nKnock reduces efficiency and can damage engine components."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t21",
+                    "title": "Octane Rating",
+                    "content": "Higher octane number means better resistance to knocking.\n\nReference scale: iso-octane (100) and n-heptane (0)."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t22",
+                    "title": "Cetane Rating",
+                    "content": "Higher cetane number means shorter ignition delay and smoother operation.\n\nGood diesel should ignite quickly after injection."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t23",
+                    "title": "Natural Gas (NG)",
+                    "content": "It has high H/C ratio and cleaner combustion compared to coal and heavy oils.\n\nUsed in domestic cooking, power generation, fertilizer and city gas distribution."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t24",
+                    "title": "CNG",
+                    "content": "CNG reduces CO, HC and particulate emissions compared to petrol/diesel.\n\nRequires high-pressure cylinders and fueling infrastructure."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t25",
+                    "title": "LPG",
+                    "content": "LPG has high calorific value and clean flame, widely used in domestic and industrial heating.\n\nOdorant is added for leak detection and safety."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t26",
+                    "title": "Coal Gas",
+                    "content": "Contains hydrogen, methane, carbon monoxide and small impurities.\n\nHistorically used for lighting/heating; now limited due to cleaner alternatives."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t27",
+                    "title": "Oil Gas",
+                    "content": "Used for laboratory/industrial heating in specific setups.\n\nComposition varies with feedstock and cracking conditions."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t28",
+                    "title": "Producer Gas",
+                    "content": "Main components are CO, N2, and some H2; calorific value is low due to high nitrogen dilution.\n\nUsed in furnaces and kilns where low-cost gaseous fuel is acceptable."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t29",
+                    "title": "Water Gas",
+                    "content": "Water gas is also called blue water gas and can be used as fuel or synthesis gas.\n\nProcess is cyclic due to endothermic reaction and reheating requirement."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t30",
+                    "title": "Combustion of Fuels",
+                    "content": "Complete combustion gives CO2 and H2O; incomplete combustion forms CO and soot.\n\nAir-fuel ratio control is essential for efficiency, safety and emission control."
+                  },
+                  {
+                    "id": "applied-chemistry-u1-t31",
+                    "title": "Numericals on Combustion of Fuels",
+                    "content": "Numericals on Combustion of Fuels is studied in B.Tech 1st semester to build understanding of fuel selection, combustion behavior, and engineering efficiency.\n\nIn exam answers, explain principle, process/equipment, formula (if applicable), and practical relevance.\n\nWrite a structured answer with heading-wise flow and include neat labelled representation wherever needed."
                   }
                 ]
               },
               {
                 "unitNumber": 2,
-                "title": "Communication Skills — Unit 2",
+                "title": "Thermodynamics and Chemical Kinetics",
                 "topics": [
                   {
-                    "id": "communication-u2-t1",
-                    "title": "Communication Skills: Core Concepts (Part A)",
-                    "content": "This unit develops foundational ideas in Communication Skills aligned with the IPU BTech CSE first-year syllabus. Students learn definitions, standard terminology, and problem-solving workflows used in end-semester examinations and GATE-style assessments.\n\nConceptual clarity is emphasized before numerical drills. Diagrams, tables, and worked examples mirror typical question patterns set by Guru Gobind Singh Indraprastha University affiliated colleges. Laboratory and tutorial hours reinforce lecture topics through guided practice.\n\nConnections to computer science—such as how physical laws inform hardware limits or how measurement discipline supports reliable benchmarking—are highlighted for CSE learners.",
-                    "keyPoints": [
-                      "Master standard units and notation for the unit theme",
-                      "Apply definitions to numerical and conceptual questions",
-                      "Interpret diagrams used in IPU question papers",
-                      "Relate theory to lab/tutorial outcomes",
-                      "Build revision notes mapped to unit outcomes"
-                    ],
-                    "examples": [
-                      {
-                        "title": "Worked example",
-                        "explanation": "Stepwise solution showing given data, formula, and conclusion."
-                      },
-                      {
-                        "title": "Concept map",
-                        "explanation": "Links prerequisites to advanced semester topics."
-                      }
-                    ],
-                    "formulas": [],
-                    "examQuestions": [
-                      "Define key terms in Communication Skills for Unit 2.",
-                      "Solve a standard numerical from previous-year pattern.",
-                      "Explain assumptions in the model used.",
-                      "List common student errors and how to avoid them.",
-                      "Outline a 10-minute viva answer for this topic."
-                    ],
-                    "references": [
-                      {
-                        "title": "IPU Syllabus Handbook",
-                        "author": "GGSIPU"
-                      },
-                      {
-                        "title": "Standard Textbook",
-                        "author": "Faculty Board"
-                      }
-                    ]
+                    "id": "applied-chemistry-u2-t1",
+                    "title": "Phase rule: Terms used in Gibb’s Phase rule, phase diagram",
+                    "content": "Gibbs' Phase Rule provides the relationship between the number of degrees of freedom (F), number of components (C) and the number of phases (P) present in a system at equilibrium. The general form is F = C - P + 2 for systems where pressure and temperature may vary; for condensed systems (fixed pressure) the formula is often written as F = C - P + 1.\n\nKey terms: component (independent chemical species required to define the system), phase (physically distinct and mechanically separable part of the system), degree of freedom (number of independent intensive variables like T, P, composition that can be changed without changing the number of phases).\n\nPhase diagrams graphically represent regions of stability for different phases as functions of variables such as temperature, pressure or composition. Lines represent equilibria between two phases and points where three phases coexist are called triple points."
                   },
                   {
-                    "id": "communication-u2-t2",
-                    "title": "Communication Skills: Applications (Part B)",
-                    "content": "Applications extend Part A theory to engineering judgment. Students analyze cases where ideal models deviate from real systems and learn when to apply corrections or safety factors.\n\nProblem sets include multi-step questions combining two ideas from the unit—typical of IPU internal assessments. Collaborative tutorials encourage peer explanation, which strengthens communication skills alongside technical accuracy.\n\nFor CSE students, application topics note how the physical or professional skill supports later courses such as embedded systems, VLSI, or industry internships.",
-                    "keyPoints": [
-                      "Combine two concepts in multi-step problems",
-                      "Justify approximations with engineering reasoning",
-                      "Present solutions with neat units and significant figures",
-                      "Use graphs or sketches where they clarify reasoning",
-                      "Prepare short oral summaries for lab/viva"
-                    ],
-                    "examples": [
-                      {
-                        "title": "Case study",
-                        "explanation": "Realistic scenario requiring unit formulas and interpretation."
-                      },
-                      {
-                        "title": "Design trade-off",
-                        "explanation": "Compare options using quantitative criteria."
-                      }
-                    ],
-                    "formulas": [],
-                    "examQuestions": [
-                      "Solve an application-level numerical problem.",
-                      "Interpret a graph or circuit diagram provided.",
-                      "Discuss limitations of the ideal model.",
-                      "Write a brief lab report style conclusion.",
-                      "Map the topic to a future semester subject."
-                    ],
-                    "references": [
-                      {
-                        "title": "Engineering Applications",
-                        "author": "IPU Notes"
-                      },
-                      {
-                        "title": "Practice Problems",
-                        "author": "Dept. Compilation"
-                      }
-                    ]
+                    "id": "applied-chemistry-u2-t2",
+                    "title": "One-Component systems: Water and Sulphur",
+                    "content": "One-component phase behaviour shows how a pure substance occupies different phases depending on temperature and pressure. Water and sulphur are typical examples used in engineering chemistry.\n\nWater: discuss solid–liquid–vapour equilibria, triple point (0.01°C, 0.00611 atm), and critical point (374°C, 22.06 MPa). Note anomalous density behaviour of water near 4°C which affects the slope of the melting curve.\n\nSulphur: describe allotropy (S8 rings, polymeric chains on heating), melting and sublimation behaviour, and the relevance of allotropes to physical properties and processing."
+                  },
+                  {
+                    "id": "applied-chemistry-u2-t3",
+                    "title": "Two-component systems: Lead-Silver and Zinc-Magnesium",
+                    "content": "Binary (two-component) phase diagrams show how composition and temperature determine phase stability. Important features include liquidus, solidus, solvus lines, eutectic and peritectic points, and regions of solid solution or two-phase mixtures.\n\nLead–Silver (Pb–Ag): illustrate limited solid solubility at room temperature and a simple eutectic behaviour that influences solder and casting microstructures.\n\nZinc–Magnesium (Zn–Mg): discuss phase separation, intermetallic formation and how small additions of Mg influence the melting and mechanical behaviour of Zn alloys."
+                  },
+                  {
+                    "id": "applied-chemistry-u2-t4",
+                    "title": "Polymers: Classification, functionality and their types",
+                    "content": "Polymers are large molecules made up of repeating monomer units. Classify by source (natural vs synthetic), polymerisation mechanism (addition vs condensation), and structure (linear, branched, cross-linked).\n\nFunctionality refers to the number of reactive sites on a monomer; it controls network formation (e.g., difunctional monomers give linear chains; tri- or higher-functional monomers lead to branching and cross-linking).\n\nIntroduce thermoplastics (reversible chain entanglement) vs thermosets (irreversible cross-linked networks)."
+                  },
+                  {
+                    "id": "applied-chemistry-u2-t5",
+                    "title": "Plastics: Synthesis (reactions) and properties of Polyethylene (LDPE, HDPE, LLDPE, UHMWPE)",
+                    "content": "Polyethylene (PE) is an addition polymer formed by polymerisation of ethene. Different polymerisation methods yield LDPE, HDPE, LLDPE and UHMWPE with distinct branching and molecular weight characteristics affecting density, crystallinity and mechanical properties.\n\nLDPE: produced via high-pressure free-radical polymerisation — highly branched, lower density, good flexibility.\n\nHDPE: produced using coordination catalysts (Ziegler–Natta or metallocene) — linear chains, high crystallinity and tensile strength.\n\nLLDPE: copolymerisation with alpha-olefins to introduce short-chain branching — combines toughness and processability.\n\nUHMWPE: extremely high molecular weight giving exceptional wear and impact resistance used in bearings and medical implants."
+                  },
+                  {
+                    "id": "applied-chemistry-u2-t6",
+                    "title": "Vinyl Plastics (Condensation polymers) - Nylons, Phenol-formaldehyde resins (Bakelite) and Glyptal",
+                    "content": "Vinyl plastics often refers broadly to polymers derived from vinyl monomers or to condensation-type resins used in engineering applications. Discuss nylons (polyamides) formed by condensation between diamines and diacids, phenol–formaldehyde resins (Bakelite) as early thermosetting plastics, and glyptal-type alkyd/resin systems used in coatings.\n\nHighlight condensation polymer characteristics: step-growth mechanism, release of small molecules (water), and tendency to form cross-linked thermosets depending on monomer functionality."
+                  },
+                  {
+                    "id": "applied-chemistry-u2-t7",
+                    "title": "Speciality Polymers: Engineering thermoplastics, Conducting polymers, Electroluminescent polymers, liquid crystalline polymers and biodegradable polymers",
+                    "content": "Survey of speciality polymers emphasising function and application. Engineering thermoplastics (e.g., polycarbonate, PEEK) provide high temperature and mechanical performance; conducting polymers (polyaniline, PEDOT) introduce electrical conductivity for sensors and devices; electroluminescent polymers are used in display technologies; liquid crystalline polymers exhibit anisotropic mechanical behaviour; biodegradable polymers (PLA, PHA) break down under biological/composting conditions.\n\nDiscuss selection criteria for applications: thermal stability, conductivity, mechanical anisotropy, environmental degradation."
                   }
                 ]
               },
               {
                 "unitNumber": 3,
-                "title": "Communication Skills — Unit 3",
+                "title": "Solutions, Acids-Bases and Electrochemistry",
                 "topics": [
                   {
-                    "id": "communication-u3-t1",
-                    "title": "Communication Skills: Core Concepts (Part A)",
-                    "content": "This unit develops foundational ideas in Communication Skills aligned with the IPU BTech CSE first-year syllabus. Students learn definitions, standard terminology, and problem-solving workflows used in end-semester examinations and GATE-style assessments.\n\nConceptual clarity is emphasized before numerical drills. Diagrams, tables, and worked examples mirror typical question patterns set by Guru Gobind Singh Indraprastha University affiliated colleges. Laboratory and tutorial hours reinforce lecture topics through guided practice.\n\nConnections to computer science—such as how physical laws inform hardware limits or how measurement discipline supports reliable benchmarking—are highlighted for CSE learners.",
-                    "keyPoints": [
-                      "Master standard units and notation for the unit theme",
-                      "Apply definitions to numerical and conceptual questions",
-                      "Interpret diagrams used in IPU question papers",
-                      "Relate theory to lab/tutorial outcomes",
-                      "Build revision notes mapped to unit outcomes"
+                    "id": "applied-chemistry-u3-t1",
+                    "title": "Solutions and Colligative Properties",
+                    "subtopics": [
+                      "Concentration units",
+                      "Boiling point elevation",
+                      "Freezing point depression"
                     ],
-                    "examples": [
-                      {
-                        "title": "Worked example",
-                        "explanation": "Stepwise solution showing given data, formula, and conclusion."
-                      },
-                      {
-                        "title": "Concept map",
-                        "explanation": "Links prerequisites to advanced semester topics."
-                      }
-                    ],
-                    "formulas": [],
-                    "examQuestions": [
-                      "Define key terms in Communication Skills for Unit 3.",
-                      "Solve a standard numerical from previous-year pattern.",
-                      "Explain assumptions in the model used.",
-                      "List common student errors and how to avoid them.",
-                      "Outline a 10-minute viva answer for this topic."
-                    ],
-                    "references": [
-                      {
-                        "title": "IPU Syllabus Handbook",
-                        "author": "GGSIPU"
-                      },
-                      {
-                        "title": "Standard Textbook",
-                        "author": "Faculty Board"
-                      }
-                    ]
+                    "content": "Properties of solutions and their relevance to engineering formulations."
                   },
                   {
-                    "id": "communication-u3-t2",
-                    "title": "Communication Skills: Applications (Part B)",
-                    "content": "Applications extend Part A theory to engineering judgment. Students analyze cases where ideal models deviate from real systems and learn when to apply corrections or safety factors.\n\nProblem sets include multi-step questions combining two ideas from the unit—typical of IPU internal assessments. Collaborative tutorials encourage peer explanation, which strengthens communication skills alongside technical accuracy.\n\nFor CSE students, application topics note how the physical or professional skill supports later courses such as embedded systems, VLSI, or industry internships.",
-                    "keyPoints": [
-                      "Combine two concepts in multi-step problems",
-                      "Justify approximations with engineering reasoning",
-                      "Present solutions with neat units and significant figures",
-                      "Use graphs or sketches where they clarify reasoning",
-                      "Prepare short oral summaries for lab/viva"
+                    "id": "applied-chemistry-u3-t2",
+                    "title": "Acids, Bases and pH",
+                    "subtopics": [
+                      "pH scale",
+                      "Buffer solutions",
+                      "Titration concepts"
                     ],
-                    "examples": [
-                      {
-                        "title": "Case study",
-                        "explanation": "Realistic scenario requiring unit formulas and interpretation."
-                      },
-                      {
-                        "title": "Design trade-off",
-                        "explanation": "Compare options using quantitative criteria."
-                      }
-                    ],
-                    "formulas": [],
-                    "examQuestions": [
-                      "Solve an application-level numerical problem.",
-                      "Interpret a graph or circuit diagram provided.",
-                      "Discuss limitations of the ideal model.",
-                      "Write a brief lab report style conclusion.",
-                      "Map the topic to a future semester subject."
-                    ],
-                    "references": [
-                      {
-                        "title": "Engineering Applications",
-                        "author": "IPU Notes"
-                      },
-                      {
-                        "title": "Practice Problems",
-                        "author": "Dept. Compilation"
-                      }
-                    ]
+                    "content": "Acid-base concepts and pH control in industrial and laboratory settings."
+                  },
+                  {
+                    "id": "applied-chemistry-u3-t4",
+                    "title": "Water: Introduction and Water Quality Standards",
+                    "content": "Introduction to water as an engineering material: occurrence, sources (surface and groundwater), and significance for industry and public health.\n\nWater quality standards: WHO/ISI/IS/ local regulatory parameters and permissible limits for drinking and industrial use.\n\nPhysical, chemical and biological characteristics of water: colour, taste, turbidity, temperature, pH, conductivity, dissolved solids, hardness, dissolved oxygen, BOD, COD, microbial indicators."
+                  },
+                  {
+                    "id": "applied-chemistry-u3-t5",
+                    "title": "Hardness of Water: Types, Disadvantages and EDTA Determination",
+                    "content": "Definition of hardness and differentiation between temporary (carbonate) and permanent (non-carbonate) hardness.\n\nDisadvantages of hardness in domestic and industrial contexts: scale formation, reduced soap efficiency, increased energy consumption, boiler problems.\n\nDetermination of hardness using complexometric titration with EDTA: principle, masking/unmasking (e.g., Mg with NaOH), indicators (Eriochrome Black T), procedure and calculations."
+                  },
+                  {
+                    "id": "applied-chemistry-u3-t6",
+                    "title": "Alkalinity of Water and Its Determination",
+                    "content": "Definition of alkalinity (capacity to neutralize acid) and types: carbonate, bicarbonate and hydroxide alkalinity.\n\nTitrimetric determination using strong acid (HCl) with indicators or potentiometric end-point; calculation of alkalinity as mg/L CaCO3."
+                  },
+                  {
+                    "id": "applied-chemistry-u3-t7",
+                    "title": "Boiler Problems from Hard Water and Their Prevention",
+                    "content": "Major boiler problems: scale and sludge formation due to precipitation of hardness salts; boiler corrosion (general and oxygen pitting); caustic embrittlement (due to concentrated NaOH in crevices); priming and foaming (carry-over of water with steam).\n\nPrevention strategies: softening feed water, deaeration, chemical treatment (phosphate, carbonate conditioning), blowdown control, maintaining alkalinity and silica control."
+                  },
+                  {
+                    "id": "applied-chemistry-u3-t8",
+                    "title": "Boiler Water Treatment — Internal (In-situ) Methods",
+                    "content": "Internal treatment methods treat water inside the boiler to control scale and corrosion without external softening. Methods include carbonate conditioning (phosphate treatment), colloidal conditioning (polyelectrolytes), and Calgon (sodium hexametaphosphate)/organic sequestrants to keep hardness in suspension or complexed.\n\nOperational notes: correct dosing, sludge removal (blowdown), and monitoring of phosphate-to-alkalinity ratio."
+                  },
+                  {
+                    "id": "applied-chemistry-u3-t9",
+                    "title": "External Treatment: Lime–Soda Process (with Numericals)",
+                    "content": "Principle of lime–soda ash softening: removal of temporary and permanent hardness by precipitation of Ca(OH)2 and Na2CO3 reactions with Ca2+/Mg2+.\n\nProcess steps: preparation of reagents, rapid mixing, flocculation, sedimentation and filtration. Control parameters: reagent dose calculation, sludge handling."
+                  },
+                  {
+                    "id": "applied-chemistry-u3-t10",
+                    "title": "External Treatment: Zeolite (Ion-Exchange) Process (with Numericals)",
+                    "content": "Zeolite softening uses sodium zeolites to exchange Na+ for Ca2+/Mg2+ in water. Regeneration with NaCl restores sodium form. Describe column operation, breakthrough curves and regeneration cycles.\n\nDiscuss ion-exchange capacity, exhaustion, and regeneration chemistry."
+                  },
+                  {
+                    "id": "applied-chemistry-u3-t11",
+                    "title": "External Treatment: Ion-Exchange Resins and Deionisation",
+                    "content": "Ion-exchange resins (cation and anion) are used for demineralisation/deionisation of water. Explain strong acid/strong base resins, mixed-bed deionisers and regeneration chemistry. Discuss application for high-purity water (boiler feed, electronics)."
+                  },
+                  {
+                    "id": "applied-chemistry-u3-t12",
+                    "title": "Municipal Water Supply: Treatment and Disinfection (Break-point Chlorination)",
+                    "content": "Steps in municipal water treatment: screening, sedimentation, coagulation/flocculation, filtration (rapid sand), and disinfection.\n\nDisinfection by chlorination: chemistry of free chlorine species, combined chlorine (chloramines), and break-point chlorination principle—dose required to oxidise ammonia and achieve residual free chlorine."
+                  },
+                  {
+                    "id": "applied-chemistry-u3-t13",
+                    "title": "Desalination and Advanced Water Treatment: RO, Electrodialysis, Defluoridation",
+                    "content": "Desalination overview: thermal vs membrane processes. Reverse osmosis (RO) principle—osmotic pressure, cross-flow membranes, salt rejection and recovery considerations.\n\nElectrodialysis: ion migration through selective membranes under applied electric field for brackish water desalination.\n\nDefluoridation methods: adsorption (activated alumina), Nalgonda process, bone char, and modern membrane/ion-exchange approaches. Discuss applicability and regeneration/disposal issues."
+                  }
+                ]
+              },
+              {
+                "unitNumber": 4,
+                "title": "Materials Chemistry and Water Technology",
+                "topics": [
+                  {
+                    "id": "applied-chemistry-u4-t1",
+                    "title": "Corrosion and Its Control",
+                    "content": "Introduction to corrosion phenomena and general strategies for control in engineering systems."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t2",
+                    "title": "Dry and Wet Corrosion Mechanisms",
+                    "content": "Mechanisms distinguishing dry (high-temperature) and wet (electrochemical) corrosion with examples."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t3",
+                    "title": "Pilling–Bedworth Ratio",
+                    "content": "Definition and significance of the Pilling–Bedworth ratio for protective oxide scale formation."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t4",
+                    "title": "Galvanic Corrosion",
+                    "content": "Principles of galvanic coupling, galvanic series, and measures to prevent galvanic corrosion."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t5",
+                    "title": "Soil Corrosion",
+                    "content": "Corrosion of buried structures: soil resistivity, moisture, oxygen, and mitigation techniques."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t6",
+                    "title": "Pitting Corrosion",
+                    "content": "Localized breakdown of passive films leading to pitting; causes, detection, and prevention."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t7",
+                    "title": "Differential Aeration Corrosion",
+                    "content": "How oxygen concentration cells produce localized corrosion and typical engineering examples."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t8",
+                    "title": "Stress Corrosion",
+                    "content": "Stress corrosion cracking (SCC): combined effects of tensile stress and corrosive environments."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t9",
+                    "title": "Rusting of Iron",
+                    "content": "Electrochemical mechanism of rusting and factors that accelerate iron oxidation."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t10",
+                    "title": "Passivity",
+                    "content": "Concept of passivation, protective oxide films and how passivity differs from active corrosion."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t11",
+                    "title": "Factors Affecting Corrosion",
+                    "content": "Overview of environmental, material, and design factors that influence corrosion rates."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t12",
+                    "title": "Corrosion Protection Methods",
+                    "content": "General approaches: coatings, inhibitors, cathodic/anodic protection and design-based prevention."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t13",
+                    "title": "Galvanization",
+                    "content": "Hot-dip galvanizing process, protective mechanism of zinc coatings and typical applications."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t14",
+                    "title": "Tinning",
+                    "content": "Tinning processes for corrosion resistance and solderability of metal surfaces."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t15",
+                    "title": "Cathodic Protection",
+                    "content": "Principles of cathodic protection and impressed current systems for pipelines and tanks."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t16",
+                    "title": "Sacrificial Anodic Protection",
+                    "content": "Sacrificial anode systems (zinc/ magnesium) and application guidelines."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t17",
+                    "title": "Electroplating",
+                    "content": "Electroplating fundamentals: electrolyte, anode/cathode, deposition mechanisms and common industries."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t18",
+                    "title": "Material Selection and Design for Corrosion Prevention",
+                    "content": "How materials selection and engineering design minimize corrosion risk in systems and structures."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t19",
+                    "title": "Green Technology and Green Chemistry",
+                    "content": "Introduction to sustainable chemical practices and technologies that reduce environmental impact."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t20",
+                    "title": "Twelve Principles of Green Chemistry",
+                    "content": "Overview of the 12 principles and how they guide safer, more efficient chemical processes."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t21",
+                    "title": "Zero Waste Technology",
+                    "content": "Concepts and industrial strategies aimed at eliminating waste and promoting circular economy."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t22",
+                    "title": "Atom Economy",
+                    "content": "Atom economy metric and its importance in assessing efficiency of synthetic routes."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t23",
+                    "title": "Alternative Feedstocks",
+                    "content": "Using renewable or less hazardous feedstocks in chemical manufacturing."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t24",
+                    "title": "Innocuous Reagents",
+                    "content": "Replacing hazardous reagents with safer alternatives in synthesis and processing."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t25",
+                    "title": "Alternative Solvents",
+                    "content": "Green solvent selection and solvent-free methodologies to reduce environmental impact."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t26",
+                    "title": "Alternative Reaction Methodologies",
+                    "content": "Techniques such as biocatalysis, flow chemistry and microwave-assisted synthesis for greener processes."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t27",
+                    "title": "Energy Consumption Minimization",
+                    "content": "Strategies to reduce energy use in chemical manufacturing including process intensification."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t28",
+                    "title": "Nanochemistry",
+                    "content": "Introduction to chemistry at the nanoscale and unique phenomena compared to bulk materials."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t29",
+                    "title": "Nanomaterials and Their Properties",
+                    "content": "Overview of common nanomaterials, size-dependent properties and surface effects."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t30",
+                    "title": "Synthesis of Nanomaterials",
+                    "content": "Top-down and bottom-up synthesis methods: sol–gel, chemical vapor deposition, hydrothermal and green routes."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t31",
+                    "title": "Surface Characterization Techniques",
+                    "content": "Common surface and morphological characterization methods for materials science."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t32",
+                    "title": "BET Analysis",
+                    "content": "Brunauer–Emmett–Teller surface area analysis: principle, adsorption isotherms and interpretation."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t33",
+                    "title": "TEM Analysis",
+                    "content": "Transmission electron microscopy basics: imaging, diffraction and resolution for nanoscale materials."
+                  },
+                  {
+                    "id": "applied-chemistry-u4-t34",
+                    "title": "Applications of Nanomaterials",
+                    "content": "Key applications in catalysis, sensors, energy storage, medicine and environmental remediation."
                   }
                 ]
               }
             ]
+          },
+          {
+            "id": "environmental-science",
+            "name": "Environmental Science",
+            "subjectCode": "BSC-101",
+            "credits": 2,
+            "type": "theory",
+            "description": "Fundamentals of environment, ecology, pollution, and conservation.",
+            "units": [
+              {
+                "unitNumber": 1,
+                "title": "Foundations of Environmental Science",
+                "topics": [
+                  {
+                    "id": "env-u1-t1",
+                    "title": "Introduction to Environmental Studies",
+                    "content": "Overview of environmental studies, definitions and historical perspective."
+                  },
+                  {
+                    "id": "env-u1-t2",
+                    "title": "Multidisciplinary Nature of Environmental Studies",
+                    "content": "How environmental studies integrates biology, chemistry, geology, economics and social sciences."
+                  },
+                  {
+                    "id": "env-u1-t3",
+                    "title": "Components, Scope and Importance of Environmental Studies",
+                    "content": "Components (air, water, soil, biota), scope and why the subject matters for society and engineering."
+                  },
+                  {
+                    "id": "env-u1-t4",
+                    "title": "Need for Public Awareness",
+                    "content": "Role of public awareness and education in environmental protection and sustainable development."
+                  },
+                  {
+                    "id": "env-u1-t5",
+                    "title": "Natural Resources",
+                    "content": "Classification of natural resources (renewable/non-renewable) and sustainable use principles."
+                  },
+                  {
+                    "id": "env-u1-t6",
+                    "title": "Ecosystems",
+                    "content": "Definition and basic concepts of ecosystems and ecological interactions."
+                  },
+                  {
+                    "id": "env-u1-t7",
+                    "title": "Structure and Function of Ecosystems",
+                    "content": "Trophic levels, food chains/webs, energy flow and ecosystem productivity."
+                  },
+                  {
+                    "id": "env-u1-t8",
+                    "title": "Types of Ecosystems",
+                    "content": "Terrestrial and aquatic ecosystem types and characteristic features."
+                  },
+                  {
+                    "id": "env-u1-t9",
+                    "title": "Functional Components of Ecosystems",
+                    "content": "Biotic and abiotic components, producers, consumers, decomposers and nutrient cycling."
+                  },
+                  {
+                    "id": "env-u1-t10",
+                    "title": "Major Ecosystems",
+                    "content": "Overview of forests, grasslands, deserts, wetlands, marine and freshwater ecosystems."
+                  },
+                  {
+                    "id": "env-u1-t11",
+                    "title": "Biogeochemical Cycles",
+                    "content": "Carbon, nitrogen, phosphorus and water cycles—processes and human impacts."
+                  },
+                  {
+                    "id": "env-u1-t12",
+                    "title": "Biodiversity",
+                    "content": "Introduction to biodiversity, levels of biodiversity and its significance."
+                  },
+                  {
+                    "id": "env-u1-t13",
+                    "title": "Introduction to Biodiversity",
+                    "content": "Defining biodiversity, species richness, genetic and ecosystem diversity."
+                  },
+                  {
+                    "id": "env-u1-t14",
+                    "title": "Biogeographical Classification",
+                    "content": "Major biogeographic realms and factors influencing species distribution."
+                  },
+                  {
+                    "id": "env-u1-t15",
+                    "title": "India as a Mega Diversity Nation",
+                    "content": "Reasons why India is biodiversity-rich and examples of diverse habitats."
+                  },
+                  {
+                    "id": "env-u1-t16",
+                    "title": "Endangered Species of India",
+                    "content": "Examples and causes of endangered species in India; role of legislation and protected areas."
+                  },
+                  {
+                    "id": "env-u1-t17",
+                    "title": "Endemic Species of India",
+                    "content": "Species restricted to India and importance of endemism for conservation."
+                  },
+                  {
+                    "id": "env-u1-t18",
+                    "title": "Threats to Biodiversity",
+                    "content": "Habitat loss, pollution, invasive species, overexploitation and climate change impacts."
+                  },
+                  {
+                    "id": "env-u1-t19",
+                    "title": "Biodiversity Conservation",
+                    "content": "In-situ and ex-situ conservation strategies and community-based approaches."
+                  },
+                  {
+                    "id": "env-u1-t20",
+                    "title": "Bioprospecting",
+                    "content": "Exploration of biodiversity for commercially valuable genetic and biochemical resources."
+                  },
+                  {
+                    "id": "env-u1-t21",
+                    "title": "Biopiracy",
+                    "content": "Issues where traditional knowledge and genetic resources are used without fair compensation; ethical and legal considerations."
+                  }
+                ]
+              },
+              {
+                "unitNumber": 2,
+                "title": "Environmental Pollution and Management",
+                "topics": [
+                  {
+                    "id": "env-u2-t1",
+                    "title": "Air Pollution: Source, Types, Effects on Biosphere and Meteorology, Air Quality, Control",
+                    "content": "Sources of air pollution, classification of pollutants, meteorological factors affecting dispersion, air quality metrics and common control technologies."
+                  },
+                  {
+                    "id": "env-u2-t2",
+                    "title": "Water Pollution: Types and Sources",
+                    "content": "Point and non-point sources of water pollution, types of pollutants and their environmental effects."
+                  },
+                  {
+                    "id": "env-u2-t3",
+                    "title": "Soil Pollution: Types and Control",
+                    "content": "Causes of soil contamination, classification of pollutants, remediation and control measures."
+                  },
+                  {
+                    "id": "env-u2-t4",
+                    "title": "Noise Pollution: Effects and Control",
+                    "content": "Sources of noise, health and ecological effects, measurement and abatement strategies."
+                  },
+                  {
+                    "id": "env-u2-t5",
+                    "title": "Thermal Pollution",
+                    "content": "Causes of thermal pollution (power plants, industry), effects on aquatic life and mitigation approaches."
+                  },
+                  {
+                    "id": "env-u2-t6",
+                    "title": "Radiation Pollution",
+                    "content": "Types of radiation pollution, sources, biological effects and safety standards."
+                  },
+                  {
+                    "id": "env-u2-t7",
+                    "title": "Solid Waste Management",
+                    "content": "Collection, segregation, treatment and disposal methods including recycling and sanitary landfills."
+                  },
+                  {
+                    "id": "env-u2-t8",
+                    "title": "Pollution Prevention",
+                    "content": "Source reduction, cleaner production, process modification and regulatory instruments for pollution prevention."
+                  },
+                  {
+                    "id": "env-u2-t9",
+                    "title": "Disaster Management",
+                    "content": "Phases of disaster management, preparedness, response and recovery with environmental considerations."
+                  }
+                ]
+              },
+              {
+                "unitNumber": 3,
+                "title": "Social Issues and Environment",
+                "topics": [
+                  {
+                    "id": "env-u3-t1",
+                    "title": "Concept of Sustainable Development",
+                    "content": "Concept and principles of sustainable development."
+                  },
+                  {
+                    "id": "env-u3-t2",
+                    "title": "Urban problems related to Energy",
+                    "content": "Energy demand, urban energy challenges, and efficiency measures."
+                  },
+                  {
+                    "id": "env-u3-t3",
+                    "title": "Water Conservation",
+                    "content": "Methods and importance of conserving water resources; rainwater harvesting and efficient use."
+                  },
+                  {
+                    "id": "env-u3-t4",
+                    "title": "Wasteland Reclamation",
+                    "content": "Principles and techniques for reclamation of degraded and wasteland areas."
+                  },
+                  {
+                    "id": "env-u3-t5",
+                    "title": "Resettlement and Rehabilitation",
+                    "content": "Social and environmental aspects of resettlement and rehabilitation policies."
+                  },
+                  {
+                    "id": "env-u3-t6",
+                    "title": "Climate Change",
+                    "content": "Causes, impacts, mitigation and adaptation strategies for climate change."
+                  },
+                  {
+                    "id": "env-u3-t7",
+                    "title": "Nuclear Accidents",
+                    "content": "Major nuclear accidents, environmental impacts and safety/response measures."
+                  },
+                  {
+                    "id": "env-u3-t8",
+                    "title": "Consumerism and Waste Products",
+                    "content": "Effects of consumerism on waste generation and circular economy approaches."
+                  },
+                  {
+                    "id": "env-u3-t9",
+                    "title": "Laws related to Environment",
+                    "content": "Overview of key environmental laws, regulatory frameworks and enforcement."
+                  },
+                  {
+                    "id": "env-u3-t10",
+                    "title": "Forest and Wildlife",
+                    "content": "Conservation of forests and wildlife; protected areas and community roles."
+                  },
+                  {
+                    "id": "env-u3-t11",
+                    "title": "Environmental Impact Assessment",
+                    "content": "Purpose, process and significance of Environmental Impact Assessment (EIA) in project planning."
+                  }
+                ]
+              },
+              {
+                "unitNumber": 4,
+                "title": "Human Dimensions of Environment",
+                "topics": [
+                  {
+                    "id": "env-u4-t1",
+                    "title": "Human Population and Environment",
+                    "content": "Interactions between human populations and the environment; carrying capacity and resource pressures."
+                  },
+                  {
+                    "id": "env-u4-t2",
+                    "title": "Population Growth",
+                    "content": "Trends, causes and consequences of population growth; demographic transition and population policies."
+                  },
+                  {
+                    "id": "env-u4-t3",
+                    "title": "Human Rights",
+                    "content": "Linkages between human rights and environmental protection, access to resources and environmental justice."
+                  },
+                  {
+                    "id": "env-u4-t4",
+                    "title": "Family Welfare Programmes",
+                    "content": "Overview of family welfare initiatives, reproductive health services and their role in sustainable development."
+                  },
+                  {
+                    "id": "env-u4-t5",
+                    "title": "Environment and Human Health",
+                    "content": "How environmental factors affect human health; common environmental diseases and prevention strategies."
+                  },
+                  {
+                    "id": "env-u4-t6",
+                    "title": "HIV/AIDS",
+                    "content": "Basic facts about HIV/AIDS, transmission, prevention and the social-environmental implications."
+                  },
+                  {
+                    "id": "env-u4-t7",
+                    "title": "Women Welfare",
+                    "content": "Programs and policies for women's welfare and empowerment; gender perspectives in environmental planning."
+                  },
+                  {
+                    "id": "env-u4-t8",
+                    "title": "Child Welfare",
+                    "content": "Child health, nutrition and welfare programs; environmental determinants of child well-being."
+                  },
+                  {
+                    "id": "env-u4-t9",
+                    "title": "Role of Information Technology (IT)",
+                    "content": "Use of IT in environmental management, monitoring, awareness, and decision support systems."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "applied-mathematics-1",
+            "name": "Applied Mathematics I",
+            "subjectCode": "BAS-101",
+            "credits": 4,
+            "type": "theory",
+            "description": "Calculus and linear algebra foundations for engineering.",
+            "units": []
+          },
+          {
+            "id": "human-values-professional-ethics",
+            "name": "Human Values and Professional Ethics",
+            "subjectCode": "HUM-101",
+            "credits": 2,
+            "type": "theory",
+            "description": "Ethical practice, professional responsibility and human values.",
+            "units": []
+          },
+          {
+            "id": "engineering-mechanics",
+            "name": "Engineering Mechanics",
+            "subjectCode": "BAS-102",
+            "credits": 3,
+            "type": "theory",
+            "description": "Statics and dynamics fundamentals for engineering structures.",
+            "units": []
+          },
+          {
+            "id": "workshop-practice",
+            "name": "Workshop Practice",
+            "subjectCode": "WSP-101",
+            "credits": 1,
+            "type": "practical",
+            "description": "Hands-on workshop skills including basic fitting and carpentry.",
+            "units": []
+          },
+          {
+            "id": "manufacturing-processes",
+            "name": "Manufacturing Processes",
+            "subjectCode": "ME-101",
+            "credits": 3,
+            "type": "theory",
+            "description": "Overview of common manufacturing techniques and processes.",
+            "units": []
+          },
+          {
+            "id": "indian-constitution",
+            "name": "Indian Constitution",
+            "subjectCode": "HUM-103",
+            "credits": 1,
+            "type": "theory",
+            "description": "Basics of the Indian Constitution and civic responsibilities.",
+            "units": []
+          },
+          {
+            "id": "electrical-science",
+            "name": "Electrical Science",
+            "subjectCode": "EE-101",
+            "credits": 3,
+            "type": "theory",
+            "description": "Fundamentals of circuits, signals and electrical measurements.",
+            "units": []
+          },
+          {
+            "id": "applied-physics-1",
+            "name": "Applied Physics I",
+            "subjectCode": "BSC-103",
+            "credits": 3,
+            "type": "theory",
+            "description": "Physics topics relevant to engineering like waves and optics.",
+            "units": []
           }
         ]
       },
@@ -3298,7 +3271,119 @@ const ipuBranches = [
             "credits": 2,
             "type": "theory",
             "description": "Ecology, pollution control, and sustainability. // TODO: add units",
-            "units": []
+            "units": [
+              {
+                "unitNumber": 1,
+                "title": "Environmental Studies — Unit 1",
+                "topics": [
+                  {
+                    "id": "env-u1-t1",
+                    "title": "Introduction to Environmental Studies",
+                    "content": "Overview of environmental studies and its relevance to society and engineering."
+                  },
+                  {
+                    "id": "env-u1-t2",
+                    "title": "Multidisciplinary Nature of Environmental Studies",
+                    "content": "How environmental studies integrates biology, chemistry, geology, social sciences and policy."
+                  },
+                  {
+                    "id": "env-u1-t3",
+                    "title": "Components, Scope and Importance of Environmental Studies",
+                    "content": "Components (air, water, land, biota), scope of study and importance for sustainable development."
+                  },
+                  {
+                    "id": "env-u1-t4",
+                    "title": "Need for Public Awareness",
+                    "content": "Role of public awareness, education, and community participation in environmental protection."
+                  },
+                  {
+                    "id": "env-u1-t5",
+                    "title": "Natural Resources",
+                    "content": "Types of natural resources: renewable and non-renewable; sustainable use and management."
+                  },
+                  {
+                    "id": "env-u1-t6",
+                    "title": "Ecosystems",
+                    "content": "Definition of ecosystem and interactions between organisms and their environment."
+                  },
+                  {
+                    "id": "env-u1-t7",
+                    "title": "Structure and Function of Ecosystems",
+                    "content": "Trophic levels, food chains/webs, energy flow and ecological pyramids."
+                  },
+                  {
+                    "id": "env-u1-t8",
+                    "title": "Types of Ecosystems",
+                    "content": "Terrestrial, aquatic, marine, freshwater, forest, grassland and desert ecosystems overview."
+                  },
+                  {
+                    "id": "env-u1-t9",
+                    "title": "Functional Components of Ecosystems",
+                    "content": "Producers, consumers, decomposers and abiotic components; nutrient cycles and productivity."
+                  },
+                  {
+                    "id": "env-u1-t10",
+                    "title": "Major Ecosystems",
+                    "content": "Key global ecosystems and their ecological significance (forests, wetlands, coral reefs etc.)."
+                  },
+                  {
+                    "id": "env-u1-t11",
+                    "title": "Biogeochemical Cycles",
+                    "content": "Carbon, nitrogen, phosphorus, sulfur and water cycles and their environmental importance."
+                  },
+                  {
+                    "id": "env-u1-t12",
+                    "title": "Biodiversity",
+                    "content": "Meaning of biodiversity and levels: genetic, species and ecosystem diversity."
+                  },
+                  {
+                    "id": "env-u1-t13",
+                    "title": "Introduction to Biodiversity",
+                    "content": "Concepts of biodiversity importance for ecosystem services and human well-being."
+                  },
+                  {
+                    "id": "env-u1-t14",
+                    "title": "Biogeographical Classification",
+                    "content": "Major biogeographic zones and patterns of species distribution."
+                  },
+                  {
+                    "id": "env-u1-t15",
+                    "title": "India as a Mega Diversity Nation",
+                    "content": "Factors contributing to India's megadiversity and representative hotspots."
+                  },
+                  {
+                    "id": "env-u1-t16",
+                    "title": "Endangered Species of India",
+                    "content": "Examples of endangered species, causes of decline and protection status (IUCN, Indian lists)."
+                  },
+                  {
+                    "id": "env-u1-t17",
+                    "title": "Endemic Species of India",
+                    "content": "Definition of endemism and notable endemic taxa in India and their conservation value."
+                  },
+                  {
+                    "id": "env-u1-t18",
+                    "title": "Threats to Biodiversity",
+                    "content": "Habitat loss, fragmentation, pollution, invasive species, overexploitation and climate change impacts."
+                  },
+                  {
+                    "id": "env-u1-t19",
+                    "title": "Biodiversity Conservation",
+                    "content": "In-situ and ex-situ conservation measures, protected areas, biosphere reserves and community conservation."
+                  },
+                  {
+                    "id": "env-u1-t20",
+                    "title": "Bioprospecting",
+                    "content": "Sustainable search for useful biological resources and ethical considerations in benefit-sharing."
+                  },
+                  {
+                    "id": "env-u1-t21",
+                    "title": "Biopiracy",
+                    "content": "Unauthorized commercial exploitation of biological resources and traditional knowledge; legal and policy responses."
+                  }
+                ]
+              }
+            ]
           }
         ]
       },

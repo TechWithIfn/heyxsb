@@ -269,7 +269,7 @@ export function TopicContent({
         subject.units.map((unit) => (
           <div key={unit.unitNumber} className="mb-4">
             <h2 className="mb-2 text-lg font-bold text-slate-900 dark:text-white sm:text-xl">
-              Unit {unit.unitNumber}: {unit.title}
+              {`UNIT ${unit.unitNumber}`}
             </h2>
             {unit.topics.map((topic) => (
               <TopicSection

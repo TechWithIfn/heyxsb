@@ -178,6 +178,7 @@ export function SubjectPage() {
       <aside className="sticky top-14 hidden h-[calc(100vh-3.5rem)] w-[360px] shrink-0 overflow-hidden border-r border-slate-200 bg-white dark:border-slate-800 dark:bg-gray-900 md:block">
         {subject.id === 'applied-chemistry' ? (
           <AppliedChemistrySidebar
+            subject={subject}
             currentTopic={activeTopic}
             onSelect={(id) => scrollToTopic(id)}
             readCount={storage.readCount}
@@ -258,6 +259,7 @@ export function SubjectPage() {
               <div className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden overscroll-contain">
                 {subject.id === 'applied-chemistry' ? (
                   <AppliedChemistrySidebar
+                    subject={subject}
                     currentTopic={activeTopic}
                     onSelect={(id) => { scrollToTopic(id); setDrawerOpen(false) }}
                     readCount={storage.readCount}

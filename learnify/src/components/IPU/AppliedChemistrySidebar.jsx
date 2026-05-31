@@ -108,12 +108,22 @@ function SidebarSection({ title, items, currentTopic, onSelect, defaultOpen = tr
 }
 
 export default function AppliedChemistrySidebar({
+  subject = null,
   currentTopic = '',
   onSelect = () => {},
   readCount = 0,
-  totalTopics = 31,
+  totalTopics = 0,
 }) {
-  const sections = useMemo(() => SECTION_GROUPS, [])
+  const sections = useMemo(() => {
+    if (!subject || !subject.units) return SECTION_GROUPS
+    return subject.units.map((u) => ({
+      key: `unit${u.unitNumber}`,
+      title: `UNIT ${u.unitNumber}`,
+      items: (u.topics || []).map((t) => [t.id, t.title || t.id]),
+    }))
+  }, [subject])
+
+  const unitCount = subject?.units?.length ?? 0
 
   return (
     <aside className="flex h-full min-h-0 w-full flex-col bg-[#f1f1f1]">
@@ -122,10 +132,10 @@ export default function AppliedChemistrySidebar({
           <div className="min-w-0">
             <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-slate-500">Applied Chemistry</p>
             <h1 className="mt-1 text-xl font-black tracking-tight text-slate-900">Applied Chemistry</h1>
-            <p className="mt-1 text-sm text-slate-600">BAS-203 · Unit 1 syllabus navigation</p>
+            <p className="mt-1 text-sm text-slate-600">BAS-203 · {unitCount} unit{unitCount === 1 ? '' : 's'} syllabus navigation</p>
           </div>
           <div className="shrink-0 rounded-full border border-emerald-200 bg-white px-3 py-1.5 text-right text-xs font-bold text-emerald-700 shadow-sm">
-            <div className="uppercase tracking-[0.18em] text-slate-500">UNIT 1</div>
+            <div className="uppercase tracking-[0.18em] text-slate-500">Topics</div>
             <div className="mt-0.5 whitespace-nowrap">{readCount}/{totalTopics}</div>
           </div>
         </div>

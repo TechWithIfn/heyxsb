@@ -1,4 +1,4 @@
-import { useCallback, useSyncExternalStore } from 'react'
+import { useCallback, useMemo, useSyncExternalStore } from 'react'
 import {
   IPU_SUBJECT_STORAGE_EVENT,
   readBookmarks,
@@ -13,27 +13,28 @@ function subscribe(callback) {
 }
 
 export function useIpuSubjectStorage(branchId, semNum, subjectId, totalTopics) {
-  const getSnapshot = useCallback(
-    () => ({
+  const snapshot = useMemo(() => {
+    const readTopics = readReadTopics(subjectId)
+    return {
       bookmarks: readBookmarks(subjectId),
-      readTopics: readReadTopics(subjectId),
+      readTopics,
       progress: readSubjectProgress(branchId, semNum, subjectId),
-      readCount: readReadTopics(subjectId).length,
+      readCount: readTopics.length,
       totalTopics,
-    }),
-    [branchId, semNum, subjectId, totalTopics],
-  )
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [branchId, semNum, subjectId, totalTopics])
 
-  const getServerSnapshot = useCallback(
-    () => ({
-      bookmarks: [],
-      readTopics: [],
-      progress: 0,
-      readCount: 0,
-      totalTopics,
-    }),
-    [totalTopics],
-  )
+  const serverSnapshot = useMemo(() => ({
+    bookmarks: [],
+    readTopics: [],
+    progress: 0,
+    readCount: 0,
+    totalTopics,
+  }), [totalTopics])
+
+  const getSnapshot = useCallback(() => snapshot, [snapshot])
+  const getServerSnapshot = useCallback(() => serverSnapshot, [serverSnapshot])
 
   return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
 }

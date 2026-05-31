@@ -5,10 +5,86 @@
     "name": "Environmental Science",
     "shortName": "Env Sci",
     "credits": 2,
+    "units": [
+      {
+        "unitNumber": 1,
+        "title": "Foundations of Environmental Science",
+        "topics": [
+          { "id": "env-u1-t1", "title": "Introduction to Environmental Studies", "content": { "theory": ["Overview of environmental studies, definitions and historical perspective."] } },
+          { "id": "env-u1-t2", "title": "Multidisciplinary Nature of Environmental Studies", "content": { "theory": ["How environmental studies integrates biology, chemistry, geology, economics and social sciences."] } },
+          { "id": "env-u1-t3", "title": "Components, Scope and Importance of Environmental Studies", "content": { "theory": ["Components (air, water, soil, biota), scope and why the subject matters for society and engineering."] } },
+          { "id": "env-u1-t4", "title": "Need for Public Awareness", "content": { "theory": ["Role of public awareness and education in environmental protection and sustainable development."] } },
+          { "id": "env-u1-t5", "title": "Natural Resources", "content": { "theory": ["Classification of natural resources (renewable/non-renewable) and sustainable use principles."] } },
+          { "id": "env-u1-t6", "title": "Ecosystems", "content": { "theory": ["Definition and basic concepts of ecosystems and ecological interactions."] } },
+          { "id": "env-u1-t7", "title": "Structure and Function of Ecosystems", "content": { "theory": ["Trophic levels, food chains/webs, energy flow and ecosystem productivity."] } },
+          { "id": "env-u1-t8", "title": "Types of Ecosystems", "content": { "theory": ["Terrestrial and aquatic ecosystem types and characteristic features."] } },
+          { "id": "env-u1-t9", "title": "Functional Components of Ecosystems", "content": { "theory": ["Biotic and abiotic components, producers, consumers, decomposers and nutrient cycling."] } },
+          { "id": "env-u1-t10", "title": "Major Ecosystems", "content": { "theory": ["Overview of forests, grasslands, deserts, wetlands, marine and freshwater ecosystems."] } },
+          { "id": "env-u1-t11", "title": "Biogeochemical Cycles", "content": { "theory": ["Carbon, nitrogen, phosphorus and water cycles—processes and human impacts."] } },
+          { "id": "env-u1-t12", "title": "Biodiversity", "content": { "theory": ["Introduction to biodiversity, levels of biodiversity and its significance."] } },
+          { "id": "env-u1-t13", "title": "Introduction to Biodiversity", "content": { "theory": ["Defining biodiversity, species richness, genetic and ecosystem diversity."] } },
+          { "id": "env-u1-t14", "title": "Biogeographical Classification", "content": { "theory": ["Major biogeographic realms and factors influencing species distribution."] } },
+          { "id": "env-u1-t15", "title": "India as a Mega Diversity Nation", "content": { "theory": ["Reasons why India is biodiversity-rich and examples of diverse habitats."] } },
+          { "id": "env-u1-t16", "title": "Endangered Species of India", "content": { "theory": ["Examples and causes of endangered species in India; role of legislation and protected areas."] } },
+          { "id": "env-u1-t17", "title": "Endemic Species of India", "content": { "theory": ["Species restricted to India and importance of endemism for conservation."] } },
+          { "id": "env-u1-t18", "title": "Threats to Biodiversity", "content": { "theory": ["Habitat loss, pollution, invasive species, overexploitation and climate change impacts."] } },
+          { "id": "env-u1-t19", "title": "Biodiversity Conservation", "content": { "theory": ["In-situ and ex-situ conservation strategies and community-based approaches."] } },
+          { "id": "env-u1-t20", "title": "Bioprospecting", "content": { "theory": ["Exploration of biodiversity for commercially valuable genetic and biochemical resources."] } },
+          { "id": "env-u1-t21", "title": "Biopiracy", "content": { "theory": ["Issues where traditional knowledge and genetic resources are used without fair compensation; ethical and legal considerations."] } }
+        ]
+      },
+      {
+        "unitNumber": 2,
+        "title": "Environmental Pollution and Management",
+        "topics": [
+          { "id": "env-u2-t1", "title": "Air Pollution: Source, Types, Effects on Biosphere and Meteorology, Air Quality, Control", "content": { "theory": ["Sources of air pollution, classification of pollutants, meteorological factors affecting dispersion, air quality metrics and common control technologies."] } },
+          { "id": "env-u2-t2", "title": "Water Pollution: Types and Sources", "content": { "theory": ["Point and non-point sources of water pollution, types of pollutants and their environmental effects."] } },
+          { "id": "env-u2-t3", "title": "Soil Pollution: Types and Control", "content": { "theory": ["Causes of soil contamination, classification of pollutants, remediation and control measures."] } },
+          { "id": "env-u2-t4", "title": "Noise Pollution: Effects and Control", "content": { "theory": ["Sources of noise, health and ecological effects, measurement and abatement strategies."] } },
+          { "id": "env-u2-t5", "title": "Thermal Pollution", "content": { "theory": ["Causes of thermal pollution (power plants, industry), effects on aquatic life and mitigation approaches."] } },
+          { "id": "env-u2-t6", "title": "Radiation Pollution", "content": { "theory": ["Types of radiation pollution, sources, biological effects and safety standards."] } },
+          { "id": "env-u2-t7", "title": "Solid Waste Management", "content": { "theory": ["Collection, segregation, treatment and disposal methods including recycling and sanitary landfills."] } },
+          { "id": "env-u2-t8", "title": "Pollution Prevention", "content": { "theory": ["Source reduction, cleaner production, process modification and regulatory instruments for pollution prevention."] } },
+          { "id": "env-u2-t9", "title": "Disaster Management", "content": { "theory": ["Phases of disaster management, preparedness, response and recovery with environmental considerations."] } }
+        ]
+      },
+      {
+        "unitNumber": 3,
+        "title": "Social Issues and Environment",
+        "topics": [
+          { "id": "env-u3-t1", "title": "Concept of Sustainable Development", "content": { "theory": ["Concept and principles of sustainable development."] } },
+          { "id": "env-u3-t2", "title": "Urban problems related to Energy", "content": { "theory": ["Energy demand, urban energy challenges, and efficiency measures."] } },
+          { "id": "env-u3-t3", "title": "Water Conservation", "content": { "theory": ["Methods and importance of conserving water resources; rainwater harvesting and efficient use."] } },
+          { "id": "env-u3-t4", "title": "Wasteland Reclamation", "content": { "theory": ["Principles and techniques for reclamation of degraded and wasteland areas."] } },
+          { "id": "env-u3-t5", "title": "Resettlement and Rehabilitation", "content": { "theory": ["Social and environmental aspects of resettlement and rehabilitation policies."] } },
+          { "id": "env-u3-t6", "title": "Climate Change", "content": { "theory": ["Causes, impacts, mitigation and adaptation strategies for climate change."] } },
+          { "id": "env-u3-t7", "title": "Nuclear Accidents", "content": { "theory": ["Major nuclear accidents, environmental impacts and safety/response measures."] } },
+          { "id": "env-u3-t8", "title": "Consumerism and Waste Products", "content": { "theory": ["Effects of consumerism on waste generation and circular economy approaches."] } },
+          { "id": "env-u3-t9", "title": "Laws related to Environment", "content": { "theory": ["Overview of key environmental laws, regulatory frameworks and enforcement."] } },
+          { "id": "env-u3-t10", "title": "Forest and Wildlife", "content": { "theory": ["Conservation of forests and wildlife; protected areas and community roles."] } },
+          { "id": "env-u3-t11", "title": "Environmental Impact Assessment", "content": { "theory": ["Purpose, process and significance of Environmental Impact Assessment (EIA) in project planning."] } }
+        ]
+      }
+      ,
+      {
+        "unitNumber": 4,
+        "title": "Human Dimensions of Environment",
+        "topics": [
+          { "id": "env-u4-t1", "title": "Human Population and Environment", "content": { "theory": ["Interactions between human populations and the environment; carrying capacity and resource pressures."] } },
+          { "id": "env-u4-t2", "title": "Population Growth", "content": { "theory": ["Trends, causes and consequences of population growth; demographic transition and population policies."] } },
+          { "id": "env-u4-t3", "title": "Human Rights", "content": { "theory": ["Linkages between human rights and environmental protection, access to resources and environmental justice."] } },
+          { "id": "env-u4-t4", "title": "Family Welfare Programmes", "content": { "theory": ["Overview of family welfare initiatives, reproductive health services and their role in sustainable development."] } },
+          { "id": "env-u4-t5", "title": "Environment and Human Health", "content": { "theory": ["How environmental factors affect human health; common environmental diseases and prevention strategies."] } },
+          { "id": "env-u4-t6", "title": "HIV/AIDS", "content": { "theory": ["Basic facts about HIV/AIDS, transmission, prevention and the social-environmental implications."] } },
+          { "id": "env-u4-t7", "title": "Women Welfare", "content": { "theory": ["Programs and policies for women's welfare and empowerment; gender perspectives in environmental planning."] } },
+          { "id": "env-u4-t8", "title": "Child Welfare", "content": { "theory": ["Child health, nutrition and welfare programs; environmental determinants of child well-being."] } },
+          { "id": "env-u4-t9", "title": "Role of Information Technology (IT)", "content": { "theory": ["Use of IT in environmental management, monitoring, awareness, and decision support systems."] } }
+        ]
+      }
+    ],
     "type": "theory",
     "icon": "🌿",
-    "description": "Fundamentals of environment, ecology, pollution, and conservation.",
-    "units": []
+    "description": "Fundamentals of environment, ecology, pollution, and conservation."
   },
   {
     "id": "applied-chemistry",
@@ -4217,29 +4293,167 @@
         "topics": [
           {
             "id": "applied-chemistry-u2-t1",
-            "title": "Chemical Thermodynamics",
-            "subtopics": [
-              "Laws of thermodynamics",
-              "Enthalpy",
-              "Gibbs free energy"
-            ],
+            "title": "Phase rule: Terms used in Gibb’s Phase rule, phase diagram",
             "content": {
               "theory": [
-                "Basic thermodynamic concepts applied to chemical systems and processes."
+                "Gibbs' Phase Rule provides the relationship between the number of degrees of freedom (F), number of components (C) and the number of phases (P) present in a system at equilibrium. The general form is F = C - P + 2 for systems where pressure and temperature may vary; for condensed systems (fixed pressure) the formula is often written as F = C - P + 1.",
+                "Key terms: component (independent chemical species required to define the system), phase (physically distinct and mechanically separable part of the system), degree of freedom (number of independent intensive variables like T, P, composition that can be changed without changing the number of phases).",
+                "Phase diagrams graphically represent regions of stability for different phases as functions of variables such as temperature, pressure or composition. Lines represent equilibria between two phases and points where three phases coexist are called triple points."
+              ],
+              "keyPoints": [
+                "Memorise Gibbs' Phase Rule and when to use the condensed form.",
+                "Understand component vs. phase with simple examples (pure substance, binary alloy).",
+                "Interpret P-T and T-composition diagrams; identify invariant and univariant regions."
+              ],
+              "examples": [
+                "Apply F = C - P + 2 to a one-component system at the triple point (C=1, P=3 => F=0, invariant).",
+                "Explain why a binary eutectic is univariant along the liquidus line (F=1)."
+              ],
+              "examQuestions": [
+                "State Gibbs' Phase Rule and explain each term with an example.",
+                "Interpret a simple P-T diagram and identify the triple point."
               ]
             }
           },
           {
             "id": "applied-chemistry-u2-t2",
-            "title": "Chemical Kinetics",
-            "subtopics": [
-              "Reaction rates",
-              "Order of reaction",
-              "Activation energy"
-            ],
+            "title": "One-Component systems: Water and Sulphur",
             "content": {
               "theory": [
-                "Introduction to factors affecting reaction rates and simple rate laws."
+                "One-component phase behaviour shows how a pure substance occupies different phases depending on temperature and pressure. Water and sulphur are typical examples used in engineering chemistry.",
+                "Water: discuss solid–liquid–vapour equilibria, triple point (0.01°C, 0.00611 atm), and critical point (374°C, 22.06 MPa). Note anomalous density behaviour of water near 4°C which affects the slope of the melting curve.",
+                "Sulphur: describe allotropy (S8 rings, polymeric chains on heating), melting and sublimation behaviour, and the relevance of allotropes to physical properties and processing."
+              ],
+              "keyPoints": [
+                "Triple point and critical point definitions (water).",
+                "Allotropic forms and transitions (sulphur).",
+                "Engineering implications: steam cycles, corrosion, storage and handling considerations."
+              ],
+              "examples": [
+                "Explain why water's melting curve has a negative slope and why this is important for ice formation in natural environments.",
+                "Describe how sulphur's ring–chain transformation affects its viscosity when molten."
+              ],
+              "examQuestions": [
+                "Define triple point and critical point with reference to water.",
+                "Describe the allotropes of sulphur and one engineering consequence of sulphur allotropy."
+              ]
+            }
+          },
+          {
+            "id": "applied-chemistry-u2-t3",
+            "title": "Two-component systems: Lead-Silver and Zinc-Magnesium",
+            "content": {
+              "theory": [
+                "Binary (two-component) phase diagrams show how composition and temperature determine phase stability. Important features include liquidus, solidus, solvus lines, eutectic and peritectic points, and regions of solid solution or two-phase mixtures.",
+                "Lead–Silver (Pb–Ag): illustrate limited solid solubility at room temperature and a simple eutectic behaviour that influences solder and casting microstructures.",
+                "Zinc–Magnesium (Zn–Mg): discuss phase separation, intermetallic formation and how small additions of Mg influence the melting and mechanical behaviour of Zn alloys."
+              ],
+              "keyPoints": [
+                "Read liquidus and solidus to determine first solid formed on cooling.",
+                "Use the lever rule to compute phase fractions at a given temperature and composition.",
+                "Relate diagram features to practical metallurgy (casting, soldering, alloy selection)."
+              ],
+              "examples": [
+                "Apply the lever rule to a Pb–Ag alloy at a temperature between liquidus and solidus to estimate phase proportions.",
+                "Explain why eutectic alloys have a characteristic fine microstructure upon solidification."
+              ],
+              "examQuestions": [
+                "Use the lever rule on a binary phase diagram to find phase percentages.",
+                "Describe eutectic solidification and its metallurgical consequences."
+              ]
+            }
+          },
+          {
+            "id": "applied-chemistry-u2-t4",
+            "title": "Polymers: Classification, functionality and their types",
+            "content": {
+              "theory": [
+                "Polymers are large molecules made up of repeating monomer units. Classify by source (natural vs synthetic), polymerisation mechanism (addition vs condensation), and structure (linear, branched, cross-linked).",
+                "Functionality refers to the number of reactive sites on a monomer; it controls network formation (e.g., difunctional monomers give linear chains; tri- or higher-functional monomers lead to branching and cross-linking).",
+                "Introduce thermoplastics (reversible chain entanglement) vs thermosets (irreversible cross-linked networks)."
+              ],
+              "keyPoints": [
+                "Understand addition vs condensation polymerisation and examples of each.",
+                "Monomer functionality determines final polymer architecture.",
+                "Relate polymer structure to mechanical and thermal properties."
+              ],
+              "examples": [
+                "Addition polymer: polyethylene from ethene monomers.",
+                "Condensation polymer: nylon from diamine + diacid (amide linkage)."
+              ],
+              "examQuestions": [
+                "Classify polymers with two examples each.",
+                "Explain the role of functionality in network formation."
+              ]
+            }
+          },
+          {
+            "id": "applied-chemistry-u2-t5",
+            "title": "Plastics: Synthesis (reactions) and properties of Polyethylene (LDPE, HDPE, LLDPE, UHMWPE)",
+            "content": {
+              "theory": [
+                "Polyethylene (PE) is an addition polymer formed by polymerisation of ethene. Different polymerisation methods yield LDPE, HDPE, LLDPE and UHMWPE with distinct branching and molecular weight characteristics affecting density, crystallinity and mechanical properties.",
+                "LDPE: produced via high-pressure free-radical polymerisation — highly branched, lower density, good flexibility.",
+                "HDPE: produced using coordination catalysts (Ziegler–Natta or metallocene) — linear chains, high crystallinity and tensile strength.",
+                "LLDPE: copolymerisation with alpha-olefins to introduce short-chain branching — combines toughness and processability.",
+                "UHMWPE: extremely high molecular weight giving exceptional wear and impact resistance used in bearings and medical implants."
+              ],
+              "keyPoints": [
+                "Link polymerisation route to chain structure (branching, molecular weight).",
+                "Explain how crystallinity controls density and mechanical strength.",
+                "List common applications for each grade."
+              ],
+              "examples": [
+                "LDPE: plastic films and flexible packaging.",
+                "HDPE: pipes, containers; UHMWPE: high-wear components."
+              ],
+              "examQuestions": [
+                "Compare LDPE and HDPE in structure and applications.",
+                "Describe the synthesis route for LDPE (brief)."
+              ]
+            }
+          },
+          {
+            "id": "applied-chemistry-u2-t6",
+            "title": "Vinyl Plastics (Condensation polymers) - Nylons, Phenol-formaldehyde resins (Bakelite) and Glyptal",
+            "content": {
+              "theory": [
+                "Vinyl plastics often refers broadly to polymers derived from vinyl monomers or to condensation-type resins used in engineering applications. Discuss nylons (polyamides) formed by condensation between diamines and diacids, phenol–formaldehyde resins (Bakelite) as early thermosetting plastics, and glyptal-type alkyd/resin systems used in coatings.",
+                "Highlight condensation polymer characteristics: step-growth mechanism, release of small molecules (water), and tendency to form cross-linked thermosets depending on monomer functionality."
+              ],
+              "keyPoints": [
+                "Nylons: amide linkage formation and semicrystalline mechanical behaviour.",
+                "Bakelite: phenol + formaldehyde condensation producing a hard, heat-resistant thermoset.",
+                "Glyptal: polyester/alkyd chemistry used for paints and electrical insulation."
+              ],
+              "examples": [
+                "Write a short reaction scheme for nylon formation from hexamethylene diamine and adipic acid (showing amide bond and water by-product).",
+                "Discuss one industrial use of Bakelite (insulators, molding compounds)."
+              ],
+              "examQuestions": [
+                "Outline the synthesis of a nylon polymer and state one application.",
+                "Why is Bakelite suitable for electrical insulators?"
+              ]
+            }
+          },
+          {
+            "id": "applied-chemistry-u2-t7",
+            "title": "Speciality Polymers: Engineering thermoplastics, Conducting polymers, Electroluminescent polymers, liquid crystalline polymers and biodegradable polymers",
+            "content": {
+              "theory": [
+                "Survey of speciality polymers emphasising function and application. Engineering thermoplastics (e.g., polycarbonate, PEEK) provide high temperature and mechanical performance; conducting polymers (polyaniline, PEDOT) introduce electrical conductivity for sensors and devices; electroluminescent polymers are used in display technologies; liquid crystalline polymers exhibit anisotropic mechanical behaviour; biodegradable polymers (PLA, PHA) break down under biological/composting conditions.",
+                "Discuss selection criteria for applications: thermal stability, conductivity, mechanical anisotropy, environmental degradation."
+              ],
+              "keyPoints": [
+                "Understand why speciality polymers are chosen over commodity plastics for high-performance uses.",
+                "Know one example and primary application for each speciality class."
+              ],
+              "examples": [
+                "Engineering thermoplastics: use of polycarbonate in safety helmets; conducting polymers: antistatic coatings; biodegradable polymers: compostable packaging."
+              ],
+              "examQuestions": [
+                "Give two examples of engineering thermoplastics and their uses.",
+                "Describe one advantage of biodegradable polymers in environmental applications."
               ]
             }
           }
@@ -4278,16 +4492,236 @@
             }
           },
           {
-            "id": "applied-chemistry-u3-t3",
-            "title": "Electrochemistry",
-            "subtopics": [
-              "Electrochemical cells",
-              "Redox reactions",
-              "Corrosion basics"
-            ],
+            "id": "applied-chemistry-u3-t4",
+            "title": "Water: Introduction and Water Quality Standards",
             "content": {
               "theory": [
-                "Fundamentals of electrochemistry with emphasis on corrosion and protection."
+                "Introduction to water as an engineering material: occurrence, sources (surface and groundwater), and significance for industry and public health.",
+                "Water quality standards: WHO/ISI/IS/ local regulatory parameters and permissible limits for drinking and industrial use.",
+                "Physical, chemical and biological characteristics of water: colour, taste, turbidity, temperature, pH, conductivity, dissolved solids, hardness, dissolved oxygen, BOD, COD, microbial indicators."
+              ],
+              "keyPoints": [
+                "Distinguish physical, chemical and biological parameters with examples.",
+                "Know common standards and typical limits for drinking water (e.g., turbidity, microbial counts, fluoride).",
+                "Explain why different uses (boiler feed, potable, process) require different quality controls."
+              ],
+              "examples": [
+                "Interpret a water quality report: identify parameters outside permissible limits and suggest likely treatment steps."
+              ],
+              "examQuestions": [
+                "List physical, chemical and biological characteristics of water and their significance.",
+                "Name three standard-setting agencies for drinking water quality and one key parameter each."
+              ]
+            }
+          },
+          {
+            "id": "applied-chemistry-u3-t5",
+            "title": "Hardness of Water: Types, Disadvantages and EDTA Determination",
+            "content": {
+              "theory": [
+                "Definition of hardness and differentiation between temporary (carbonate) and permanent (non-carbonate) hardness.",
+                "Disadvantages of hardness in domestic and industrial contexts: scale formation, reduced soap efficiency, increased energy consumption, boiler problems.",
+                "Determination of hardness using complexometric titration with EDTA: principle, masking/unmasking (e.g., Mg with NaOH), indicators (Eriochrome Black T), procedure and calculations."
+              ],
+              "keyPoints": [
+                "Remember units: mg/L as CaCO3 equivalent.",
+                "Know reagent roles: EDTA chelates Ca2+/Mg2+; buffer maintains pH ~10; indicator shows end-point shift.",
+                "Practice one standard EDTA titration calculation."
+              ],
+              "examples": [
+                {
+                  "label": "Sample Numerical",
+                  "problem": "Given volume of water, EDTA titre and standardization data, calculate hardness in mg/L as CaCO3.",
+                  "solutionOutline": [
+                    "Compute moles of EDTA consumed.",
+                    "Convert to equivalents of CaCO3.",
+                    "Express per litre as mg/L."
+                  ]
+                }
+              ],
+              "examQuestions": [
+                "Explain temporary and permanent hardness with examples.",
+                "Describe the EDTA method for total hardness determination and solve a related numerical."
+              ]
+            }
+          },
+          {
+            "id": "applied-chemistry-u3-t6",
+            "title": "Alkalinity of Water and Its Determination",
+            "content": {
+              "theory": [
+                "Definition of alkalinity (capacity to neutralize acid) and types: carbonate, bicarbonate and hydroxide alkalinity.",
+                "Titrimetric determination using strong acid (HCl) with indicators or potentiometric end-point; calculation of alkalinity as mg/L CaCO3."
+              ],
+              "keyPoints": [
+                "Understand titration end-points for different alkalinity species (phenolphthalein and methyl orange equivalence points).",
+                "Practice conversions between meq/L and mg/L as CaCO3."
+              ],
+              "examples": [
+                "Numerical: calculate alkalinity given titrant volume and normality."
+              ],
+              "examQuestions": [
+                "Define alkalinity and explain its determination by titration.",
+                "Differentiate between alkalinity and hardness."
+              ]
+            }
+          },
+          {
+            "id": "applied-chemistry-u3-t7",
+            "title": "Boiler Problems from Hard Water and Their Prevention",
+            "content": {
+              "theory": [
+                "Major boiler problems: scale and sludge formation due to precipitation of hardness salts; boiler corrosion (general and oxygen pitting); caustic embrittlement (due to concentrated NaOH in crevices); priming and foaming (carry-over of water with steam).",
+                "Prevention strategies: softening feed water, deaeration, chemical treatment (phosphate, carbonate conditioning), blowdown control, maintaining alkalinity and silica control."
+              ],
+              "keyPoints": [
+                "Link specific causes to preventive measures (e.g., hardness precipitation -> softening or phosphate conditioning).",
+                "Understand signs of caustic embrittlement and operational solutions (reduce NaOH, control boiler concentration)."
+              ],
+              "examples": [
+                "Explain how priming occurs when high levels of dissolved solids and carry-over are present and how to prevent it via proper water chemistry and steam separators."
+              ],
+              "examQuestions": [
+                "Describe scale formation mechanisms and two prevention methods.",
+                "Explain caustic embrittlement and preventive measures."
+              ]
+            }
+          },
+          {
+            "id": "applied-chemistry-u3-t8",
+            "title": "Boiler Water Treatment — Internal (In-situ) Methods",
+            "content": {
+              "theory": [
+                "Internal treatment methods treat water inside the boiler to control scale and corrosion without external softening. Methods include carbonate conditioning (phosphate treatment), colloidal conditioning (polyelectrolytes), and Calgon (sodium hexametaphosphate)/organic sequestrants to keep hardness in suspension or complexed.",
+                "Operational notes: correct dosing, sludge removal (blowdown), and monitoring of phosphate-to-alkalinity ratio."
+              ],
+              "keyPoints": [
+                "Know when internal treatment is preferred (e.g., intermittent softening not available) and its limitations.",
+                "Safety and surveillance: deposit monitoring and chemical carry-over risks."
+              ],
+              "examples": [
+                "Outline a simple phosphate conditioning scheme and how it prevents scale by precipitating hardness as sludge removable by blowdown."
+              ],
+              "examQuestions": [
+                "Compare carbonate and phosphate conditioning for boiler scale control.",
+                "What is Calgon conditioning and where is it used?"
+              ]
+            }
+          },
+          {
+            "id": "applied-chemistry-u3-t9",
+            "title": "External Treatment: Lime–Soda Process (with Numericals)",
+            "content": {
+              "theory": [
+                "Principle of lime–soda ash softening: removal of temporary and permanent hardness by precipitation of Ca(OH)2 and Na2CO3 reactions with Ca2+/Mg2+.",
+                "Process steps: preparation of reagents, rapid mixing, flocculation, sedimentation and filtration. Control parameters: reagent dose calculation, sludge handling."
+              ],
+              "keyPoints": [
+                "Be able to calculate reagent requirements for given hardness (numerical problems).",
+                "Understand advantages (cost-effectiveness for large supplies) and limitations (sludge generation, partial removal of total dissolved solids)."
+              ],
+              "numericals": [
+                {
+                  "label": "Lime–Soda Ash Numerical",
+                  "problem": "Calculate kg of lime and soda ash required to soften 1,000 m^3 of water with given Ca2+ and Mg2+ concentrations to a target hardness.",
+                  "solutionOutline": [
+                    "Convert concentrations to equivalents or mg/L as CaCO3.",
+                    "Use stoichiometry for precipitation reactions to estimate reagent mass.",
+                    "Apply safety factor and report final reagent doses."
+                  ]
+                }
+              ],
+              "examQuestions": [
+                "Explain the principle of lime–soda ash softening with a reagent calculation example.",
+                "List disadvantages of lime–soda process and ways to mitigate them."
+              ]
+            }
+          },
+          {
+            "id": "applied-chemistry-u3-t10",
+            "title": "External Treatment: Zeolite (Ion-Exchange) Process (with Numericals)",
+            "content": {
+              "theory": [
+                "Zeolite softening uses sodium zeolites to exchange Na+ for Ca2+/Mg2+ in water. Regeneration with NaCl restores sodium form. Describe column operation, breakthrough curves and regeneration cycles.",
+                "Discuss ion-exchange capacity, exhaustion, and regeneration chemistry."
+              ],
+              "keyPoints": [
+                "Understand operation of downflow/overhead regenerators and design parameters like bed depth and contact time.",
+                "Practice breakthrough/regeneration calculations for softening capacity."
+              ],
+              "numericals": [
+                {
+                  "label": "Zeolite Numerical",
+                  "problem": "Given bed capacity and influent hardness, compute service run time before regeneration and salt requirement for regeneration.",
+                  "solutionOutline": [
+                    "Estimate total equivalents removed until exhaustion.",
+                    "Compute salt (NaCl) needed to replace hardness ions based on stoichiometry and percent efficiency."
+                  ]
+                }
+              ],
+              "examQuestions": [
+                "Describe the zeolite softening process and outline a regeneration cycle.",
+                "Solve a basic zeolite process numerical for service run length."
+              ]
+            }
+          },
+          {
+            "id": "applied-chemistry-u3-t11",
+            "title": "External Treatment: Ion-Exchange Resins and Deionisation",
+            "content": {
+              "theory": [
+                "Ion-exchange resins (cation and anion) are used for demineralisation/deionisation of water. Explain strong acid/strong base resins, mixed-bed deionisers and regeneration chemistry. Discuss application for high-purity water (boiler feed, electronics)."
+              ],
+              "keyPoints": [
+                "Know differences between zeolite softening and full deionisation (TDS removal).",
+                "Mention conductivity/purity monitoring and typical resin regeneration steps (acid/base)."
+              ],
+              "examQuestions": [
+                "Compare zeolite softening and ion-exchange demineralisation.",
+                "Describe mixed-bed deioniser operation briefly."
+              ]
+            }
+          },
+          {
+            "id": "applied-chemistry-u3-t12",
+            "title": "Municipal Water Supply: Treatment and Disinfection (Break-point Chlorination)",
+            "content": {
+              "theory": [
+                "Steps in municipal water treatment: screening, sedimentation, coagulation/flocculation, filtration (rapid sand), and disinfection.",
+                "Disinfection by chlorination: chemistry of free chlorine species, combined chlorine (chloramines), and break-point chlorination principle—dose required to oxidise ammonia and achieve residual free chlorine."
+              ],
+              "keyPoints": [
+                "Explain coagulation chemistry (alum) and role of pH and coagulant dosing.",
+                "Understand the chlorination curve, meaning of breakpoint and how to compute chlorine demand."
+              ],
+              "examples": [
+                "Sketch and interpret a breakpoint chlorination curve; calculate chlorine dose for given ammonia concentration."
+              ],
+              "examQuestions": [
+                "Describe municipal water treatment steps and the principle of break-point chlorination.",
+                "Calculate chlorine requirement to oxidise a given ammonia load (numerical)."
+              ]
+            }
+          },
+          {
+            "id": "applied-chemistry-u3-t13",
+            "title": "Desalination and Advanced Water Treatment: RO, Electrodialysis, Defluoridation",
+            "content": {
+              "theory": [
+                "Desalination overview: thermal vs membrane processes. Reverse osmosis (RO) principle—osmotic pressure, cross-flow membranes, salt rejection and recovery considerations.",
+                "Electrodialysis: ion migration through selective membranes under applied electric field for brackish water desalination.",
+                "Defluoridation methods: adsorption (activated alumina), Nalgonda process, bone char, and modern membrane/ion-exchange approaches. Discuss applicability and regeneration/disposal issues."
+              ],
+              "keyPoints": [
+                "Know RO operational parameters: pressure, recovery, fouling control and pre-treatment needs.",
+                "Electrodialysis suitability for low-TDS brackish water; energy considerations compared to RO."
+              ],
+              "examples": [
+                "Compare RO and electrodialysis for hypothetical brackish feed (TDS, energy)."
+              ],
+              "examQuestions": [
+                "Explain the principle of reverse osmosis and list its main operational challenges.",
+                "Describe one defluoridation technique and its advantages/disadvantages."
               ]
             }
           }
@@ -4299,31 +4733,173 @@
         "topics": [
           {
             "id": "applied-chemistry-u4-t1",
-            "title": "Materials Chemistry",
-            "subtopics": [
-              "Polymers",
-              "Ceramics",
-              "Composites"
-            ],
-            "content": {
-              "theory": [
-                "Overview of common engineering materials and their chemical basis."
-              ]
-            }
+            "title": "Corrosion and Its Control",
+            "content": { "theory": ["Introduction to corrosion phenomena and general strategies for control in engineering systems."] }
           },
           {
             "id": "applied-chemistry-u4-t2",
-            "title": "Water Treatment and Corrosion Control",
-            "subtopics": [
-              "Water quality parameters",
-              "Scaling and corrosion prevention",
-              "Treatment methods"
-            ],
-            "content": {
-              "theory": [
-                "Basic water treatment concepts and corrosion control techniques used in engineering systems."
-              ]
-            }
+            "title": "Dry and Wet Corrosion Mechanisms",
+            "content": { "theory": ["Mechanisms distinguishing dry (high-temperature) and wet (electrochemical) corrosion with examples."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t3",
+            "title": "Pilling–Bedworth Ratio",
+            "content": { "theory": ["Definition and significance of the Pilling–Bedworth ratio for protective oxide scale formation."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t4",
+            "title": "Galvanic Corrosion",
+            "content": { "theory": ["Principles of galvanic coupling, galvanic series, and measures to prevent galvanic corrosion."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t5",
+            "title": "Soil Corrosion",
+            "content": { "theory": ["Corrosion of buried structures: soil resistivity, moisture, oxygen, and mitigation techniques."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t6",
+            "title": "Pitting Corrosion",
+            "content": { "theory": ["Localized breakdown of passive films leading to pitting; causes, detection, and prevention."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t7",
+            "title": "Differential Aeration Corrosion",
+            "content": { "theory": ["How oxygen concentration cells produce localized corrosion and typical engineering examples."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t8",
+            "title": "Stress Corrosion",
+            "content": { "theory": ["Stress corrosion cracking (SCC): combined effects of tensile stress and corrosive environments."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t9",
+            "title": "Rusting of Iron",
+            "content": { "theory": ["Electrochemical mechanism of rusting and factors that accelerate iron oxidation."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t10",
+            "title": "Passivity",
+            "content": { "theory": ["Concept of passivation, protective oxide films and how passivity differs from active corrosion."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t11",
+            "title": "Factors Affecting Corrosion",
+            "content": { "theory": ["Overview of environmental, material, and design factors that influence corrosion rates."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t12",
+            "title": "Corrosion Protection Methods",
+            "content": { "theory": ["General approaches: coatings, inhibitors, cathodic/anodic protection and design-based prevention."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t13",
+            "title": "Galvanization",
+            "content": { "theory": ["Hot-dip galvanizing process, protective mechanism of zinc coatings and typical applications."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t14",
+            "title": "Tinning",
+            "content": { "theory": ["Tinning processes for corrosion resistance and solderability of metal surfaces."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t15",
+            "title": "Cathodic Protection",
+            "content": { "theory": ["Principles of cathodic protection and impressed current systems for pipelines and tanks."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t16",
+            "title": "Sacrificial Anodic Protection",
+            "content": { "theory": ["Sacrificial anode systems (zinc/ magnesium) and application guidelines."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t17",
+            "title": "Electroplating",
+            "content": { "theory": ["Electroplating fundamentals: electrolyte, anode/cathode, deposition mechanisms and common industries."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t18",
+            "title": "Material Selection and Design for Corrosion Prevention",
+            "content": { "theory": ["How materials selection and engineering design minimize corrosion risk in systems and structures."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t19",
+            "title": "Green Technology and Green Chemistry",
+            "content": { "theory": ["Introduction to sustainable chemical practices and technologies that reduce environmental impact."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t20",
+            "title": "Twelve Principles of Green Chemistry",
+            "content": { "theory": ["Overview of the 12 principles and how they guide safer, more efficient chemical processes."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t21",
+            "title": "Zero Waste Technology",
+            "content": { "theory": ["Concepts and industrial strategies aimed at eliminating waste and promoting circular economy."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t22",
+            "title": "Atom Economy",
+            "content": { "theory": ["Atom economy metric and its importance in assessing efficiency of synthetic routes."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t23",
+            "title": "Alternative Feedstocks",
+            "content": { "theory": ["Using renewable or less hazardous feedstocks in chemical manufacturing."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t24",
+            "title": "Innocuous Reagents",
+            "content": { "theory": ["Replacing hazardous reagents with safer alternatives in synthesis and processing."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t25",
+            "title": "Alternative Solvents",
+            "content": { "theory": ["Green solvent selection and solvent-free methodologies to reduce environmental impact."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t26",
+            "title": "Alternative Reaction Methodologies",
+            "content": { "theory": ["Techniques such as biocatalysis, flow chemistry and microwave-assisted synthesis for greener processes."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t27",
+            "title": "Energy Consumption Minimization",
+            "content": { "theory": ["Strategies to reduce energy use in chemical manufacturing including process intensification."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t28",
+            "title": "Nanochemistry",
+            "content": { "theory": ["Introduction to chemistry at the nanoscale and unique phenomena compared to bulk materials."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t29",
+            "title": "Nanomaterials and Their Properties",
+            "content": { "theory": ["Overview of common nanomaterials, size-dependent properties and surface effects."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t30",
+            "title": "Synthesis of Nanomaterials",
+            "content": { "theory": ["Top-down and bottom-up synthesis methods: sol–gel, chemical vapor deposition, hydrothermal and green routes."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t31",
+            "title": "Surface Characterization Techniques",
+            "content": { "theory": ["Common surface and morphological characterization methods for materials science."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t32",
+            "title": "BET Analysis",
+            "content": { "theory": ["Brunauer–Emmett–Teller surface area analysis: principle, adsorption isotherms and interpretation."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t33",
+            "title": "TEM Analysis",
+            "content": { "theory": ["Transmission electron microscopy basics: imaging, diffraction and resolution for nanoscale materials."] }
+          },
+          {
+            "id": "applied-chemistry-u4-t34",
+            "title": "Applications of Nanomaterials",
+            "content": { "theory": ["Key applications in catalysis, sensors, energy storage, medicine and environmental remediation."] }
           }
         ]
       }

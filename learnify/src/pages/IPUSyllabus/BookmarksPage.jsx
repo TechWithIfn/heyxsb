@@ -174,7 +174,7 @@ export function BookmarksPage() {
                         {topic.title}
                       </p>
                       <p className="text-xs text-slate-500 dark:text-slate-400">
-                        Unit {topic.unitNumber}
+                        {`UNIT ${topic.unitNumber}`}
                       </p>
                     </div>
                     <button

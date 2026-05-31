@@ -39,13 +39,13 @@ function UnitBlock({
 }) {
   return (
     <div className="border-b border-slate-200 dark:border-slate-700">
-      <button
+        <button
         type="button"
         onClick={onToggle}
         className="flex w-full items-center justify-between gap-2 px-3 py-2.5 text-left text-sm font-semibold text-slate-800 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800/80"
       >
         <span className="min-w-0 truncate">
-          Unit {unit.unitNumber}: {unit.title}
+          {`UNIT ${unit.unitNumber}`}
         </span>
         <motion.span
           animate={{ rotate: expanded ? 180 : 0 }}
@@ -226,7 +226,7 @@ export function TopicSidebar({
                 <li key={topic.id}>
                   <TopicRow
                     topic={topic}
-                    unitLabel={`Unit ${topic.unitNumber}`}
+                    unitLabel={`UNIT ${topic.unitNumber}`}
                     isActive={activeTopic === topic.id}
                     isRead={readTopicSet.has(topic.id)}
                     onSelect={handleSelect}
@@ -246,7 +246,7 @@ export function TopicSidebar({
                 <li key={topic.id}>
                   <TopicRow
                     topic={topic}
-                    unitLabel={`Unit ${topic.unitNumber}`}
+                    unitLabel={`UNIT ${topic.unitNumber}`}
                     isActive={activeTopic === topic.id}
                     isRead={readTopicSet.has(topic.id)}
                     onSelect={handleSelect}

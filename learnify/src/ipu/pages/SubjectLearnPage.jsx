@@ -446,7 +446,7 @@ export function SubjectLearnPage() {
             return (
               <div key={unit.unitId} className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-950/50">
                 <div className="flex items-center justify-between gap-3 text-sm">
-                  <p className="font-semibold text-slate-900 dark:text-white">Unit {index + 1}</p>
+                  <p className="font-semibold text-slate-900 dark:text-white">{`UNIT ${index + 1}`}</p>
                   <p className="text-slate-600 dark:text-slate-300">{unit.done}/{unit.total}</p>
                 </div>
                 <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800">
@@ -479,7 +479,7 @@ export function SubjectLearnPage() {
             type="button"
             onClick={() => {
               const lines = expectedUnits.flatMap((unit) => [
-                `## ${unit.unitTitle}`,
+                `## UNIT ${unit.unitNumber}`,
                 ...unit.topics.flatMap((topic) => [
                   `### ${topic.title}`,
                   ...(topic.expected.length ? topic.expected.map((question, index) => `${index + 1}. ${question}`) : ['No questions listed.']),
@@ -504,7 +504,7 @@ export function SubjectLearnPage() {
             expectedUnits.map((unit) => (
               <details key={`${unit.unitNumber}-${unit.unitTitle}`} className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-950/60" open>
                 <summary className="cursor-pointer list-none text-base font-bold text-slate-900 dark:text-white">
-                  Unit {unit.unitNumber} · {unit.unitTitle}
+                  {`UNIT ${unit.unitNumber}`}
                 </summary>
                 <div className="mt-4 space-y-4">
                   {unit.topics.map((topic) => (
@@ -549,7 +549,7 @@ export function SubjectLearnPage() {
             type="button"
             onClick={() => {
               const lines = previousUnits.flatMap((unit) => [
-                `## ${unit.unitTitle}`,
+                `## UNIT ${unit.unitNumber}`,
                 ...unit.topics.flatMap((topic) => [
                   `### ${topic.title}`,
                   ...(topic.previous.length ? topic.previous.map((question, index) => `${index + 1}. ${question}`) : ['No previous year questions listed.']),
@@ -574,7 +574,7 @@ export function SubjectLearnPage() {
             previousUnits.map((unit) => (
               <details key={`${unit.unitNumber}-${unit.unitTitle}`} className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-950/60" open>
                 <summary className="cursor-pointer list-none text-base font-bold text-slate-900 dark:text-white">
-                  Unit {unit.unitNumber} · {unit.unitTitle}
+                  {`UNIT ${unit.unitNumber}`}
                 </summary>
                 <div className="mt-4 space-y-4">
                   {unit.topics.map((topic) => (
@@ -617,7 +617,7 @@ export function SubjectLearnPage() {
             >
               {modalTopics.map((topic) => (
                 <option key={topic.id} value={topic.id}>
-                  Unit {topic.unitNumber} · {topic.title}
+                  {`UNIT ${topic.unitNumber} · ${topic.title}`}
                 </option>
               ))}
             </select>
