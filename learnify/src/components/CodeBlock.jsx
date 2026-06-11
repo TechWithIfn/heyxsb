@@ -88,7 +88,7 @@ function CodePlaceholder({ label, language }) {
   )
 }
 
-function CodeBlockInner({ code = '', language = 'text', label }) {
+function CodeBlockInner({ code = '', language = 'text', label, onRun }) {
   const { isDark } = useTheme()
   const { toast } = useToast()
   const [copied, setCopied] = useState(false)
@@ -182,39 +182,52 @@ function CodeBlockInner({ code = '', language = 'text', label }) {
         <span className="text-xs font-semibold uppercase tracking-wide text-white">
           {headerLabel}
         </span>
-        <span className="group relative shrink-0">
-          <button
-            type="button"
-            onClick={handleCopy}
-            title={copied ? 'Copied to clipboard' : 'Copy code to clipboard'}
-            className="flex items-center gap-1.5 rounded-md bg-[#04AA6D] px-2.5 py-1 text-xs font-medium text-white transition-colors hover:bg-[#059862] focus:outline-none focus:ring-2 focus:ring-white/40"
-            aria-label={copied ? 'Code copied' : 'Copy code to clipboard'}
-          >
-            {copied ? (
-              <>
-                <CheckIcon className="h-3.5 w-3.5" />
-                Copied!
-              </>
-            ) : (
-              <>
-                <CopyIcon className="h-3.5 w-3.5" />
-                Copy Code
-              </>
-            )}
-          </button>
-          <span
-            role="tooltip"
-            className="pointer-events-none absolute right-0 top-full z-10 mt-1 whitespace-nowrap rounded bg-slate-900 px-2 py-1 text-[10px] font-medium text-white opacity-0 shadow transition-opacity group-hover:opacity-100 group-focus-within:opacity-100 print:hidden"
-          >
-            {copied ? 'Copied!' : 'Copy code to clipboard'}
+        <div className="flex items-center gap-2">
+          {onRun && (
+            <button
+              type="button"
+              onClick={onRun}
+              className="flex items-center gap-1.5 rounded-md border border-white/20 bg-white/10 px-2.5 py-1 text-xs font-semibold text-white transition-colors hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-white/40"
+              aria-label="Run code example"
+            >
+              Run
+            </button>
+          )}
+          <span className="group relative shrink-0">
+            <button
+              type="button"
+              onClick={handleCopy}
+              title={copied ? 'Copied to clipboard' : 'Copy code to clipboard'}
+              className="flex items-center gap-1.5 rounded-md bg-[#04AA6D] px-2.5 py-1 text-xs font-medium text-white transition-colors hover:bg-[#059862] focus:outline-none focus:ring-2 focus:ring-white/40"
+              aria-label={copied ? 'Code copied' : 'Copy code to clipboard'}
+            >
+              {copied ? (
+                <>
+                  <CheckIcon className="h-3.5 w-3.5" />
+                  Copied!
+                </>
+              ) : (
+                <>
+                  <CopyIcon className="h-3.5 w-3.5" />
+                  Copy Code
+                </>
+              )}
+            </button>
+            <span
+              role="tooltip"
+              className="pointer-events-none absolute right-0 top-full z-10 mt-1 whitespace-nowrap rounded bg-slate-900 px-2 py-1 text-[10px] font-medium text-white opacity-0 shadow transition-opacity group-hover:opacity-100 group-focus-within:opacity-100 print:hidden"
+            >
+              {copied ? 'Copied!' : 'Copy code to clipboard'}
+            </span>
           </span>
-        </span>
+        </div>
       </div>
       <div className="overflow-x-auto overscroll-x-contain bg-slate-50 dark:bg-slate-950 [-webkit-overflow-scrolling:touch]">
         {SyntaxHighlighter && prismStyle ? (
           <SyntaxHighlighter
             language={prismLanguage}
             style={prismStyle}
+            showLineNumbers
             customStyle={{
               margin: 0,
               padding: '1rem 1.25rem',

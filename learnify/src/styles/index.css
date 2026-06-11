@@ -86,6 +86,39 @@
   animation: fade-in 0.35s ease-out forwards;
 }
 
+/* Layout variables and sticky helpers */
+:root {
+  --header-height: 72px;
+  --container-max-width: 1600px;
+}
+
+/* Responsive helpers that use the header height variable.
+   These replace hard-coded 88px offsets so the header height
+   can be changed in one place. */
+@media (min-width: 1024px) {
+  .lg-sticky-top {
+    top: var(--header-height);
+  }
+
+  .lg-sticky-h {
+    height: calc(100vh - var(--header-height));
+  }
+
+  .lg-min-h {
+    min-height: calc(100vh - var(--header-height));
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl-sticky-top {
+    top: var(--header-height);
+  }
+
+  .xl-sticky-h {
+    height: calc(100vh - var(--header-height));
+  }
+}
+
 /* Hide scrollbar visuals while keeping native scroll behavior */
 .scrollbar-hidden {
   -ms-overflow-style: none;

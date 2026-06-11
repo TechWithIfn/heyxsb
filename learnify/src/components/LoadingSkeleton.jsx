@@ -8,7 +8,7 @@ function Shimmer({ className }) {
 
 function SidebarSkeleton() {
   return (
-    <div className="hidden w-64 shrink-0 space-y-4 border-r border-slate-200 bg-[#f1f1f1] p-4 dark:border-slate-700 dark:bg-slate-900 lg:block">
+    <div className="hidden w-[320px] min-w-[320px] max-w-[320px] shrink-0 space-y-4 border-r border-slate-200 bg-[#f1f1f1] p-4 dark:border-slate-700 dark:bg-slate-900 lg:block">
       <Shimmer className="h-4 w-32" />
       {Array.from({ length: 8 }).map((_, i) => (
         <Shimmer key={i} className="h-9 w-full" />
@@ -19,16 +19,21 @@ function SidebarSkeleton() {
 
 function LessonSkeleton() {
   return (
-    <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-6 lg:flex-row lg:px-8">
+    <div className="mx-auto grid w-full max-w-[1600px] gap-6 px-4 py-4 sm:px-6 lg-min-h lg:grid-cols-[320px_minmax(0,900px)] lg:gap-6 lg:px-8 lg:py-6 xl:grid-cols-[320px_minmax(0,900px)_300px]">
       <SidebarSkeleton />
-      <div className="min-w-0 flex-1 space-y-5">
-        <Shimmer className="h-10 w-2/3 max-w-md" />
-        <Shimmer className="h-4 w-full" />
-        <Shimmer className="h-4 w-full" />
-        <Shimmer className="h-4 w-5/6" />
-        <Shimmer className="mt-6 h-40 w-full rounded-lg" />
-        <Shimmer className="h-4 w-full" />
-        <Shimmer className="h-4 w-4/5" />
+      <div className="min-w-0 space-y-5">
+        <Shimmer className="h-8 w-32 rounded-full" />
+        <Shimmer className="h-12 w-2/3 max-w-[36rem] rounded-2xl" />
+        <Shimmer className="h-4 w-full max-w-2xl" />
+        <Shimmer className="h-4 w-11/12 max-w-2xl" />
+        <Shimmer className="mt-6 h-40 w-full rounded-3xl" />
+        <Shimmer className="h-24 w-full rounded-3xl" />
+        <Shimmer className="h-24 w-full rounded-3xl" />
+      </div>
+      <div className="hidden min-w-0 space-y-4 xl:block">
+        <Shimmer className="h-24 w-full rounded-3xl" />
+        <Shimmer className="h-24 w-full rounded-3xl" />
+        <Shimmer className="h-24 w-full rounded-3xl" />
       </div>
     </div>
   )

@@ -77,8 +77,6 @@ export default function IPUSidebar({
   activeUnit,
   activeTopic,
   onTopicSelect,
-  sidebarOpen,
-  onClose,
   visitedTopics = new Set(),
   branchId,
   semNumber,
@@ -126,7 +124,7 @@ export default function IPUSidebar({
   }, [])
 
   const sidebar = (
-    <aside className="w-[320px] min-w-[320px] max-w-[320px] h-[calc(100vh-4rem)] sticky top-16 overflow-y-auto bg-slate-50/85 border-r border-slate-200/80 dark:bg-slate-900/90 dark:border-slate-800/80 backdrop-blur-md">
+    <aside className="w-[320px] min-w-[320px] max-w-[320px] h-[calc(100vh-4rem)] sticky top-16 overflow-y-auto overscroll-contain bg-slate-50/85 border-r border-slate-200/80 dark:bg-slate-900/90 dark:border-slate-800/80 backdrop-blur-md">
       <div className="px-4 py-4 border-b border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-950/40">
         <div className="text-slate-800 dark:text-white font-bold text-[15px] leading-snug line-clamp-2">{subject?.name}</div>
         <div className="mt-1.5 inline-block rounded bg-slate-100 px-2 py-0.5 font-mono text-xs text-slate-600 dark:bg-slate-800 dark:text-slate-300">{subject?.code}</div>
@@ -155,49 +153,6 @@ export default function IPUSidebar({
   return (
     <>
       <div className="hidden md:block">{sidebar}</div>
-
-      <div className={`md:hidden fixed inset-y-0 left-0 z-40 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transform transition-transform duration-300 ease-out`}>
-        <div className="w-80 h-full bg-slate-50 dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shadow-2xl overflow-y-auto flex flex-col">
-          <div className="px-4 py-4 flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
-            <div className="min-w-0 pr-4">
-              <div className="font-bold text-slate-800 dark:text-white truncate text-base">{subject?.name}</div>
-              <div className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-mono">{subject?.code}</div>
-            </div>
-            <button onClick={onClose} className="rounded-lg bg-slate-100 p-2 text-slate-600 transition-colors hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-          </div>
-          <div className="pb-20 mt-2">
-            {units.map(unit => (
-              <UnitItem
-                key={unit.unitNumber}
-                unit={unit}
-                isOpen={openUnits.has(unit.unitNumber)}
-                toggle={() => toggleUnit(unit.unitNumber)}
-                activeTopicId={activeTopic}
-                onTopicSelect={(u, t) => { onTopicSelect(u, t); onClose && onClose() }}
-                visited={topicMatches}
-                branchId={branchId}
-                semNumber={semNumber}
-                subjectId={subject?.id}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* mobile floating toggle */}
-      <button onClick={onClose} className="md:hidden fixed bottom-6 left-4 z-50 bg-[#04AA6D] dark:bg-green-600 text-white p-3.5 rounded-full shadow-xl hover:bg-[#059862] active:scale-95 transition-all">
-        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none"><path stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-
-      {/* Overlay for mobile */}
-      {sidebarOpen && (
-        <div 
-          className="md:hidden fixed inset-0 z-30 bg-slate-900/40 backdrop-blur-xs transition-opacity duration-300 dark:bg-black/60"
-          onClick={onClose}
-        />
-      )}
     </>
   )
 }

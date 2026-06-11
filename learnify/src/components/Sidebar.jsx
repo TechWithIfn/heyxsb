@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from 'react'
+import { memo, useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { NavLink } from 'react-router-dom'
 import { useFocusTrap } from '../hooks/useFocusTrap'
@@ -41,6 +41,41 @@ function MenuIcon({ className }) {
   )
 }
 
+function SearchIcon({ className }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="11" cy="11" r="8" />
+      <path d="m21 21-4.35-4.35" />
+    </svg>
+  )
+}
+
+function ChevronDownIcon({ className }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  )
+}
+
 function lessonLinkClass(isActive) {
   return `group flex items-center gap-2 border-l-4 px-3 py-2.5 text-sm transition-all duration-200 ${
     isActive
@@ -73,6 +108,10 @@ function normalizeSections({ lessons, sections, heading }) {
   return []
 }
 
+function normalizeText(value) {
+  return String(value ?? '').trim().toLowerCase()
+}
+
 function SidebarInner({
   topicSlug,
   currentLessonId,
@@ -81,12 +120,40 @@ function SidebarInner({
   heading = 'Tutorial',
 }) {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [query, setQuery] = useState('')
+  const [collapsedSections, setCollapsedSections] = useState({})
   const mobileDrawerRef = useFocusTrap(mobileOpen)
   const groups = normalizeSections({ lessons, sections, heading })
+  const filteredGroups = useMemo(() => {
+    const search = normalizeText(query)
+    if (!search) return groups
+
+    return groups
+      .map((section) => {
+        const matchesHeading = normalizeText(section.heading).includes(search)
+        const lessonsInSection = section.lessons.filter((lesson) =>
+          normalizeText(lesson.title).includes(search),
+        )
+
+        if (!matchesHeading && lessonsInSection.length === 0) {
+          return null
+        }
+
+        return {
+          ...section,
+          lessons: matchesHeading ? section.lessons : lessonsInSection,
+        }
+      })
+      .filter(Boolean)
+  }, [groups, query])
 
   useEffect(() => {
     setMobileOpen(false)
   }, [currentLessonId])
+
+  useEffect(() => {
+    setCollapsedSections({})
+  }, [topicSlug])
 
   useEffect(() => {
     if (!mobileOpen) return
@@ -105,55 +172,122 @@ function SidebarInner({
 
   let lessonIndex = 0
 
-  const sidebarNav = (
-    <motion.nav key={topicSlug} aria-label="Lesson navigation" className="py-2">
-      {groups.map((section, sectionIndex) => (
-        <div key={section.heading ?? sectionIndex} className="mb-4">
-          <h2 className="sticky top-0 z-10 bg-slate-50/95 dark:bg-slate-900/95 backdrop-blur-sm px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-            {section.heading}
-          </h2>
-          <ul className="mt-1 space-y-0.5">
-            {section.lessons.map((lesson) => {
-              const id = getLessonId(lesson)
-              const isActive = id === currentLessonId
-              const index = lessonIndex++
-              return (
-                <motion.li
-                  key={id}
-                  custom={index}
-                  variants={sidebarItem}
-                  initial="hidden"
-                  animate="show"
-                >
-                  <NavLink
-                    to={`/${topicSlug}/${id}`}
-                    aria-current={isActive ? 'page' : undefined}
-                    className={({ isActive: navActive }) =>
-                      lessonLinkClass(navActive || isActive)
-                    }
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    <PageIcon
-                      className={`h-4 w-4 shrink-0 transition-colors ${
-                        isActive
-                          ? 'text-white'
-                          : 'text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300'
-                      }`}
-                    />
-                    <span className="min-w-0 flex-1 leading-snug break-words whitespace-normal">{lesson.title}</span>
-                    <CompleteCheck
-                      topicSlug={topicSlug}
-                      lessonIdParam={id}
-                      isActive={isActive}
-                    />
-                  </NavLink>
-                </motion.li>
-              )
-            })}
-          </ul>
+  const toggleSection = (sectionHeading) => {
+    setCollapsedSections((current) => ({
+      ...current,
+      [sectionHeading]: !current[sectionHeading],
+    }))
+  }
+
+  const sidebarContent = (
+    <>
+      <div className="sticky top-0 z-20 border-b border-slate-200 bg-slate-50/95 px-3 pb-3 pt-2 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-950/95">
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#04AA6D] dark:text-green-400">
+              Course map
+            </p>
+            <h2 className="mt-1 text-base font-black text-slate-900 dark:text-white">
+              Lessons
+            </h2>
+          </div>
+          <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-[11px] font-semibold text-slate-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300">
+            {filteredGroups.reduce((count, section) => count + section.lessons.length, 0)}
+          </span>
         </div>
-      ))}
-    </motion.nav>
+
+        <label className="mt-3 block">
+          <span className="sr-only">Search topics</span>
+          <div className="relative">
+            <SearchIcon className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search topics"
+              className="h-10 w-full rounded-xl border border-slate-200 bg-white pl-9 pr-3 text-sm text-slate-900 shadow-sm transition focus:border-[#04AA6D] focus:outline-none focus:ring-4 focus:ring-[#04AA6D]/15 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
+            />
+          </div>
+        </label>
+      </div>
+
+      <div className="space-y-4 px-2 py-3">
+        {filteredGroups.length === 0 ? (
+          <div className="rounded-2xl border border-dashed border-slate-300 bg-white px-4 py-6 text-sm text-slate-500 dark:border-slate-700 dark:bg-slate-950/50 dark:text-slate-400">
+            No lessons match “{query}”.
+          </div>
+        ) : (
+          filteredGroups.map((section, sectionIndex) => {
+            const key = section.heading ?? `section-${sectionIndex}`
+            const isCollapsed = Boolean(collapsedSections[key])
+
+            return (
+              <section key={key} className="rounded-2xl border border-slate-200 bg-white/80 shadow-sm dark:border-slate-800 dark:bg-slate-950/70">
+                <button
+                  type="button"
+                  onClick={() => toggleSection(key)}
+                  className="flex w-full items-center gap-3 px-3 py-3 text-left"
+                  aria-expanded={!isCollapsed}
+                >
+                  <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+                    {section.heading ?? heading}
+                  </span>
+                  <ChevronDownIcon
+                    className={`ml-auto h-4 w-4 shrink-0 text-slate-400 transition-transform ${
+                      isCollapsed ? '-rotate-90' : ''
+                    }`}
+                  />
+                </button>
+
+                {!isCollapsed && (
+                  <ul className="space-y-1 px-2 pb-2">
+                    {section.lessons.map((lesson) => {
+                      const id = getLessonId(lesson)
+                      const isActive = id === currentLessonId
+                      const index = lessonIndex++
+                      return (
+                        <motion.li
+                          key={id}
+                          custom={index}
+                          variants={sidebarItem}
+                          initial="hidden"
+                          animate="show"
+                        >
+                          <NavLink
+                            to={`/${topicSlug}/${id}`}
+                            aria-current={isActive ? 'page' : undefined}
+                            className={({ isActive: navActive }) =>
+                              lessonLinkClass(navActive || isActive)
+                            }
+                            onClick={() => setMobileOpen(false)}
+                          >
+                            <PageIcon
+                              className={`h-4 w-4 shrink-0 transition-colors ${
+                                isActive
+                                  ? 'text-white'
+                                  : 'text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300'
+                              }`}
+                            />
+                            <span className="min-w-0 flex-1 break-words whitespace-normal leading-snug">
+                              {lesson.title}
+                            </span>
+                            <CompleteCheck
+                              topicSlug={topicSlug}
+                              lessonIdParam={id}
+                              isActive={isActive}
+                            />
+                          </NavLink>
+                        </motion.li>
+                      )
+                    })}
+                  </ul>
+                )}
+              </section>
+            )
+          })
+        )}
+      </div>
+    </>
   )
 
   return (
@@ -190,11 +324,11 @@ function SidebarInner({
           role="dialog"
           aria-modal="true"
           aria-label="Lesson contents"
-          className={`absolute left-0 top-0 flex h-full w-full max-w-xs flex-col border-r border-slate-200 bg-slate-50 shadow-2xl transition-transform duration-300 ease-out dark:border-slate-800 dark:bg-slate-900 sm:max-w-[17rem] ${
+          className={`absolute left-0 top-0 flex h-full w-full max-w-xs flex-col border-r border-slate-200 bg-slate-50 shadow-2xl transition-transform duration-300 ease-out dark:border-slate-800 dark:bg-slate-900 sm:max-w-[20rem] ${
             mobileOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
-          <div className="flex h-14 shrink-0 items-center justify-between border-b border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950 px-4">
+          <div className="flex h-14 shrink-0 items-center justify-between border-b border-slate-200 bg-white px-4 dark:border-slate-800 dark:bg-slate-950">
             <span className="text-sm font-bold text-slate-800 dark:text-slate-200">Lessons</span>
             <button
               type="button"
@@ -204,13 +338,13 @@ function SidebarInner({
               Close
             </button>
           </div>
-          <div className="min-h-0 flex-1 overflow-y-auto px-2">{sidebarNav}</div>
+          <div className="min-h-0 flex-1 overflow-y-auto">{sidebarContent}</div>
         </aside>
       </div>
 
       {/* Desktop: always-visible sidebar (sticky, independent scroll) */}
-      <aside className="hidden lg:block lg:sticky lg:top-16 lg:h-[calc(100vh-4rem)] lg:overflow-y-auto lg:w-96 w-full shrink-0 border-r border-slate-100 bg-slate-50/30 dark:border-slate-800/80 dark:bg-slate-950/20 px-2">
-        {sidebarNav}
+      <aside className="hidden w-[320px] min-w-[320px] max-w-[320px] shrink-0 border-r border-slate-100 bg-slate-50/30 px-2 dark:border-slate-800/80 dark:bg-slate-950/20 lg:block lg:sticky lg-sticky-top lg-sticky-h lg:overflow-y-auto lg:overscroll-contain">
+        {sidebarContent}
       </aside>
     </>
   )

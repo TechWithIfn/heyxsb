@@ -393,7 +393,7 @@ export function Navbar() {
       transition={navbarDrop.transition}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center gap-4 overflow-hidden sm:gap-5 lg:gap-6 xl:gap-8">
+        <div className="flex h-[72px] items-center gap-4 overflow-hidden sm:gap-5 lg:gap-6 xl:gap-8">
           <Link
             to="/"
             className="flex min-w-0 shrink-0 items-center gap-3 whitespace-nowrap rounded-xl px-1 py-1 text-base font-semibold text-white transition-opacity hover:opacity-90 sm:text-xl"

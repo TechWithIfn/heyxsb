@@ -132,7 +132,6 @@ export function SubjectLearnPage() {
   const { toggleTheme } = useTheme()
   const { branchId, sem, subjectId, topicId } = useParams()
   const semNumber = useMemo(() => Number.parseInt(sem, 10), [sem])
-  const [sidebarOpen, setSidebarOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [activeSection, setActiveSection] = useState(null)
   const [expectedSearch, setExpectedSearch] = useState('')
@@ -320,6 +319,96 @@ export function SubjectLearnPage() {
     return Array.from(units.values())
   }, [filteredPreviousTopics])
 
+  const rightPanel = (
+    <div className="space-y-4 xl:pt-0">
+      <section className="rounded-[2rem] border border-slate-200 bg-white/95 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-950/75">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+          Learning progress
+        </p>
+        <div className="mt-4 grid gap-3 sm:grid-cols-3 xl:grid-cols-1">
+          <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-900/70">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Done</p>
+            <p className="mt-2 text-2xl font-black text-slate-900 dark:text-white">{topicProgress.done}</p>
+          </div>
+          <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-900/70">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Total</p>
+            <p className="mt-2 text-2xl font-black text-slate-900 dark:text-white">{topicProgress.total}</p>
+          </div>
+          <div className="rounded-2xl bg-emerald-50 p-4 dark:bg-emerald-950/30">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-400">Progress</p>
+            <p className="mt-2 text-2xl font-black text-emerald-700 dark:text-emerald-300">{topicProgress.percent}%</p>
+          </div>
+        </div>
+        <div className="mt-4 h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800">
+          <div className="h-full rounded-full bg-emerald-500 transition-all duration-500" style={{ width: `${topicProgress.percent}%` }} />
+        </div>
+      </section>
+
+      <section className="rounded-[2rem] border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-950/60">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400">
+          Smart tools
+        </p>
+        <div className="mt-4 space-y-3">
+          <button
+            type="button"
+            onClick={() => setSearchOpen(true)}
+            className="block w-full rounded-2xl border border-slate-200 px-4 py-3 text-left text-sm font-semibold text-slate-700 transition hover:border-emerald-400 hover:text-emerald-700 dark:border-slate-800 dark:text-slate-200 dark:hover:text-emerald-300"
+          >
+            Search syllabus topics
+          </button>
+          <button
+            type="button"
+            onClick={openNotes}
+            className="block w-full rounded-2xl border border-slate-200 px-4 py-3 text-left text-sm font-semibold text-slate-700 transition hover:border-emerald-400 hover:text-emerald-700 dark:border-slate-800 dark:text-slate-200 dark:hover:text-emerald-300"
+          >
+            Open quick notes
+          </button>
+          <button
+            type="button"
+            onClick={openExpectedQuestions}
+            className="block w-full rounded-2xl border border-slate-200 px-4 py-3 text-left text-sm font-semibold text-slate-700 transition hover:border-emerald-400 hover:text-emerald-700 dark:border-slate-800 dark:text-slate-200 dark:hover:text-emerald-300"
+          >
+            Expected questions
+          </button>
+          <button
+            type="button"
+            onClick={openPreviousYearQuestions}
+            className="block w-full rounded-2xl border border-slate-200 px-4 py-3 text-left text-sm font-semibold text-slate-700 transition hover:border-emerald-400 hover:text-emerald-700 dark:border-slate-800 dark:text-slate-200 dark:hover:text-emerald-300"
+          >
+            Previous year questions
+          </button>
+        </div>
+      </section>
+
+      <section className="rounded-[2rem] border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-950/60">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+          Bookmarks & notes
+        </p>
+        <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
+          Keep bookmarks and topic notes organized while you move through the syllabus.
+        </p>
+        <div className="mt-4 space-y-3">
+          <a href="/ipu/my-notes" className="block rounded-2xl bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 dark:bg-slate-900/70 dark:text-slate-200 dark:hover:bg-slate-800/70">
+            Open notes dashboard
+          </a>
+          <a href="/ipu/dashboard" className="block rounded-2xl bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 dark:bg-slate-900/70 dark:text-slate-200 dark:hover:bg-slate-800/70">
+            View dashboard
+          </a>
+        </div>
+      </section>
+
+      <section className="rounded-[2rem] border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-950/60">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+          Current topic
+        </p>
+        <p className="mt-2 text-sm font-semibold text-slate-900 dark:text-white">{activeTopic?.title || 'Select a topic'}</p>
+        <p className="mt-1 text-sm leading-6 text-slate-600 dark:text-slate-400">
+          {subject?.name}
+        </p>
+      </section>
+    </div>
+  )
+
   const downloadMarkdown = (filename, sections) => {
     const content = sections.join('\n')
     const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' })
@@ -373,13 +462,12 @@ export function SubjectLearnPage() {
             activeUnit={activeUnit}
             activeTopic={activeTopic?.topicId ?? null}
             onTopicSelect={handleTopicSelect}
-            sidebarOpen={sidebarOpen}
-            onClose={() => setSidebarOpen((value) => !value)}
             visitedTopics={completedTopicIds}
             branchId={branchId}
             semNumber={semNumber}
           />
         }
+        rightPanel={rightPanel}
       >
         {activeTopic && activeTopic.topicId ? (
           <TopicRenderer

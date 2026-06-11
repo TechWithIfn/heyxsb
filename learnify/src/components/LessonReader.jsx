@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useShortcuts } from '../context/ShortcutsContext'
 import { useToast } from '../context/ToastContext'
@@ -10,7 +10,7 @@ import {
   shareLessonNative,
 } from '../lib/share'
 import { useLessonBookmarked } from '../hooks/useBookmarks'
-import { useLessonComplete } from '../hooks/useProgress'
+import { useLessonComplete, useTopicProgress } from '../hooks/useProgress'
 import { lessonId as getLessonId } from '../lib/topics'
 import { CodeBlock } from './CodeBlock'
 import { AskAI } from './AskAI'
@@ -113,6 +113,86 @@ function lessonId(lesson) {
   return lesson ? getLessonId(lesson) : null
 }
 
+function estimateReadingMinutes(lesson, theoryText) {
+  const source = [theoryText, lesson?.subtitle, ...(lesson?.keyPoints ?? []), lesson?.codeExample?.code ?? '']
+    .filter(Boolean)
+    .join(' ')
+  const words = source.trim().split(/\s+/).filter(Boolean).length
+  return Math.max(4, Math.min(18, Math.round(words / 175) + 1))
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;')
+}
+
+function extractConsolePreview(code) {
+  const lines = []
+  const consoleLogPattern = /console\.log\((['"`])([\s\S]*?)\1\)/g
+  for (const match of code.matchAll(consoleLogPattern)) {
+    lines.push(match[2])
+  }
+
+  const titleMatch = code.match(/document\.title\s*=\s*(['"`])([\s\S]*?)\1/)
+  if (titleMatch?.[2]) {
+    lines.push(`Browser title: ${titleMatch[2]}`)
+  }
+
+  return lines
+}
+
+function buildCodePreview({ code = '', language = 'text', title = 'Preview' }) {
+  const normalizedLanguage = String(language ?? '').toLowerCase()
+
+  if (normalizedLanguage === 'html' || normalizedLanguage === 'markup' || normalizedLanguage === 'jsx') {
+    return {
+      type: 'frame',
+      title,
+      srcDoc: `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>
+        :root { color-scheme: light dark; }
+        body { margin: 0; padding: 24px; font-family: Inter, system-ui, sans-serif; background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%); color: #0f172a; }
+        .preview-shell { max-width: 720px; margin: 0 auto; border: 1px solid #cbd5e1; border-radius: 24px; background: rgba(255,255,255,.92); box-shadow: 0 24px 60px rgba(15,23,42,.08); overflow: hidden; }
+        .preview-header { padding: 18px 22px; background: #282A35; color: #fff; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: 12px; }
+        .preview-body { padding: 22px; line-height: 1.75; }
+      </style></head><body><div class="preview-shell"><div class="preview-header">${escapeHtml(title)}</div><div class="preview-body">${code}</div></div></body></html>`,
+    }
+  }
+
+  if (normalizedLanguage === 'css') {
+    return {
+      type: 'frame',
+      title,
+      srcDoc: `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>
+        body { margin: 0; padding: 24px; font-family: Inter, system-ui, sans-serif; background: linear-gradient(135deg, #f8fafc, #f1f5f9); color: #0f172a; }
+        .preview-shell { max-width: 720px; margin: 0 auto; border: 1px solid #cbd5e1; border-radius: 24px; background: white; overflow: hidden; box-shadow: 0 24px 60px rgba(15,23,42,.08); }
+        .preview-header { padding: 18px 22px; background: #282A35; color: #fff; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: 12px; }
+        .preview-body { padding: 24px; }
+        .demo-card { padding: 24px; border-radius: 20px; background: #ecfdf5; border: 1px solid #a7f3d0; }
+        .demo-button { margin-top: 16px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: #04AA6D; color: white; padding: 10px 18px; font-weight: 700; }
+      </style><style>${code}</style></head><body><div class="preview-shell"><div class="preview-header">${escapeHtml(title)}</div><div class="preview-body"><div class="demo-card"><h3>Styled preview</h3><p>This block reflects the current CSS example.</p><button class="demo-button">Sample action</button></div></div></div></body></html>`,
+    }
+  }
+
+  const consoleLines = extractConsolePreview(code)
+  if (consoleLines.length > 0) {
+    return {
+      type: 'console',
+      title,
+      lines: consoleLines,
+    }
+  }
+
+  return {
+    type: 'note',
+    title,
+    message: 'Run the example to review the concept-specific behavior for this lesson.',
+  }
+}
+
 function ChevronLeft({ className }) {
   return (
     <svg
@@ -169,11 +249,14 @@ export function LessonReader({ lesson, topic, prevLesson, nextLesson }) {
   const { registerLessonShortcuts } = useShortcuts()
   const [askAIOpen, setAskAIOpen] = useState(false)
   const [shareOpen, setShareOpen] = useState(false)
+  const [previewOpen, setPreviewOpen] = useState(false)
+  const previewRef = useRef(null)
   const topicSlug = topic?.slug ?? ''
   const topicTitle = topic?.title ?? 'Tutorial'
   const id = lesson ? lessonId(lesson) : ''
   const bookmarked = useLessonBookmarked(topicSlug, id)
   const complete = useLessonComplete(topicSlug, id)
+  const topicProgress = useTopicProgress(topicSlug)
 
   const handleBookmark = useCallback(() => {
     if (!lesson || !topicSlug || !id) return
@@ -264,14 +347,35 @@ export function LessonReader({ lesson, topic, prevLesson, nextLesson }) {
     [toast, topicSlug, id, lesson?.title],
   )
 
+  const codeLanguage = lesson?.codeExample?.language ?? topic?.slug ?? 'text'
+  const theory = lesson?.theory ?? ''
+  const estimatedMinutes = estimateReadingMinutes(lesson, theory)
+  const learningObjectives = lesson?.keyPoints ?? []
+  const practicePrompt =
+    lesson?.definition?.text ?? lesson?.subtitle ?? 'Review the explanation, then try the example from memory.'
+  const preview = useMemo(() => {
+    if (!lesson?.codeExample || !previewOpen) return null
+    return buildCodePreview({
+      code: lesson.codeExample.code ?? '',
+      language: codeLanguage,
+      title: lesson.codeExample.label ?? lesson.title,
+    })
+  }, [lesson, previewOpen, codeLanguage])
+
   if (!lesson) return null
 
-  const theory = lesson.theory ?? ''
-
-  const codeLanguage =
-    lesson.codeExample?.language ?? topic?.slug ?? 'text'
-
   const actionButtons = [
+    {
+      key: 'complete',
+      onClick: () => handleCompleteToggle(!complete),
+      label: complete ? 'Completed' : 'Mark complete',
+      longLabel: complete ? 'Mark lesson incomplete' : 'Mark lesson complete',
+      icon: <CheckIcon className="h-4 w-4" />,
+      variant: complete ? 'primary' : 'neutral',
+      props: {
+        ariaPressed: complete,
+      },
+    },
     {
       key: 'share',
       onClick: handleShare,
@@ -326,7 +430,7 @@ export function LessonReader({ lesson, topic, prevLesson, nextLesson }) {
   })
 
   return (
-    <article className="lesson-print-root mx-auto w-full min-w-0 max-w-[950px] px-4 md:px-8">
+    <article className="lesson-print-root mx-auto w-full min-w-0 max-w-[900px] px-4 py-6 md:px-6 md:py-8">
       <PageSeo
         title={seo.fullTitle}
         description={seo.description}
@@ -351,7 +455,7 @@ export function LessonReader({ lesson, topic, prevLesson, nextLesson }) {
         LearnTheory — {topicTitle}
       </p>
 
-      <header className="lesson-print-header mb-6 rounded-3xl border border-slate-200 bg-white/95 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-950/70 print:border-slate-300 print:bg-white print:shadow-none">
+      <header className="lesson-print-header mb-6 rounded-[2rem] border border-slate-200 bg-white/95 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/70 print:border-slate-300 print:bg-white print:shadow-none sm:p-8">
         <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_auto] xl:items-start">
           <div className="min-w-0 space-y-4">
             <nav
@@ -392,11 +496,11 @@ export function LessonReader({ lesson, topic, prevLesson, nextLesson }) {
             </nav>
 
             <div className="space-y-3">
-                  <h1 className="min-w-0 text-[48px] font-bold tracking-tight text-slate-900 dark:text-white">
+                  <h1 className="min-w-0 text-4xl font-black tracking-tight text-slate-900 dark:text-white sm:text-5xl">
                     {lesson.title}
                   </h1>
                   {lesson.subtitle && (
-                    <p className="max-w-3xl text-[18px] leading-[1.8] text-slate-600 dark:text-slate-400">
+                    <p className="max-w-3xl text-[17px] leading-[1.85] text-slate-600 dark:text-slate-400 sm:text-[18px]">
                       {lesson.subtitle}
                     </p>
                   )}
@@ -452,9 +556,9 @@ export function LessonReader({ lesson, topic, prevLesson, nextLesson }) {
 
       {/* Summary card removed to keep lesson view focused and uncluttered */}
 
-      <div className="lesson-print-body text-[18px] leading-[1.8] text-slate-800 dark:text-slate-300 print:text-black">
+      <div className="lesson-print-body space-y-6 text-[18px] leading-[1.8] text-slate-800 dark:text-slate-300 print:text-black">
         {theory && (
-          <section className="mb-8" aria-labelledby="theory-heading">
+          <section className="rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/70 print:border-slate-300 print:bg-white" aria-labelledby="theory-heading">
             <h2 id="theory-heading" className={sectionHeading}>
               Theory
             </h2>
@@ -465,15 +569,25 @@ export function LessonReader({ lesson, topic, prevLesson, nextLesson }) {
                 components={{
                   code({ node, inline, className, children, ...props }) {
                     const match = /language-(\w+)/.exec(className || '')
+                    const lang = match ? match[1] : 'text'
                     if (!inline) {
-                      const lang = match ? match[1] : 'text'
+                      const codeStr = String(children).replace(/\n$/, '')
+                      const isLessonExample =
+                        lesson?.codeExample &&
+                        codeStr.trim() === (lesson.codeExample.code ?? '').trim()
+
                       return (
                         <CodeBlock
-                          code={String(children).replace(/\n$/, '')}
+                          code={codeStr}
                           language={lang}
+                          onRun={isLessonExample ? () => {
+                            setPreviewOpen(true)
+                            setTimeout(() => previewRef?.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 80)
+                          } : undefined}
                         />
                       )
                     }
+
                     return (
                       <code className={className} {...props}>
                         {children}
@@ -490,7 +604,7 @@ export function LessonReader({ lesson, topic, prevLesson, nextLesson }) {
 
         {lesson.definition && (
           <aside
-            className="my-8 rounded-r-lg border border-green-200 border-l-4 border-l-[#04AA6D] bg-green-50 px-5 py-4 shadow-sm dark:border-green-900 dark:border-l-green-500 dark:bg-green-950/50 print:border-slate-300 print:bg-slate-50 print:shadow-none"
+            className="my-8 rounded-3xl border border-green-200 bg-green-50/80 px-5 py-5 shadow-sm dark:border-green-900 dark:bg-green-950/50 print:border-slate-300 print:bg-slate-50 print:shadow-none"
             role="note"
           >
             <p className="text-sm font-bold uppercase tracking-wide text-[#04AA6D] print:text-slate-800">
@@ -503,7 +617,7 @@ export function LessonReader({ lesson, topic, prevLesson, nextLesson }) {
         )}
 
         {lesson.keyPoints?.length > 0 && (
-          <section className="my-8" aria-labelledby="keypoints-heading">
+          <section className="my-8 rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/70 print:border-slate-300 print:bg-white" aria-labelledby="keypoints-heading">
             <h2 id="keypoints-heading" className={sectionHeading}>
               Key Points
             </h2>
@@ -518,7 +632,7 @@ export function LessonReader({ lesson, topic, prevLesson, nextLesson }) {
         )}
 
         {lesson.codeExample && (
-          <section className="my-8" aria-labelledby="example-heading">
+          <section className="my-8 rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/70 print:border-slate-300 print:bg-white" aria-labelledby="example-heading">
             <h2 id="example-heading" className={sectionHeading}>
               {lesson.codeExample.label ?? 'Example'}
             </h2>
@@ -526,7 +640,43 @@ export function LessonReader({ lesson, topic, prevLesson, nextLesson }) {
               code={lesson.codeExample.code}
               language={codeLanguage}
               label={lesson.codeExample.label}
+              onRun={() => {
+                setPreviewOpen(true)
+                setTimeout(() => previewRef?.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 80)
+              }}
             />
+
+            {preview && previewOpen && (
+              <div ref={previewRef} className="mt-6">
+                {preview.type === 'frame' && (
+                  <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-sm dark:border-slate-800 dark:bg-slate-950/60">
+                    <iframe
+                      title={preview.title}
+                      srcDoc={preview.srcDoc}
+                      sandbox="allow-scripts"
+                      className="w-full h-[420px] rounded-lg border-0"
+                    />
+                  </div>
+                )}
+
+                {preview.type === 'console' && (
+                  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 shadow-sm dark:border-slate-800 dark:bg-slate-950/60">
+                    <p className="mb-2 text-sm font-semibold text-slate-700 dark:text-slate-200">{preview.title}</p>
+                    <div className="font-mono text-sm leading-relaxed text-slate-900 dark:text-slate-100">
+                      {preview.lines.map((line, i) => (
+                        <div key={i} className="mb-1">{line}</div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {preview.type === 'note' && (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-950/70">
+                    <p className="text-sm text-slate-700 dark:text-slate-200">{preview.message}</p>
+                  </div>
+                )}
+              </div>
+            )}
           </section>
         )}
       </div>
@@ -552,7 +702,7 @@ export function LessonReader({ lesson, topic, prevLesson, nextLesson }) {
       )}
 
       {lesson.quiz?.length > 0 && (
-        <section className="no-print mt-10 border-t border-slate-200 pt-8 dark:border-slate-700">
+        <section className="no-print mt-10 rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950/70">
           <h2 className={sectionHeading}>Test Yourself</h2>
           <p className="text-sm text-slate-600 dark:text-slate-400">This lesson has a quiz. Open it on the dedicated quiz page to solve.</p>
           <div className="mt-4">

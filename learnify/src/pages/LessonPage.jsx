@@ -56,19 +56,17 @@ export function LessonPage() {
   const { lesson, topicMeta, prevLesson, nextLesson, sections } = lessonData
 
   return (
-    <div className="mx-auto flex w-full max-w-7xl flex-col lg:h-[calc(100vh-4rem)] lg:min-h-0 lg:flex-row lg:overflow-hidden">
-      <div className="no-print w-full shrink-0 px-4 pt-3 sm:px-6 lg:w-64 lg:max-w-[16rem] lg:px-0 lg:pt-6 lg:min-h-0">
-        <Sidebar
-          topicSlug={topicSlug}
-          currentLessonId={lessonIdParam}
-          sections={sections}
-        />
-      </div>
+    <div className="mx-auto grid w-full max-w-[1600px] gap-6 px-4 py-4 sm:px-6 lg-min-h lg:grid-cols-[320px_minmax(0,900px)] lg:gap-6 lg:px-8 lg:py-6 xl:grid-cols-[320px_minmax(0,900px)_300px]">
+      <Sidebar
+        topicSlug={topicSlug}
+        currentLessonId={lessonIdParam}
+        sections={sections}
+      />
 
       <main
         id="main-content"
         tabIndex={-1}
-        className="w-full min-w-0 flex-1 px-4 py-4 outline-none sm:px-6 sm:py-6 lg:px-8 lg:py-8 lg:min-h-0 lg:h-full lg:overflow-y-auto scrollbar-hidden"
+        className="min-w-0 px-0 py-0 outline-none"
       >
         <LessonTransition>
           <LessonReader
@@ -89,6 +87,48 @@ export function LessonPage() {
           </div>
         </LessonTransition>
       </main>
+
+      <aside className="no-print hidden xl:block xl:self-start xl:sticky xl-sticky-top xl-sticky-h xl:overflow-y-auto xl:pr-1 scrollbar-hidden">
+        <div className="space-y-4">
+          <section className="rounded-[2rem] border border-slate-200 bg-white/95 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-950/75">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+              Reading tools
+            </p>
+            <h2 className="mt-2 text-lg font-black text-slate-900 dark:text-white">
+              Keep momentum
+            </h2>
+            <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+              Follow the sidebar, jump to revision tools, and return to the topic overview without losing context.
+            </p>
+          </section>
+
+          <section className="rounded-[2rem] border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-950/60">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400">
+              Quick links
+            </p>
+            <div className="mt-4 space-y-3">
+              <a
+                href={`/${topicSlug}`}
+                className="block rounded-2xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:border-emerald-400 hover:text-emerald-700 dark:border-slate-800 dark:text-slate-200 dark:hover:text-emerald-300"
+              >
+                Topic overview
+              </a>
+              <a
+                href="/progress"
+                className="block rounded-2xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:border-emerald-400 hover:text-emerald-700 dark:border-slate-800 dark:text-slate-200 dark:hover:text-emerald-300"
+              >
+                Learning progress
+              </a>
+              <a
+                href="/bookmarks"
+                className="block rounded-2xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:border-emerald-400 hover:text-emerald-700 dark:border-slate-800 dark:text-slate-200 dark:hover:text-emerald-300"
+              >
+                Saved lessons
+              </a>
+            </div>
+          </section>
+        </div>
+      </aside>
     </div>
   )
 }
